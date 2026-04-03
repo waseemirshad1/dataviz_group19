@@ -1,0 +1,1623 @@
+
+
+=== PAGE 201 ===
+
+200 
+NADEIH
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+  
+  
+  
+ 
+  
+  
+  
+  
+  
+Combine Tools 
+It’s perfectly fne if you create your visual with several diferent tools. Just like people, 
+fnding a unicorn tool that can do everything you need “the best way every time” 
+doesn’t exist. Personally, I always start with R; I use it to read in the data, do some initial 
+statistics, clean and transform the data, and make (lots of) simple plots to get a sense 
+of the data. However, although R’s ggplot2 package can do a lot to visualize data, 
+I need more creative control for the fnal result, and it often has to be interactive and 
+on the web. I fnd that creating my visuals in JavaScript with the help of D3.js provides 
+what I need. 
+For static visuals, I always end with Adobe Illustrator, or other vector-based tools, 
+to add some fnal touches (such as legends and annotations—things that can take 
+a lot of time to add with code). Of course, not all projects lend themselves to using 
+your tools of choice, but just keep in mind that you don’t need to always create 
+a visual from scratch with one tool. Try to learn more tools and programs and 
+acquaint yourself with the strengths and weaknesses of each. 
+Reflections 
+One of the main reasons why I decided to create a poster instead of an interactive 
+visual came down to other time commitments. Making a static visualization 
+is always much faster for me to create, even if it’s partly based on something that 
+I started in D3.js. For static visuals you just don’t have to consider browser bugs, 
+performance, responsive design, and interactivity! 
+Preparing and working on the data scraping and cleaning took about 20 
+hours of time, the ideation and sketching about three, and the coding/creating 
+approximately 20–30 hours. Finishing a static visual after creating so many 
+interactive ones always reminds me how much I like making printable static visuals. 
+A funny thing happened though. I generally share my (personal) projects only 
+on Twitter, maybe Instagram if I’m in a good mood. But I decided to also post this 
+infographic on my LinkedIn account, due to most of my connections there being 
+Dutch at the time. And somehow, it got picked up beyond my direct connections and 
+went a little viral in the Netherlands. Totally unexpected! I thought this visual was too 
+complex for that. Majorly exciting to experience though! A few hundred thousand 
+views and thousands of likes later, I even had some businesses reach out to me 
+to create a data visualization for them. Which was perfect timing, since I was 
+ofcially a freelancer from the moment the Top 2000 fnished airing the number 
+1 song at the very start of 2017. 
+
+=== PAGE 202 ===
+
+201 
+MUSIC
+
+=== PAGE 203 ===
+
+ 
+Fig.6.12
+Fig.6.14
+Fig.6.13
+The Top 2000 the 70s & 80 
+Top2000.VisualCinnamon.com 
+Fig.6.12 
+The most popular 
+decades in terms of 
+song release year are 
+the 70s and 80s. 
+Fig.6.14 
+With each new Top 2000, more 
+songs from the 90s enter the list, 
+even though the frst edition was 
+aired in 1999. 
+Fig.6.13 
+Highlighting all of 
+Prince’s songs in the 
+list with a purple stroke. 
+
+=== PAGE 204 ===
+
+203 
+MUSIC
+Year of release
+1960
+1970
+1980
+1990
+2000
+2010
+Fig.6.15
+Fig.6.15 
+
+=== PAGE 205 ===
+
+[No text extracted - likely image-heavy page]
+
+=== PAGE 206 ===
+
+205 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+  
+  
+  
+  
+ 
+ 
+ 
+  
+ 
+ 
+ Data-Driven 
+Revolutions 
+SHIRLEY 
+When Nadieh and I frst agreed on the topic “Music,” I felt quite lost. I didn’t 
+know what I wanted to do, except to perhaps explore something related 
+to K-Pop. But K-Pop was just too broad of a topic and I didn’t know it well 
+enough (anymore) to fnd a good angle. I was lamenting this lack of an 
+angle with a friend when I suddenly remembered the game Dance Dance 
+Revolution (DDR). 
+DDR originally started as an arcade game in Japan and eventually was 
+released as video games for home consoles. Basically, the player would 
+stand on a mat or a platform that served as the “controller” and step 
+on any of the four arrows on the mat to “press” the controller buttons. 
+A combination of arrows would appear on the TV screen in front of them, 
+and the players would have to step on (or stomp on) the same arrow(s) 
+on the mat, timing their steps with the arrows scrolling up the screen. 
+It was a popular game across the world and a huge part of my teenage life. 
+I frst came across DDR in 2001 at a friend’s house. Since there were 
+no arcades with DDR anywhere near where I lived, I begged my parents 
+to buy me the game. (This was easier said than done; there were absolutely 
+no video games in our house at the time, so a DDR set meant not only 
+buying the game itself, but also the PS2 and the mat that came along with 
+it.) It took me two years to convince my parents, and the summer I got it, 
+I was on it every day for hours. I was the type that played the same song on 
+the same difculty over and over until I mastered it, and I played it regularly 
+until I left for college fve years later. 
+JANUARY 2017 MUSIC 
+
+=== PAGE 207 ===
+
+206 
+SHIRLEY
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Fig.6.1
+Data 
+With hundreds (maybe thousands) of songs, each with at least three difculty 
+levels, and each level comprised of songs with diferent beats per minute (BPMs) 
+and “Groove Radar” values (“Stream,” “Voltage,” “ Air,” “Freeze,” and “Chaos”— 
+essentially the characteristics of the step choreographies), there was a lot of data. 
+But never in my wildest dreams could I have imagined that I would fnd all the steps 
+from 645 songs. DDR Freak is a website dedicated to DDR and provides (among 
+many other things) “step charts”: PNG images with every step of a song laid out, 
+so that fans could practice the song without having to pay for time on the machine: 
+Fig.6.1 
+Step chart for the DDR 
+song “Midnite Blaze.” 
+As soon as I saw the step chart images, I started talking to my Computer Vision 
+friend about how we could potentially get the data out of that image. He started 
+brainstorming but also encouraged me to email DDR Freak and ask if they had 
+the raw data. I was skeptical (the site had been inactive for at least fve years) 
+but I found an email for Jason, the founder of DDR Freak, and sent him a message 
+without expecting a response. 
+Amazingly, Jason responded 18 minutes later with a zip fle of all the songs 
+he had on hand. How awesome is that?? (Thank you so much, Jason!) 
+The data was saved in several diferent data formats, including .dwi (or Dance 
+With Intensity, a freeware version of DDR) and .stp (DDR Freak’s own proprietary 
+format). I found an explanation for the .dwi fle format online, and learned that 
+0 meant no arrow, 2 represented the down arrow, 4 the left arrow, 6 the right arrow, 
+and 8 the up arrow. Each number defaulted to 1/8 of a beat, but everything within 
+parentheses indicated 1/16 steps, brackets indicated 1/24 steps, and so on. 
+With that information, I was able to reverse-engineer the .stp fles (which 
+followed the same rule but was much more reader-friendly) and wrote a Node.js 
+script to parse the fle and store the steps, along with their song name and difculty 
+level, in a JSON fle. 
+
+=== PAGE 208 ===
+
+207 
+MUSIC
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+Fig.6.2
+Fig.6.3
+Sketch 
+Because I was traveling for the majority of the project timeframe, I wanted to do 
+something relatively simple. I had seen TeamLab’s Crystal Universe—an immersive 
+installation where lights explode or linger or dance all around the room based on the 
+input we, the participants, give it—a few weeks earlier, and was incredibly inspired 
+by its beauty (Figure 6.2). 
+I wanted to create something similar, where each step is a light colored by its 
+arrow direction and animated based on its position in the song. I started by mapping 
+the steps for each song’s two modes (single and double) and three difculty levels 
+(basic, trick, maniac) on top of each other (Figure 6.3). 
+To distinguish diferent modes and difculties from the next row of music, 
+I went back to the music sheet and staves idea from my Hamilton project, but this 
+is where I got stuck. The musical staves again didn’t do me much good, and the steps 
+were spread so far apart from one line to the next that I couldn’t see the whole song 
+or any interesting patterns at a glance. I wasn’t happy with the aesthetic of this 
+I’ve since learned 
+about “data art,” wheredetailed song view, and I also couldn’t fgure out the rest of the interface and how data is used to drive 
+this song view would ft into it. the aesthetics, but 
+doesn’t necessarily 
+have to give any 
+patterns or insights. 
+Fig.6.2 
+A photo of TeamLab’s 
+Crystal Universe, taken 
+by me at the Pace 
+Gallery in Palo Alto, 
+December 2016. 
+Fig.6.3 
+First attempt at 
+replicating Crystal 
+Universe with 
+a DDR song. 
+
+
+=== PAGE 209 ===
+
+208 
+SHIRLEY
+   
+   
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Fig.6.4
+Code 
+While still stuck, I went to sleep with two goals for the interface in mind: 
+1. I wanted each song to be compact so that I could quickly scan across multiple 
+songs and compare them. 
+2. I also wanted to use the visual metaphor of a song being “continuous” instead 
+of being broken up into multiple rows like the previous version. 
+I woke up the next day convinced that spirals were the answer to my problems. 
+Spirals, like circles, are very compact, and a spiral is basically one long continuous 
+line that I could map my steps to. 
+I giddily set about looking into the math behind spirals and was super happy 
+to fnd that for an Archimedean spiral (a spiral where the distance between each 
+spiral branch is the same) the radius was equivalent to the angle. So I thought I could 
+loop through each beat in a song while increasing the angle and radius by some 
+constant number. 
+Until I realized that, if I used that formula, I would end up with a spiral where the 
+beats on the inner spirals would be closer together than those on the outer spirals, 
+because as the radius increases, the arc length for a constant angle also increases 
+(Figure 6.4). This would spread the beats further apart as the radius increases, but 
+what I actually wanted was for the beats to be placed equidistantly along the length 
+of the spiral. When I Googled again, I realized that the problem wasn’t as simple 
+as I thought. The StackExchange answer I found had formulas with integrals and 
+sigmas and symbols I haven’t had to think about in a decade. To make matters even 
+harder, the answer seemed to skip steps in its derivation. I spent an hour trying 
+to fgure out the steps between equations in order to understand how the fnal 
+equation was derived. No luck. 
+Fig.6.4 
+Drawing a dot while 
+increasing the angle 
+and radius by some 
+constant number 
+(left), or drawing a dot 
+whenever the radius 
+was equivalent to the 
+angle (right)—neither 
+of which was what 
+I wanted visually. 
+
+
+=== PAGE 210 ===
+
+209 
+MUSIC
+  
+  
+   
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+  
+  
+Fig.6.5
+Then two miraculous things happened: 
+1. I posted my plight on Twitter, and Andrew Knauft came back with his own step-
+by-step derivation. Unfortunately, the derivation was still too complex for me 
+to fgure out (at least, not quickly enough for this project). ∼(>_<。)＼ 
+2. In a chance encounter, I struck up a conversation with front-end developer 
+Isaac Kelly at a bar in San Francisco. After a few email exchanges where we 
+tried to solve the problem together, he brute-forced the answer. 
+Because I was already falling behind on the project deadline and running out 
+of time, I took Issac’s brute-force approach instead of trying to fgure out the 
+StackExchange formula. Issac’s approach was very programmatic (which defnitely 
+helped me understand it quicker) and was dependent on two constant numbers: 
+a really small number to increase the angle by (I ended up using 0.02), and the 
+desired arc length between two beats. The program repeatedly increased the angle 
+by that small number until it hit the desired arc length, and that was where the beat 
+would be placed. It then remembered the new angle where the beat was placed 
+and repeated the process. I adapted this code to draw the steps (represented 
+as a colored circle) to the beats they belonged, and terminated the while loop 
+only when the song ended and I ran out of steps to draw: 
+Fig.6.5 
+A DDR song visualized 
+as a spiral. 
+We’ve since run into 
+each other at some 
+art+technology 
+conferences. He even 
+wrote a very funny blog 
+post about the whole 
+experience.
+1 
+1 Issac Kelly, “Mark Equidistant Points on a Spiral”: https:/ /www.issackelly.com/blog/2017 /01/20/mark-equidistant-points-on-a-spiral 
+
+=== PAGE 211 ===
+
+210 
+SHIRLEY
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+  
+  
+  
+I then mapped arrow direction to color, and though I didn’t have any particular 
+reasons behind each color assignment, I did want them to be distinct from each 
+other: left is orange, up is red, right is green, and down is blue. I also mapped 
+difculty to circle radius: I made it so that the higher the difculty, the smaller the 
+circle would be. 
+I drew all of these in HTML5 canvas as there were so many steps and so many 
+songs, and I applied an overlay blend mode on the circles. For each song, I also 
+added a legend explaining the colors and sizes and an interaction to flter by arrow 
+direction and difculty (Figure 6.6). I was hoping that the flter would help me see 
+some patterns, but unfortunately because there were so many steps and so many 
+songs, I was too overwhelmed and wasn’t able to fnd any. 
+For my fnal step, I added an expand button for each song that scaled the 
+spiral by 1.5x and increased its viewport by 2x when clicked. This allowed the visitor 
+to both view each spiral in more detail and to see some of the longer songs whose 
+spirals were cut of. 
+Reflections 
+This was meant to be a 
+visual pun on the fact 
+that it’s harder to see 
+all the steps in more 
+difcult songs. (o≧∀≦o) 
+Although the result 
+was aesthetically 
+pleasing, it was also 
+very misleading since 
+the overlay blend mode 
+changed the colors of 
+the overlapping circles. 
+Overall, I’m happy with where I ended up given where I started. With the spiral, 
+I can compare multiple songs, and both the big spirals (long songs) and smaller 
+spirals stand out. But for the sake of compactness, I sacrifced being able to see 
+at-a-glance patterns within a song. One of the aspects that make DDR so fun 
+is that a song will have many sets of steps that repeat throughout; with this 
+visualization, it’s hard to fnd those. I’m not sure if, given enough time, I would 
+have been able to come up with a visualization that could show both the trends 
+across songs as well as the patterns within songs. 
+I was also unsatisfed with the performance. Even though I used HTML5 canvas 
+for every song, there were so many songs that the web page rendered very slowly. 
+Given more time, I would have created an overview page with a simplifed version 
+of the visualization and only showed the song in detail once selected. 
+Either way, my favorite part about this project wasn’t actually the process 
+or what I ended up with; it was instead the kindness of strangers willing to give 
+a helping hand, proving that (some) people are awesome. 
+I could also see that 
+some of my favorite 
+DDR songs had a lot 
+of steps closer 
+together. No wonder 
+I was so out of breath 
+whenever I played 
+them! 
+
+=== PAGE 212 ===
+
+211 
+MUSIC
+Fig.6.6
+Fig.6.7
+Fig.6.6 
+”Midnight Blaze” with 
+all steps (left), without 
+the “basic” steps 
+(middle), and without 
+the “trick” steps (right). 
+Fig.6.7 
+My favorite bug from 
+this project, where 
+the spirals ended 
+up looking like roses 
+instead! 
+
+
+=== PAGE 213 ===
+
+ 
+Data-Driven Revolutions 
+shirleywu.studio/projects/ddr 
+Fig.6.8Fig.6.8 
+The fnal visualization 
+with six out of the 645 
+available DDR songs. 
+
+=== PAGE 214 ===
+
+213 
+MUSIC
+Fig.6.9
+Fig.6.9 
+Some of the most 
+complicated (or pretty!) 
+looking DDR songs. 
+
+=== PAGE 215 ===
+
+214 
+NOSTALGIA 
+
+=== PAGE 216 ===
+
+215 
+ALGIA 
+
+=== PAGE 217 ===
+
+[No text extracted - likely image-heavy page]
+
+=== PAGE 218 ===
+
+ 
+  
+ 
+ 
+ 
+  
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ All the Fights 
+in Dragon Ball Z 
+NADIEH 
+I had several choices for the topic of this project’s “Nostalgia” theme— 
+including video games, manga, and anime—and I didn’t know which one 
+would provide the most interesting dataset. I therefore scoured the web 
+for all the topics I had in mind. I loved playing The Legend of Zelda on the 
+Game Boy, especially “Minish Cap” and the “Oracle of Ages/Seasons” 
+combo. There was something about the 2D bird’s eye view of Game Boy’s 
+Zelda games that worked exceptionally well for me, whereas in 3D games 
+I just kept falling of bridges and running into corners… Unfortunately 
+I couldn’t fnd any interesting data. I looked at the original Cardcaptor 
+Sakura (CCS) manga but also didn’t fnd enough data that I could use 
+to create something elaborate. Neopets is where I frst encountered HTML 
+& CSS at 14, even though I didn’t continue using any web languages until 
+I saw the magic of D3.js some 12 years later. However, I found out my 
+account was hacked, my pet stolen, and I wasn’t in the mood to investigate 
+that further at the time. 
+Eventually I turned my focus to the last subject I had in mind: Dragon Ball Z 
+(DBZ). This anime was my very frst introduction to the Japanese animation 
+scene, airing on Cartoon Network in the Netherlands when I was about 13 
+or 14. Although I quickly turned solely to manga in general, I stayed loyal 
+to the DBZ anime and loved watching it all the way to the Fusion Saga. 
+(I eventually stopped watching DBZ because I was too annoyed by the 
+characters Majin Buu and Gotenks 
+눈_눈) 
+JANUARY 2017 217 NOSTALGIA 
+
+=== PAGE 219 ===
+
+218 
+NADIEH
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+         
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Data 
+While randomly going through the extensive Dragon Ball Wiki,1 I learned that Dragon 
+Ball Z is very much alive despite originally airing about 20 years ago. I also learned 
+that Dragon Ball Kai—a fller-free version of DBZ—aired in the United States not 
+too long ago, as did Dragon Ball Super, a new series taking place right after DBZ 
+chronologically. I came across the page to each DBZ saga (you can think of a saga 
+as being a season or story arc) and saw a list of all the major fghts that took place 
+as well as the characters involved, in order of appearance. This dataset immediately 
+stuck out to me. Because DBZ is an anime that revolves around fghting, it felt 
+so appropriate to map out all of the fghts that happened during the run of the show, 
+including who fought whom, who were the bad guys, and what transformations were 
+active (such as “Super Saiyan,” or SSJ for short). 
+So I manually went through all ±17 sagas that make up the 291 episodes and 
+copy-pasted the fghts with the characters into Excel. With the help of some Excel 
+functions (such as LEFT , RIGHT , LEN , and FIND ), I split up the fghts into the 
+separate characters involved, and after two more hours of manual cleaning, I had 
+a nice list of ±200 fghts. 
+Data Can Be Found in Many 
+Diferent Ways 
+Be open to the weird ways in which data can be found online. For this project 
+there was no nice-looking, already formatted spreadsheet that I could 
+download and use for my visual. Instead, it came down to manually copying 
+text lists from a website into Excel. I’m glad that other people had already put 
+in the efort to create this list of fghts on the DBZ Wiki! 
+Next, I needed to arrange the data in a slightly diferent order. Originally each fght 
+was on one row, but I needed each character per fght in one row. Because I’m more 
+comfortable in R than in Excel, I created this additional dataset with a few lines 
+of code in R; but I think it could also have been done in Excel. So generally, all the 
+data was gathered and prepared without truly needing to write a single line of code! 
+Another “data gathering” step that came up later in the process was fnding 
+appropriate animated GIFs to highlight the most special moments and fghts, plus 
+nice shots of the main characters for the legend. I went through hundreds of GIFs 
+and images, trying to fnd some decent stuf. 
+No fller for DBZ 
+basically means 30% 
+less episodes! 
+I’m afraid that due to 
+copyright reasons I’m 
+unable to show any 
+images of Dragon Ball Z 
+in this book. 
+I use Excel from time 
+to time to do highly 
+manual, one-of, 
+data preparation. 
+Seriously, it took me 
+hours going through 
+all the GIFs and 
+images, but it was 
+a lot of fun too. 
+1 Dragon Ball Wiki: https:/ /dragonball.fandom.com/wiki/Main_Page 
+
+=== PAGE 220 ===
+
+219 
+NOSTALGIA
+  
+  
+ 
+  
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+a
+Fig.7.1 
+(a & b)
+b
+Design to Maximize for Delight 
+I didn’t need the animated GIFs highlighting some of my favorite moments in DBZ 
+to show the fght data. However, I felt that they made a very big diference in how 
+much fun it would be to look through the whole visual, as it draws the viewer in more. 
+These images also show a sneak peek of DBZ to those that have never seen or heard 
+of it before. 
+It’s important to keep your viewer engaged, especially with more complex visuals. 
+Small touches—such as animated GIFs, images, weird design styles and fourishes, 
+and interesting legends—can help with that. But don’t go too far; these should be small 
+additions to your visual should not take center stage! 
+Sketch 
+The ability of strong 
+characters to fy in DBZ 
+is an important part 
+of the show. 
+a 
+After fnding the DBZ fght info on the Wiki, I came up with the concept to place 
+each fght on a line, one after another, where each saga in the series would 
+have its own column. Lines would be drawn through the fghts of each character, 
+as if that person was fying from fght to fght. Figure 7.1 a shows my very frst sketch 
+of the idea, while Figure 7.1 b shows another sketch where I started looking into the 
+details a bit more. As I already knew that I would have to create the formulas for the 
+“swooshing” SVG paths myself, I tried to see where to place the anchor points of the 
+SVG Quadratic Bézier Curves
+2 (which makes the lines swoosh outward). 
+Fig.7.1 
+(a & b) 
+Sketches showing the 
+general layout of the 
+fghts across sagas and 
+connecting characters 
+between fghts. 
+b 
+2 SVG Quadratic Bézier Curve Example: http:/ /blogs.sitepointstatic.com/examples/tech/svg-curves/quadratic-curve.html 
+
+=== PAGE 221 ===
+
+220 
+NADIEH
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+Fig.7.2
+a b
+A while later, having already programmed the basic layout of the fghts, I realized 
+that I didn’t like the lines to have only one level of thickness. It was making the overall 
+visual look a little plain, and it didn’t convey the more dynamic nature of the fghts. 
+So I set out to create a shape that would look like a line of varying levels of thickness, 
+as if pressure was being used on a pen that draws the lines. I created another simple 
+sketch (Figure 7.2) that had the shape that I was looking for. Only after I drew 
+my desired end state of a shape was I able to fgure out the SVG path formula that 
+would be needed to recreate it. 
+Fig.7.2 
+Figuring out how 
+to create a shape 
+of varying thickness 
+in SVG path 
+coordinates. 
+One part that I was constantly struggling with, and have struggled with practically 
+every project, is the overall layout. What fonts would ft this design? How should 
+I place the intro text and any legends? How can I make the page as a whole look 
+interesting? I sketched out a general idea for the overall layout (Figure 7.3) and 
+I have to admit, as usual, the end result wasn’t quite as visually pleasing as I would 
+have hoped, but I was reasonably OK with it this time. 
+For this project the sketches were very basic. It was really about getting the 
+abstract shapes on paper. Any form of design was completed while I was already 
+programming with the actual data. 
+a b 
+Fig.7.3Fig.7.3 
+(a & b)(a & b) 
+Figuring out the layout 
+of the tooltip. Drawing 
+the layout of the intro 
+section. 
+
+=== PAGE 222 ===
+
+221 
+NOSTALGIA
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+     
+  
+ 
+a b
+Fig.7.4 
+(a & b)
+Code 
+As per my sketches, I wanted to represent every fghter in a battle with a circle 
+and then have these circles partly overlapping. Each saga would be placed in its 
+own column to make the distinction between diferent story arcs more apparent. 
+With some simple geometry that was achieved relatively quickly (Figure 7.4 a). 
+I then colored the circles diferently for each character, taking inspiration from 
+the character’s appearance. As another level of detail, I added extra rings around 
+the main circle to reveal possible “transformation levels,” such as Super Saiyan 
+(SSJ). As the number of unique transformations throughout the anime was 
+manageable, I wrote a bunch of if-elseif-else statements to set the number 
+of outer rings based on the specifc transformation’s name (Figure 7.4 b). 
+a b 
+Fig.7.4 
+(a & b) 
+The basic outline of the 
+visual was achieved 
+in relatively little time. 
+
+=== PAGE 223 ===
+
+222 
+NADIEH
+ 
+ 
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+  Fig.7.5 
+(a,b,c)
+a
+b
+c
+Fig.7.5 
+(a,b,c) 
+Slowly building up the 
+complexity of the lines. 
+Next came the custom SVG paths that connected all the fghts from one character, 
+using SVG Quadratic Bézier Curves to create a “swoosh” efect that made it look 
+more visually pleasing. Of course, I didn’t start by creating the complete path; 
+I built things up incrementally, adding more and more of the required complexity 
+bit by bit (Figure 7.5). I started with straight lines from fght to fght, adding curves 
+to the lines, cutting the lines between sagas for the minor characters to reduce 
+clutter, and so on. 
+a 
+b 
+c 
+That did make all the swooshes look rather similar, creating a bit of a boring result 
+and the occasional overlap of lines. I therefore made the swooshes move farther 
+outward if the distance between two consecutive fghts was larger, and added a bit 
+of randomness in the amount of distance on top of that so no swoosh would overlap 
+(Figure 7.6). 
+
+=== PAGE 224 ===
+
+223 
+NOSTALGIA
+ 
+ 
+  
+ 
+ 
+  
+ 
+Fig.7.6
+Fig.7.7
+I liked the end result more with the added randomness, but in my mind the 
+swooshing lines had diferent widths, from thin at the fght circles to broad during 
+the bend in between fghts. I therefore turned the line into a shape by adding 
+another piece to the SVG path that would run back from bottom to top, creating 
+a closed loop with slightly diferent values for the amount of swoosh, which I could 
+fll with a color (Figure 7.7). 
+Fig.7.6 
+I obviously had errors 
+in my line math here… 
+Fig.7.7 
+Filling my new shapes 
+showed that I wasn’t 
+doing the path 
+calculations 
+totally correct. 
+
+=== PAGE 225 ===
+
+224 
+NADIEH
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+Fig.7.8
+(a & b)
+૭
+Thinking about math and hand-crafted SVG paths yet again was an interesting 
+exercise. And thankfully, it gave me the result that I was looking for. Figure 7.8 
+shows the comparison of a simple stroked line versus the varying thickness shape. 
+Personally, I fnd the latter looking a lot more visually appealing. 
+Fig.7.8 
+(a & b) 
+Comparing before and 
+after, going from line to 
+varying thickness path. 
+With about 200 fghts to include, this visual is quite long; in fact, it’s about six-and-
+a-half times as long as it is wide. This will never ft on any  screen. When I showed the 
+visual to Shirley, she said that she wanted to know what section she was looking at 
+with respect to the whole and suggested I add a mini map with a full overview that 
+would always be visible. I thought it was a great idea, but I also dreaded building 
+it, due to its complexity to program. 
+and slowly built up the mini map (Figure 7.9) 
+Nevertheless, one a Saturday in January I sat behind my laptop for hours 
+(ò_óˇ)૭. 
+
+=== PAGE 226 ===
+
+225 
+NOSTALGIA
+  
+ 
+  
+  
+ 
+ 
+ 
+ 
+  
+  
+  
+Fig.7.9
+Fig.7.9 
+Adding a mini map 
+of the total visual on 
+the right of the page, 
+showing the viewer 
+where they are in 
+relation to the whole. 
+I also got another great suggestion from a friend to make it easier to distinguish 
+the good guys from the bad guys. In the new version all the good guys have their 
+lines swooshing on the left, whereas the bad guys are on the right. This made 
+it possible to see for example that the character Vegeta (in blue) starts out 
+as a main antagonist, but, after moving around a bit, mostly turns to the good side. 
+And those were just the static parts of the visual! I also added a transition 
+efect that occurs when you hover over a fght (Figure 7.10 ). A white circle that 
+appears as a background, with everything getting bigger and the circles moving 
+outward. The only downside is that it’s quite performance heavy, because so many 
+paths and circles change opacity. (In retrospect, this is another perfect example 
+of a visual that I should’ve made in canvas instead of SVG due to the number 
+of changing elements, but I didn’t have enough canvas knowledge at the time 
+to pull it of.) 
+Apart from the female 
+Android 18 soundly 
+defeating some of the 
+good guys during a few 
+fghts, it’s basically only 
+guys that are fghting. 
+Maybe Vegeta didn’t 
+turn into a “good guy” 
+for the right reasons at 
+frst, until he sacrifced 
+himself in the Majin Buu 
+saga; *cue tears.* 
+
+=== PAGE 227 ===
+
+226 
+NADIEH
+  
+  
+  
+ 
+ 
+ 
+ 
+Fig.7.10 
+(a & b)
+b
+Finally, I added a lot of small details that only DBZ fans would likely notice. 
+For example, I turned the animated GIFs into links that led to the exact point Pretty proud of those 
+links! (^.∼)in YouTube videos of the episode. I also replaced the GIFs with static images for 
+those viewing in slower-performing browsers or on mobile. I annotated every fght 
+manually to explain why it was an important fght, or what occurred. I can say 
+that I gave it my all, and in general it’s the attention to detail that can make a true 
+diference overall! 
+(๑•`ㅂ•´)ง✧ 
+Fig.7.10 
+(a & b) 
+The transition that 
+makes the fght more 
+visible when you hover 
+over it. 
+aa 
+b 
+
+=== PAGE 228 ===
+
+227 
+NOSTALGIA
+  
+  
+  
+  
+  
+ 
+ 
+  
+  
+ 
+ 
+Reflections 
+When I started this project I also went into freelancing full time, and this project 
+was the frst one where I truly tracked my hours with a tool. Compared to the 
+frst six projects, this one felt like it took much more time. The fnal verdict came 
+in at—drumroll—75 hours of time spent on this visual. 
+(╥﹏╥) Not something that 
+is sustainable to keep up next to my new full time job… 
+However, it was great fun to dive into a topic I hadn’t really thought about 
+for 15 years. It gave me a lot of enthusiasm to try and turn it into something worth 
+looking at and informative. And although I usually shy away from the negativity 
+found on Reddit, I had some interesting and fun discussions on the insights that 
+we fgured out about Dragon Ball Z after I was notifed that someone shared 
+my project in a DBZ subreddit. 
+This was exactly the kind of reaction I was 
+hoping for: making true fans see something 
+they’d never realized. 
+Plus, I started 
+watching Dragon Ball 
+Super, which is a real 
+nostalgia trip every 
+episode. 
+
+=== PAGE 229 ===
+
+ 
+Fig.7.11
+All the Fights in Dragon Ball Z 
+DragonBallZ.VisualCinnamon.com 
+Fig.7.11 
+
+=== PAGE 230 ===
+
+229 
+NOSTALGIA
+Fig.7.12
+Fig.7.13
+Fig.7.12 
+Showing the fghts from one of the 
+best sagas in the anime, the Frieza 
+Saga, with epic fnal fghts between 
+(Super Saiyan) Goku (orange line 
+along the left), and Frieza (lilac line 
+arcing along the right side). 
+Fig.7.13 
+Hovering over a specifc fght makes it bigger with 
+all the circles separated. A tooltip appears that 
+names the characters involved and shows possible 
+other interesting facts about the fght. 
+
+=== PAGE 231 ===
+
+230 
+NADIEH
+Fig.7.14
+Fig.7.15
+Fig.7.14 
+Strange things happened during the later 
+sagas, with characters fusing together 
+to become (temporarily) a new, and 
+stronger, character. 
+Fig.7.15 
+Hovering over the biggest fght of the 
+series, with almost all the good guys 
+fghting against 7 mini versions of the 
+main antagonist. 
+
+=== PAGE 232 ===
+
+231 
+NOSTALGIA
+Fig.7.16
+Fig.7.16 
+Another big fght with many good 
+guys trying to beat a new antagonist 
+
+=== PAGE 233 ===
+
+[No text extracted - likely image-heavy page]
+
+=== PAGE 234 ===
+
+233
+  
+  
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ The Most Popular 
+of Them All 
+SHIRLEY 
+Alright, I’ll be honest; I conned Nadieh into doing “Nostalgia” just 
+so I could fnally do a project exploring the Harry Potter universe. 
+The Harry Potter book series (and Toy Story) will always have a special 
+place in my heart: when the frst movie came out, I was eleven years old 
+and eagerly waiting for my Hogwarts letter. I’m the same age as actors 
+Emma Watson and Daniel Radclife, who played Hermione Granger and 
+Harry Potter, respectively. When the end credits rolled for the fnal movie 
+in 2011, I had the distinct feeling that my childhood had ended. 
+Having said all that (sentimental stuf), I still went through a few diferent 
+potential angles before settling on my fnal idea. At frst, I wanted to do 
+something on Harry Potter and the Cursed Child, but realized there were 
+probably copyright issues with the script. I then bought a Marauder’s Map 
+hoping to visualize that somehow, but got stuck trying to fgure out what 
+kind of data I could extract from it. 
+Then one day, I suddenly remembered my original “Books” idea: to use 
+Harry Potter fanfction as a proxy for fan reactions to the movies and books. 
+JANUARY 2017 NOSTALGIA 
+
+=== PAGE 235 ===
+
+234 
+SHIRLEY
+  
+ 
+ 
+  
+ 
+  
+  
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+Fig.7.1
+Data 
+Fig.7.1 
+Logging some statistics 
+to Terminal. 
+To create the dataset, I decided to scrape HarryPotterFanfction.com  because 
+of its rich and Harry Potter specifc metadata: in addition to categorizing by genres 
+and ratings like many other fanfction sites, it also organizes content by eras 
+(“Hogwarts,” “post-Hogwarts,” “Marauders,” “New Generation,” etc.) and 
+character pairings. 
+Like my “Movies” project, I used the Node.js http module to request for each 
+page, but I also decided to use html2json to turn the page responses into JSON. 
+I did this because with the “Movies” page responses I only needed to grab the ID 
+of each movie, so I only had to write one regular expression. But for this project, 
+I wanted to grab a lot of metadata and I didn’t want to write regular expressions for 
+all of them. With the HTML response converted to JSON, I only had to write a small 
+function to loop through the children objects for each story and fnd the metadata 
+I wanted (though I still had to do some work cleaning up the raw strings). 
+Because the website would only give me 25 stories per page, I had to loop 
+through and request approximately 3,300 pages. I was worried that the server 
+would time me out for making so many requests at once, but because I made those 
+requests synchronously (asking for the next page only after the current page had 
+responded and I had completely parsed through it), there were just enough seconds 
+between each page request that I never had any issues. 
+When I had all the data, I wanted to get a sense of it by logging some statistics 
+to Terminal, the command line interface for Mac. I looked primarily at the publication 
+years (Harry Potter fanfction spiked in 2007 when the fnal book and ffth movie 
+came out, but has been dwindling signifcantly ever since), and the most popular 
+pairings (unsurprisingly, Harry/Ginny followed by James/Lily). I also looked at which 
+characters appeared the most often in these stories (Harry was the most popular, 
+followed by Hermione in second, the author’s made-up “Original Character” in third, 
+and Ron in fourth—which really says something about Ron’s lack of popularity). 
+I had originally tried to log statistics to Terminal as a quicker way to analyze 
+data (as opposed to building visualizations from scratch to test my hypotheses, 
+like I did with my previous projects), but found that it didn’t work out too well for 
+me. My knowledge was limited to logging the min/max and some medians, and 
+though they gave me a basic understanding of the data, they were very superfcial 
+and didn’t help me fnd the deeper, more interesting insights I was seeking. And 
+though I knew there were many more sophisticated approaches out there, I didn’t 
+know when or how to use them, so I decided to move onto the sketch section. 
+I usually try to fnd the 
+simplest and quickest 
+way to gather a static 
+dataset because I know 
+I don’t have to worry 
+about performance, 
+but this time that 
+laziness actually paid 
+of ✧ 
+
+
+=== PAGE 236 ===
+
+235 
+NOSTALGIA
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+Fig.7.2
+Sketch 
+I decided to start my brainstorming by writing down all the metadata I had. From 
+there, I identifed genres, eras, and pairings as potentially interesting metadata 
+that might correlate with a story’s number of reviews, which I used to measure its 
+popularity and “success.” I also jotted down some questions for the data: which 
+pairings were the most popular, and which other pairings did they usually appear 
+with? Who did a character get paired with the most? 
+My frst idea was to create a timeline of stories for each character and denote 
+pairings for that character on top of the timeline. But it was around that time that 
+The Pudding, a digital publication dedicated to visual and data-driven journalism, 
+came out with a piece called “The Shape of Slavery”
+1 (Figure 7.2). I liked how they 
+used both the size and color of the dots on a map to encode two related dimensions 
+(the size of Black population and their percent of total population). I was also visually 
+inspired by the sequential color scale they used, which ranged from a deep blue 
+to magenta to orange to yellow on a navy background. 
+Fig.7.2 
+“The Shape of Slavery,” 
+a visual essay from 
+The Pudding. 
+So, inspired by their visualization, I decided to give the dots a try. Since there were 
+roughly 80,000 stories on HarryPotterFanfction.com, I decided t o have each dot 
+represent up to 100 stories, color the dots by the average number of reviews (and 
+thus the popularity) for those 100 stories, and place those dots over a timeline. I was 
+keen on using a timeline because in my data exploration I noticed that there were 
+defnite spikes and declines in the number of stories across the years, and I knew 
+a timeline would give good context. To place the dots, I grouped stories by the 
+month of their publication (which determined their x-position), then stacked each 
+set of 100 stories on top of each other. It ended up looking like a histogram made 
+up of dots (Figure 7.3). 
+1 “The Shape of Slavery” data visualization by The Pudding: https:/ /pudding.cool/2017 /01/shape-of-slavery/ 
+
+=== PAGE 237 ===
+
+236 
+SHIRLEY
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+Fig.7.3
+Fig.7.4
+Fig.7.3 
+A timeline of 
+published stories 
+To get a sense of character pairings, I also sketched a matrix of the top fve most 
+popular characters along with their partners and placed all the stories at the 
+intersection of those pairings (Figure 7.4, right). 
+Fig.7.4 
+Sometimes my 
+sketches are really 
+simple, just jotting 
+down some ideas (left), 
+and the matrix idea 
+implemented (right). 
+I quite liked the timeline. I could immediately see overall trends, including when the 
+most stories were published and when those stories had the most reviews, which 
+really showed when Harry Potter and the fandom peaked. I had mixed feelings about 
+the matrix, though; on one hand, I liked being able to see who a character was paired 
+with and in how many stories. On the other hand, I didn’t like how much space the 
+matrix took and how it mirrored itself across the diagonal and thus had redundant 
+information (a drawback of matrices). 
+I ultimately decided to keep the timeline, but removed the matrix. With that 
+decision, I wasn’t sure how to move forward with the visuals I had and what angle 
+I wanted to approach the data from. It was around that (uncertain) time that I hung 
+out with my friends RJ Andrews and Catherine Madden for an afternoon, and two 
+beautiful things came out of that day. 
+First, while showing them screenshots of my progress, RJ noticed my timeline 
+of Draco/Hermione was stacked on top of Ron/Hermione (Figure 7.5). He excitedly 
+pointed out that one pairing was canon (Ron/Hermione, ofcial in the books) and 
+the other was non-canon (Draco/Hermione, a fan pairing), yet the non-canon 
+had more stories. And thus we were able to narrow in on an interesting angle: how 
+do canon and non-canon relationships compare in popularity? I re-thought 
+all of my visuals around that question. 
+Looking back now, 
+I do like how I varied 
+the size of the row/ 
+columns for less 
+popular characters 
+so that the matrix 
+didn’t take up as 
+much room. 
+
+=== PAGE 238 ===
+
+237 
+NOSTALGIA
+ 
+ 
+ 
+      
+ 
+ 
+Fig.7.5
+Fig.7.6
+Fig.7.7
+Fig.7.5 
+Timeline of Hermione/ 
+Draco and Hermione/ 
+Ron pairings. 
+Fig.7.6 
+Sketch of idea 
+comparing canon and 
+non-canon pairings. 
+Fig.7.7 
+Catherine’s gorgeous 
+illustrations of Harry 
+Potter characters. 
+One of the main things I decided to do was visually separate canon versus non-
+canon pairings using color: I chose pink for canon and purple for non-canon. I chose 
+warmer colors since, to me, they represented relationships more, and I always loved 
+the look of pink and purple togethe r. Since I wanted to map those colors to the 
+number of reviews, I called chroma.js’s scale function with an array of colors 
+chroma.js is an 
+amazingly handy libraryto create a gradient that traveled through all of them. for working with color. 
+And in that same afternoon, Catherine ofered to draw the Harry Potter 
+characters I needed in my visualization (Figure 7.7). Her illustrations really added 
+another dimension of aesthetic and polish to the project, and I still can’t thank 
+Catherine enough for these beautiful icons. (* ˊᗜˋ*)/ 
+
+
+=== PAGE 239 ===
+
+238 
+SHIRLEY
+    
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+   
+  
+ 
+ 
+ 
+  
+  
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+Code 
+For this project, the hard part was really in the ideation; the coding was pretty 
+straightforward. Once I sketched out the layout I liked, I got back to my timeline 
+and added book release dates, flm dates, and GIFs for context: 
+Fig.7.8Fig.7.8 
+Timeline with book 
+dates (flled circle), 
+flm dates (white 
+circle), and GIFs for 
+context (blurred for 
+copyright reasons). 
+And immediately, some interesting things jumped out: fanfction really spiked 
+in number between the publication of the sixth and seventh books (2005 and 
+2007 respectively) and also during May 2006 (I still haven’t fgured out why that 
+month is signifcant). There were also spikes before and after a book or movie 
+release and spikes during the winter holidays (presumably because people had 
+more time to relax and write stories). 
+Next, I started looking into how I wanted to depict multiple pairings for 
+a character. I started by overlapping a line chart for each pairing on top of each 
+other. Unfortunately, the lines were very thin and hard to distinguish from each other, 
+so I tried flling them to a baseline to make them appear more solid and hopefully 
+easier to distinguish (Figure 7.9). I used D3.js’s area module to accomplish this. 
+But again, the area charts, while pretty, were still hard to read at a glance. 
+I then tried stacking the area charts, which was only slightly easier to read; the 
+pairings with the least stories blended into the others for most of the months. 
+To try and mitigate this, I played around with a few of the curve options in D3.js 
+and I ultimately decided on d3.curveStep , which had its downsides (when the 
+lines are too close together, it’s hard to tell where one ends and the next starts), 
+but I still liked it the most because of how clean it looked (Figure 7.10). 
+Once the pairings timeline was done, I turned my attention to visualizing the 
+genres for each pairing. I was curious to see if specifc pairings leaned more heavily 
+towards specifc genres, and it turned out that they did. For example, Ron/Hermione 
+stories tended to lean more towards drama, fuf, and humor, while top Draco/ 
+Hermione genres were drama and angst, with two or three times more in the 
+horror/dark genre than all of Hermione’s other pairings. James/Lily’s top genre 
+was humor, followed closely by drama, and Harry/Ginny’s top genres were drama 
+and action/adventure. 
+To show this, I initially considered displaying the cumulative numbers 
+of stories for each genre, colored and placed according to how “dark and serious” 
+or “light and fufy” it was. I was also interested in seeing if specifc genres rose or fell 
+because of occurrences in the books or flms, so I initially had plans to do a timeline 
+along with a horizontal spectrum of the darkness/lightness of genres. I ended 
+up scrapping that idea though, because I couldn’t quite fgure out how to quantify 
+the darkness/lightness of a genre on a continuous spectrum (how much lighter was 
+humor than drama, for example), and kept only the timeline (Figure 7.11). 
+d3.area() works 
+by passing it a set 
+of points, and it draws 
+a line between all of the 
+points and flls the area 
+below the lines down 
+to the baseline. 
+By default, D3.js 
+connects an array 
+of points with just 
+a straight line, but 
+we can give it 
+additional options 
+to draw the line with 
+diferent types of 
+curves, which may 
+help distinguish the 
+lines that are closer 
+together 
+
+=== PAGE 240 ===
+
+239 
+NOSTALGIA
+Fig.7.9
+Fig.7.10
+Fig.7.11
+Fig.7.9 
+Timeline with pairings as 
+area charts overlapping 
+each other. 
+Fig.7.10 
+Timeline with pairings 
+as area charts stacked 
+on top of each other. 
+Fig.7.11 
+Genres organized into timelines. 
+
+=== PAGE 241 ===
+
+240 
+SHIRLEY
+  
+  
+ 
+ 
+ 
+  
+ 
+I lined the genre timelines up with the pairing timeline and used a canvas element 
+to color each block by number of story reviews (I converted my original dots into 
+blocks to ft in the step area chart I ended up creating). I added a legend above the 
+timelines to map the color gradient back to the number of reviews. I also added 
+a hover interaction for each block of stories to show the titles, authors, and number 
+of reviews for the stories within that block: 
+Fig.7.12Fig.7.12 
+Final visualization for 
+each pairing. 
+Finally, I put in the graph of characters linked by their pairings and had it double 
+as navigation for selecting and exploring each character (Figure 7.13). It defaults 
+to Hermione, who has the most romance stories with the most suitors. (o≧∀≦)o 
+Fig.7.13Fig.7.13 
+Graph of the 
+characters, linked by 
+their relationships. 
+
+=== PAGE 242 ===
+
+241 
+NOSTALGIA
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+Reflections 
+I really like the overall look of the project (Catherine’s character illustrations really 
+added to the aesthetics of the visualization), but I have mixed feelings about the fact 
+that every visual is some form of a timeline. I really wonder if I should have changed 
+up the visuals to break up the monotony. I’m also dissatisfed that though I was able 
+to eventually see some interesting trends between genres and pairings, that I didn’t 
+have the time to annotate those fndings. 
+Despite all that, I’m happiest about the fact that I managed to do this whole 
+piece with gradients of only two colors: pink and purple. Generally, I’m quite 
+over-reliant on color in my visuals and wanted to try something more subtle 
+in comparison, and I feel I was quite successful on that front! 
+
+=== PAGE 243 ===
+
+ 
+Fig.7.14
+The Most Popular of Them All 
+shirleywu.studio/projects/hpf 
+Fig.7.14 
+Selecting a character 
+in the graph switches 
+the visualization to 
+center around that 
+character instead. 
+
+=== PAGE 244 ===
+
+243 
+NOSTALGIA
+
+
+=== PAGE 245 ===
+
+244 
+SHIRLEY
+
+
+=== PAGE 246 ===
+
+245 
+NOSTALGIA
+
+
+=== PAGE 247 ===
+
+246 
+NATURE 
+
+=== PAGE 248 ===
+
+247 
+TURE 
+
+=== PAGE 249 ===
+
+[No text extracted - likely image-heavy page]
+
+=== PAGE 250 ===
+
+249
+  
+  
+ 
+ 
+ 
+ 
+  
+Marble 
+Butterflies 
+NADIEH 
+Nature—what a lovely theme. I thought about what defnes nature for 
+me; it makes me think of evolution and the random mutations that lead 
+to adaptations to the environment. This in turn reminded me of generative 
+art and the semi-randomness which often guides those pieces of art. 
+I’ve always loved generative art and this topic seemed like a perfect 
+opportunity to give it a try. After spending a lot of time on my previous 
+visual, I set a goal to fnish this one within 20 hours to force myself 
+to deliver within a reasonable number of hours. 
+FEBRUARY 2017 NATURE 

@@ -1,0 +1,1879 @@
+=== PAGE 301 ===
+300 
+SHIRLEY
+  
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+Fig.9.3
+Fig.9.4
+Fig.9.3 
+Bar chart showing 
+search interest for 
+Brazil across the years, 
+as well as a map for 
+the countries that 
+searched for Brazil in 
+2016. 
+Fig.9.4 
+Pie charts above 
+the centroid of each 
+country showing 
+search interest across 
+the years. 
+To show a breakdown for each year, I thought of placing pie charts above 
+the centroid (or geometric center) of each country, with the size representing the 
+amount of search interest and the colors representing years (Figure 9.4). The pie 
+charts showed me that some countries have been searching for destinations 
+in Brazil since 2004, but others only started searching recently. This was interesting, 
+but potentially misleading; we couldn’t tell from our data if those countries only 
+recently became interested in traveling to Brazil, or if they only started using Google 
+recently. Alberto—who was responsible for our art direction—also advised 
+me against putting pie charts on maps to avoid confusing readers. 
+So, I went back to the drawing board and began my frst attempt at 
+categorizing the topics (Charles did the more sophisticated version later on). 
+I wondered if instead of focusing on just one country at a time, I could show all the 
+countries and their topics from the get-go. I represented each topic as an arc and 
+arranged it in a circle around the country it belonged to, colored it by its category, 
+and positioned it clockwise by the year it was searched for (Figure 9.5 ). This version 
+was certainly pretty, and it was interesting to see which countries were most 
+popular for travel-related topics, but it was also hard to understand. It wasn’t easy 
+to compare years that weren’t next to each other or see if certain categories went 
+up or down over time. Alberto urged me to try a normal bar chart instead. 
+I’ve since learned that 
+I have to be careful 
+with circles as it’s hard 
+to judge relative sizes 
+with them, and that pie 
+charts should really 
+only be used for a few 
+values that are part of 
+a whole. Datawrapper, 
+a charting tool for data 
+journalists, has a great 
+article about this on 
+their website.
+1 
+1 Datawrapper, “What to Consider When Creating a Pie Chart”: 
+https:/ /academy.datawrapper.de/article/127-what-to-consider-when-creating-a-pie-chart 
+
+=== PAGE 302 ===
+301 
+CUL TURE
+Fig.9.5Fig.9.5 
+Topics are arranged 
+in a circle around 
+the country they 
+belong to, colored by 
+their categories, and 
+positioned clockwise 
+by the year they were 
+searched for. 
+
+
+=== PAGE 303 ===
+302 
+SHIRLEY
+ 
+  
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+  
+  
+ 
+ 
+  
+  
+ 
+  
+Fig.9.6
+For the bar chart, I decided to represent the topics as blocks, mapped the year 
+to the x-axis, and kept the category as color. I also decided to add another 
+dimension and mapped the search interest (the popularity) of a topic to the 
+width. This was an unfortunate mistake, I call this piece “The Plunger”: 
+Fig.9.6 
+“The Plunger,” 2017. 
+Each block represents 
+a topic, with the 
+x-axis being the year, 
+the color being the 
+category, and the 
+width being the search 
+interest. 
+But I did like the idea of trying to show the popularity of a topic. So in my next 
+attempt, I swapped out the blocks with circles and added another dimension 
+to it: each circle represented one “source” country searching for that topic, and 
+the radius that country’s interest in that topic. This meant that the more overlapping 
+circles there were, the more “source” countries searched for that topic in the 
+“target” country, indicating more international interest (Figure 9.7). 
+I liked this version the most and decided to expand on it. As I now had 
+a concept of “source” countries per topic, I wanted a way to see which “source” 
+countries were searching for that topic and whether they were geographically 
+close to the “target” country. I added an interaction where clicking on a particular 
+topic would show the “source” countries' proximity to the “target” country along 
+the y-axis, and the years searched along the x -axis. But I didn’t like how some 
+of the countries in Europe overlapped with each other (Figure 9.8, middle), 
+so I tried a heatmap for my next attempt (Figure 9.8 right). 
+I liked the heatmap enough, so I went on to draft a story around the most 
+searched topic that would also introduce the visualizations. But after digging 
+through the two visualizations for interesting insights and banging my head 
+on the desk for an entire afternoon, I had to face the hard truth: I needed 
+to rethink my visualizations. Even though I found them visually interesting, 
+they weren’t actually easy to do any analysis with. 
+So I went back to brainstorming and asked myself what I wanted to learn 
+about the data. I remembered, in my previous dig through the data, the seasonal 
+nature of some of these topics’ search interests, and wondered if there was 
+something there—were certain countries and continents searched for more 
+in summer as opposed to winter or vice versa? 
+
+=== PAGE 304 ===
+303 
+CUL TURE
+ 
+ 
+ 
+ 
+ 
+Fig.9.7
+Fig.9.8
+Fig.9.7 
+Each circle is a 
+“source” country 
+that searched for 
+a particular topic, 
+and the circles overlap 
+for the same topic. 
+Fig.9.8 
+Notes on what should be shown when a topic is expanded 
+(top right), frst attempt at showing the “source” countries that 
+searched for the selected topic arranged vertically by proximity 
+to “target” country and horizontally by year searched with 
+search interest mapped to radius of circle (bottom right), 
+and second attempt with a heatmap with search interest 
+mapped to color opacity instead (bottom left). 
+
+=== PAGE 305 ===
+304 
+SHIRLEY
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+  
+  
+  
+ 
+ 
+Exploring Data: Ask Questions 
+I’ve found that when I mark certain data attributes as interesting, I naturally come 
+up with corresponding questions to explore. I’ve also found that having a set 
+of questions and hypotheses really helps me keep focused and prevents me from 
+getting distracted by interesting tangents, especially in huge datasets. It’s great 
+to note those interesting tangents for later though, so that I can go back to them 
+when all of my hypotheses are proven incorrect or I can’t fnd anything interesting 
+with my questions. 
+With my “Culture” project, I did all of my data exploration by coding my 
+visualizations from scratch, but I’ve since learned to use charting libraries instead. 
+(Efciency!) 
+To visualize topics by continent and season, I decided to fip things around. Instead 
+of focusing on travel topics searched for in a “target” country, I visualized search 
+topics by season. Here, the top row represents topics searched for in the spring, 
+and the bottom is summer (Figure 9.9). Each block represents a travel topic people 
+in the United States have searched for, and each topic is grouped by the continent 
+they belong to. The continents are ordered by their geographic proximity to the 
+United States. 
+And yet again, the visual didn’t go the way I was hoping for; it turned out that 
+people search for the exact same topics across all the seasons, so the visualizations 
+for both spring and summer looked almost exactly the same. I was so bummed that 
+I left the cafe I was working from, but on my drive home I realized that even if the 
+topics are exactly the same, their search interests may not be. As soon as I got 
+home, I (very excitedly) set the height of each block by their search interest and 
+fnally, fnally, I had the results that I was searching for: I could see that people in the 
+United States searched for travel the most in the spring (presumably planning their 
+summer getaways), and the least in the fall (Figure 9.10). I rearranged the blocks 
+such that they were grouped frst by season, and then by their continent. This made 
+the visualization much more compact, and the seasonal trends stood out even more. 
+Now that I had a good summary of the topics, I wanted to create a detailed 
+view for each of them. In particular, I wanted to know about the rise and fall of 
+each topic’s search interest from 2004 until 2016. My idea was to have the x-axis 
+represent the search interest with values out of 100 and each circle represent a 
+given year. An arc above the x-axis meant that searches increased across a year, 
+whereas an arc below indicated a decrease across a year (Figure 9.11). I learned 
+quite a bit from this visual; for example, a lot of topics actually peaked in 2004 and 
+have declined ever since, with a lot of them dipping the most between 2008 and 
+2011—the years of the global recession. But as much as I liked the visualization and 
+as interesting as those insights were, I had to admit that it took a lot of efort to get 
+those insights from the visualization. 
+For more on starting 
+data exploration, see 
+the lesson “Exploring 
+Data: List Attributes” 
+on page 105 of my 
+“Travel” chapter. 
+For the next step in 
+data exploration, see 
+the lesson “Explore 
+Data: Use Charting 
+Libraries” on page 336 
+of my “Community” 
+chapter. 
+
+=== PAGE 306 ===
+305 
+CUL TURE
+ 
+Fig.9.9Fig.9.9 
+Travel topics grouped 
+by continent, colored 
+by category of topic, 
+and organized 
+by season. 
+Fig.9.10Fig.9.10 
+Travel topics with their 
+heights set to search 
+interest and grouped 
+by season. 
+
+=== PAGE 307 ===
+306 
+SHIRLEY
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+  
+  
+ 
+  
+Fig.9.11 
+Fig.9.11 
+Sketches of the detailed topic view, and an image 
+of it implemented. The x-axis represents search 
+interest out of 100, and each circle represents 
+a given year. An arc above the axis means the 
+search interest increased across the year, and 
+arc below means that it decreased. 
+Design With Code 
+When I frst started Data Sketches, I tried to sketch out two or three diferent ideas 
+per project before getting to the code. But I soon found that that was only really viable 
+for smaller, more straightforward datasets (like the dataset for my flm fowers project). 
+For most of my other projects—especially the ones with larger datasets—I had to get 
+my data onto the screen frst, explore it, and use what I learned to inform my design. 
+I’ve found this to be particularly important when doing a multi-part narrative, where 
+I code section by section. As what I write and visualize in one section can infuence 
+the following section, I have to fnish the frst section before sketching the next. 
+Nowadays, I mostly sketch to help me work out kinks in the design or remember 
+particular details I want to include in the layout or user interactions (often informed 
+by the code that came before it). 
+Because I was feeling quite stuck on the detail view, I decided to put it aside and 
+switched gears to work on the story. Around that same time, I took a Web Animation 
+Workshop with Sarah Drasner and Val Head, where I learned the basics of how 
+to animate with the gsap (Greensock Animation Platform). With that 
+knowledge, I wanted to create “scenes” that explained each visualization in detail, 
+and my frst pass used scrollytelling (Figure 9.12). But once I fnished implemen ting 
+the frst iteration, I felt dissatisfed with how much vertical space it took to show 
+simple concepts like topics and categories (Figure 9.13). 
+I’ve found that if I’ve 
+been banging my head 
+for a while, it’s often 
+more helpful to give it 
+some space and work 
+on something else. 
+When I get back to it a 
+few days or weeks later, 
+I’m always full of fresh 
+inspiration. 
+
+=== PAGE 308 ===
+307 
+CUL TURE
+ 
+Fig.9.12
+Fig.9.13
+Fig.9.12 
+Plans for the story that 
+would introduce the 
+dataset and explain 
+how to read the 
+visualizations. 
+Fig.9.13 
+First iteration of the 
+scroll-based introduction. 
+Unfortunately it took too 
+much vertical space, and 
+I decided to scrap it. 
+
+=== PAGE 309 ===
+308 
+SHIRLEY
+  
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+Fig.9.14
+Fig.9.15
+Fig.9.14 
+Search interest across 
+time for a selected 
+topic and where those 
+searches are coming 
+from. In the fnal 
+iteration, I animate 
+both visualizations 
+across time. 
+Fig.9.15 
+Similar seasonal dips 
+in searches for Qin 
+Shi Huang and his 
+Terracotta Army. 
+Despite spending quite a bit of time on the story, I still felt unhappy with it. 
+I switched back to the detail view and asked myself what I wanted to explore 
+and learn from a certain topic. Ultimately, I decided I wanted to see: 
+1.  Search interest across the years 
+2.  Where those searches were originating from 
+With those goals in mind, I went with Alberto’s suggestion of a line chart to show 
+search interest across time and a world map to show the “source” countries 
+(Figure 9.14). I drew circles on top of each “source” country, sized the circles based 
+on search interest, and animated both visualizations across time. 
+And because line charts and maps are straightforward, familiar charts, they 
+were easy to analyze; I was able to explore and fnd an interesting story about 
+the similarity in searches for Qin Shi Huang (the frst emperor of China) and his 
+Terracotta Army with them (Figure 9.15). 
+
+
+=== PAGE 310 ===
+309 
+CUL TURE
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Fig.9.16 
+Fig.9.17 
+Fig.9.16 
+Final outline to 
+introduce the concept 
+of search topics and 
+their categories, 
+where those searches 
+came from, and the 
+seasonality of those 
+searches. 
+Fig.9.17 
+Using steppers 
+to introduce search 
+topics and their 
+categories (left) and 
+where those searches 
+came from (right). 
+With my stories fgured out, I was able to concentrate on introducing each of the 
+visualizations and stories in a space-efcient way. I remembered the discussion 
+between scrollytelling and steppers—a technique where instead of scrolling, the 
+user clicks to step through sections of a story—and decided to give it a try. The 
+steppers were great for saving space, as all the visualizations were contained in one 
+place without needing to scroll, but making the user click through each step seemed 
+too much to ask. So I decided to animate each step with Greensock to auto-
+play through all the steps, and included an interaction where clicking a step would 
+trigger the visualization to replay from there (Figure 9.17). That way, the reader would 
+still be in control of the animation pacing between each step.
+2 
+(a) (b) 
+The scrollytelling 
+versus steppers debate 
+exploded within the 
+data visualization 
+community in the 
+summer of 2016, 
+and our friend Zan 
+Armstrong wrote 
+a great article 
+summarizing the 
+points called “Why 
+choose? Scrollytelling 
+& Steppers.”
+2 
+2 Zan Armstrong, “Why choose? Scrollytelling & Steppers”: 
+https:/ /medium.com/@zanarmstrong/why-choose-scrollytelling-steppers-155a59dd97fe 
+
+=== PAGE 311 ===
+310 
+SHIRLEY
+ 
+ 
+ 
+ 
+  
+ 
+   
+ 
+   
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+ 
+ 
+  
+  
+As always, the little details (not to mention all the writing) took much more time than 
+I expected, but I’m really proud of two small touches in particular: the animations 
+that automatically start only when the visualization comes into view, and the little 
+paper airplanes that my friend illustrated for me. I like to think that it’s all these small, 
+subtle details that show readers how much we care about their experience. 
+Reflections 
+This project is, to this day, one of the hardest I’ve ever completed. The amount 
+of back-and-forth I had with my designs led to a lot of self-doubt. But I also learned 
+a lot from this process, especially about the areas I needed to improve: 
+1. Streamlining the data analysis process: I lose a lot of time forming 
+hypotheses and coding custom, often time-intensive visualizations from 
+scratch to test them. I’ve been iterating on my process since. 
+2. Developing my information design knowledge: I have a lot of ad-hoc 
+knowledge I’ve collected through the years, and I’ve since self-studied 
+so I could have a more formalized and systematic way of approaching 
+design problems. 
+This was also the frst time I began 
+to realize the importance of prioritizing 
+the reader and their understanding 
+of my visualizations, instead of just 
+doing whatever was visually fashy 
+and technically interesting. 
+I really took this to heart every time Alberto suggested a more straightforward 
+alternative to my fashier and harder-to-read designs (though I do still believe 
+that creativity and freedom of expression is important). 
+From a technical perspective, I’m really happy that I got to experiment 
+and work with Greensock for the frst time. Its concept of adding animations 
+to a timeline really makes managing more complex, scene-based animations 
+so much easier and I’ve used it in almost every project since. I’m also proud 
+of the experience I was able to build, where visitors can interact with it at the 
+level they’re most comfortable with, whether it is skimming through the story 
+or deep diving into the exploratory tool to fnd their own stories. 
+And fnally, I’m really grateful for this project which, along with my Hamilton 
+project and Data Sketches as a whole, cemented my freelance career. Before this 
+point, most prospective clients weren’t willing to pay the rate I asked for. But after 
+I put Google on my resume, I was never questioned again—and I even increased 
+my rate right after! 
+
+=== PAGE 312 ===
+311 
+CUL TURE
+
+=== PAGE 313 ===
+ 
+Explore Adventure 
+explore-adventure.com 
+
+
+=== PAGE 314 ===
+313 
+CUL TURE
+Fig.9.18 
+Fig.9.18 
+The fnal visual story. 
+
+=== PAGE 315 ===
+314 
+SHIRLEY
+Fig.9.19 
+Fig.9.19 
+Animation explaining search 
+topics and their categories. 
+Fig.9.20Fig.9.20 
+My favorite visual bug from 
+this project. 
+
+=== PAGE 316 ===
+315 
+CUL TUREFig.9.21 
+Fig.9.22 
+Fig.9.21 
+An expanded topic. 
+Fig.9.22 
+Animation explaining how the search topics are 
+arranged geographically, and that each topic’s 
+height is mapped to its search interest. 
+
+=== PAGE 317 ===
+316 
+COMMUN 
+
+=== PAGE 318 ===
+317 
+MUNITY 
+
+=== PAGE 319 ===
+[No text extracted]
+
+=== PAGE 320 ===
+ 
+ 
+ 
+ 
+ 
+ 
+ Breathing 
+Earth 
+NADIEH 
+One random morning I was reading the World Wildlife Fund’s (WWF) 
+magazine, which I receive for being a donor. Suddenly I realized that I would 
+really want to make a visualization that related to something the WWF 
+might do. I pitched the idea to Shirley and we went back and forth a bit 
+on what general topic would work for both of us. And when Shirley found 
+her angle, the data visualization survey that had just come out, we had our 
+topic: “Community.” 
+APRIL – MAY 2017 319 COMMUNITY 
+
+=== PAGE 321 ===
+320 
+NADIEH
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+Fig.10.1
+Data 
+In early April, I asked Twitter for help with fnding datasets that one might associate 
+with the WWF and, thankfully, received a bunch of links and advice. However, due 
+to being in the United States almost the entire month, I didn’t get to do anything with 
+the links until I was about to take a fight home to Amsterdam on April 26th. 
+I received a lot of tracking data links related to either animals or water buoys. 
+But I noticed that the search functionalities of these data repositories were aimed 
+at researchers. I could search datasets based on the ID of a paper or scientist’s 
+name. But I couldn’t request all tracking data of, say, whales. Another type of dataset 
+that was very prevalent were choropleths, which are flled regions on a map, often 
+representing things such as protected areas or animal habitats. 
+I started to meander through the links, and I don’t know how I got there, but 
+at some point I found myself on the website of NOAA STAR,
+1 the Center for Satellite 
+Applications and Research. I was randomly clicking around on their website when 
+I came across an image of the Earth, colored by vegetation health. 
+Fig.10.1 
+NOAA STAR map 
+showing vegetation 
+health for week 23 
+of 2016. Credit by 
+the NOAA / NESDIS 
+Center for Satellite 
+Applications and 
+Research. 
+STAR calls it “No noise (smoothed) Normalized Diference Vegetation Index (SMN)” 
+or “Greenness” for short. This is what STAR says about the data: “[Greenness] can 
+be used to estimate the start and senescence of vegetation, start of the growing 
+season, phenological phases.” 
+1 NOAA STAR website: https:/ /www.star.nesdis.noaa.gov/smcd/emb/vci/VH/index.php 
+
+=== PAGE 322 ===
+321 
+COMMUNITY
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.10.2
+There was a map like the one in Figure 10.1 for every week in the year. Plus, there 
+was also an option that turned a full year’s data into a very rough animation, 
+which was basically an automated slideshow through all 52 maps. Even though 
+the animation was crude, and the color palette not optimal, I really liked seeing 
+the changes of vegetation health throughout the year. I knew I wanted to visualize 
+the same thing—a continuously “Breathing Earth”—but do it in my own style. I was 
+very happy to see that STAR shared the data behind the images. However, I had 
+never worked with these levels of sophisticated geodata before: the data was 
+formatted as hdf and GeoTif fles. Thankfully, I had just seen a presentation on GDAL 
+(the Geospatial Data Abstraction Library) at OpenVisConf while I was in Boston. 
+According to a Google search, GDAL should be able to open these kinds of fles. 
+However, instead of trying to parse the fles in the command line, which the original 
+talk was about, I took to Google again to see if there was an R package instead. 
+And of course there was: the appropriately named rgdal. 
+After getting rgdal to work, I spent the next few hours trying to understand 
+how to read in a GeoTif fle, what it contained, how I could play with it, and fnally, 
+how I could map it. 
+My frst goal was to recreate one of the images from the STAR website 
+to ensure that I understood the steps of handling the data. It took about 6-8 hours 
+to complete, but even with the sub-optimal color palette, I think the image in Figure 
+10.2 is just amazingly detailed. 
+This was a great start but these images were approximately 22 million pixels/data 
+points per week! There was no way I could load that amount of data into the browser 
+52 times. So I recreated them in lower resolution (sadly). I ran some tests and 
+eventually reduced the resolution to about 50,000 (non-water representing) pixels 
+which looked like a good middle ground. That was small enough for the browser 
+to handle, but high enough to still see interesting details. Finally, I made a few 
+adjustments to the data setup in order to decrease the fle size for one week’s data 
+to 250kB. 
+(๑•̀ㅂ•́)ง✧ 
+I also fgured out 
+how to switch map 
+projections, although 
+I decided to stick to 
+the projection used by 
+NOAA STAR. 
+Fig.10.2 
+Recreated map from 
+Figure 10.1 using R in 
+even higher resolution. 
+
+=== PAGE 323 ===
+322 
+NADIEH
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+Sketch 
+Sketching was super short this time as my idea was very simple. I wanted to turn the 
+pixel-based data about vegetation health into thousands of circles which animated 
+through the 52 weeks of data, giving the impression the circles were “pulsating.” 
+The circles would grow bigger and darker when the vegetation was healthiest and 
+would appear smaller and more yellow-green for low values of “greenness.” Apart 
+from the circles, no other types of mapping “markers” (such as country borders) 
+would be used. Our Earth is beautiful in itself. 
+The more design-based aspects, such as the color gradient, sizes, etc., 
+would be created once I had all of the data on my screen. I actually didn’t really 
+sketch at all, but just flled two pages in my small notebook with thoughts outlining 
+the basics of the design and ideas on how to make the fnal datasets as small 
+as possible. 
+Fig.10.3Fig.10.3 
+Writing down ideas 
+on how to create 
+small fles and how to 
+animate the circles. 
+
+=== PAGE 324 ===
+323 
+COMMUNITY
+ 
+  
+  
+ 
+ 
+  
+ 
+  
+ 
+ 
+  
+  
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+  
+  
+ 
+  
+ 
+Fig.10.5
+Code 
+I started out getting the data on the screen with canvas. I knew that the standard 
+D3.jsuse o f SVGs was going to fail here with so many circles (and especially 
+having them animated). Thankfully, drawing with canvas is actually quite easy 
+and straightforward, especially when only plotting circles at certain locations. 
+Figure Figure 10.4, found on the next page, shows some of the steps in the process: 
+frst, placing similarly sized and colored circles in the right location, but with 
+difering opacity based on “greenness;” next, adding a color gradient to the values, 
+adding a multiply color blend mode, and fnally, making the circle size depend 
+on greenness also. 
+I made a simple interval function that would switch between the 52 maps, 
+quickly testing it by drawing a new week’s map as fast as it could. That took about 
+2-3 seconds per map; not exactly a “frame rate” that I could use for natural 
+looking animations. 
+ಥ_ಥ 
+Therefore, I dove into Pixi.js, which is a 2D renderer using WebGL. 
+And it doesn’t get any faster than WebGL (on the web) as far as I know. I opened 
+up a whole bunch of examples, especially those that I could fnd on Bl.ock Builder, 
+that combined D3.jswith Pixi. Sparing you the coding details, it sufces to say 
+that Pixi was surprisingly easy to pick up. Unexpectedly, however, Pixi was slow… 
+Unable to fnd a solution to make Pixi perform faster for my specifc case, 
+I asked Twitter and received replies with ideas and even some sandbox examples! 
+Some solutions suggested using regl or Three.js, but I also got some interesting 
+ideas for Pixi itself. For example, I learned faster performance with Pixi was 
+possible with something called “sprites.” You can think of this as small images. 
+A popular example of sprites shows how to make hundreds of thousands of the 
+same bunny image bounce around. For my case, I used a small white circle for 
+my image (or sprite) and then applied a specifc color and opacity to it for each 
+of the 50,000 locations. But when I looked at them more closely, I noticed the 
+circles weren’t perfectly circular, especially the smaller ones, and they looked 
+rather pixelated (see Figure 10.5). Bummer! (
+ ≧Д≦) 
+Color blend modes 
+determine how two 
+layers/images are 
+blended with each 
+other, with multiply 
+resulting in a nice 
+darkening of the 
+overlapping colors 
+For a short explanation 
+of WebGL, please see 
+“Technology & Tools” 
+at the beginning 
+of the book. 
+Fig.10.5 
+Somewhat pixelated circles 
+with Pixi sprites. 
+
+=== PAGE 325 ===
+324 
+NADIEH
+Fig.10.4 (a,b,c)
+a
+b
+Fig.10.4 (a,b,c) 
+Building up the map of 
+greenness in canvas. 
+a 
+b 
+(c) 
+cc 
+
+=== PAGE 326 ===
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+   
+  
+ 
+The Extensive Applications 
+of D3.js’s Functions 
+The magic of D3.js isn’t only in connecting data to (SVG) elements that will appear on the 
+page; it’s also in all the data preparation functions that it ofers. For example, even when 
+the fnal visual is made with canvas, I still always use D3.js to create my scales. Going from 
+whatever values are in the data to pixel values on my screen (e.g., locations or size), and I use 
+the wide variety of color interpolations to create color scales. D3.js also has several functions 
+that perform mathematical operations, such as fnding the minimum, maximum, range, standard 
+deviation, mean, and more that can save you from having to load an extra mathematical library. 
+I also use chroma.js when I need even more specialized control over my colors. 
+To illustrate a more advanced example, I would use D3.js just for the power of its 
+d3.delaunay()  function which gives me a simpler way to handle interactions on canvas, 
+and for its d3.stratify()  functionality to turn my data into a hierarchical nested 
+variable, which I can use to create hierarchical, tree-like, visuals. 
+In summary, if you work with D3.js, I advise you to explore the wide variety 
+of functions that are available through D3.js to speed up the data visualization process 
+and do more advanced things. 
+
+=== PAGE 327 ===
+326 
+NADIEH
+(c) (d)
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+  
+ 
+ 
+  
+   
+  
+ 
+ 
+a b
+c d
+Fig.10.6 
+(a,b,c,d)
+That’s when I decided to give regl a try, which helps to simplify programming with 
+WebGL. Also at OpenVisConf, I saw an inspiring presentation about regl featuring 
+bouncing rainbow bunnies. And when I found a blog post 2 that explained how 
+to animate 100,000 points with regl I knew it was enough to start with. 
+At frst I hoped to get the hang of regl by going through examples. But after 
+an hour or so I acknowledged the fact that I really didn’t understand anything yet 
+and that I had to read some introductions to WebGL, but also to GLSL and shaders, 
+two rather complex parts of drawing visuals with WebGL. It took a while, but 
+my brain slowly started to grasp the main concepts. 
+Feeling somewhat more enlightened on WebGL, I started with the code from 
+a simple example
+3 to create a single gradient colored triangle in regl. Next, I slowly 
+adjusted it to show circles on a map instead. 
+a b (a) (b) 
+c d 
+I decided not to go into 
+Three.js. It was just 
+too much to handle 
+in one week—so many 
+new programming 
+libraries! 
+Fig.10.6 
+(a,b,c,d) 
+Several steps showing 
+how I transformed the 
+regl based map from 
+the initial example’s 
+colors to the green 
+colors I wanted to use. 
+Well, it took a lot of browsing through example code, but eventually I had a map 
+in regl with correct circles and opacities. The one thing that I just couldn’t manage 
+was adding that fnal touch of a multiply blend mode, while combined with a circle 
+shape and semi-transparent circles. However, even without the multiply efect, 
+if I zoomed in, I saw the same pixelated efect as with Pixi! 
+(ᗒᗣᗕ)՞ I did notice 
+that it rendered faster than Pixi though. 
+2 “Beautifully Animate Points with WebGL and regl” by Peter Beshai: 
+https:/ /peterbeshai.com/blog/2017-05-26-beautifully-animate-points-with-webgl-and-regl/ 
+3 Regl-demo by Adam Pearce: https:/ /bl.ocks.org/1wheel/e025cbd91ac499d360a8b3346cb6f9e7 
+
+=== PAGE 328 ===
+327 
+COMMUNITY
+  
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+a b c
+Fig.10.7
+(a,b,c)
+Fig.10.8
+a b c 
+Fig.10.7 While trying to fnd information on creating anti-aliased circles (giving them 
+(a,b,c) smooth edges) in regl, I came across a code snippet that showed that Pixi 
+Failed attempts in actually has an “anti alias” setting! And, on one of my continuing Twitter chats,
+trying to get circle 
+I received an animated Pixi example that I tested with 50,000 circles which stillshapes, with difering 
+opacities, plus having seemed to work smoothly. These two interesting avenues to explore brought me 
+a multiply color blend back to my Pixi based map. Another hour or two of work adjusting the animated working with regl. 
+Pixi example to my data, playing with some anti-aliasing things, and I was fnally 
+looking at a smoothly changing map; yay! ( ＾∇＾) 
+After I got Pixi working, I sent out another Twitter request to help me with the 
+anti-aliasing and multiply blend mode in regl, as regl was still faster than Pixi. 
+It wasn’t long before several wonderful people sent me sandbox examples
+5 to try 
+and tackle my issues. These examples, plus some more I had found while traversing 
+the web, increased my understanding of how to tackle the anti-aliasing in regl. 
+And I was fnally able to get the circles to look like actual circles in regl, too! 
+(Figure 10.8) 
+Fig.10.8 
+Finally! Smooth anti-
+aliased circles in regl. 
+No multiply color blend 
+mode though. 
+4 Pixi circle animation example by Alastair Dant: https:/ /bl.ocks.org/rfow/55bc49a1b8f36df1e369124c53509bb9 
+5 Animate 100,000 points with regl by Yannick Assogba: https:/ /bl.ocks.org/tafsiri/dba04b04ae949760f96f97a2fba23ba6 
+ReGL circle animation example by Alastair Dant: http:/ /bl.ocks.org/rfow/39692bd181fb1eb0b077a4caf886b077 
+Shapes and WebGL tweening by Robert Monfera: http:/ /bl.ocks.org/monfera/85aa9627de1ae521d3ac5b26c9cd1c49 
+
+=== PAGE 329 ===
+328 
+NADIEH
+  
+a b
+c d
+Fig.10.9
+(a,b,c,d)
+a b (a) (b) 
+c d (c) (d) 
+Fig.10.9 
+(a,b,c,d) 
+Even more failed attempts in trying 
+to get circle shapes, with difering 
+opacities, plus having a multiply color 
+blend working with regl. 
+
+=== PAGE 330 ===
+329 
+COMMUNITY
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+  
+  
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+That only left the multiply blending that was missing from the regl version. 
+However, that almost turned out to be one step too far. I couldn’t fnd a single 
+example of a multiply blend in WebGL, specifcally where it was based on many 
+elements overlapping (not two predefned images). I did get a lot of interesting 
+other color combinations though (see Figure 10.9). 
+But thanks to the help and perseverance of several great people (and experts 
+in WebGL) who provided me with demos
+6 through my ongoing Twitter chats, I was 
+eventually looking at a regl based map that had it all working—opacities, 
+anti-aliased circles, and multiply! 
+Know When to Ask for Help 
+Although I’ve asked for help on Twitter before, no project relied on the level of 
+assistance I received from many generous people like this one. I received help with 
+demos and was given multiple resources and possible solutions. I literally don’t think 
+I could’ve managed this project without having asked for help. 
+Don’t be afraid to ask on social media or in dedicated places such as Slack 
+channels or Stack Overfow (or even in real life) in case you get stuck or are looking 
+for advice. The Internet can still be a great place from time to time with people willing 
+to help you! 
+Finally, all three map versions (canvas, Pixi, and regl) looked the same. And the 
+regl based map was defnitely the fastest. I even had to slow it down to avoid 
+it animating through a year too quickly! I added links to each of the three options 
+on the main project page to give technically curious viewers the chance to compare 
+performance. 
+In terms of the page design itself, I kept it very minimal. I wanted the focus 
+to be on the map, and I felt that it needed virtually no explanation. All I created 
+were a simple title, legend, and a few paragraphs of text explaining the data. 
+Reflections 
+From ideation, data, sketching, and coding (3x even; canvas, Pixi, and regl) this 
+project took almost 60 hours to complete. In short, this was a very technical project 
+for me. Sure, the visual in itself isn’t as out-of-the-box as some of the other projects. 
+But I had never learned so many new programming languages and libraries within 
+such a short amount of time before. 
+And I couldn’t have done it without the help of a lot of great people that came 
+to my aid on Twitter and through other channels. Thank you to everyone who ofered 
+a suggestion and sandbox examples! 
+I’m guessing the regl 
+multiply color blend 
+issue took at least 
+10 hours. 
+6 Regl multiply blend weights by Ricky Reusser: https:/ /codepen.io/rsreusser/pen/YVRXzy?editors=0010 
+
+=== PAGE 331 ===
+ 
+Breathing Earth 
+BreathingEarth.VisualCinnamon.com 
+Fig.10.10Fig.10.10 
+The full page of 
+“Breathing Earth.” 
+
+
+=== PAGE 332 ===
+331 
+COMMUNITY
+Fig.10.12 Fig.10.13
+Fig.10.14 Fig.10.15
+Fig.10.11Fig.10.11 
+Week 23, June, with the Northern 
+Hemisphere appearing lush green 
+right at the start of summer. 
+Fig.10.12 Fig.10.13 
+Week 40, October. The start of winter in the Northern 
+Hemisphere, week 51, December. 
+Fig.10.14 Fig.10.15 
+A zoom in on Asia, week 23. A zoom in on North and Central 
+America, week 16. 
+
+=== PAGE 333 ===
+[No text extracted]
+
+=== PAGE 334 ===
+ 
+  
+  
+  
+ 
+ 
+  
+ 
+ 
+655 Frustrations 
+Doing Data 
+Visualization 
+SHIRLEY 
+In February 2017, our friend Elijah Meeks made a bold claim: most people 
+in data visualization end up leaving because there’s something wrong 
+with the current state of the feld. That statement stirred up quite a bit 
+of conversation and resulted in a community survey with 45 questions 
+and 981 responses. By mid-March, Elijah had cleaned, anonymized, and 
+uploaded all the data onto GitHub.
+1 And I knew I had to do something 
+with that data. 
+APRIL – SEPTEMBER 2017 333 COMMUNITY 
+1 Data Visualization Survey, 2017 Responses: 
+https:/ /github.com/data-visualization-society/data_visualization_survey/blob/master/data/cleaned_survey_results_2017.csv 
+
+=== PAGE 335 ===
+334 
+SHIRLEY
+ 
+ 
+ 
+  
+  
+  
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+  
+ 
+ 
+   
+ 
+   
+ 
+   
+ 
+  
+  
+Data 
+This was probably one of my favorite projects in terms of data because I didn’t have 
+to do any manual data collection or cleaning. Elijah had already cleaned up all the 
+survey responses and put them into a nicely formatted, (let me repeat, cleaned up) 
+CSV fle. Honestly, I don’t think I’ve ever had it easier. It’s probably why I wanted 
+to do the project in the frst place.
+ ヾ(０∀０*★)ﾟ*･.｡ 
+So with the data collection and cleanup already done (hehe), I moved 
+on to analyze and explore the data. The very frst thing I did was to create a list 
+of the survey questions I was interested in, and then grouped them by theme. 
+(Figure 10.1, left) . 
+As the premise of the survey was Elijah’s claim that practitioners were leaving 
+because of the state of the feld, my primary question was: Why might people want 
+to leave? But there was no such question in the survey, and those that had already 
+left defnitely wouldn’t have participated in the survey. So I decided to go with 
+a proxy instead: “Do you want to spend more time or less time visualizing data in the 
+future?” I then organized the relevant questions into categories (Figure 10.1, right): 
+The basics of their data visualization jobs. 
+• Were you hired to do data visualization only? 
+• What focus is data visualization in your work? 
+• Is your total compensation in line with Software Engineers and UX/UI/ 
+Designer roles at your level? 
+The aspects of their role that might afect their job satisfaction. 
+• Is there a separate group that does data visualizations or are you embedded 
+in another group? 
+• Are data visualization specialists represented in the leadership of your 
+organization? 
+• What knowledge level do your consumers have of the data you are 
+visualizing? 
+• How often do they consume your data visualizations? 
+• How would you describe your relationship with your consumer? 
+And their biggest frustration doing data visualization in their jobs. 
+
+=== PAGE 336 ===
+335 
+COMMUNITY
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+Fig.10.1 
+Fig.10.2
+Fig.10.1 
+A list of survey 
+questions grouped into 
+overarching themes. 
+Fig.10.2 
+Using bar charts to 
+explore some of the 
+qualitative survey 
+questions. 
+One of the talks at Openvis Conf 2017—which I attended right before starting 
+on this project—was about Vega-Lite, a JavaScript charting library for 
+quickly composing interactive graphics, and I decided to give it a try for my data 
+exploration. I used histograms to look into what part of the creation process (data 
+preparation, engineering, analysis, design, visualization) the respondent spent the 
+most time doing at their jobs and learned that most people don’t focus on just one 
+part and instead juggle most or all of the creation process. I also plugged some 
+of the qualitative survey questions into bar charts and explored what technologies 
+the respondents used to visualize their data, who they made visualizations for, 
+and so on: 
+For explanation of 
+Vega-Lite, see 
+“Technologies & Tools” 
+at the beginning of this 
+book. 
+
+
+=== PAGE 337 ===
+336 
+SHIRLEY
+   
+ 
+ 
+ 
+ 
+   
+  
+   
+ 
+ 
+  
+ 
+ 
+ 
+  
+  
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+I never got beyond bar charts and histograms with Vega-Lite  for this project, 
+but the exploration did allow me to quickly understand the structure of the survey 
+questions and responses. It taught me to work with the quantitative or multiple 
+choice questions, instead of the open-ended ones whose answers were too many 
+and too varied for me to analyze efciently for this project. It also helped me see the 
+value in using Vega-Lite  as a quick exploration tool—a big step-up from the last 
+project, where I built visualizations from scratch for every theory I wanted to test. 
+Explore Data: Use Charting Libraries 
+Once I have my attributes listed and my questions and hypotheses formulated, I like 
+to quickly explore the data with Observable and Vega-Lite . Observable is an online 
+notebook tailored for visualizations, and it lets me experiment with ideas without the 
+pressure to write “beautiful” production code. I import my data into a notebook and 
+use Vega-Lite  to visually test my hypothesis. 
+Some common charts I use in my exploration include bar charts for comparisons, 
+box plots and histograms for distributions, scatterplots for correlations, node-link 
+diagrams for relationships, and line charts for temporal trends. I then note anything 
+interesting in my notebook, and use those notes to inform my designs. 
+Sketch 
+If I were to come across 
+similarly open-ended 
+text nowadays, I’d 
+consider looking into 
+a Natural Language 
+Processing (NLP) 
+algorithm to analyze 
+the data. 
+For more explanation 
+of Observable, see 
+“Technologies & Tools” 
+at the beginning of the 
+book. 
+This is why I like 
+to list data types 
+(quantitative, nominal, 
+ordinal, temporal, 
+spatial) next to the 
+attributes in my frst 
+step , because they 
+inform the charts 
+I should use for 
+exploration. 
+As my goal was to fgure out why people might want to leave the feld, I wanted 
+to know if there was any correlation between how much time respondents spent 
+on creating data visualizations, and whether they wanted to do more or less 
+of it in the future. 
+For my frst pass, I decided to use a stacked bar chart (Figure 10.3). The 
+y-position represented the percentage of one’s day spent on data visualization, 
+arranged in order from least amount of time (10%) to most amount of time (100%). 
+I used color to represent whether they wanted to do more or less dataviz, with bars 
+to the left of the gap being “much less” or “less,” and to the right being “same,” 
+“more,” or “much more.” 
+It turned out that the majority of respondents wanted to do the same or more 
+data visualization going forward. I wondered if that sentiment changed if they 
+were more focused on other parts of the data visualization process, such as data 
+preparation, engineering, science, or design. I also wondered if I could pinpoint 
+someone’s frustration with the dataviz process by examining how much of their day 
+was dedicated to a specifc task, and whether they wanted to do more or less of it. 
+Unfortunately, because I only thought about how to mash those three questions 
+together and gave no thought to readability, the prototype ended up being really 
+hard to understand. What I did realize from prototyping the stacked bar chart was 
+that I was much more interested in showing the individual responses, rather than 
+trying to aggregate them all together into a summary. It also taught me that too 
+few people responded that they wanted to do “less” dataviz, which meant that 
+it wouldn’t adequately answer the question: “Why might people leave?” 
+In retrospect, this 
+makes a lot of sense; 
+most people answering 
+a survey about data 
+visualization would 
+probably want to do 
+more of it. 
+
+=== PAGE 338 ===
+337 
+COMMUNITY
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+Fig.10.3Fig.10.3 
+Sketch of my idea to 
+explore how much time 
+respondents currently 
+spend on data 
+visualization versus 
+how much they want 
+to do it in the future. 
+Code 
+For my second iteration, I decided to try a beeswarm plot because I could feature 
+the individual responses as dots centered around certain attributes. And I liked that 
+because they use dots, beeswarm plots tend to be compact and easy to glance 
+through for the big picture. 
+I also decided to use the open-ended question, “What is your biggest 
+frustration with doing data visualization in your job?” as the proxy for whether 
+a person might leave the feld, and noted whether they answered with any 
+frustration or left the question empty. I placed those who answered with 
+frustrations in the left column and those who didn’t answer in the right. I also 
+visualized whether dataviz was a focus of their work and placed the dots 
+vertically by the answers they gave: top row for “primary,” middle for “secondary,” 
+and bottom for “one of several.” I colored and positioned them horizontally by their 
+years of experience and flled the dots if they meant to go into dataviz in the 
+frst place: 
+“one of several.” 
+Fig.10.4Fig.10.4 
+Beeswarm plot 
+showing every 
+respondent. Those 
+who responded with 
+frustrations are 
+placed to the left and 
+those without are 
+to the right. They are 
+grouped vertically 
+by what focus dataviz 
+is within their work, 
+with top being 
+“primary,” middle 
+being “secondary,” 
+and bottom being 
+
+=== PAGE 339 ===
+338 
+SHIRLEY
+ 
+ 
+ 
+ 
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+   
+      
+ 
+ 
+ 
+  
+  
+  
+  
+  
+ 
+  
+  
+  
+ 
+ 
+  
+ 
+I liked the beeswarm, but didn’t like how hard it was to compare those who 
+responded with and without frustrations, so I stacked the two on top of each other. 
+And I realized that my x-axis (how many years they had been working in the industry) 
+probably had little relation with the questions I was interested in (whether dataviz 
+was their primary focus, or whether dataviz was represented in their leadership) 
+and whether they responded with frustrations. So I updated the colors and x-axis 
+to represent percent of day focused on dataviz instead. Finally, I wanted to make 
+it easy to compare across answers, so I added a box-and-whisker plot on top of the 
+beeswarm to mark the median and frst and third quartites (Figure 10.5 ). 
+When I showed this iteration to my friend RJ Andrews, he immediately 
+suggested putting the box-and-whisker plot in the middle, the dots representing 
+those with frustrations below the box-and-whisker plot, and those without 
+frustrations above it. He explained the importance of visual metaphors; those 
+with frustrations should “drip down” like they’re being weighed down, while those 
+without frustrations should “rise up” because they were unburdened (Figure 10.6). 
+Visual Metaphors 
+I frst learned about visual metaphors from my friend RJ Andrews, and it’s really 
+changed the way I think about designing visualizations. Visual metaphors take 
+advantage of what people might already be familiar with—like having a negative feeling 
+(frustrations) move downward—which can reinforce what the underlying data is, what 
+the visual is trying to communicate, and potentially reduce the learning curve for 
+an unfamiliar visualization. 
+It’s an additional step I like to take after considering what chart type might work 
+best for what I’m trying to communicate, and it defnitely makes the visualization more 
+approachable and visually interesting. 
+I implemented the beeswarm with D3.js’s force layout, using the positioning 
+(d3.forceX()  and d3.forceY() ) and collision (d3.forceCollide()) forces 
+to calculate the position of each dot. To create the middle split, I “nudged” any 
+dots back if they went past a certain vertical position (called the “bounded force 
+layout”). The box-and-whisker was more straightforward to implement, but still took 
+many iterations until I was happy with the design. 
+After I had the visualization down, I went back to the eight questions I had 
+frst outlined. I wanted to be able to easily compare data between questions and 
+see if there were any correlations. To do this, I decided to display two questions 
+at a time and place them side by side. I added a dropdown menu to let users 
+switch to diferent questions, and a brush—an interaction where the user can 
+draw a bounding box within the visualization—on the beeswarms to flter survey 
+responses. I implemented the brush interaction with D3.js, and used React.js 
+to link the dropdowns with the beeswarms, and the beeswarms with each other. 
+The goal for linking the two questions (beeswarms) via the brush flter was so that 
+I could brush and flter a particular answer for one question (“those whose primary 
+focus is data visualization, and who spend more than 50% of their day on it”) and 
+see how the same people answered the other question (“for those same people, 
+the majority of them perceive their compensation to be either in-line with or higher 
+than software engineers and designers at the same level”) (Figure 10.7). 
+I really like showing 
+individual data points 
+and layering summary 
+metrics on top of them, 
+and fnd that I do it 
+often in my projects. 
+I know I can’t assume 
+that everyone who 
+didn’t answer with 
+frustrations was happy 
+with their jobs (there’s 
+defnitely a percentage 
+that just didn’t want 
+to answer), but it’s the 
+best proxy I had. 
+¯\_(ツ)_/¯
+
+=== PAGE 340 ===
+339 
+COMMUNITY
+Fig.10.5 Fig.10.6 
+Fig.10.7 
+Fig.10.5 
+Adjusted beeswarm plot. Those with and without 
+frustrations are placed on top of each other 
+instead of side-by-side, and box-and-whisker plots 
+are overlaid to give additional context. 
+Fig.10.6 
+Final beeswarm plot with respondents 
+rising or dripping based on whether they 
+answered with frustrations. 
+Fig.10.7 
+Selecting a diferent question 
+from the dropdown updates the 
+corresponding beeswarm (top), and 
+brushing the beeswarm fades out all 
+other respondents whose answers 
+didn’t fall within the brush’s bounding 
+box (bottom). 
+
+=== PAGE 341 ===
+340 
+SHIRLEY
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+    
+ 
+ 
+ 
+ 
+ 
+I then used my newly completed exploratory tool to try and answer my original 
+question: “Why are people leaving the feld?” I went through each of the eight 
+questions, fltered their answers, and jotted down any interesting things I noticed. 
+After doing the analysis, I realized I could center my observations around what 
+a “successful” data visualization role might look like: a role with a higher perceived 
+salary that allowed the person to spend a large percent of their time on creating 
+data visualization. I used those two metrics and looked through the answers for 
+what might correlate with “unsuccessful” dataviz roles that might cause someone 
+to leave. I found that those roles were typically found: 
+• On an embedded team, 
+• Not hired to work on data visualization, 
+• Does data visualization as only one of several tasks, and 
+• Has a subordinate relationship with the stakeholder of their visualization. 
+I fltered for the respondents that fell within those four situations, collected their 
+frustrations, and tried my best to categorize their frustrations (Figure 10.8). 
+I wrote a blog post
+2 centered around what I learned, where I outlined what 
+factors contributed to more or less time spent working on data visualizations 
+(being on a dedicated dataviz team, as opposed to on an embedded team), and 
+what led to higher or lower perceived salaries (primary focus on dataviz, with 
+a collaborative relationship with stakeholders). I then outlined the most common 
+frustrations that I came across and put them into two categories: those stemming 
+from working relationships in the organization (“coworkers do not understand what 
+is possible,” etc.), and those related to working with the available technology. Finally, 
+I presented what we could potentially do to alleviate those frustrations: to educate 
+organizations on how efective visualizations can beneft them, and to provide 
+resources on continuous education for dataviz practitioners. 
+Reflections 
+Even though I really, really abhorred all the writing, I’m happy with all the research 
+and analysis I put into my blog post. And though there are always things I want 
+to improve, I’m also satisfed with my fnal visualization. I was able to take away 
+two important lessons: 
+1. Use Vega-Lite or other similar charting libraries to quickly explore the data. 
+2. Use visual metaphors to better communicate the nature of the dataset 
+(and more often than not, make the visualization more interesting). 
+Most importantly, I’m glad I learned so much while analyzing the survey data and 
+writing about the community’s frustrations. It has informed a lot of what I do inside 
+and outside of my work—from prototyping ideas and teaching my clients how 
+to think about data to getting better at designing efective visualizations. It has 
+motivated me to create workshops and talks for front-end developers with the end 
+goal of making D3.js and data visualization more approachable. 
+2 “655 Frustrations of Doing Data Visualizations”: 
+https:/ /medium.com/visualizing-the-feld/655-frustrations-doing-data-visualization-e1087c8176fc 
+
+=== PAGE 342 ===
+341 
+COMMUNITY
+Fig.10.8 
+Fig.10.8 
+I printed out all the frustrations that fell under the four situations 
+(embedded team, dataviz only one of several responsibilities, 
+subordinate relationship with stakeholders, perceived lower 
+salaried) and tried to categorize their frustrations. 
+
+=== PAGE 343 ===
+ 
+655 Frustrations 
+shirleywu.studio/projects/community 
+
+
+=== PAGE 344 ===
+343 
+COMMUNITY
+Fig.10.9Fig.10.9 
+The fnal visual tool 
+for exploring the 2017 
+Data Visualization 
+Community Survey. 
+
+
+=== PAGE 345 ===
+344 
+MYTHS & 
+LEGEN 
+
+=== PAGE 346 ===
+345 
+THS & 
+LEGENDS 
+
+=== PAGE 347 ===
+[No text extracted]
+
+=== PAGE 348 ===
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ Figures 
+in the Sky 
+NADIEH 
+This project took a long time to fgure out topic-wise and to create; I even 
+fnished the next scheduled project (about “Fearless”) before this one. 
+There were several avenues that Shirley and I investigated (Cinderella, 
+Disney), but they didn’t pan out. And so, many months after my previous 
+project, while at OpenVisConf in Paris, I decided to look for completely 
+diferent ideas. The talks defnitely inspired me, especially one about 
+Google’s Quickdraw dataset. I thought, maybe I’d make something about 
+the “mythical” creatures from the Quickdraw word list and how they’re 
+drawn, like dragons and mermaids? Something about dragons in general? 
+Or about myths from many diferent cultures and their timelines and 
+similarities? Unfortunately, that would probably mean a lot of manual data 
+gathering. But myths across cultures … that suddenly reminded me 
+of constellations! Many constellations have been named after characters 
+from certain myths and legends. My favorite constellations are Orion and 
+the Swan (ofcially known as Cygnus). But what did other cultures make 
+of those same stars? What shapes and fgures did they see in the same sky? 
+That idea sparked a feeling of enthusiasm 
+and wonder in me in such a way that I knew 
+it felt right. 
+As an astronomer, it also felt kind of appropriate to have my fnal Data 
+Sketches project to be connected to actual stars. 
+MAY – JULY 2018 347 MYTHS & LEGENDS 
+
+=== PAGE 349 ===
+348 
+NADIEH
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+      
+ 
+  
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+  
+Fig.11.1
+Data 
+Fig.11.1 
+Stellarium’s data to 
+create “stick fgures” 
+between the stars. 
+Of course, that idea still hinged on data availability. I thought that the subject 
+I had chosen would be specifc enough for Google. But alas, trying to search for 
+constellation data was heavily intermixed with astrology. 
+(ー_ー*; ) 
+I found some promising information about the “modern” 88 constellations, 
+but nothing about constellations from multiple cultures. That is, until I came across 
+Stellarium, an amazing open source 3D planetarium software and all its data can 
+be accessed on GitHub. The giant cherry on the cake is a folder
+1 called “skycultures” 
+which contains information on constellations from ±25 diferent cultures from across 
+the world, including Aztec, Hawaiian, Japanese, Navajo, and many more. This data 
+was exactly what I needed, but it wasn’t available in a simple CSV format, nor in the 
+shape that I wanted for my visualization. Luckily, Stellarium has a very extensive user 
+guide
+2 that explains exactly how to interpret the data. 
+For example, Figure 11.1 shows the data to create “stick fgures,” or the lines 
+between stars. Each row is one constellation, with the constellation’s ID listed in the 
+beginning, followed by the number of connections (lines) in the constellation. After 
+that come the so-called Hipparcos (HIP) star IDs. Each pair of HIP IDs defnes a line 
+between those two stars. 
+I converted these fles into something very similar to the typical links fle 
+of a network, with a source_id  and target_id  per row, having one row for 
+each line to draw in the stick fgure/constellation. 
+I pulled the full names of the constellations from a diferent Stellarium dataset 
+and created another fle that contains all the constellation IDs that a specifc star 
+is connected to. However, there was still one important “subject” that I was missing 
+in terms of data: the stars. 
+Thankfully, that’s a dataset I’m already familiar with and have used in a few 
+other astronomer themed visualizations. The HYG database
+3 contains lots 
+of information about many, many stars. From that database I took the right 
+ascension and declination so I could place the stars on a map (you can think 
+of these as the latitude and longitude of the sky). But I needed more information, 
+such as the HIP ID, to connect them to the constellation data from Stellarium. I also 
+found the apparent magnitude, which represents how bright the star looks, to use 
+as a star’s size, and fnally the star’s color index to get an efective temperature, 
+which could then be mapped to a color for the stars. It would be a shame not 
+to color the stars the way they actually appear to us. 
+The HIP ID was the 
+unique key that made 
+it possible to link the 
+constellation data from 
+Stellarium to the star 
+data from the HYG 
+database. 
+1 Stellarium skycultures folder: https:/ /github.com/Stellarium/stellarium/tree/master/skycultures 
+2 Stellarium user guide: https:/ /github.com/Stellarium/stellarium/releases/download/v0.19.1/stellarium_user_guide-0.19.1-1.pdf 
+3 HYG database: https:/ /github.com/astronexus/HYG-Database 
+
+=== PAGE 350 ===
+349 
+MYTHS & LEGENDS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.11.2
+To stay true to how we see the night sky, I fltered the stars to only include those 
+that are bright enough to be seen by the naked eye, which is an apparent magnitude 
+smaller than 6.5. 
+In addition to sky maps with constellations, I also wanted to display something 
+more “statistical” using a bigger set of data. What sparked my interest was 
+seeing how the data looked when I plotted a star’s brightness versus the number 
+of constellations that each star is used in. Was there a trend? If so, which stars 
+deviated and why? I made a quick plot in R using ggplot2 (Figure 11.2) that revealed 
+some interesting insights, specifcally, insights around which stars deviated from the 
+general trend of “the brighter a star, the more constellations that use it.” 
+In astronomy the 
+smaller the apparent 
+magnitude, the brighter 
+the star appears to us. 
+Fig.11.2 
+A scatter plot 
+made in R showing 
+apparent magnitude 
+versus the number 
+of constellations a 
+star is part of, for 
+approximately 2,200 
+stars. 
+However, while investigating this scatter plot more closely, I noticed that my star 
+data was missing many proper star names. Almost all nine stars of the Pleiades were 
+not named! I searched for a bigger list of named stars and found a sort-of ofcial list 
+of ±350 stars on Wikipedia.
+4 
+However, these only contained the names themselves, not the HIP IDs needed 
+to connect them to my data. Thankfully, there is a website called the Universe 
+Guide
+5 where the URLs are based on the star’s name, while the page itself contains 
+the HIP ID in the HTML ’s h1  header (title) of the page. I therefore used the rvest 
+package in R to download the Universe Guide page of all of the stars on the wiki list, 
+grabbed the h1  from the HTML, and only kept the HIP id . I only had to do a few 
+manual lookups for names that didn’t return results from the Universe Guide through 
+my script. Finally, I merged this “proper star names” dataset into the original HYG 
+dataset for a much more complete set of star names. 
+A fnal note about the data: there are no ofcially declared constellation 
+fgures. There are indeed 88 ofcial constellations, but the only thing that is 
+recorded is what area of the sky that constellation takes up (kind of like how the US 
+states divide up the land). There is no ofcial consensus on how the stick fgure part 
+of the constellation should be drawn. I’ve therefore decided to use the data from 
+Stellarium as my “single source of truth.” 
+By proper names of 
+stars I mean their 
+popular/common 
+names instead of their 
+catalogue IDs, such 
+as the star names 
+Betelgeuse and Sirius. 
+I copied the Wikipedia 
+list of 350 star names 
+into Excel using its 
+“data from web” import 
+option. 
+4 List of proper names of stars: https:/ /en.wikipedia.org/wiki/List_of_proper_names_of_stars 
+5 Universe Guide website: https:/ /www.universeguide.com/star/atlas 

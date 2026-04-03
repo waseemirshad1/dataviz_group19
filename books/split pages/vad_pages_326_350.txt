@@ -1,0 +1,1267 @@
+
+
+===PAGE 326===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.3.
+Filter 301
+tensions
+ of off-the-shelf widgets have also been proposed to better 
+support the needs of interactive vis. 
+13.3.1  Item Filtering 
+In item ﬁltering, the goal is to eliminate items based on their values 
+with respect to speciﬁc attributes. Fewer items are shown, but the 
+number of attributes shown does not change. 
+Example:
+ FilmFinder 
+Figure 13.2 shows the FilmFinder system [Ahlberg and Shneiderman 94] 
+for exploring a movie database. The dataset is a table with nine value at-
+tributes: genre, year made, title, actors, actresses, directors, rating, popu-
+larity, and length. The visual encoding features an interactive scatterplot 
+where the items are movies color coded by genre, with scatterplot axes 
+of year made versus movie popularity; Figure 13.2(a) shows the full data-
+set. The interaction design features ﬁltering, with immediate update of 
+the visual display to ﬁlter out or add back items as sliders are moved and 
+buttons are pressed. The visual encoding adapts to the number of items 
+to display; the marks representing movies are automatically enlarged and 
+labeled when enough of the dataset has been ﬁltered away that there is 
+enough room to do so, as in Figure 13.2(b). The system uses multiform 
+overview–detail views, where clicking on any mark brings up a popup de-
+tail view with more information about that movie, as in Figure 13.2(c). 
+FilmFinder is a speciﬁc example of the general dynamic queries ap-
+proach, where browsing using tightly coupled visual encoding and inter-
+action is an alternative to searching by running queries, as for example 
+with a database. All of the items in a database are shown at the start 
+of a session to provide an overview, and direct manipulation of interface 
+widgets replaces reformulating new queries. This approach is well suited 
+to browsing, as opposed to a search where the user must formulate an 
+explicit query that might return far too many items, or none at all. 
+Figure 13.2 shows the use of two augmented slider types, a dual slider 
+for movie length that allows the user to select both a minimum and maxi-
+mum value, and several alpha sliders that are tuned for selection with text 
+strings rather than numbers. 
+System FilmFinder 
+What: Data Table: nine value attributes. 
+How: Encode Scatterplot; detail view with text/images. 
+How: Facet Multiform, overview–detail. 
+How: Reduce Item ﬁltering.
+
+===PAGE 327===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+302
+13. Reduce Items and Attributes
+(a) 
+(b) 
+(c) 
+Figure 13.2. FilmFinder features tightly coupled interactive ﬁltering, where the re-
+sult of moving sliders and pressing buttons is immediately reﬂected in the visual 
+encoding. (a) Exploration begins with an overview of all movies in the dataset. 
+(b) Moving the actor slider to select Sean Connery ﬁlters out most of the other 
+movies, leaving enough room to draw labels. (c) Clicking on the mark represent-
+ing a movie brings up a detail view. From [Ahlberg and Shneiderman 94, Color 
+Plates 1, 2, and 3].
+
+===PAGE 328===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.3.
+Filter 303
+Figure
+ 13.3. The scented widget idiom adds visual encoding information directly to 
+standard graphical widgets to make ﬁltering possible with high information density 
+displays. From [Willett et al. 07, Figure 2]. 
+Standard widgets for ﬁltering controls can be augmented by 
+concisely visually encoding information about the dataset, but in 
+the part of the screen normally thought of as the control panel 
+rather than a separate display area. The idea is to do so while 
+using no or minimal additional screen real estate, in order to cre-
+ate displays that have high information density. These augmented 
+widgets are called scented widgets [Willett et al. 07], alluding to the 
+idea of information scent: cues that help a searcher decide whether 
+there is value in drilling down further into a particular information 
+source, versus looking elsewhere [Pirolli 07]. Figure 13.3 shows 
+several examples. One way to add information is by inserting a 
+concise statistical graphic, such as a bar or line chart. Another 
+choice is by inserting icons or text labels. A third choice is to 
+treat some part of the existing widget as a mark and encode more 
+information into that region using visual channels such as hue, 
+saturation, and opacity. 
+The Improvise system shown in Figure 12.7 is another example 
+of the use of ﬁltering. The checkbox list view in the lower middle 
+part of the screen is a simple ﬁlter controlling whether various 
+geographic features are shown. The multiform microarray explorer 
+in Figure 12.4 also supports several kinds of ﬁltering, with simple 
+range sliders and a more complex view that allows range selection 
+on top of line charts of time-series data. The selected range in the 
+line chart view acts as a ﬁlter for the scatterplot view. 
+13.3.2
+ Attribute Filtering 
+Attributes can also be ﬁltered. With attribute ﬁltering, the goal is to 
+eliminate attributes rather than items; that is, to show the same 
+number of items, but fewer attributes for each item.
+
+===PAGE 329===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+304
+13. Reduce Items and Attributes
+Item
+ ﬁltering and attribute ﬁltering can be combined, with the 
+result of showing both fewer items and fewer attributes. 
+Example:
+ DOSFA 
+*
+ Many idioms for at-
+tribute ﬁltering and aggre-
+gation use the alternative 
+term dimension rather than 
+attribute in their names. 
+‣
+ For more on star plots, 
+see Section 7.6.3. 
+Figure 13.4 shows an example of the Dimensional Ordering, Spacing, and 
+Filtering Approach (DOSFA) idiom [Yang et al. 03a]. As the name sug-
+gests, the idiom features attribute ﬁltering.* Figure 13.4 shows DOSFA 
+on a dataset of 215 attributes representing word counts and 298 points 
+representing documents in a collection of medical abstracts. DOSFA can 
+be used with many visual encoding approaches; this ﬁgure shows it in 
+use with star plots. In Figure 13.4(a) the plot axes are so densely packed 
+that little structure can be seen. Figure 13.4(b) shows the plots after the 
+dimensions are ordered by similarity and ﬁltered by both similarity and 
+importance thresholds. The ﬁltered display does show clear visual pat-
+terns. 
+(a)
+ (b) 
+Figure 13.4. The DOSFA idiom shown on star glyphs with a medical records data-
+set of 215 dimensions and 298 points. (a) The full dataset is so dense that patterns 
+cannot be seen. (b) After ordering on similarity and ﬁltering on both similarity and 
+importance, the star glyphs show structure. From [Y ang et al. 03a, Figures 3a 
+and 3d]. 
+System DOSFA 
+What: Data Table: many value attributes. 
+How: Encode Star plots. 
+How: Facet Small multiples with matrix alignment. 
+How: Reduce Attribute ﬁltering.
+
+===PAGE 330===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.4.
+Aggregate 305
+Attribute
+ ﬁltering is often used in conjunction with attribute 
+ordering.* If attributes can be ordered according to a derived at-
+tribute that measures the similarity between them, then all of the 
+high-scoring ones or low-scoring ones can be easily ﬁltered out in-
+teractively. A similarity measure for an attribute creates a quantita-
+tive or ordered value for each attribute based on all of the data item 
+values for that attribute.* One approach is to calculate the variance 
+of an attribute: to what extent the values within that attribute are 
+similar to or different from each other. There are many ways to 
+calculate a similarity measure between attributes; some focus on 
+global similarity, and others search for partial matches [Ankerst 
+et al. 98]. 
+*
+ A synonym for attribute 
+ordering is dimensional or-
+dering. 
+*
+ A synonym for similarity 
+measure is similarity met-
+ric. Although I am com-
+bining the ideas of measure 
+and metric here for the pur-
+poses of this discussion, in 
+many specialized contexts 
+such as mathematics and 
+business analysis they are 
+carefully distinguished with 
+different deﬁnitions. 
+13.4  Aggregate 
+The other major reduction design choice is aggregation, so that a 
+group of elements is represented by a new derived element that 
+stands in for the entire group. Elements are merged together with 
+aggregation, as opposed to eliminated completely with ﬁltering. Ag-
+gregation and ﬁltering can be used in conjunction with each other. 
+As with ﬁltering, aggregation can be used for both items and at-
+tributes. 
+‣
+ An example of a complex 
+combination of both aggre-
+gation and ﬁltering is carto-
+graphic generalization, dis-
+cussed in Section 8.3.1. 
+Aggregation typically involves the use of a derived attribute. A 
+very simple example is computing an average; the four other basic 
+aggregation operators are minimum, maximum, count, and sum. 
+However, these simple operators alone are rarely an adequate so-
+lution. The challenge of aggregation is to avoid eliminating the 
+interesting signals in the dataset in the process of summarization. 
+The Anscombe’s Quartet example shown in Figure 1.3 exactly il-
+lustrates the difﬁculty of adequately summarizing data, and thus 
+the limits of static visual encoding idioms that use aggregation. 
+Aggregation is nevertheless a powerful design choice, particularly 
+when used within interactive idioms where the user can change 
+the level of aggregation on the ﬂy to inspect the dataset at different 
+levels of detail. 
+13.4.1  Item Aggregation 
+The most straightforward use of item aggregation is within static 
+visual encoding idioms; its full power and ﬂexibility can be har-
+nessed by interactive idioms where the view dynamically changes.
+
+===PAGE 331===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+306 13. Reduce Items and Attributes
+Example: Histograms 
+The idiom of histograms shows the distribution of items within an original 
+attribute. Figure 13.5 shows a histogram of the distribution of weights 
+for all of the cats in a neighborhood, binned into 5-pound blocks. The 
+range of the original attribute is partitioned into bins, and the number 
+of items that fall into each bin is computed and saved as a derived or-
+dered attribute. The visual encoding of a histogram is very similar to bar 
+charts, with a line mark that uses spatial position in one direction and 
+the bins distributed along an axis in the other direction. One difference 
+is that histograms are sometimes shown without space between the bars 
+to visually imply continuity, whereas bar charts conversely have spaces 
+between the bars to imply discretization. Despite their visual similarity, 
+histograms are very different than bar charts. They do not show the orig-
+inal table directly; rather, they are an example of an aggregation idiom 
+that shows a derived table that is more concise than the original dataset. 
+The number of bins in the histogram can be chosen independently of the 
+number of items in the dataset. The choice of bin size is crucial and tricky: 
+a histogram can look quite different depending on the discretization cho-
+sen. One possible solution to the problem is to compute the number of 
+bins based on dataset characteristics; another is to provide the user with 
+controls to easily change the number of bins interactively, to see how the 
+histogram changes. 
+20 
+15 
+10 
+5 
+0     
+Weight Class (lbs) 
+Figure 13.5. The histogram idiom aggregates an arbitrary number of items into a 
+concise representation of their distribution. 
+Idiom Histograms 
+What: Data Table: one quantitative value attribute. 
+What: Derived Derived table: one derived ordered key attribute 
+(bin), one derived quantitative value attribute (item 
+count per bin). 
+How: Encode Rectilinear layout. Line mark with aligned position 
+to express derived value attribute. Position: key at-
+tribute.
+
+===PAGE 332===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.4.
+Aggregate 307
+Example:
+ Continuous Scatterplots 
+Another example of aggregation is continuous scatterplots, where the prob-
+lem of occlusion on scatterplots is solved by plotting an aggregate value 
+at each pixel rather than drawing every single item as an individual point. 
+Occlusion can be a major readability problem with scatterplots, because 
+many dots could be overplotted on the same location. Size coding exacer-
+bates the problem, as does the use of text labels. Continuous scatterplots 
+use color coding at each pixel to indicate the density of overplotting, often 
+in conjunction with transparency. Conceptually, this approach uses a de-
+rived attribute, overplot density, which can be calculated after the layout 
+is computed. Practically, many hardware acceleration techniques sidestep 
+the need to do this calculation explicitly. 
+Figure 13.6 shows a continuous scatterplot of a tornado air-ﬂow data-
+set, with the magnitude of the velocity on the horizontal and the z-direction 
+velocity on the vertical. The density is shown with a log-scale sequential 
+colormap with monotonically increasing luminance. It starts with dark 
+blues at the low end, continues with reds in the middle, and has yellows 
+and whites at the high end. 
+Scatterplots began as a idiom for discrete, categorical data. They have 
+been generalized to a mathematical framework of density functions for 
+continuous data, giving rise to continuous scatterplots in the 2D case
+Figure
+ 13.6. The continuous scatterplot idiom uses color to show the density 
+at each location, solving the problem of occlusion from overplotting and allowing 
+scalability to large datasets. From [Bachthaler and Weiskopf 08, Figure 9].
+
+===PAGE 333===
+О
+О
+О
+О
+О
+О
+О
+О
+308
+13. Reduce Items and Attributes
+and
+ continuous histograms in the 1D case [Bachthaler and Weiskopf 08]. 
+Continuous scatterplots use a dense, space-ﬁlling 2D matrix alignment, 
+where each pixel is given a different color. Although the idiom of continu-
+ous scatterplots has a similar name to the idiom of scatterplots, analysis 
+via the framework of design choices shows that the approach is in fact 
+very different.
+Idiom Continuous Scatterplots 
+What: Data Table: two quantitative value attributes. 
+What: Derived Derived table: two ordered key attributes (x, y pixel 
+locations),
+ one quantitative attribute (overplot den-
+sity). 
+How: Encode Dense space-ﬁlling 2D matrix alignment, sequential 
+categor
+ical hue + ordered luminance colormap. 
+How: Reduce Item aggregation. 
+Example:
+ Boxplot Charts 
+The visually concise idiom of boxplots shows an aggregate statistical sum-
+mary of all the values that occur within the distribution of a single quan-
+titative attribute. It uses ﬁve derived variables carefully chosen to provide 
+information about the attribute’s distribution: the median (50% point), the 
+lower and upper quartiles (25% and 75% points), and the upper and lower 
+fences (chosen values near the extremes, beyond which points should be 
+counted as outliers). Figure 13.7(a) shows the visual encoding of these ﬁve 
+numbers using a simple glyph that relies on vertical spatial position. The 
+eponymous box stretches between the lower and upper quartiles and has 
+a horizontal line at the median. The whiskers are vertical lines that extend 
+from the core box to the fences marked with horizontal lines.* Outliers be-
+yond the range of the chosen fence cutoff are shown explicitly as discrete 
+dots, just as in scatterplots or dot charts. 
+A boxplot is similar in spirit to an individual bar in a bar chart in 
+that only a single spatial axis is used to visually encode data, but box-
+plots show ﬁve numbers through the use of a glyph rather than the single 
+number encoded by the linear mark in a bar chart. A boxplot chart fea-
+tures multiple boxplots within a single shared frame to contrast different 
+attribute distributions, just as bar charts show multiple bars along the 
+second axis. In Figure 13.7, the quantitative value attribute is mapped to 
+the vertical axis and the categorical key attribute to the horizontal one. 
+The boxplot can be considered an item reduction idiom that provides 
+an aggregate view of a distribution through the use of derived data. Box-
+*
+ Boxplots are also known 
+as box-and-whisker dia-
+grams. 
+
+===PAGE 334===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.4. Aggregate 309
+n s k mm 
+2 0 2 4 
+(a) 
+n s k mm 
+2 0 2 4 
+(b) 
+Figure 13.7. The boxplot is an idiom presenting summary statistics for the distri-
+bution of a quantitative attribute, using ﬁve derived values. These plots illustrate 
+four kinds of distributions: normal (n), skewed (s), peaked (k), and multimodal 
+(mm). (a) Standard box plots. (b) Vase plots, which use horizontal spatial position 
+to show density directly. From [Wickham and Stryjewski 12, Figure 5]. 
+plots are highly scalable in terms of aggregating the target quantitative 
+attribute from what could be an arbitrarily large set of values down to ﬁve 
+numbers; for example, it could easily handle from thousands to millions 
+of values within that attribute. The spatial encoding of these ﬁve numbers 
+along the central axis requires only a moderate amount of screen space, 
+since we have high visual acuity with spatial position. Each boxplot re-
+quires only a very small amount of screen space along the secondary axis, 
+leading to a high level of scalability in terms of the number of categorical 
+values that can be accommodated in a boxplot chart; roughly hundreds. 
+Boxplots directly show the spread, namely, the degree of dispersion, 
+with the extent of the box. They show the skew of the distribution com-
+pared with a normal distribution with the peak at the center by the asym-
+metry between the top and bottom sections of the box. Standard boxplots 
+are designed to handle unimodal data, where there is only one value that 
+occurs the most frequently. There are many variants of boxplots that 
+augment the basic visual encoding with more information. Figure 13.7(b) 
+shows a variable-width variant called the vase plot that uses an additional 
+spatial dimension within the glyph by altering the width of the central 
+box according to the density, allowing a visual check if the distribution 
+is instead multimodal, with multiple peaks. The variable-width variants 
+require more screen space along the secondary axis than the simpler ver-
+sion, in an example of the classic cost–beneﬁt trade-off where conveying 
+more information requires more room.
+
+===PAGE 335===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+310
+13. Reduce Items and Attributes
+Idiom
+What: Data
+What: Derived
+Why: Tasks
+How: Encode
+How: Reduce
+Scale
+Boxplot Charts 
+Table: many quantitative value attributes. 
+Five quantitative attributes for each original attribute, 
+representing
+ its distribution. 
+Characterize distribution; ﬁnd outliers, extremes, av-
+erages;
+ identify skew. 
+One glyph per original attribute expressing derived 
+attrib
+ute values using vertical spatial position, with 
+1D list alignment of glyphs into separated with hori-
+zontal spatial position. 
+Item aggregation. 
+Items: unlimited. Attributes: dozens. 
+Many
+ of the interesting uses of aggregation in vis involve dy-
+namically changing sets: the mapping between individual items 
+and the aggregated visual mark changes on the ﬂy. The simple 
+case is to allow the user to explicitly request aggregation and deag-
+gregation of item sets. More sophisticated approaches do these 
+operations automatically as a result of higher-level interaction and 
+navigation, usually based on spatial proximity. 
+Example:
+ SolarPlot 
+Figure 13.8 shows the example of SolarPlot, a radial histogram with an in-
+teractively controllable aggregation level [Chuah 98]. The user directly ma-
+nipulates the size of the base circle that is the radial axis of the chart. This 
+change of radius indirectly changes the number of available histogram 
+bins, and thus the aggregation level. Like all histograms, the SolarPlot ag-
+gregation operator is count : the height of the bar represents the number 
+of items in the set. The dataset shown is ticket sales over time, starting 
+from the base of the circle and progressing counterclockwise to cover 30 
+years in total. The small circle in Figure 13.8(a) is heavily aggregated. It 
+does show an increase in ticket sales over the years. The larger circle in 
+Figure 13.8(b) is less aggregated, and seasonal patterns within each year 
+can be distinguished. 
+Idiom SolarPlot 
+What: Data Table: one quantitative attribute. 
+What: Derived Derived table: one derived ordered key attribute 
+(bin),
+ one derived quantitative value attribute (item
+
+===PAGE 336===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.4.
+Aggregate 311
+(a)
+ (b)
+ 
+Figure
+ 13.8. The SolarPlot circular histogram idiom provides indirect control of 
+aggregation level by changing the circle size. (a) The small circle shows the in-
+crease in ticket sales over time. (b) Enlarging the circle shows seasonal patterns 
+in addition to the gradual increase. From [Chuah 98, Figures 1 and 2]. 
+count per bin). Number of bins interactively con-
+trolled. 
+How: Encode Radial layout, line marks. Line length: express de-
+r
+ived value attribute; angle: key attribute. 
+How: Reduce Item aggregation. 
+Scale Original items: unlimited. Derived bins: proportional 
+to
+ screen space allocated. 
+The
+ general design choice of hierarchical aggregation is to con-
+struct the derived data of a hierarchical clustering of items in the 
+original dataset and allow the user to interactively control the level 
+of detail to show based on this hierarchy. There are many speciﬁc 
+examples of idioms that use variants of this design choice. The 
+cluster –calendar system in Figure 6.7 is one example of hierarchi-
+cal aggregation. Another is hierarchical parallel coordinates. 
+Example:
+ Hierarchical Parallel Coordinates 
+The idiom of hierarchical parallel coordinates [Fua et al. 99] uses interac-
+tively controlled aggregation as a design choice to increase the scalability 
+of the basic parallel coordinates visual encoding to hundreds of thousands 
+of items. The dataset is transformed by computing derived data: a hier-
+archical clustering of the items. Several statistics about each cluster are 
+computed, including the number of points it contains; the mean, mini-
+mum, and maximum values; and the depth in the hierarchy. A cluster 
+is represented by a band of varying width and opacity, where the mean 
+is in the middle and width at each axis depends on the minimum and
+
+===PAGE 337===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+312
+13. Reduce Items and Attributes
+(a)
+ (b)
+ (c) 
+Figure 13.9. Hierarchical parallel coordinates provide multiple levels of detail. (a) The single top cluster has large 
+extent. (b) When several clusters are shown, each has a smaller extent. (c) When many clusters are shown, the 
+proximity-based coloring helps them remain distinguishable from each other. From [Fua et al. 99, Figure 4]. 
+maximum item values for that attribute within the cluster. Thus, in the 
+limit,
+ a cluster of a single item is shown by a single line, just as with the 
+original idiom. The cluster bands are colored according to their proximity 
+in the cluster hierarchy, so that clusters far away from each other have 
+very different colors. 
+The level of detail displayed at a global level for the entire dataset can 
+be
+ interactively controlled by the user using a single slider. The parameter 
+controlled by that slider is again a derived variable that varies the aggre-
+gate level of detail shown in a smooth and continuous way. Figure 13.9 
+shows a dataset with eight attributes and 230,000 items at different lev-
+els of detail. Figure 13.9(a) is the highest-level overview showing the single 
+top-level cluster, with very broad bands of green. Figure 13.9(b) is the mid-
+level view showing several clusters, where the extents of the tan cluster are 
+clearly distinguishable from the now-smaller green one. Figure 13.9(c) is 
+a more detailed view with dozens of clusters that have tighter bands; the 
+proximity-based coloring mitigates the effect of occlusion. 
+Idiom Hierarchical Parallel Coordinates 
+What: Data Table. 
+What: Derived Cluster hierarchy atop original table of items. Five 
+per-cluster
+ attributes: count, mean, min, max, depth. 
+How: Encode Parallel coordinates. Color clusters by proximity in 
+hier
+archy. 
+How: Reduce Interactive item aggregation to change level of detail. 
+Scale Items: 10,000–100,000. Clusters: one dozen.
+
+===PAGE 338===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.4.
+Aggregate 313
+(a)
+ (b)
+ (c) 
+Figure 13.10. Modiﬁable Areal Unit Problem (MAUP) example, showing how different boundaries for aggregation 
+regions lead to very different visual patterns on choropleth maps. (a) Central region is high density. (b) Central region 
+is medium density. (c) Central region is low density. From http:/ /www.e-education.psu.edu/geog486/l4 p7.html, 
+Figure
+ 4.cg.6. 
+13.4.2 Spatial Aggregation 
+The challenge of spatial aggregation is to take the spatial nature of 
+data into account correctly when aggregating it. In the cartography 
+literature, the modiﬁable areal unit problem (MAUP) is a major con-
+cern: changing the boundaries of the regions used to analyze data 
+can yield dramatically different results. Even if the number of units 
+and their size does not change, any change of spatial grouping can 
+lead to a very signiﬁcant change in analysis results. Figure 13.10 
+shows an example, where the same location near the middle of the 
+map has a different density level depending on the region bound-
+aries: high in Figure 13.10(a), medium in Figure 13.10(b), and low 
+in Figure 13.10(c). Moreover, changing the scale of the units also 
+leads to different results. The problem of gerrymandering, where 
+the boundaries of voting districts are manipulated for political gain, 
+is the instance of the MAUP best known to the general public. 
+Example: Geographically Weighted Boxplots 
+The geowigs family of idioms, namely, geographically weighted interac-
+tive
+ graphics, provides sophisticated support for spatial aggregation using 
+geographically weighted regression and geographically weighted summary 
+statistics [Dykes and Brunsdon 07]. Figure 13.11 shows a multivariate 
+geographic dataset used to explore social issues in 19th century France. 
+The six quantitative attributes are population per crime against persons 
+(x1), population per crime against property (x2), percentage who can read
+
+===PAGE 339===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+314
+13. Reduce Items and Attributes
+(a)
+ (b) 
+(c)
+ (d) 
+Figure 13.11. Geowigs are geographically weighted interactive graphics. (a) A choropleth map showing attribute 
+x1. (b) The set of gw-boxplots for all six attributes at two scales. (c) Weighting maps showing the scales: local and 
+larger. (d) A gw-mean map at the larger scale. From [Dykes and Brunsdon 07, Figures 7a and 2].
+
+===PAGE 340===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.4.
+Aggregate 315
+and
+ write (x3), donations to the poor (x4), population per illegitimate birth 
+(x5), and population per suicide (x6).
+Figure 13.11(a) shows a standard choropleth map colored by personal 
+crime attribute x1, with the interactively selected region Creuse (23) high-
+lighted. Figure 13.11(b) shows gw-boxplots for all six attributes, at two 
+scales. The gw-boxplot, a geographically weighted boxplot geowig, sup-
+ports comparison between the global distribution and the currently chosen 
+spatial scale using the design choice of superimposed layers. The global 
+statistical distribution is encoded by the gray boxplot in the background, 
+and the local statistics for the interactively chosen scale are encoded by 
+a foreground boxplot in green. Figure 13.11(c) shows the weighting maps 
+for the currently chosen scale of each gw-boxplot set: very local on top, 
+and a larger scale on the bottom. Figure 13.11(d) shows a gw-mean map, 
+a geographically weighted mean geowig, weighted according to the same 
+larger scale. 
+‣
+ Choropleth maps are 
+covered in Section 8.3.1. 
+‣
+ Boxplots are covered in 
+Section 13.4.1. 
+At the local level, the ﬁrst x1 attribute is clearly an outlier in the gw-
+boxplot, matching that region’s pale color in the choropleth map. When 
+weighted according to a larger scale, that attribute’s distribution is close 
+to the global one in both the boxplot, matching the mid-range color in the 
+gw-mean map geowig in Figure 13.11(d). 
+Idiom Geographically Weighted Boxplots 
+What: Data Geographic geometry with area boundaries. Table: 
+Ke
+y attribute (area), several quantitative value at-
+tributes. Table: Five-number statistical summary dis-
+tributions for each original attribute. 
+What: Derived Multidimensional table: key attribute (area), key at-
+trib
+ute (scale), quantitative value attributes (geo-
+graphically weighted statistical summaries for each 
+area at multiple scales). 
+How: Encode Boxplot. 
+How: Facet Superimposed layers: global boxplot as gray back-
+ground,
+ current-scale boxplot as green foreground. 
+How: Reduce Spatial aggregation. 
+13.4.3  Attribute Aggregation: Dimensionality Reduction 
+Just as attributes can be ﬁltered, attributes can also be aggre-
+gated, where a new attribute is synthesized to take the place of 
+multiple original attributes. A very simple approach to aggregating 
+attributes is to group them by some kind of similarity measure, and
+
+===PAGE 341===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+316
+13. Reduce Items and Attributes
+then
+ synthesize the new attribute by calculate an average across 
+that similar set. A more complex approach to aggregation is dimen-
+sionality reduction (DR), where the goal is to preserve the meaning-
+ful structure of a dataset while using fewer attributes to represent 
+the items. 
+13.4.3.1  Why and When to Use DR? 
+In the family of idioms typically called dimensionality reduction, 
+the goal is to preserve the meaningful structure of a dataset while 
+using fewer attributes to represent the items.* The rationale that 
+a small set of new synthetic attributes might be able to faithfully 
+represent most of the structure or variance in the dataset hinges 
+on the assumption that there is hidden structure and signiﬁcant 
+redundancy in the original dataset because the underlying latent 
+variables could not be measured directly. 
+*
+ The words attribute ag-
+gregation, attribute syn-
+thesis, and dimensional-
+ity reduction (DR) are all 
+synonyms. The term di-
+mensionality reduction is 
+very common in the litera-
+ture. I use attribute aggre-
+gation as a name to show 
+where this design choice ﬁts 
+into the taxonomy of the 
+book; it is not a typical us-
+age by other authors. Al-
+though the term dimension-
+ality reduction might logi-
+cally seem to include at-
+tribute ﬁltering, it is more 
+typically used to mean at-
+tribute synthesis through 
+aggregation. 
+Nonlinear methods for dimensionality reduction are used when 
+the new dimensions cannot be expressed in terms of a straight-
+forward combination of the original ones. The multidimensional 
+scaling (MDS) family of approaches includes both linear and non-
+linear variants, where the goal is to minimize the differences in 
+distances between points in the high-dimensional space versus the 
+new lower-dimensional space. 
+Example:
+ Dimensionality Reduction for Document Collections 
+A situation where dimensionality reduction is frequently used is when 
+users are faced with the need to analyze a large collection of text docu-
+ments, ranging from thousands to millions or more. Although we typically 
+read text when confronted with only a single document, document collec-
+tion vis is typically used in situations where there are so many documents 
+in the collection that simply reading each one is impractical. Document 
+collections are not directly visualizeable, but they can be transformed into 
+a dataset type that is: a derived high-dimensional table. 
+‣
+ Deriving new data is dis-
+cussed in Section 3.4.2.3. 
+Text documents are usually transformed by ignoring the explicit lin-
+ear ordering of the words within the document and treating it as a bag of 
+words: the number of times that each word is used in the document is 
+simply counted. The result is a large feature vector, where the elements 
+in the vector are all of the words in the entire document collection. Very 
+common words are typically eliminated, but these vectors can still con-
+tain tens of thousands of words. However, these vectors are very sparse, 
+where the overwhelming number of values are simply zero: any individual 
+document contains only a tiny fraction of the possible words.
+
+===PAGE 342===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.4.
+Aggregate 317
+The
+ result of this transformation is a derived table with a huge number 
+of quantitative attributes. The documents are the items in the table, and 
+the attribute value for a particular word contains the number of times that 
+word appears in the document. Looking directly at these tables is not very 
+interesting. 
+This enormous table is then transformed into a much more compact 
+one by deriving a much smaller set of new attributes that still represents 
+much of the structure in the original table using dimensionality reduction. 
+In this usage, there are two stages of constructing derived data: from a 
+document collection to a table with a huge number of attributes, and then 
+a second step to get down to a table with the same number of items but 
+just a few attributes. 
+The bag-of-words DR approach is suitable when the goal is to ana-
+lyze the differential distribution of words between the documents, or to 
+ﬁnd clusters of related documents based on common word use between 
+them. The dimensionally reduced data is typically shown with a scatter-
+plot, where the user’s goal is cluster discovery: either to verify an existing 
+conjecture about cluster structure or to ﬁnd previously unknown cluster 
+structure. 
+Images, videos, and other multimedia documents are usually trans-
+formed to create derived attributes in a similar spirit to the transforma-
+tions done to text documents. One major question is how to derive new 
+attributes that compactly represent an image as a set of features. The 
+features in text documents are relatively easy to identify because they’re 
+based on the words; even in this case, natural language processing tech-
+niques are often used to combine synonyms and words with the same 
+stem together. Image features typically require even more complex com-
+putations, such as detecting edges within the image or the set of col-
+ors it contains. Processing individual videos to create derived feature 
+data can take into account temporal characteristics such as interframe 
+coherence. 
+A typical analysis scenario is complex enough that it is useful to break 
+it down into a chained sequence, rather than just analyzing it as a sin-
+gle instance. In the ﬁrst step, a low-dimensional table is derived from 
+the high-dimensional table using multidimensional scaling. In the second 
+step, the low-dimensional data is encoded as a color-coded scatterplot, 
+according to a conjectured clustering. The user’s goal is a discovery task, 
+to verify whether there are visible clusters and identify those that have 
+semantic meaning given the documents that comprise them. Figure 13.12 
+shows a scatterplot view of a real-world document collection dataset, di-
+mensionally reduced with the Glimmer multidimensional scaling (MDS) 
+algorithm [Ingram et al. 09]. In this scenario, the user can interactively 
+navigate within the scatterplot, and selecting a point shows document key-
+words in a popup display and the full text of the document in another view. 
+In the third step, the user’s goal is to produce annotations by adding text 
+labels to the veriﬁed clusters. Figure 13.13 summarizes this what–why– 
+how analyis.
+
+===PAGE 343===
+o
+o
+o
+o
+o
+o
+o
+o
+318
+13. Reduce Items and Attributes
+Figure 13.12. Dimensionality reduction of a large document collection using Glimmer for multidimensional scaling. 
+The results are laid out in a single 2D scatterplot, allowing the user to verify that the conjectured clustering shown 
+with color coding is partially supported by the spatial layout. From [Ingram et al. 09, Figure 8]. 
+Task 1 
+I n 
+HD data 
+Out 
+2D data 
+ProduceIn High- 
+dimensional data 
+Why?What? 
+Derive 
+I n 
+2D data 
+Task 2 
+Out 2D data 
+How?Why?What? 
+Encode 
+Navigate 
+Selec t 
+Discover 
+Explore 
+Identify 
+In 2D data 
+Out Scatterplot 
+Out Clusters & 
+points 
+Out 
+Scatterplot 
+Clusters & points 
+Task 3 
+I n 
+Scatterplot 
+Clusters & points 
+Out 
+Labels for 
+clusters 
+Why?What? 
+Produce 
+Annotate 
+In Scatterplot 
+In Clusters & points 
+Out Labels for 
+clusters 
+wombat 
+Figure 13.13. A chained sequence of what–why–how analysis instances for the scenario of dimensionality reduction 
+of document collection data.
+
+===PAGE 344===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.4.
+Aggregate 319
+Idiom Dimensionality Reduction for Document Collections 
+What: Data Text document collection. 
+What: Derived Table with 10,000 attributes. 
+What: Derived Table with two attributes. 
+How: Encode Scatterplot, colored by conjectured clustering. 
+How: Reduce Attribute aggregation (dimensionality reduction) with 
+MDS
+. 
+Scale Original attributes: 10,000. Derived attributes: two. 
+Items:
+ 100,000. 
+13.4.3.2  How to Show DR Data? 
+With standard dimensionality reduction techniques, the user 
+chooses the number of synthetic attributes to create. When the 
+target number of new attributes is two, the dimensionally reduced 
+data is most often shown as a scatterplot. When more than two 
+synthetic attributes are created, a scatterplot matrix (SPLOM) may 
+be a good choice. Although in general scatterplots are often used 
+to check for correlation between two attributes, that is not the goal 
+when inspecting scatterplots of dimensionally reduced data. The 
+point of dimensionality reduction is to automatically collapse cor-
+related dimensions together into new synthetic dimensions; the 
+techniques are designed so that these new dimensions will not be 
+correlated. The tasks with scatterplots of dimensionally reduced 
+data are to verify or ﬁnd whether the data items form meaningful 
+clusters and to verify or check whether the new synthetic attributes 
+are meaningful. 
+For both of these tasks, an important function is to be able 
+to select a low-dimensional point in the scatterplot and inspect 
+the high-dimensional data that it represents. Typically, the user 
+investigates by clicking on points and seeing if the spatial layout 
+implied by the low-dimensional positions of the points seems to 
+properly reﬂect the high-dimensional space. 
+Sometimes the dataset has no additional information, and the 
+scatterplot is simply encoding two-dimensional position. In many 
+cases there is a conjectured categorization of the points, which are 
+colored according to those categories. The task is then to check 
+whether the patterns of colors match up well with the patterns of 
+the spatial clusters of the reduced data, as shown in Figure 13.12.
+
+===PAGE 345===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+320
+13. Reduce Items and Attributes
+When
+ you are interpreting dimensionally reduced scatterplots it 
+is important to remember that only relative distances matter. The 
+absolute position of clusters is not meaningful; most techniques 
+create layouts where the image would have the same meaning if it 
+is rotated in an arbitrary direction, reﬂected with mirror symmetry 
+across any line, or rescaled to a different size.*
+Another caution is that this inspection should be used only 
+to ﬁnd or verify large-scale cluster structure. The ﬁne-grained 
+structure in the lower-dimensional plots should not be considered 
+strongly reliable because some information is lost in the reduction. 
+That is, it is safe to assume that major differences in the distances 
+between points are meaningful, but minor differences in distances 
+may not be a reliable signal. 
+Empirical studies have shown that two-dimensional scatter-
+plots or SPLOMS are the safest idiom choices for inspecting di-
+mensionally reduced data [Sedlmair et al. 13]. While the idiom 
+of three-dimensional scatterplots has been proposed many times, 
+they are susceptible to all of the problems with 3D representations. 
+As discussed in Section 6.3, they are an example of the worst possi-
+ble case for accurate depth perception, an abstract cloud of points 
+ﬂoating in three-dimensional space. Although some systems use 
+the idiom of 3D landscapes for dimensionally reduced data, this 
+approach is similarly problematic, for reasons also covered in Sec-
+tion 6.3. 
+*
+ In mathematical ter-
+minology, the layouts are 
+afﬁne invariant. 
+13.5  Further Reading 
+Filtering Early work in dynamic queries popularized ﬁltering with 
+tightly coupled views and extending standard widgets to bet-
+ter support these queries [Ahlberg and Shneiderman 94]. 
+Scented Widgets Scented widgets [Willett et al. 07] allude to the idea 
+of information scent proposed within the theory of informa-
+tion foraging from Xerox PARC [Pirolli 07]. 
+Boxplots The boxplot was originally proposed by Tukey and popu-
+larized through his inﬂuential book on Exploratory Data Anal-
+ysis [Tukey 77]. A recent survey paper discusses the many 
+variants of boxplots that have been proposed in the past 40 
+years [Wickham and Stryjewski 12]. 
+Hierarchical Aggregation A general conceptual framework for analyz-
+ing hierarchical aggregation is presented in a recent paper
+
+===PAGE 346===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+13.5.
+Further Reading 321
+[Elmqvist
+ and Fekete 10]. Earlier work presented hierarchical 
+parallel coordinates [Fua et al. 99]. 
+Spatial Aggregation The Modiﬁable Areal Unit Problem is covered in 
+a recent handbook chapter [Wong 09]; a seminal booklet lays 
+out the problem in detail [Openshaw 84]. Geographically 
+weighted interactive graphics, or geowigs for short, support 
+exploratory analysis that explicitly takes scale into account 
+[Dykes and Brunsdon 07]. 
+Attribute Reduction DOSFA [Yang et al. 03a] is one of many ap-
+proaches to attribute reduction from the same group [Peng 
+et al. 04, Yang et al. 04, Yang et al. 03b]. The DimStiller system 
+proposes a general framework for attribute reduction [Ingram 
+et al. 10]. An extensive exploration of similarity metrics for 
+dimensional aggregation was inﬂuential early work [Ankerst 
+et al. 98]. 
+Dimensionality Reduction The foundational ideas behind multidimen-
+sional scaling were ﬁrst proposed in the 1930s [Young and 
+Householder 38], then further developed in the 1950s [Torg-
+erson 52]. An early proposal for multidimensional scaling 
+(MDS) in the vis literature used a stochastic force simulation 
+approach [Chalmers 96]. The Glimmer system exploits the 
+parallelism of graphics hardware for MDS; that paper also 
+discusses the history and variants of MDS in detail [Ingram 
+et al. 09]. Design guidelines for visually encoding dimen-
+sionally reduced data suggest avoiding the use of 3D scat-
+terplots [Sedlmair et al. 13].
+
+===PAGE 347===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+Embed 
+Elide Data 
+Superimpose Layer 
+Distor t Geometr y 
+Reduce 
+Filter 
+Aggregate 
+Embed 
+Figure 14.1. Design choices for embedding focus information within context.
+
+===PAGE 348===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+Chapter
+ 14 
+Embed: Focus+Context 
+14.1  The Big Picture 
+The family of idioms known as focus+context are based on the de-
+sign choice to embed detailed information about a selected set—the 
+focus—within a single view that also contains overview informa-
+tion about more of the data—the context. These idioms reduce the 
+amount of data to show in the view through sophisticated combi-
+nations of ﬁltering and aggregation. The design considerations are 
+sufﬁciently complex that embedding is addressed separately in the 
+analysis framework as a special case. A very large family of speciﬁc 
+idioms that use some form of focus+context embedding has been 
+proposed.* 
+One design choice for embedding is to elide items, where some 
+items are ﬁltered out completely while others are summarized us-
+ing dynamic aggregation for context; only the focus items are shown 
+in detail. Another choice is to superimpose layers, where a local 
+region of focus information can be moved against the background 
+layer of contextual information. A third choice is to distort the ge-
+ometry, where context regions are compressed to make room for 
+magniﬁed focus regions. In all of these cases, there is a choice 
+of single or multiple regions of focus. With geometric distortion, 
+there are choices for region shape, region extent, and interaction 
+metaphor. Figure 14.1 summarizes this set of design choices. 
+*
+ Many names are es-
+sentially synonyms for 
+or special cases of fo-
+cus+context : bifocal dis-
+plays, degree-of-interest 
+models, detail in con-
+text, distortion-oriented 
+presentations, distortion 
+viewing, elastic presen-
+tation spaces, ﬁsheye 
+lens, generalized ﬁsheye 
+views, hyperbolic geom-
+etry, multifocal displays, 
+nonlinear magniﬁcation 
+ﬁelds, pliable surfaces, 
+polyfocal projections, 
+rubber sheet navigation, 
+and stretch and squish 
+navigation. 
+14.2  Why Embed? 
+The goal of embedding focus and context together is to mitigate the 
+potential for disorientation that comes with standard navigation 
+techniques such as geometric zooming. With realistic camera mo-
+tion, only a small part of world space is visible in the image when 
+the camera is zoomed in to see details for a small region. With
+‣
+ Zooming is discussed in 
+Section 11.5.1.
+323
+
+===PAGE 349===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+324
+14. Embed: Focus+Context
+geometric
+ navigation and a single view that changes over time, the 
+only way to maintain orientation is to internally remember one’s 
+own navigation history. Focus+context idioms attempt to support 
+orientation by providing contextual information intended to act as 
+recognizable landmarks, using external memory to reduce internal 
+cognitive load.
+Focus+context idioms are thus an example of nonliteral navi-
+gation, in the same spirit as semantic zooming. The shared idea 
+with all of them is that a subset of the dataset items are interac-
+tively chosen by the user to be the focus and are drawn in detail. 
+The visual encoding also includes information about some or all 
+of the rest of the dataset shown for context, integrated into and 
+embedded within the same view that shows the focus items. Some 
+idioms achieve this selective presentation without the use of geo-
+metric distortion, but many use carefully chosen distortion to com-
+bine magniﬁed focus regions and minimized context regions into a 
+uniﬁed view. 
+Embedding idioms cannot be fully understood when considered 
+purely from the visual encoding point of view or purely from the 
+interaction point of view; they are fundamentally a synthesis of 
+both. The key idea of focus+context is that the focus set changes 
+dynamically as the user interacts with the system, and thus the 
+visual representation also changes dynamically. Many of the id-
+ioms involve indirect control, where the focus set is inferred via 
+the combination of the user’s navigation choices and the inherent 
+structure of the dataset. 
+14.3  Elide 
+One design choice for embedding is elision: some items are omitted 
+from the view completely, in a form of dynamic ﬁltering. Other 
+items are summarized using dynamic aggregation for context, and 
+only the focus items are shown in detail. 
+A general framework for reasoning about these three sets of 
+items is a degree of interest (DOI) function: DOI = I (x) _ D(x, y). 
+In this equation, I is an interest function; D is the distance, either 
+semantic or spatial; x is the location of an item; y is the current 
+focus point [Furnas 86]. There could be only one focus point, or 
+multiple independent foci. The DOI function can be thought of as 
+a continuous function that does not explicitly distinguish between 
+focus items to show in detail, context items to aggregate, and com-
+
+===PAGE 350===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+14.3.
+Elide 325
+pletely
+ elided items to ﬁlter out. Those interpretations are made by 
+algorithms that use the function, often based on threshold values. 
+These interest functions typically exploit knowledge about dataset 
+structure, especially hierarchical relationships. For example, if a 
+few subsections of a document were selected to be the foci, then a 
+good context would be their enclosing sections. 
+Example:
+ DOITrees Revisited 
+The DOITrees Revisited system shown in Figure 14.2 uses multiple foci 
+to show an elided version of a 600,000 node tree. The shaded triangles 
+provide an aggregate representation showing the size of the elided sub-
+trees. The context in which to show them is computed using tree traversal 
+from the many focus nodes up toward their common ancestors and the 
+tree root. In this case, distance is computed topologically based on hops 
+through the tree, rather than geometrically through Euclidean space. The 
+focus nodes can be chosen explicitly by clicking, or indirectly through 
+searching. 
+Figure 14.2. DOITrees Revisited uses elision to show multiple focus nodes within 
+context in a 600,000 node tree. From [Heer and Card 04, Figure 1]. 
+System DOITrees Revisited 
+What: Data Tree. 
+How: Encode Node–link layout. 
+How: Reduce Embed: elide, multiple foci. 
+Scale Nodes: hundreds of thousands.
+
+===PAGE 351===
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+ο
+326
+14. Embed: Focus+Context
+14.4  Superimpose 
+Another choice for integrating focus and context is the use of su-
+perimposed layers. In this case, the focus layer is limited to a local 
+region, rather than being a global layer that stretches across the 
+entire view to cover everything. 
+‣
+ Superimposing layers 
+globally is discussed in 
+Section 12.5. 
+Example:
+ Toolglass and Magic Lenses 
+The Toolglass and Magic Lenses system shown in Figure 14.3 uses a see-
+through lens to show color-coded Gaussian curvature in a foreground 
+layer, atop the background layer consisting of the rest of the 3D scene. 
+Within the lens, details are shown, and the unchanged remainder of the 
+other view provides context. The lens layer occludes the region beneath 
+it. The system handled many different kinds of data with different visual 
+encodings of it; this example shows 3D spatial data. The curvature lens 
+shows that the object in the scene that appears to be a perfect sphere 
+when rendered with standard computer graphics techniques is in fact a 
+faceted object made from multiple patches. 
+Figure
+ 14.3. The Toolglass and Magic Lenses idiom provides focus and context 
+through a superimposed local layer: the see-through lens color codes the patch-
+work sphere with Gaussian curvature information and provides a numeric value for 
+the point at the center. From [Bier et al. 93, Figure 12]. 
+System Toolglass and Magic Lenses 
+What: Data Spatial, quantitative curvature attribute across sur-
+f
+ace. 
+How: Encode Use given, color by curvature. 
+How: Reduce Embed: superimpose.

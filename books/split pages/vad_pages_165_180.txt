@@ -1,0 +1,924 @@
+ο
+
+ο
+
+ο
+
+ο
+
+6.11. Further Reading
+
+141
+
+is usually not possible.  My argument mirrors the claims I made in 
+the ﬁrst chapter about the size of the vis design space and the fact 
+that most designs are ineffective. 
+
+Equally important is the point that I don’t advocate “form never”: 
+visual beauty does indeed matter, given that vis makes use of hu-
+man  visual  perception.  Given  the  choice  of  two  equally  effective 
+systems, where one is beautiful and one is ugly, people will prefer 
+the better form.  Moreover, good visual form enhances the effective-
+ness of visual representations. 
+
+I don’t focus on teaching the principles and practice of graphic 
+design  in  this  book  because  they  are  covered  well  by  many  other 
+sources.  I  focus  on  the  principles  of  vis  effectiveness  because  of 
+the lack of other resources. 
+
+6.11 
+
+Further Reading 
+
+No Unjustiﬁed 3D  The  differences  between  planar  and  depth  spatial 
+perception  and  the  characteristics  of  3D  depth  cues  are  dis-
+cussed at length in both of Ware’s books [Ware 08, Ware 13]. 
+An in-depth discussion of the issues of 2D versus 3D [St. John 
+et  al.  01]  includes  references  to  many  previous  studies  in 
+the human factors and air trafﬁc control literature including 
+the  extensive  work  of  Wickens.  Several  careful  experiments 
+overturned previous claims of 3D beneﬁts over 2D [Cockburn 
+and McKenzie 00, Cockburn and McKenzie 01, Cockburn and 
+McKenzie 04]. 
+
+Memory  Ware’s textbook is an excellent resource for memory and at-
+tention as they relate to vis [Ware 13], with much more detail 
+than  I  provide  here.  A  recent  monograph  contains  an  inter-
+esting and thorough discussion of supporting and exploiting 
+spatial memory in user interfaces [Scarr et al. 13]. 
+
+Animation  An  inﬂuential  paper  on  incorporating  the  principles  of 
+hand-drawn animation into computer graphics discusses the 
+importance of choreography to guide the viewer’s eyes during 
+narrative  storytelling  [Lasseter  87].  A  meta-review  of  anima-
+tion argues that many seemingly promising study results are 
+confounded  by  attempts  to  compare  incommensurate  situa-
+tions;  the  authors  ﬁnd  that  small  multiples  are  better  than 
+animation if equivalent information is shown [Tversky et al. 02] 
+and  the  segmentation  is  carefully  chosen  [Zacks  and  Tver-
+sky  03].  An  empirical  study  found  that  while  trend  anima-
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+142
+
+6. Rules of Thumb
+
+tion was fast and enjoyable when used for presentation it did 
+lead to errors, and it was signiﬁcantly slower than both small 
+multiples and trace lines  for exploratory analysis [Robertson 
+et al. 08]. 
+
+Change Blindness  A  survey  paper  is  a  good  starting  point  for  the 
+
+change blindness literature [Simons 00]. 
+
+Overview, Zoom and Filter, Details on Demand  This  early  and  inﬂuen-
+tial  mantra  about  overviews  is  presented  in  a  very  readable 
+paper  [Shneiderman  96].  More  recently,  a  synthesis  review 
+analyzes  the  many  ways  that  overviews  are  used  in  infovis 
+[Hornbæk and Hertzum 11]. 
+
+Responsiveness Is Required  Card pioneered the discussion of latency 
+
+classes for vis and human–computer interaction [Card et al. 91]; 
+an  excellent  book  chapter  covering  these  ideas  appears  in  a 
+very accessible book on interface design [Johnson 10, Chap-
+ter 12].  The costs of interaction are discussed in a synthesis 
+review [Lam 08] and a proposed framework for interaction [Yi 
+et al. 07]. 
+
+Get It Right in Black and White  A  blog  post  on  Get  It  Right  in  Black 
+and  White  is  a  clear  and  concise  starting  point  for  the  topic 
+[Stone 10]. 
+
+Function First, Form Next  A  very  accessible  place  to  start  for  basic 
+graphic design guidelines is The Non-Designer’s Design Book 
+[Williams 08].
+
+ο
+
+ο
+
+ο
+
+ο
+
+О
+
+О
+
+О
+
+О
+
+О
+
+О
+
+О
+
+О
+
+ο
+
+ο
+
+ο
+
+ο
+
+Arrange Tables 
+
+Express Values 
+
+Separate, Order, Align Regions 
+
+Separate
+
+Order
+
+Align 
+
+1 Key
+List 
+
+2  Keys
+Matrix 
+
+3 Keys 
+Volume
+
+Many Keys 
+Recursive Subdivision
+
+Axis Orientation 
+
+Rectilinear
+
+Parallel
+
+Radial 
+
+Layout Density 
+
+Dense
+
+Space-Filling 
+
+Figure 7.1. Design choices for arranging tables.
+
+ο
+
+ο
+
+ο
+
+ο
+
+О
+
+О
+
+О
+
+О
+
+Chapter  7 
+
+Arrange Tables 
+
+7.1 
+
+The Big Picture 
+
+Figure 7.1 shows the four visual encoding design choices for how 
+to  arrange  tabular  data  spatially.  One  is  to  express  values.  The 
+other  three  are  to  separate,  order,  and  align  regions.  The  spatial 
+orientation  of  axes  can  be  rectilinear,  parallel,  or  radial.  Spatial 
+layouts may be dense, and they may be space-ﬁlling. 
+
+‣  A  ﬁfth  arrangement 
+choice, to use a given spa-
+tial  layout,  is  not  an  option 
+for nonspatial information; it 
+is covered in Chapter 8. 
+
+7.2  Why Arrange? 
+
+The  arrange  design  choice  covers  all  aspects  of  the  use  of  spatial 
+channels  for  visual  encoding.  It  is  the  most  crucial  visual  encod-
+ing  choice  because  the  use  of  space  dominates  the  user’s  mental 
+model of the dataset.  The three highest ranked effectiveness chan-
+nels for quantitative and ordered attributes are all related to spatial 
+position:  planar position against a common scale, planar position 
+along an unaligned scale, and length.  The highest ranked effectiv-
+ness channel for categorical attributes,  grouping items within the 
+same  region,  is  also  about  the  use  of  space.  Moreover,  there  are 
+no  nonspatial  channels  that  are  highly  effective  for  all  attribute 
+types:  the  others  are  split  into  being  suitable  for  either  ordered 
+or categorical attributes, but not both, because of the principle of 
+expressiveness. 
+
+7.3  Arrange by Keys and Values 
+
+‣  The  primacy  of  the  spa-
+tial position channels is dis-
+cussed  at  length  in  Chap-
+ter  5,  as  are  the  principles 
+of effectiveness and expres-
+siveness. 
+
+The distinction between key and value attributes is very relevant to 
+visually encoding table data. A key is an independent attribute that 
+can be used as a unique index to look up items in a table, while a 
+value  is  a  dependent  attribute:  the  value  of  a  cell  in  a  table.  Key 
+attributes can be categorical or ordinal, whereas values can be all
+
+‣  See  Section  2.6.1  for 
+more on keys and values.
+
+145
+
+О
+
+О
+
+О
+
+О
+
+ο
+
+ο
+
+ο
+
+ο
+
+146
+
+7. Arrange Tables
+
+three of the types:  categorical, ordinal, or quantitative.  The unique 
+values  for  a  categorical  or  ordered  attribute  are  called  levels,  to 
+avoid the confusion of overloading the term value.
+
+The core design choices for visually encoding tables directly re-
+late to the semantics of the table’s attributes:  how many keys and 
+how  many  values  does  it  have?  An  idiom  could  only  show  val-
+ues, with no keys; scatterplots are the canonical example of show-
+ing  two  value  attributes.  An  idiom  could  show  one  key  and  one 
+value attribute; bar charts are the best-known example.  An idiom 
+could show two keys and one value; for example, heatmaps. Idioms 
+that show many keys and many values often recursively subdivide 
+space into many regions, as with scatterplot matrices. 
+
+While  datasets  do  only  have  attributes  with  value  semantics, 
+it  would  be  rare  to  visually  encode  a  dataset  that  has  only  key 
+attributes.  Keys  are  typically  used  to  deﬁne  a  region  of  space  for 
+each item in which one or more value attributes are shown. 
+
+7.4  Express: Quantitative Values 
+
+Using space to express quantitative attributes is a straightforward 
+use  of  the  spatial  position  channel  to  visually  encode  data.  The 
+attribute is mapped to spatial position along an axis. 
+
+In the simple case of encoding a single value attribute, each item 
+is encoded with a mark at some position along the axis.  Additional 
+attributes  might  also  be  encoded  on  the  same  mark  with  other 
+nonspatial channels such as color and size.  In the more complex 
+case,  a  composite  glyph  object  is  drawn,  with  internal  structure 
+that arises from multiple marks. Each mark lies within a subregion 
+in  the  glyph  that  is  visually  encoded  differently,  so  the  glyph  can 
+show multiple attributes at once. 
+
+Example: Scatterplots 
+
+The  idiom  of  scatterplots  encodes  two  quantitative  value  variables  using 
+both  the  vertical  and  horizontal  spatial  position  channels,  and  the  mark 
+type is necessarily a point. 
+
+Scatterplots are effective for the abstract tasks of providing overviews 
+and  characterizing  distributions,  and  speciﬁcally  for  ﬁnding  outliers  and 
+extreme values.  Scatterplots are also highly effective for the abstract task 
+of  judging  the  correlation  between  two  attributes.  With  this  visual  en-
+coding,  that  task  corresponds  the  easy  perceptual  judgement  of  noticing
+
+‣  Glyphs  and  views  are 
+discussed  further  in  Sec-
+tion 12.4. 
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+7.4. Express: Quantitative Values
+
+147
+
+Figure  7.2.  Scatterplot.  Each  point  mark  represents  a  country,  with  horizontal 
+and vertical spatial position encoding the primary quantitative attributes of life ex-
+pectancy and infant mortality. The color channel is used for the categorical country 
+attribute and the size channel for quantitative population attribute.  From [Robert-
+son et al. 08, Figure 1c]. 
+
+whether the points form a line along the diagonal.  The stronger the cor-
+relation,  the  closer  the  points  fall  along  a  perfect  diagonal  line;  positive 
+correlation  is  an  upward  slope,  and  negative  is  downward.  Figure  7.2 
+shows a highly negatively correlated dataset. 
+
+Additional transformations can also be used to shed more light on the 
+data.  Figure  7.3(a)  shows  the  relationship  between  diamond  price  and 
+weight.  Figure  7.3(b)  shows  a  scatterplot  of  derived  attributes  created 
+by  logarithmically  scaling  the  originals;  the  transformed  attributes  are 
+strongly positively correlated.
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+148
+
+7. Arrange Tables
+
+(a)
+
+(b) 
+
+Figure 7.3. Scatterplots. (a) Original diamond price/carat data. (b) Derived log-scale attributes are highly positively 
+correlated. From [Wickham 10, Figure 10]. 
+
+When  judging  correlation  is  the  primary  intended  task,  the  derived 
+data of a calculated regression line is often superimposed on the raw scat-
+terplot of points, as in Figures  7.3(b) and 1.3. 
+
+Scatterplots  are  often  augmented  with  color  coding  to  show  an  addi-
+tional  attribute.  Size  coding  can  also  portray  yet  another  attribute;  size-
+coded scatterplots are sometimes called bubble plots.  Figure 7.2 shows an 
+example of demographic data, plotting infant mortality on the vertical axis 
+against life expectancy on the horizontal axis. 
+
+The  scalability  of  a  scatterplot  is  limited  by  the  need  to  distinguish 
+points from each other, so it is well suited for dozens or hundreds of items. 
+The table below summarizes this discussion in terms of a what–why– 
+how  analysis  instance.  All  of  the  subsequent  examples  will  end  with  a 
+similar summary table. 
+
+Idiom
+What: Data
+How: Encode
+
+Why: Task
+
+Scale
+
+Scatterplots 
+Table: two quantitative value attributes. 
+Express  values  with  horizontal  and  vertical  spatial 
+position and point marks. 
+Find trends, outliers, distribution, correlation;  locate 
+clusters. 
+Items: hundreds.
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+7.5. Separate, Order, and Align: Categorical Regions
+
+149
+
+7.5  Separate, Order, and Align: 
+Categorical Regions 
+
+The use of space to encode categorical attributes is more complex 
+than  the  simple  case  of  quantitative  attributes  where  the  value 
+can  be  expressed  with  spatial  position.  Spatial  position  is  an  or-
+dered  magnitude  visual  channel,  but  categorical  attributes  have 
+unordered  identity  semantics.  The  principle  of  expressiveness 
+would be violated if they are encoded with spatial position. 
+
+The semantics of categorical attributes does match up well with 
+the idea of a spatial region:  regions are contiguous bounded areas 
+that are distinct from each other.  Drawing all of the items with the 
+same values for a categorical attribute within the same region uses 
+spatial proximity to encode the information about their similarity, 
+in  a  way  that  adheres  nicely  to  the  expressiveness  principle.  The 
+choice  to  separate  into  regions  still  leaves  enormous  ﬂexibility  in 
+how to encode the data within each region: that’s a different design 
+choice.  However,  these  regions  themselves  must  be  given  spatial 
+positions on the plane in order to draw any speciﬁc picture. 
+
+The  problem  becomes  easier  to  understand  by  breaking  down 
+the  distribution  of  regions  into  three  operations:  separating  into 
+regions, aligning the regions, and ordering the regions.  The sepa-
+ration and the ordering always need to happen, but the alignment 
+is  optional.  The  separation  should  be  done  according  to  an  at-
+tribute that is categorical, whereas alignment and ordering should 
+be  done  by  some  other  attribute  that  is  ordered.  The  attribute 
+used to order the regions must have ordered semantics, and thus 
+it  cannot  be  the  categorical  one  that  was  used  to  do  the  separa-
+tion.  If alignment is done, the ordered attribute used to control the 
+alignment between regions is sometimes the same one that is used 
+to  encode  the  spatial  position  of  items  within  the  region.  It’s  also 
+possible to use a different one. 
+
+7.5.1 
+
+List Alignment: One Key 
+
+With  a  single  key,  separating  into  regions  using  that  key  yields 
+one  region  per  item.  The  regions  are  frequently  arranged  in  a 
+one-dimensional  list  alignment,  either  horizontal  or  vertical.  The 
+view itself covers a two-dimensional area:  the aligned list of items 
+stretches  across  one  of  the  spatial  dimensions,  and  the  region  in 
+which the values are shown stretches across the other.
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+150
+
+7. Arrange Tables
+
+Example: Bar Charts 
+
+The  well-known  bar  chart  idiom  is  a  simple  initial  example.  Figure  7.4 
+shows  a  bar  chart  of  approximate  weights  on  the  vertical  axis  for  each 
+of  three  animal  species  on  the  horizontal  axis.  Analyzing  the  visual  en-
+coding,  bar  charts  use  a  line  mark  and  encode  a  quantitative  value  at-
+tribute  with  one  spatial  position  channel.  The  other  attribute  shown  in 
+the  chart,  animal  species,  is  a  categorical  key  attribute.  Each  line  mark 
+is indeed in a separate region of space,  and there is one for each level of 
+the  categorical  attribute.  These  line  marks  are  all  aligned  within  a  com-
+mon frame, so that the highest-accuracy aligned position channel is used 
+rather  than  the  lower-accuracy  unaligned  channel.  In  Figure  7.4(a)  the 
+regions are ordered alphabetically by species name.  Formally, the alpha-
+betical  ordering  of  the  names  should  be  considered  a  derived  attribute. 
+This  frequent  default  choice  does  have  the  beneﬁt  of  making  lookup  by 
+name  easy,  but  it  often  hides  what  could  be  meaningful  patterns  in  the 
+dataset.  Figure 7.4(b) shows this dataset with the regions ordered by the 
+values  of  the  same  value  attribute  that  is  encoded  by  the  bar  heights, 
+animal  weight.  This  kind  of  data-driven  ordering  makes  it  easier  to  see 
+dataset  trends.  Bar  charts  are  also  well  suited  for  the  abstract  task  of 
+looking up individual values. 
+
+The  scalability  issues  with  bar  charts  are  that  there  must  be  enough 
+room  on  the  screen  to  have  white  space  interleaved  between  the  bar  line 
+marks so that they are distinguishable.  A bar corresponds to a level of the 
+categorical  key  attribute,  and  it’s  common  to  show  between  several  and 
+dozens  of  bars.  In  the  limit,  a  full-screen  chart  with  1000  pixels  could 
+handle up to hundreds of bars, but not thousands. 
+
+100 
+
+75 
+
+50 
+
+25 
+
+0     
+
+100 
+
+75 
+
+50 
+
+25 
+
+0     
+
+Animal Type 
+
+(a) 
+
+Animal Type 
+
+(b) 
+
+Figure  7.4.  Bar  chart.  The  key  attribute,  species,  separates  the  marks  along 
+the horizontal spatial axis.  The value attribute, weight, expresses the value with 
+aligned vertical spatial position and line marks.  (a) Marks ordered alphabetically 
+according to species name. (b) Marks ordered by the weight attribute used for bar 
+heights.
+
+ο
+
+ο
+
+ο
+
+ο
+
+20151050     20151050     ο
+
+ο
+
+ο
+
+ο
+
+7.5. Separate, Order, and Align: Categorical Regions
+
+151
+
+Idiom
+What: Data
+
+How: Encode
+
+Why: Task
+Scale
+
+Bar Charts 
+Table: one quantitative value attribute, one categori-
+cal key attribute. 
+Line marks, express value attribute with aligned ver-
+tical  position,  separate  key  attribute  with  horizontal 
+position. 
+Lookup and compare values. 
+Key attribute: dozens to hundreds of levels. 
+
+Example: Stacked Bar Charts 
+
+A stacked bar chart uses a more complex glyph for each bar, where multiple 
+sub-bars  are  stacked  vertically.  The  length  of  the  composite  glyph  still 
+encodes a value, as in a standard bar chart, but each subcomponent also 
+encodes  a  length-encoded  value.  Stacked  bar  charts  show  information 
+about  multidimensional  tables,  speciﬁcally  a  two-dimensional  table  with 
+two  keys.  The  composite  glyphs  are  arranged  as  a  list  according  to  a 
+primary key.  The other secondary key is used in constructing the vertical 
+structure  of  the  glyph  itself.  Stacked  bar  charts  are  an  example  of  a  list 
+alignment used with more than one key attribute.  They support the task 
+of lookup according to either of the two keys. 
+
+Stacked  bar charts  typically use  color as  well  as  length  coding.  Each 
+subcomponent is colored according to the same key that is used to deter-
+mine  the  vertical  ordering;  since  the  subcomponents  are  all  abutted  end 
+to  end  without  a  break  and  are  the  same  width,  they  would  not  be  dis-
+tiguishable  without  different  coloring.  While  it  would  be  possible  to  use 
+only  black  outlines  with  white  ﬁll  as  the  rectangles  within  a  bar,  com-
+paring subcomponents across different bars would be considerably more 
+difﬁcult. 
+
+Figure  7.5  shows  an  example  of  a  stacked  bar  chart  used  to  inspect 
+information from a computer memory proﬁler.  The key used to distribute 
+composite  bars  along  the  axis  is  the  combination  of  a  processor  and  a 
+procedure.  The key used to stack and color the glyph subcomponents is 
+the type of cache miss; the height of each full bar encodes all cache misses 
+for each processor –procedure combination. 
+
+Each  component  of  the  bar  is  separately  stacked,  so  that  the  full  bar 
+height shows the value for the combination of all items in the stack.  The 
+heights  of  the  lowest  bar  component  and  the  full  combined  bar  are  both 
+easy to compare against other bars because they can be read off against 
+the  ﬂat  baseline;  that  is,  the  judgement  is  position  against  a  common 
+scale.  The  other  components  in  the  stack  are  more  difﬁcult  to  compare
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+152
+
+7. Arrange Tables
+
+Figure 7.5.  Stacked bar chart.  The Thor memory proﬁler shows cache misses 
+stacked and colored by miss type. From [Bosch 01, Figure 4.1]. 
+
+‣  Stacked  bars  are  typi-
+cally used for absolute data; 
+relative proportions of parts 
+to  a  whole  can  be  shown 
+with  a  normalized  stacked 
+bar  chart,  where  each  bar 
+shows the same information 
+as in an entire pie chart, as 
+discussed in Section 7.6.3. 
+
+across  bars  because  their  starting  points  are  not  aligned  to  a  common 
+scale.  Thus,  the  order  of  stacking  is  signiﬁcant  for  the  kinds  of  patterns 
+that are most easily visible, in addition to the ordering of bars across the 
+main axis, as with standard bar charts. 
+
+The scalability of stacked bar charts is similar to standard bar charts 
+in terms of the number of categories in the key attribute distributed across 
+the main axis, but it is more limited for the key used to stack the subcom-
+ponents  within  the  glyph.  This  idiom  works  well  with  several  categories, 
+with an upper limit of around one dozen.
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+7.5. Separate, Order, and Align: Categorical Regions
+
+153
+
+Idiom
+What: Data
+
+How: Encode
+
+Why: Task
+
+Scale
+
+Stacked Bar Charts 
+Multidimensional  table:  one  quantitative  value  at-
+tribute, two categorical key attributes. 
+Bar  glyph  with  length-coded  subcomponents  of 
+value  attribute  for  each  category  of  secondary  key 
+attribute.  Separate bars by category of primary key 
+attribute. 
+Part-to-whole  relationship, 
+trends. 
+Key attribute (main axis): dozens to hundreds of lev-
+els. Key attribute (stacked glyph axis): several to one 
+dozen 
+
+lookup  values,  ﬁnd 
+
+Example: Streamgraphs 
+
+Figure 7.6 shows a more complex generalized stacked graph display idiom 
+with  a  dataset  of  music  listening  history,  with  one  time  series  per  artist 
+counting the number of times their music was listened to each week [By-
+ron and Wattenberg 08].  The streamgraph idiom shows derived geometry 
+that emphasizes the continuity of the horizontal layers that represent the 
+artists, rather than showing individual vertical glyphs that would empha-
+size  listening  behavior  at  a  speciﬁc  point  in  time.1  The  derived  geome-
+try  is  the  result  of  a  global  computation,  whereas  individual  glyphs  can 
+be constructed using only calculations about their own local region.  The 
+streamgraph idiom emphasizes the legibility of the individual streams with 
+a deliberately organic silhouette, rather than using the horizontal axis as
+
+Figure 7.6. Streamgraph of music listening history. From [Byron and Wattenberg 08, Figure 0]. 
+
+1 In  this  case,  the  main  axis  showing  the  quantitative  time  attribute  is  horizon-
+tal;  both streamgraphs and stacked bar charts can be oriented either vertically or 
+horizontally.
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+154
+
+7. Arrange Tables
+
+(a) 
+
+(b) 
+
+Figure 7.7.  Streamgraphs with layers ordered by different derived attributes.  (a) 
+Volatility  of  artist’s  popularity.  (b)  Onset  time  when  artist’s  music  of  ﬁrst  gained 
+attention. From [Byron and Wattenberg 08, Figure 15]. 
+
+the baseline.  The shape of the layout is optimized as a trade-off between 
+multiple factors, including the external silhouette of the entire shape, the 
+deviation  of  each  layer  from  the  baseline,  and  the  amount  of  wiggle  in 
+the baseline.  The order of the layers is computed with an algorithm that 
+emphasizes a derived value; Figure 7.7 shows the difference between sort-
+ing  by  the  volatility  of  the  artist’s  popularity,  as  shown  in  Figure  7.7(a), 
+and  the  onset  time  when  they  begin  to  gain  attention,  as  shown  in  Fig-
+ure 7.7(b).
+
+Streamgraphs scale to a larger number of categories than stacked bar 
+charts, because most layers do not extend across the entire length of the 
+timeline. 
+
+Idiom
+What: Data
+
+What: Derived
+How: Encode
+
+Scale
+
+Streamgraphs 
+Multidimensional table: 
+one  quantitative  value  attribute  (counts),  one  or-
+dered  key  attribute  (time),  one  categorical  key  at-
+tribute (artist). 
+One quantitative attribute (for layer ordering). 
+Use  derived  geometry  showing  artist  layers  across 
+time, layer height encodes counts. 
+Key  attributes  (time,  main  axis):  hundreds  of  time 
+points.  Key attributes (artists, short axis):  dozens to 
+hundreds
+
+ο
+
+ο
+
+ο
+
+ο
+
+О
+
+О
+
+О
+
+О
+
+7.5. Separate, Order, and Align: Categorical Regions
+
+155
+
+Example: Dot and Line Charts 
+
+The dot chart idiom is a visual encoding of one quantitative attribute using 
+spatial position against one categorical attribute using point marks, rather 
+than the line marks of a bar chart.*  Figure 7.8(a) shows a dot chart of cat 
+weight  over  time  with  the  ordered  variable  of  year  on  the  horizontal  axis 
+and the quantitative weight of a speciﬁc cat on the vertical axis. 
+
+One  way  to  think  about  a  dot  chart  is  like  a  scatterplot  where  one 
+of  the  axes  shows  a  categorical  attribute,  rather  than  both  axes  showing 
+quantitative  attributes.  Another  way  to  think  about  a  dot  chart  is  like  a 
+bar  chart  where  the  quantitative  attribute  is  encoded  with  point  marks 
+rather than line marks;  this way matches more closely with its standard 
+use. 
+
+The  idiom  of  line  charts  augments  dot  charts  with  line  connection 
+marks  running  between  the  points.  Figure  7.8(b)  shows  a  line  chart  for 
+the same dataset side by side with the dot chart,  plotting the weight of a 
+cat over several years.  The trend of constantly increasing weight, followed 
+by loss after a veterinarian-imposed diet regime in 2010, is emphasized by 
+the connecting lines. 
+
+*  The 
+terms  dot  chart 
+and  dot  plot  are  some-
+times  used  as  synonyms 
+and have been overloaded. 
+I  use  dot  chart  here  for 
+the  idiom  popularized  by 
+Cleveland [Becker et al. 96, 
+Cleveland  and  McGill  84a], 
+whereas  Wilkinson  [Wilkin-
+son  99]  uses  dot  plot  for 
+an  idiom  that  shows  distri-
+butions  in  a  way  similar  to 
+the histograms discussed in 
+Section 13.4.1. 
+
+Idiom
+What: Data
+
+How: Encode
+
+Dot Charts 
+Table:  one quantitative value attribute, one ordered 
+key attribute. 
+Express value attribute with aligned vertical position 
+and point marks.  Separate/order into horizontal re-
+gions by key attribute. 
+
+20 
+
+15 
+
+10 
+
+5 
+
+0     
+
+20 
+
+15 
+
+10 
+
+5 
+
+0     
+
+Year 
+
+(a) 
+
+Year 
+
+(b) 
+
+Figure  7.8.  Line  charts  versus  dot  charts.  (a)  Dot  charts  use  a  point  mark  to 
+show the value for each item.  (b) Line charts use point marks connected by lines 
+between them.
+
+О
+
+О
+
+О
+
+О
+
+Animal TypeAnimal Type

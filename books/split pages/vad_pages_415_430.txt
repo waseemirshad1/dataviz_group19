@@ -1,0 +1,666 @@
+=== PAGE 416 ===
+ο ο
+ο ο
+Bibliography 391
+[Stevens 75] S. S. Stevens. Psychophysics: Introduction to Its Perceptual, Neural, and Social Prospects.
+Wiley, 1975. (pages 103, 104, 115)
+[Stolte et al. 02] Chris Stolte, Diane Tang, and Pat Hanrahan. “Multiscale Visualization Using Data
+Cubes.” In Proceedings of the IEEE Symposium on Information Visualization (InfoVis), pp. 176–187.
+IEEE Computer Society, 2002. (page 40)
+[Stone 03] Maureen Stone. A Field Guide to Digital Color. A K Peters, 2003. (page 240)
+[Stone 06] Maureen Stone. “Color in Information Display.” IEEE Visualization Course Notes, 2006.
+http://www.stonesc.com/Vis06. (page 221)
+[Stone 10] Maureen Stone. “Get It Right in Black and White.” Functional Color, http://www.stonesc.
+com/wordpress/2010/03/get-it-right-in-black-and-white, 2010. (pages 140, 142, 240, 289, 290,
+296, 373)
+[Telea 07] Alexandru Telea. Data Visualization: Principles and Practice. A K Peters, 2007. (pages xvii,
+40, 92)
+[Torgerson 52] W. S. Torgerson. “Multidimensional Scaling: I. Theory and Method.” Psychometrika 17
+(1952), 401–419. (page 321)
+[Tory and Mo¨ller04a] Melanie Tory and Torsten Mo¨ ller. “Human Factors in Visualization Research.”
+IEEE T ransactions on Visualization and Computer Graphics (TVCG) 10:1 (2004), 72–84. (page 40)
+[Tory and Mo¨ller04b] Melanie Tory and Torsten Mo¨ ller. “Rethinking Visualization: A High-Level Taxon-
+omy.” In Proceedings of the IEEE Symposium on Information Visualization (InfoVis), pp. 151–158.
+IEEE Computer Society, 2004. (page 65)
+[Tory and Mo¨ller05] Melanie Tory and Torsten Mo¨ ller. “Evaluating Visualizations: Do Expert Reviews
+Work?” IEEE Computer Graphics and Applications 25:5 (2005), 8–11. (page 78)
+[Tory et al. 07] Melanie Tory, David W. Sprague, Fuqu Wu, Wing Yan So, and Tamara Munzner. “Spa-
+tialization Design: Comparing Points and Landscapes.” IEEE T ransactions on Visualization and
+Computer Graphics (Proc. InfoVis 07) 13:6 (2007), 1262–1269. (pages 129, 130, 130)
+[Tory et al. 09] Melanie Tory, Colin Swindells, and Rebecca Dreezer. “Comparing Dot and Landscape
+Spatializations for Visual Memory Differences.” IEEE T ransactions on Visualization and Computer
+Graphics (Proc. InfoVis 09) 16:6 (2009), 1033–1040. (page 130)
+[Treisman and Gormican 88] Anne Treisman and Stephen Gormican. “Feature Analysis in Early Vision:
+Evidence from Search Asymmetries.” Psychological Review 95:1 (1988), 15–48. (page 115)
+[Tricoche et al. 02] Xavier Tricoche, Thomas Wischgoll, Gerik Scheuermann, and Hans Hagen. “Topol-
+ogy Tracking for the Visualization of Time-Dependent Two-Dimensional Flows.” Computers & Graph-
+ics 26:2 (2002), 249–257. (page 189)
+[Tufte 83] Edward R. Tufte. The Visual Display of Quantitative Information. Graphics Press, 1983. (pages
+xvi, 19)
+[Tufte 91] Edward Tufte. Envisioning Information. Graphics Press, 1991. (page xvi, xvi)
+[Tufte 97] Edward R. Tufte. Visual Explanations. Graphics Press, 1997. (page xvi)
+[Tukey 77] John W. Tukey. Exploratory Data Analysis. Addison-Wesley, 1977. (page 320)
+ο ο
+ο ο
+
+=== PAGE 417 ===
+ο ο
+ο ο
+392 Bibliography
+[Tversky et al. 02] Barbara Tversky, Julie Morrison, and Mireille Betrancourt. “Animation: Can It Facil-
+itate?” International Journal of Human Computer Studies 57:4 (2002), 247–262. (page 141)
+[van Ham and Perer 09] Frank van Ham and Adam Perer. “Search, Show Context, Expand on Demand:
+Supporting Large Graph Exploration with Degree-of-Interest.” IEEE T ransactions on Visualization
+and Computer Graphics (Proc. InfoVis 09) 15:6 (2009), 953–960. (page 137)
+[van Ham 03] Frank van Ham. “Using Multilevel Call Matrices in Large Software Projects.” In Proceed-
+ings of the IEEE Symposium on Information Visualization (InfoVis), pp. 227–232. IEEE Computer
+Society, 2003. (page 249)
+[van Wijk and Nuij 03] Jarke J. van Wijk and Wim A. A. Nuij. “Smooth and Efficient Zooming and
+Panning.” In Proceedings of the IEEE Symposium on Information Visualization (InfoVis), pp. 15–22.
+IEEE Computer Society, 2003. (page 262)
+[van Wijk and van Liere 93] Jarke J. van Wijk and Robert van Liere. “HyperSlice: Visualization of Scalar
+Functions of Many Variables.” In Proceedings of the IEEE Conference on Visualization (Vis), pp. 119–
+125. IEEE Computer Society, 1993. (pages 259, 260)
+[van Wijk and van Selow 99] Jarke J. van Wijk and Edward R. van Selow. “Cluster and Calendar Based
+Visualization of Time Series Data.” In Proceedings of the IEEE Symposium on Information Visualiza-
+tion (InfoVis), pp. 4–9. IEEE Computer Society, 1999. (pages 125, 126)
+[van Wijk 06] Jarke J. van Wijk. “Bridging the Gaps.” IEEE Computer Graphics & Applications 26:6
+(2006), 6–9. (page 65)
+[Velleman and Wilkinson 93] Paul F. Velleman and Leland Wilkinson. “Nominal, Ordinal, Interval, and
+Ratio Typologies Are Misleading.” The American Statistician 47:1 (1993), 65–72. (page 65)
+[Vilanova et al. 06] A. Vilanova, S. Zhang, G. Kindlmann, and D. Laidlaw. “An Introduction to Visual-
+ization of Diffusion Tensor Imaging and Its Applications.” In Visualization and Processing of Tensor
+Fields, pp. 121–153. Springer, 2006. (page 198)
+[von Landesberger et al. 11] Tatiana von Landesberger, Arjan Kuijper, Tobias Schreck, Jo¨ rn Kohlham-
+mer, Jarke J. van Wijk, Jean-Daniel Fekete, and Dieter W. Fellner. “Visual Analysis of Large Graphs:
+State-of-the-Art and Future Research Challenges.” Computer Graphics Forum 30:6 (2011), 1719–
+1749. (page 216)
+[Wainer and Francolini 80] Howard Wainer and Carl M. Francolini. “An Empirical Inquiry Concerning
+Human Understanding of Two-Variable Color Maps.” The American Statistician 34:2 (1980), 81–93.
+(pages 235, 240)
+[Ward et al. 10] Matthew O. Ward, Georges Grinstein, and Daniel Keim. Interactive Data Visualization:
+Foundations, Techniques, and Applications. A K Peters, 2010. (pages xvii, 40, 92)
+[Ward 02] Matthew O. Ward. “A Taxonomy of Glyph Placement Strategies for Multidimensional Data
+Visualization.” Information Visualization 1:3-4 (2002), 194–210. (page 296)
+[Ward 08] Matthew O. Ward. “Multivariate Data Glyphs: Principles and Practice.” In Handbook of Data
+Visualization, Computational Statistics, edited by Antony Unwin, Chun-houh Chen, and Wolfgang K.
+Ha¨ rdle, pp. 179–198. Springer, 2008. (page 296)
+ο ο
+ο ο
+
+=== PAGE 418 ===
+ο ο
+ο ο
+Bibliography 393
+[Ware and Bobrow 04] Colin Ware and Robert Bobrow. “Motion to Support Rapid Interactive Queries on
+Node–Link Diagrams.” T ransactions on Applied Perception (TAP) 1:1 (2004), 3–18. (pages 241, 252)
+[Ware 01] Colin Ware. “Designing with a 2 1/2 D Attitude.” Information Design Journal 10:3 (2001),
+255–262. (page 125)
+[Ware 08] Colin Ware. Visual Thinking for Design. Morgan Kaufmann, 2008. (pages xvi, 115, 119, 119,
+141)
+[Ware 13] Colin Ware. Information Visualization: Perception for Design, Third edition. Morgan Kaufmann,
+2013. (pages xvi, 19, 108, 115, 115, 141, 141, 223, 223, 223, 240, 241, 296)
+[Wattenberg and Viegas 08] Martin Wattenberg and Fernanda B. Viegas. “The Word Tree, an Interactive
+Visual Concordance.” IEEE T ransactions on Visualization and Computer Graphics (Proc. InfoVis 08)
+14:6 (2008), 1221–1228. (pages 71, 72)
+[Wattenberg 05] Martin Wattenberg. “Baby Names, Visualization, and Social Data Analysis.” In Proceed-
+ings of the IEEE Symposium on Information Visualization (InfoVis), pp. 1–7. IEEE Computer Society,
+2005. (pages 48, 49)
+[Wattenberg 06] Martin Wattenberg. “Visual Exploration of Multivariate Graphs.” In Proceedings of the
+SIGCHI Conference on Human Factors in Computing Systems (CHI), pp. 811–819. ACM, 2006. DOI
+10.1145/1124772.1124891. (pages 340, 341, 355, 356, 357, 367, 374, 374)
+[Weaver 04] Chris Weaver. “Building Highly-Coordinated Visualizations in Improvise.” In Proceedings of
+the IEEE Symposium on Information Visualization (InfoVis), pp. 159–166. IEEE Computer Society,
+2004. (pages 277, 296)
+[Weaver 10] Chris Weaver. “Cross-Filtered Views for Multidimensional Visual Analysis.” IEEE T ransac-
+tions on Visualization and Computer Graphics 16:2 (2010), 192–204. (page 296)
+[Wegman 90] Edward J. Wegman. “Hyperdimensional Data Analysis Using Parallel Coordinates.” Jour-
+nal of the American Statistical Association (JASA) 85:411 (1990), 664–675. (pages 164, 176)
+[Weickert and Hagen 06] Joachim Weickert and Hans Hagen, editors. Visualization and Processing of
+Tensor Fields. Springer, 2006. (page 198)
+[Weiskopf and Erlebacher 05] Daniel Weiskopf and Gordon Erlebacher. “Overview of Flow Visualization.”
+In The Visualization Handbook, edited by Charles Hansen and Christopher Johnson, pp. 261–278.
+Elsevier, 2005. (page 198)
+[Wickham and Hofmann 11] Hadley Wickham and Heike Hofmann. “Product Plots.” IEEE T ransactions
+on Visualization and Computer Graphics (Proc. InfoVis 11) 17:12 (2011), 2223–2230. (page 175)
+[Wickham and Stryjewski 12] Hadley Wickham and Lisa Stryjewski. “40 Years of Boxplots.” Technical
+report, had.co.nz, 2012. (pages 309, 320)
+[Wickham et al. 12] Hadley Wickham, Heike Hofmann, Charlotte Wickham, and Diane Cook. “Glyph-
+Maps for Visually Exploring Temporal Patterns in Climate Data and Models.” Environmetrics 23:5
+(2012), 382–393. (pages 170, 171)
+[Wickham 10] Hadley Wickham. “A Layered Grammar of Graphics.” Journal of Computational and Graph-
+ical Statistics 19:1 (2010), 3–28. (pages 148, 167, 168)
+ο ο
+ο ο
+
+=== PAGE 419 ===
+ο ο
+ο ο
+394 Bibliography
+[Wilkinson and Friendly 09] Leland Wilkinson and Michael Friendly. “The History of the Cluster Heat
+Map.” The American Statistician 63:2 (2009), 179–184. (page 176)
+[Wilkinson and Wills 08] Leland Wilkinson and Graham Wills. “Scagnostics Distributions.” Journal of
+Computational and Graphical Statistics (JCGS) 17:2 (2008), 473–491. (pages 345, 366)
+[Wilkinson et al. 05] Leland Wilkinson, Anushka Anand, and Robert Grossman. “Graph-Theoretic Scag-
+nostics.” In Proceedings of the IEEE Symposium on Information Visualization (InfoVis), pp. 157–164.
+IEEE Computer Society, 2005. (pages 340, 341, 342, 343, 346, 366)
+[Wilkinson et al. 06] Leland Wilkinson, Anushka Anand, and Robert Grossman. “High-Dimensional Vi-
+sual Analytics: Interactive Exploration Guided by Pairwise Views of Point Distributions.” IEEE
+T ransactions on Visualization and Computer Graphics 12:6 (2006), 1363–1372. (pages 341, 342)
+[Wilkinson 99] Leland Wilkinson. “Dot Plots.” The American Statistician 53:3 (1999), 276–281. (page
+155)
+[Wilkinson 05] Leland Wilkinson. The Grammar of Graphics, Second edition. Springer, 2005. (pages xvii,
+40, 175)
+[Willett et al. 07] Wesley Willett, Jeffrey Heer, and Maneesh Agrawala. “Scented Widgets: Improving
+Navigation Cues with Embedded Visualizations.” IEEE T ransactions on Visualization and Computer
+Graphics (Proc. InfoVis 07) 13:6 (2007), 1129–1136. (pages 303, 303, 320)
+[Williams 08] Robin Williams. The Non-Designer’s Design Book, Third edition. Peachpit Press, 2008.
+(page 142)
+[Wills 95] Graham J. Wills. “Visual Exploration of Large Structured Datasets.” In Proceedings of New
+Techniques and T rends in Statistics (NTTS), pp. 237–246. IOS Press, 1995. (page 268, 268, 268)
+[Wills 96] Graham J. Wills. “Selection: 524,288 Ways to Say ‘This Is Interesting’.” In Proceedings of the
+IEEE Symposium on Information Visualization (InfoVis), pp. 54–61. IEEE Computer Society, 1996.
+(page 262)
+[Wills 08] Graham J. Wills. “Linked Data Views.” In Handbook of Data Visualization, Computational
+Statistics, edited by Antony Unwin, Chun-houh Chen, and Wolfgang K. Ha¨ rdle, pp. 216–241.
+Springer, 2008. (page 296)
+[Wise et al. 95] J. A. Wise, J.J. Thomas, K. Pennock, D. Lantrip, M. Pottier, A. Schur, and V. Crow.
+“Visualizing the Non-Visual: Spatial Analysis and Interaction with Information from Text Docu-
+ments.” In Proceedings of the IEEE Symposium on Information Visualization (InfoVis), pp. 51–58.
+IEEE Computer Society, 1995. (page 130)
+[Wong 09] David Wong. “The Modifiable Areal Unit Problem (MAUP).” In The SAGE Handbook of Spatial
+Analysis, edited by A. Stewart Fotheringham and Peter A. Rogerson, pp. 105–123. Sage, 2009. (page
+321)
+[Wood and Dykes 08] Jo Wood and Jason Dykes. “Spatially Ordered Treemaps.” IEEE T ransactions on
+Visualization and Computer Graphics (Proc. InfoVis 08) 14:6 (2008), 1348–1355. (pages 288, 296)
+[Yang et al. 02] Jing Yang, Matthew O. Ward, and Elke A. Rundensteiner. “InterRing: An Interactive
+Tool for Visually Navigating and Manipulating Hierarchical Structures.” In Proceedings of the IEEE
+Symposium on Information Visualization (InfoVis), pp. 77–84. IEEE Computer Society, 2002. (pages
+340, 341, 358, 359, 367)
+ο ο
+ο ο
+
+=== PAGE 420 ===
+ο ο
+ο ο
+Bibliography 395
+[Yang et al. 03a] Jing Yang, Wei Peng, Matthew O. Ward, and Elke A. Rundensteiner. “Interactive Hier-
+archical Dimension Ordering, Spacing and Filtering for Exploration of High Dimensional Datasets.”
+In Proceedings of the IEEE Symposium on Information Visualization (InfoVis), pp. 105–112. IEEE
+Computer Society, 2003. (pages 304, 304, 321)
+[Yang et al. 03b] Jing Yang, Matthew O. Ward, Elke A. Rundensteiner, and Shiping Huang. “Visual
+Hierarchical Dimension Reduction for Exploration of High Dimensional Datasets.” In Proceedings
+of the Eurographics/IEEE Symposium on Visualization (VisSym), pp. 19–28. Eurographics, 2003.
+(page 321)
+[Yang et al. 04] Jing Yang, Anilkumar Patro, Shiping Huang, Nishant Mehta, Matthew O. Ward, and
+Elke A. Rundensteiner. “Value and Relation Display for Interactive Exploration of High Dimensional
+Datasets.” In Proceedings of the IEEE Symposium on Information Visualization (InfoVis), pp. 73–80.
+IEEE Computer Society, 2004. (page 321)
+[Yi et al. 07] Ji Soo Yi, Youn Ah Kang, John T. Stasko, and Julie A. Jacko. “Toward a Deeper Under-
+standing of the Role of Interaction in Information Visualization.” IEEE T ransactions on Visualization
+and Computer Graphics (Proc. InfoVis 07) 13:6 (2007), 1224–1231. (page 142)
+[Young and Householder 38] G. Young and A. S. Householder. “Discussion of a Set of Points in Terms
+of Their Mutual Distances.” Psychometrika 3:1. (page 321)
+[Zacks and Tversky 99] Jeff Zacks and Barbara Tversky. “Bars and Lines: A Study of Graphic Commu-
+nication.” Memory and Cognition 27:6 (1999), 1073–1079. (pages 156, 157, 175)
+[Zacks and Tversky 03] Jeffrey M. Zacks and Barbara Tversky. “Structuring Information Interfaces for
+Procedural Learning.” Journal of Experimental Psychology: Applied 9:2 (2003), 88–100. (page 141)
+[Zhang and Norman 95] Jiajie Zhang and Donald A. Norman. “A Representational Analysis of Numera-
+tion Systems.” Cognition 57 (1995), 271–295. (page 19)
+[Zhang 97] Jiajie Zhang. “The Nature of External Representations in Problem Solving.” Cognitive Science
+21:2 (1997), 179–217. (page 19)
+[Zuk et al. 08] Torre Zuk, Lothar Schlesier, Petra Neumann, Mark S. Hancock, and Sheelagh Carpen-
+dale. “Heuristics for Information Visualization Evaluation.” In Proceedings of the AVI Workshop
+on BEyond time and errors: novel evaLuation methods for Information Visualization (BELIV), Article
+no. 9. ACM, 2008. (page 78)
+ο ο
+ο ο
+
+=== PAGE 421 ===
+О О
+О О
+О О
+О О
+
+=== PAGE 422 ===
+О О
+О О
+Idiom and System Examples Index
+3D Perspective, 327–328 Ellipsoid Tensor Glyphs, Layer-Oriented Time-Series
+194–196 Vis, 128
+Adjacency Matrix View, Exploratory Data Visualizer LineUp, 246–248
+208–209 (EDV), 268–269 Linked Derived Feature
+Animated Transitions, Spaces, 62–64, 65
+248–249 FilmFinder, 301–302 LinLog, 89–90
+Fisheye Lens, 328–329 LiveRAC, 87–89
+Flexible Isosurfaces, 185–186
+Bar Charts, 150–151
+Flow Maps, 85–87 MatrixExplorer, 83–84
+Bird’s-Eye Maps, 270–271
+Force-Directed Placement, Multidimensional Transfer
+Boxplot Charts, 308–310
+204–206 Functions, 187–188
+Multiform Overview–Detail
+Cartographic Layering,
+Genealogical Graphs, 81–83 Microarrays, 271–273
+289–290
+Geographically Weighted Multiscale Banking to 45О ,
+Cerebral, 274–275
+Boxplots, 313–315 156–157
+Choropleth Maps, 181
+Graph-Theoretic Scagnostics,
+Cluster Heatmaps, 158–160
+342–346, 366 Nonlinear Magnification
+Cluster –Calendar Time-Series
+GrouseFlocks, 215–216 Fields, 333–334
+Vis, 125–127
+Constellation, 360–366, 367
+Hierarchical Clustering Parallel Coordinates, 162–166
+Context-Preserving Visual
+Explorer (HCE), 351–355, Pie Charts, 168–170
+Links, 253
+367 PivotGraph, 355–358, 367
+Continuous Scatterplots,
+Hierarchical Edge Bundles,
+307–308 292–294 Radial Bar Charts, 167–168
+Hierarchical Parallel
+Dense Software Overviews, Coordinates, 311–312 Scatterplot Matrix, 160–161
+172–174 Histograms, 306 Scatterplots, 146–148
+Dimensionality Reduction for Hyperbolic Geometry, sfdp, 207–208
+Document Collections, 329–331 Similarity-Clustered
+316–319 HyperSlice, 259–260 Streamlines, 192–193
+DOITrees Revisited, 325 Sizing the Horizon, 90–91
+DOSFA, 304 Improvise, 277–278 SolarPlot, 310–311
+Dot and Line Charts, 155–156 InterRing, 358–359, 367 SpaceTree, 59–60, 65
+397
+О О
+О О
+
+=== PAGE 423 ===
+О О
+О О
+398 IdiomandSystemExamplesIndex
+Stacked Bar Charts, 151–153 Superimposed Line Charts, Topographic Terrain Maps,
+Strahler Numbers for Trees, 290–291 183–184
+60–61, 65 TreeJuxtaposer, 59–60, 65
+Treemaps, 213–214
+Streamgraphs, 153–154 Tableau, 244–245
+Trellis, 282–284
+Stretch and Squish Toolglass and Magic Lenses,
+Navigation, 331–333 326 VisDB, 347–350, 367
+О О
+О О
+
+=== PAGE 424 ===
+ο ο
+ο ο
+Concept Index
+abstract data, see nonspatial key, 40, 145–161 bivariate, see colormap,
+data measure, 40 bivariate
+abstraction, 70–71, 78, 92 ordered, 32 block, 68
+accuracy, 103 ordinal, 32 box-and-whisker diagrams,
+actions, 45 quantitative, 33 see boxplots
+adjacency matrix, 83, 208, ratio, 33 boxplots, 308–310, 313–315,
+210–213, 216 sequential, 33 320
+advection, 190 temporal, 38, 40 brightness, 223
+affine invariant, 320 value, 40, 145–149 Bring and Go, 337
+aggregate, 305–316 attribute aggregation, see browse, 54
+aggregation, 305, 320, 324, dimensionality reduction brushing, see linked
+351, 355 (DR) highlighting
+algorithm, 72–73, 80–81, 92 attribute filtering, 303–305 bubble plots, 148
+alpha sliders, 301 attribute ordering, 305 bump charts, see slope graphs
+analyze, 45 attribute reduction, 321
+animated transitions, 248, attribute synthesis, see cartogram, 98
+257, 261 dimensionality reduction cartographic generalization,
+animation, 132–133, 141, 248 (DR) 180
+anisotropic, 195 cell, 25, 27
+annotate, 49 bag of words, 316 centrality metrics, 60
+anomalies, see outliers banking to 45О , 157, 175 change, 244–249, 261
+arrange, 145–217 bar charts, 149–153, change blindness, 15, 19,
+array, see list 167–170, 175 133–134, 142
+aspect ratio, 156 benchmarks, 80 channel, 95–99
+attribute, 23, 25, 40 biclustering, see matrix aligned spatial position,
+categorical, 32 reordering 101
+cyclic, 33 bifocal displays, see also angle, 101, 236–237
+dependent, 40 focus+context, 337 area, 101
+dimension, 40 binary, 234 curvature, 101, 237–238
+diverging, 33 binned colormap, see depth, 101
+independent, 40 colormap, segmented hue, see also hue, 101
+interval, 33 bins, 106 identity, 99
+399
+ο ο
+ο ο
+
+=== PAGE 425 ===
+ο ο
+ο ο
+400 ConceptIndex
+channel (continued) monotonically increasing data types, 23
+length, 101 luminance, 232 data–ink ratio, see
+luminance, see also ordered, 225, 229–234 information density
+luminance, 101 segmented, 225 dataset, 24
+magnitude, 99 sequential, 225, 229 dataset types, 24
+motion, 101, 238–239 compare, 54, 55 degree of interest (DOI), 324
+region, 101 compound network, 30, 215, degree-of-interest models, see
+saturation, see also 292 focus+context
+saturation, 101 conditioning, see partitioning dendrogram, 160
+shape, 238 cones, 219 dense, 171–174, 176, 347
+size, 236 connection, 99, 201–210, dependency, 57
+tilt, 237 212–213 dependent attribute, see
+unaligned spatial constrained navigation, 257, attribute, value
+position, 101 262, 327 depth cues, 118
+volume, 101 consume, 45 derive, 50–53, 60–65
+chart, 26 containment, 99, 213–216 derived attributes, 51
+choropleth, 181 context, 323 design study, 73, 91
+chromaticity, 220 continuous, 27 detail in context, see
+clipping plane, see cutting contour lines, see isolines focus+context
+plane contour plot, 129, 183 detail-on-demand, 271
+clique, 211 contour tree, 185 deterministic, 205
+cluster heatmap, 160, 351 coordinate, 267–278, 296 deuteranopia, 220
+cluster hierarchy, 160 coordinated multiple views, deviants, see outliers
+clusters, 30, 89 see linked views dimension, see also attribute;
+co-clustering, see matrix coordinated views, see linked attribute, key, 304
+reordering views 0D, 95
+coarsening, 206 correlation, 57 1D, 95
+cognitive load, 132 coupled views, see linked 2D, 95
+color, 223 views 3D, 95
+color blindness, 220, 235 coxcomb plot, see polar area dimensional filtering, 261
+color constancy, 114 chart dimensional ordering, see
+color deficiency, see color critical points, 189 attribute ordering
+blindness cross-filtering, see linked dimensional stacking, see
+color ramp, see colormap highlighting partitioning
+color space, 220 cross-hatching, see stippling dimensionality reduction (DR),
+HSL, 220 curvature, 238 315–321
+L * a * b * , 222 cut, 260 direct volume rendering, 183,
+RGB, 220 cutting plane, 260 185–187, 197
+colormap, 225 direction, 238
+bivariate, 234 data, see also dataset, 24 discover, 47
+categorical, 225, 226 data abstraction, 21–40, discrete, 28
+continuous, 225 70–71 discrete colormap, see
+diverging, 225, 231 data dimension, see attribute colormap, segmented
+ο ο
+ο ο
+
+=== PAGE 426 ===
+ο ο
+ο ο
+ConceptIndex 401
+discretized colormap, see features, 55, 317 guaranteed visibility, 331
+colormap, segmented field, 27–29, 40 gw-boxplot, 315
+discriminability, 106 field study, 77, 79, 92 gw-mean, 315
+display, see view filter, 300–305
+distortion viewing, see filtering, 300, 320, 324, 348, hairball, 206
+focus+context 351 hatching, see stippling
+distortion-oriented find, see search heatmaps, 158, 176
+presentations, see fisheye lens, see also height field, see information
+focus+context focus+context landscape
+dollying, 254 fisheye lens, 328, 335, 337 hierarchical aggregation, 311
+domain, 69 flat table, 25, 34 hierarchical edge bundles, 292
+domain situation, 69–70, flow glyph, 191 hierarchical parallel
+77–78 flow maps, 85 coordinates, 311
+dot chart, 155 focus, see also sinks, 323 hierarchical partitioning, see
+dot plot, 155 focus+context, 323–338, 358 partitioning
+downstream, 76 force-directed placement, 89, highlighting, 239, 251
+dual slider, 301 204–208, 216 histograms, 306, 351
+dynamic, 40 foreshortening, see hops, 203
+dynamic layers, 294, 362 perspective distortion horizon graphs, 90
+dynamic queries, 300 frame, 254 hover, 250
+dynamic streams, 31 frequency, 238 how, 17, 57–58
+how much, see channel,
+edge, see link generalized fisheye views, see magnitude
+effectiveness principle, 101 also focus+context HSL, see color space, HSL
+elastic presentation spaces, generalized fisheye views, 337 hue, 220, 223–224
+see also focus+context, 338 generate, 47 human-centered design, see
+element, 299 geographic, 180 user-centered design
+elision, 324 geometric flow, 191 hyperbolic geometry, see also
+embed, 323–338 geometric tensor flow, 196 focus+context, 338
+enclosure, see containment geometric zooming, 255 hyperplane, 259
+energy minimization, see geometry, 29–30, 180–182
+force-directed placement geowigs, 313 identify, 54
+enjoy, 48 gerrymandering, 313 identity, see channel, identity
+evaluation, see validation glyph, 146, 280–281, 296, 347 idiom, 9–11, 71–72, 78–80
+explain, see present graphic density, see image plane, 119
+explore, see also discover, 54 information density image-space compositing, see
+expressiveness principle, 100 graphs, see networks superimpose
+external representations, 6, 18 grid, 24, 29 immediate, 76
+grid geometry, 29 immersion, 134
+facet, 265–297 grid topology, 29 importance, 332
+feature flow, 193 grouped bar chart, 281 independent attribute, see
+feature tensor flow, 197 grouping, see also attribute, key
+feature vector, 316 partitioning, 279 information density, 15, 19
+ο ο
+ο ο
+
+=== PAGE 427 ===
+ο ο
+ο ο
+402 ConceptIndex
+information landscape, 129 machine learning, 2 networks, 25–27, 201–217,
+information scent, 303 macroglyphs, 280 355, 360
+information visualization, 29 magnitude, see channel, node, 26, see also sinks
+infovis, 29 magnitude node–link diagrams, 83, 201,
+input, 17 main-effects ordering, 282 216
+instance, 17 map projections, 261 nominal, see attribute,
+integral, 106 mark, 95–99, 280 categorical
+integration-based flow, see matrix alignment, 157–161, nondeterministic, 205
+geometric flow 308, 354 nonlinear magnification fields,
+interaction, 9–10, 71 matrix permutation, see see also focus+context, 338
+interpolation, 28, 258 matrix reordering nonlinear optimization, see
+isocontours, 182 matrix reordering, 160, 176 force-directed placement
+isolines, 183 measure, see attribute, value nonmonotonic, 166
+isopleths, see isolines memory, 131–132, 141 nonspatial data, 28
+isosurfaces, 184–185, 197 mental model, 102 normalized stacked bar chart,
+isotropic, 195
+metadata, 23
+169
+item, 23, 25
+metathetic, see channel,
+novelties, see outliers
+item aggregation, 305–313
+identity
+item filtering, 301–303 object constancy, 335
+microglyphs, 281
+occlusion, 120
+modifiable areal unit problem
+jump cut, 248
+offline, see static file
+(MAUP), 313
+online, see dynamic
+key, 34, 145 motion parallax, 120
+opponent color channels, 220
+multidimensional, 37
+L * a * b * , see color space, L * a * b * multidimensional scaling optimize, 12
+lab study, 79, 90, 92 ordination, see matrix
+(MDS), 316
+latency, 137, 142 reordering
+multidimensional table, 25, 36
+layer, 288 orientation, see also channel,
+multifocal displays, see
+levels, 146, 250, 279 angle, 237
+focus+context
+lightness, 220 orthographic projection, see
+multiform, 351
+line charts, 90, 155–157, 175 also dimensional filtering,
+multiform views, 266, 267
+line-of-sight ambiguity, 119 261
+multilevel network, 206–208,
+link, 24, 26 outliers, 55
+see also compound network,
+link density, 210 output, 17
+216, 360
+linked highlighting, 267, 296, overview, 55, 135, 142
+multimodal, 309
+331, 351 overview–detail, 269, 351
+multiple views, see linked
+linked navigation, 276
+views; multiform
+linked views, 267 pane, see view
+multivariate, 37
+list, 30 panel, see view
+list alignment, 149–157, 354 panning, 254
+local minimum, 206 navigate, 254–261 parallel coordinates, 162–166,
+locate, 53 navigation, 254 176, 311–313
+lookup, 53 nested model, 67–93 partition, 278–288
+luminance, 221–223, 229–233 nesting, see containment partitioning, 279, 296
+ο ο
+ο ο
+
+=== PAGE 428 ===
+ο ο
+ο ο
+ConceptIndex 403
+path, 30, 57 radial, 166–171, 176, 358 seriation, see matrix
+path surfaces, 191 rank-by-feature, 353 reordering
+pathline, 191 reconstruct, 28 set, 30
+pattern, see trend record, 49 shape, 57, 101, 238
+perception, 19, 103–114 rectilinear, 162 shared data, 269
+perspective distortion, 121, rectilinear grid, 29 shared encoding views, 267
+261, 327 reduce, 299–321 similarity, 57, 111
+perspective projection, 261 region, 149, 279–280 similarity measure, 305
+pixel-oriented, see dense rendering, 139 similarity metric, see
+pliable surfaces, see resolution, 134 similarity measure
+focus+context RGB, see color space, RGB sinks, 189
+polar area chart, 168 rods, 219 skew, 309
+polar coordinates, 166 roll-up, 355 slice, 258
+polyfocal display, 337 rose plot, see polar area chart
+slicing, 183
+polyfocal projections, see rotating, 254
+slope graphs, 247
+focus+context rubber sheet navigation, see
+small multiples, 266,
+polyline, 162 focus+context
+269–276, 347, 351
+popout, 109 rules of thumb, 117–142
+sorting, 245
+position, 24
+sources, 189
+preattentive processing, see saddle points, 189
+space-filling, 174–175, 308,
+popout salience, 101
+328, 347, 358
+present, 47 sampling, 27, 258
+sparklines, 255
+problem-driven, 73 satisfy, 12
+sparse, 316
+produce, 49 saturation, 220, 223–224
+spatial aggregation, 313, 321
+project, 261 scagnostics, 344
+spatial field, 28, 182–197
+pronouns scalability, 14
+spectral sensitivity, 222
+I, xviii scalar field, 37, 182–187
+splines, 202
+they, xviii, 75 scalars, 27, 37
+spread, 309
+we, xviii scatterplot matrix (SPLOM),
+spring embedding, see
+you, xviii, 75 160, 342, 354
+force-directed placement
+protanopia, 220 scatterplots, 146, 306–308,
+prothetic, see channel, 342, 351
+stacked bar chart, 151, 169
+magnitude scented widgets, 303, 320 static file, 31
+proximity, 111 scientific visualization, 29 static layers, 289
+pseudocoloring, see colormap scivis, 29 steady, 189
+psychophysics, 103 scrolling, see panning stepped colormap, see
+search, 53 colormap, segmented
+qualitative, see colormap, select, 249–254, 262 stippling, 240
+categorical semantic zooming, 87, streak surfaces, 191
+quality metrics, 79 255–256, 262, 365 streakline, 191
+quantized colormap, see semantics, 22 stream surfaces, 191
+colormap, segmented separable, 106 streamgraphs, 153, 175
+query, 54 serial search, 110 streamline, 191
+ο ο
+ο ο
+
+=== PAGE 429 ===
+ο ο
+ο ο
+404 ConceptIndex
+stretch and squish navigation, topological flow, see value, 25, 34, 145
+87, see also focus+context, feature-based flow variable, see attribute
+331, 338 topology, 57, 203 variance, 305
+structured grid, 29 transfer function, 185 vase plot, 309
+summarize, 54, 55 transform, see derive vector field, 37, 187–194, 197
+superimpose, 266, 288–294, translating, 254 vectors, 27, 37
+296, 337 transparency, 225 velocity, 238
+surprises, see outliers tree depth, 359 verification, 75
+treemaps, 213–214, 217 verify, 47
+tables, 24–25, 145–176, 347,
+trees, 27, 201–202, 213–216, 358 vertex, see node
+351
+trend, 55 view, 280–281
+target, 55
+tritanopia, 220 viewpoint, 254
+tasks, 11, 43–57, 70, 71
+trucking, 254 vis, xviii, 1
+technique-driven, 73
+tunable detection, see popout visual channel, see channel
+tensor field, 37, 38, 194–198
+two-mode clustering, see visual encoding, 10, 71–72
+tensor glyphs, 194
+matrix reordering
+visualization, 1
+tensors, 27, 37
+type, 22
+terrain, see information
+Weber’s Law, 112
+landscape unconstrained navigation, 256
+texture, 193, 239 uniform grid, 29
+what, 17, 21–40
+texture flow, 193 unimodal, 309 what–where, see channel,
+texture tensor flow, 197 univariate, 234 identity
+thematic cartography, 180 unsteady, 189 what–why–how, 17, 58–64
+threats to validity, 75 unstructured grids, 29 whiskers, 308
+tiltmap, 237 user study, 79 white space, 174
+time series, 87, 291–292 user-centered design, 69 why, 17, 43–57
+time surfaces, 191 window, see view
+time-series, 39, 125–128 validation, 13–14, 74–81, 92 working memory, 132
+time-varying, 39 downstream, 68
+timeline, 191 upstream, 68 zooming, 254–256
+ο ο
+ο ο
+
+=== PAGE 430 ===
+Accessing the E-book edition
+Using the VitalSource® ebook DOWNLOAD AND READ OFFLINE
+Access to the VitalBookTM ebook accompanying this book is To use your ebook offline, download BookShelf to your PC,
+via VitalSource® Bookshelf – an ebook reader which allows Mac, iOS device, Android device or Kindle Fire, and log in to
+you to make and share notes and highlights on your ebooks your Bookshelf account to access your ebook:
+and search across all of the ebooks that you hold on your
+On your PC/Mac
+VitalSource Bookshelf. You can access the ebook online or
+Go to http://bookshelf.vitalsource.com/ and follow the
+offline on your smartphone, tablet or PC/Mac and your notes
+instructions to download the free VitalSource Bookshelf
+and highlights will automatically stay in sync no matter where
+app to your PC or Mac and log into your Bookshelf account.
+you make them.
+On your iPhone/iPod Touch/iPad
+1. Create a VitalSource Bookshelf account at Download the free VitalSource Bookshelf App available
+https://online.vitalsource.com/user/new or log into via the iTunes App Store and log into your Bookshelf
+your existing account if you already have one. account. You can find more information at https://support.
+vitalsource.com/hc/en-us/categories/200134217-
+2. Redeem the code provided in the panel below
+Bookshelf-for-iOS
+to get online access to the ebook. Log in to
+Bookshelf and click the Account menu at the top right On your Android™ smartphone or tablet
+of the screen. Select Redeem and enter the redemption Download the free VitalSource Bookshelf App available
+code shown on the scratch-off panel below in the Code via Google Play and log into your Bookshelf account. You can
+To Redeem box. Press Redeem. Once the code has find more information at https://support.vitalsource.com/
+been redeemed your ebook will download and appear in hc/en-us/categories/200139976-Bookshelf-for-Android-
+your librar y. and-Kindle-Fire
+On your Kindle Fire
+Download the free VitalSource Bookshelf App available
+from Amazon and log into your Bookshelf account. You can
+find more information at https://support.vitalsource.com/
+hc/en-us/categories/200139976-Bookshelf-for-Android-
+and-Kindle-Fire
+N.B. The code in the scratch-off panel can only be used once.
+When you have created a Bookshelf account and redeemed
+the code you will be able to access the ebook online or offline
+on your smartphone, tablet or PC/Mac.
+SUPPORT
+If you have any questions about downloading Bookshelf,
+creating your account, or accessing and using your ebook
+edition, please visit http://support.vitalsource.com/

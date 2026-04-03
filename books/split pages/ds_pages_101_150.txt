@@ -1,0 +1,1772 @@
+=== PAGE 101 ===
+
+
+=== PAGE 102 ===
+ 
+  
+ 
+ 
+ 
+ 
+Four Years of 
+Vacations in 
+20,000 Colors 
+SHIRLEY 
+Traveling is one of my absolute favorite activities, and since graduating 
+college, I’ve tried to go abroad at least once a year. (I moved around 
+a lot as a kid, so I get restless when I’m in the same place for a long period 
+of time; traveling helps alleviate that.) Since I take so many pictures when 
+I’m traveling, I thought it’d be a really fun idea to gather all the photos I took 
+on my trips and visualize them. 
+SEPTEMBER 2016 101 TRAVEL 
+
+=== PAGE 103 ===
+102 
+SHIRLEY
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+Fig.3.1
+Fig.3.2
+Data 
+I started by going through all of my photos from the last four years (thank you 
+iPhone and Dropbox), and grouped them by year and airport code. I learned two 
+things from this exercise: I like going to the same places, and I take a ridiculous 
+amount of pictures. On a two-and-a-half week trip to Japan and China in 2016, 
+I took more than 1,000 pictures. 
+After I sorted through my images, I played with gm, a Node.js wrapper for 
+GraphicsMagick (a collection of tools for reading, writing, and manipulating 
+images). My frst idea was to reduce the images down to their top three colors, then 
+blur and resize them. I experimented with every ffth photo from the ±1,000 images 
+I took on my latest trip (because 1,000 is just ridiculous), and displayed them in the 
+browser in chronological order to look for any interesting color patterns (Figure 3.1). 
+Unfortunately, I didn’t make out anything noteworthy with the colors (it also wasn’t 
+very performant and took a few seconds to load). For my second attempt, I decided 
+to go through every ffth image from every trip instead of just the most recent. 
+I resized the images (Figure 3.2), read the images’ metadata, and saved the dates 
+they were taken as well as the latitude/longitude of where they were taken 
+(when available). 
+This came out to about 800 images, which was just enough to notice some 
+lag in loading all the images, but not enough to do anything particularly exciting 
+with them. 
+As using all the images (±4,000 photos) would be way too memory intensive, 
+I decided to analyze the colors instead. I searched around for how to get an image’s 
+primary color(s), and found get-image-colors, a Node.js package that returns 
+an array of the most frequently appearing colors in a given image. Unfortunately 
+at this point, I did something minorly stupid; I passed in the fully-sized images 
+(2,500x3,200 pixels and approximately 3MB each) to get the primary image colors. 
+Admittedly, the amount 
+has increased as I’ve 
+gotten newer phones 
+with more storage, 
+which might also be 
+interesting to analyze. 
+Fig.3.1
+ Every ffth image 
+from my latest trip and 
+their top three colors, 
+blurred and resized. 
+Fig.3.2 
+Every ffth image, 
+resized. 
+
+
+=== PAGE 104 ===
+103 
+TRAVEL
+  
+  
+  
+ 
+  
+  
+ 
+ 
+ 
+Fig.3.3
+Around 30 minutes and 120 images later, I realized that I could have just passed 
+in my resized images (13KB) to get the colors instead, which would’ve been so much 
+faster. D’OH! 
+Once I fgured that out and fxed the code to take in the resized images, the 
+package worked wonderfully; it returned more than 4,000 colors for all 800 images 
+in a matter of seconds: 
+Fig.3.3 
+The top fve colors for 
+each of the 800 images 
+Sketch 
+When I started brainstorming ways to visualize the data, I immediately thought 
+of food (my travels are always dictated by food). I remembered the ice cream I ate 
+in Japan the month before, and thought how cool (so punny!) it would be to make 
+an ice cream image out of all my photos. 
+I started looking for inspiration on The Noun Project, a searchable website 
+dedicated to icons, and found a super cute set of ice cream and beverage icons 
+to base my design on. 
+
+=== PAGE 105 ===
+104 
+SHIRLEY
+ 
+ 
+ 
+  
+ 
+  
+  
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.3.4
+Fig.3.5
+I decided to have each trip’s visualization be in the shape of a food from that 
+location or region (Figure 3.4). I’d place each color along the icon path, with the 
+x-axis being time of day the photo was taken and the y-axis being the nth day of the 
+trip. The food would be sized according to the number of photos that trip had, and 
+I would apply the “gooey efect” in SVG to blend the colors together. Finally, I would 
+clip the colors with the icon so that they would have clean edges. 
+I was really excited about this idea, but given the time crunch I decided 
+to explore another idea instead. 
+The second idea came when I was driving out of a parking lot after dinner. 
+I saw a string of lights along a building which reminded me of autumn and the holiday 
+season. I thought it would be so pretty to visualize the colors as a string of lights 
+or stars in the night sky (Figure 3.5). 
+The plan was to place the colors in a scatterplot, with the year the photo was 
+taken on the y-axis and the time of day or the location on the x -axis. Then, I wanted 
+to use the d3.forceSimulation() layout to get rid of overlap and use motion 
+blur in both directions to give a glow efect. Finally, I wanted to run a string through 
+all the lights/colors from the same trip. 
+I decided to try out this idea of lights in the sky, but when I plugged my data into 
+it, it didn’t turn out as I expected (Figure 3.6). 
+Fig.3.4 
+Idea with food and 
+beverage icons 
+Fig.3.5 
+Idea with lights in the 
+night sky 
+The gooey efect 
+is achieved in SVG 
+by applying a blur 
+flter and upping the 
+contrast, so that 
+shapes look like 
+they stick and blend 
+together like gooeys. 
+It’s interesting looking 
+back on it now how 
+my sketch/design 
+process has changed; 
+when I did this project 
+three years ago, 
+I concentrated a lot 
+on how to technically 
+implement the 
+design, whereas 
+now, I concentrate 
+a lot on the end user 
+experience, on creating 
+good visual metaphors, 
+and bringing end 
+users delight. 
+
+
+=== PAGE 106 ===
+105 
+TRAVEL
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+ 
+ 
+  
+ 
+  
+ 
+ 
+Fig.3.6Fig.3.6 
+I call this piece “Man 
+Peeing into Puddle.” 
+(*≧艸≦)
+This is essentially what happens when I sketch before actually exploring the data. 
+For “Movies,” I had the time to explore my data before really sketching and deciding 
+on my idea, and with “Olympics,” I just happened to luck out with the data and the 
+idea I went with. So I got complacent for this project (and plus, I had already done 
+so much work to get the data to where it is) and convinced myself that this idea will 
+work! It obviously did not. Important lesson learned: always explore the data frst. 
+Exploring Data: List Attributes 
+Because I don’t have a data background, I’ve had to learn on the job, and over the 
+years I’ve developed some guidelines for myself. 
+The frst step of this guideline (after I’ve gathered and cleaned the data), 
+is to always identify the “lowest” unit of data and list out its relevant attributes. 
+When I list the attributes, I also like to note if it’s quantitative, categorical, ordinal, 
+temporal, or spatial; this really helps me when I’m designing and thinking through what 
+visual channels might be appropriate. For this project, I gathered my vacation photos 
+and extracted the top colors per photo. Therefore, the “lowest” unit was the individual 
+colors, and the attributes were the RGB and HSL for the color (quantitative), the time 
+the photo was taken (temporal), and the trip that it was taken on (categorical). 
+Once I have the attributes listed, I highlight the ones I think are interesting and use 
+those to formulate questions and hypotheses. Then, I plug the data into a charting library 
+to test my hypotheses, explore, and get a better understanding. 
+For more detail, refer 
+to the lessons “Explore 
+Data: Ask Questions” 
+on page 304 of my 
+“Culture” chapter, and 
+“Explore Data: Use 
+Charting Libraries” 
+on page 336 of my 
+“Community” chapter 
+
+=== PAGE 107 ===
+106 
+SHIRLEY
+ 
+ 
+  
+  
+ 
+  
+  
+   
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.3.7
+Code 
+Around the time I was going to start coding, the short list for Kantar’s “Information 
+Is Beautiful” Awards1 had been released and I came across Nicholas Rougeux’s 
+absolutely gorgeous “Of the Staf” project 2 (Figure 3.7). 
+It inspired me to try out a radial format, something I never worked with before. 
+So I grouped the colors by trip and positioned them in a grid (Figure 3.8, left), 
+then used the time and day the photo was taken as the angle of the colors around 
+the center (Figure 3.8, right). 
+I used trigonometry to convert each color’s designated angle (the time 
+that photo was taken) into x- and y-positions. After I found the correct positions, 
+I used the new D3.jsforce module to actually place the colors. In particular, 
+I used d3.forceX() and d3.forceY() to nudge the colors toward the x - and 
+y-positions I had previously calculated, and then d3.forceCollide() to specify 
+a radius for each node within where other nodes cannot enter (thus getting rid 
+of overlap but making sure the colors are as close to each other as possible). 
+Now that I had the colors sorted by time, I could see that on some trips I 
+took photos consistently and almost daily, while on others, photos (and thus the 
+colors) were bunched into a few days with none in between. But I wanted to see 
+if I could get more out of the data. In particular, I wondered if I could sort color to 
+map to a visual channel. After some research, I found the blog post,“The incredibly 
+challenging task of sorting colours” by Alan Zucconi.
+3 It went into incredible detail 
+about the diferent ways of sorting, but for me the section on HSV (hue, saturation, 
+value) sorting sounded the most promising, and I decided to map the hue to the 
+radius (Figure 3.9). 
+The force layout 
+is a graph layout 
+algorithm that 
+calculates the 
+positions of nodes 
+in a graph. It does 
+this by making sure 
+that nodes repel each 
+other so as not to 
+overlap, while also 
+placing nodes that 
+are connected closer 
+together (but not 
+overlapping) 
+Fig.3.7
+ Nicholas’s gorgeous 
+“Of the Staf” project 
+1 Kantar “Information Is Beautiful” Awards: https:/ /www.informationisbeautifulawards.com 
+2 Nicholas Rougeux, “Of the Staf”: https:/ /www.c82.net/ofthestaf/ 
+3 Alan Zucconi, “The incredibly challenging task of sorting colours”: http:/ /www.alanzucconi.com/2015/09/30/colour-sorting/ 
+
+=== PAGE 108 ===
+107 
+TRAVEL
+Fig.3.8
+Fig.3.9
+Fig.3.8 
+Going radial. 
+Fig.3.9 
+Sorting by hue. 
+
+
+=== PAGE 109 ===
+108 
+SHIRLEY
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.3.10Fig.3.10 
+Switching the 
+encoding of time 
+and hue 
+From this, I started to see patterns of which days and which trips had which colors. 
+Unsurprisingly, I had loads of green and blue from my pictures of scenery; I love 
+taking photos of nature, of oceans and mountains and lakes and forests. But I didn’t 
+know what the reds and oranges were until I looked into the underlying photos … 
+and found that they were mostly food photos! 
+At one point, I also tried to switch the encoding of mapping time to angle and 
+hue to radius (Figure 3.10, left) to the other way around (Figure 3.10, right). I found 
+it really beautiful, but it looked too much like Nicholas’s “Of the Staf” project, and 
+it was also harder to read. I wanted to focus on what kind of photos I took across 
+the days, but mapping time to radius meant that the frst day of any trip was much 
+smaller in circumference than the last day, and that was very inaccurate. It was 
+a good experiment to switch and see what it looked like (and it was an easy, two line 
+switch) but I ultimately decided to go back to my original encoding. 
+All of the code until this point only took a day. It took three more days to gather 
+additional metadata on my trips (where I stayed, what I enjoyed, who I traveled with 
+and visited), fgure out the annotations for that metadata (Figure 3.11), and w ork 
+through the interactions on how to show that information. 
+When people say that 80% of the work 
+for a dataviz is in the annotations, they’re 
+really not kidding! 
+My 2016 trip to New 
+York and 2014 trip 
+to Japan have so many 
+reds and oranges
+(￣一￣;.
+
+=== PAGE 110 ===
+ 
+ 
+ 
+ 
+  
+  
+ 
+  
+ 
+ 
+ 
+  
+Trigonometry 
+When I was in high school, I distinctly remember thinking to myself: when would I ever 
+use trig in real life? I had my answer seven years later, when I created my frst data 
+visualization. 
+I use trig functions all the time now, especially when calculating radial layouts. I’ll map 
+the angle and radius to attributes in my data (in this project, I mapped angle to the time 
+the photo was taken and radius to the hue of the color) and get the corresponding 
+x- and y-positions: 
+x = radius * Math.cos(angle) // make sure angle is in radians 
+y = radius * Math.sin(angle) 
+And I can use the resulting x /y to position my marks. 
+If I want to go the other way—perhaps I have the x /y of a mark, and I’m trying to get 
+the angle of its rotation—I will use Math.atan2 : 
+angle = Math.atan2(y, x) // make sure to pass in y first! 
+A word of caution with Math.atan2: because it only returns values between -π to π , 
+if you want a number between 0 and 2π , it will require additional calculations after. 
+Finally, the distance formula is just super all-purpose useful: 
+dist = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y2, 2)) 
+These are just the formulas I use most often. There are, of course, many other use cases 
+worth brushing up on trigonometry for. 
+✧( ◌ ु •⌄• ) 
+For an explanation 
+of marks, see the 
+“Marks & Channels” 
+lesson on page 47 of 
+my “Movies” chapter. 
+A nice trick to 
+remember that 
+y comes frst when 
+using atan2 : tangent 
+is opposite (y) over 
+adjacent (x). 
+
+=== PAGE 111 ===
+110 
+SHIRLEY
+ 
+ 
+  
+  
+  
+ 
+  
+  
+ 
+ 
+  
+  
+  
+Fig.3.11Fig.3.11 
+The fnal annotations. 
+In particular, the interactive elements were hard to get down; originally, hovering 
+over a line or a dot would show the information for that particular element. But since 
+the lines and dots were all so small and thin, the ficker was unbearable whenever 
+I accidentally unhovered or tried to move to the next line. After many iterations, 
+I landed on something I really liked: placing the hover over a whole day (instead 
+of the lines and dots within that day) would display all the information—where I was, 
+who I was with, if I enjoyed my time—from that day. 
+Reflections 
+I’m really happy with how this project turned out, especially with how much 
+I learned about color and trigonometry and the opportunity to try out a layout 
+I haven’t before. I am also happy that I pushed through with the annotations and 
+legend portion and got them to a point that I could be satisfed with, since that’s 
+what I usually despise working on (discipline!). 
+This project is one of my favorite personal projects, because of how much 
+I learned about myself (and how I like to travel) from it. It’s also been a great way 
+to commemorate and recall some of my favorite memories with my favorite people. 
+( •⌄• ◌ ू )✧ 
+
+=== PAGE 112 ===
+111 
+TRAVEL
+
+=== PAGE 113 ===
+ 
+ 
+ 
+Fig.3.12 
+Fig.3.13 
+Four Years of Vacations in 20,000 Colors 
+shirleywu.studio/projects/travel 
+Fig.3.12 
+The fnal visualization with legends, 
+annotations, fourteen trips, and 20,000 
+colors. My favorite is defnitely the 2014 
+trip to Japan and China, I made so many 
+great memories. 
+ଘ(੭ˊѡˋ)੭✧ 
+Fig.3.13 
+Hovering over 
+a particular day shows 
+detailed information 
+from that day. I used 
+a d3.arc() generator 
+to create the pie slice 
+shape used to highlight 
+that day; it’s still one of 
+my favorite interactions. 
+
+=== PAGE 114 ===
+113 
+TRAVEL
+
+
+=== PAGE 115 ===
+114 
+PRESIDENT 
+&ROY 
+
+=== PAGE 116 ===
+115 
+DENTS 
+YALS RO
+
+=== PAGE 117 ===
+
+
+=== PAGE 118 ===
+ 
+ 
+  
+ 
+  
+  
+  
+  
+Royal 
+Constellations 
+NADIEH 
+Talk about timing. Our original project idea was going to be around the 
+US elections, but with the way that turned out, we decided to look for 
+something diferent. As a European, focusing on American presidents 
+didn’t interest me much, but I felt that the European royal families would 
+be a good equivalent to how Americans might see the presidential families. 
+The frst thing that came to mind when I thought about the royals was 
+their bloodlines. Due to all of the intermarriages in the past, I was sure 
+most royals in Europe were related. The question then was: how close 
+of a relative? Were they all cousins twice removed, or perhaps even 
+closer than that? 
+OCTOBER 2016 117 PRESIDENTS & ROYALS 
+
+=== PAGE 119 ===
+118 
+NADIEH
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+  
+a b
+Fig.4.1 
+(a & b)
+Data 
+As with other projects, I thought that such a popular topic would yield many nice 
+datasets with information about the royal bloodlines, but the reality was much 
+diferent. Sure, many people had drawn the family trees of various royal families, 
+but was there a dataset that ofered a connected look at all of Europe’s royals? 
+Luckily, I found a fle online
+1 that seems to be the information source of royal 
+genealogy. It contains genealogical information of 3,000 individuals, all somehow 
+connected to royalty in Europe! 
+(ﾉ◕ヮ◕)ﾉ*:·ﾟ✧ 
+a b 
+Fig.4.1 
+(a & b) 
+The left side shows 
+how individuals are 
+described in the 
+original data. The 
+right side shows a 
+data snippet of how 
+these individuals are 
+related through family 
+connections. 
+However, it was created in 1992 and therefore missed the recent additions to the 
+royal families. And although the fle contained lots of people related to royalty, the 
+list wasn’t complete. I therefore spent some time checking connections to famous 
+people and added (grand)parents or (grand)children if needed. In the end, 
+I manually added ±150 people to the fle. 
+Family trees are a perfect match for a visualization type known as a network 
+or graph that reveals interconnections between a set of entities. Therefore, the odd 
+format of the original data had to be transformed into a “nodes” and “links” fle. 
+A nodes dataset contains one row per entity—a person in this case—with a person’s 
+characteristics in diferent columns, such as name, title, and date of birth. There’s 
+also a unique ID to be able to reference this person in the links fle. 
+1 www.daml.org/2001/01/gedcom/royal92.ged 
+
+=== PAGE 120 ===
+119 
+PRESIDENTS & ROYALS
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+  
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+A links fle shows how these people are connected, with each row representing 
+a connection between two people (from the nodes fle). You can also add more 
+attributes to these rows, such as the type of connection (e.g. “parent-child,” 
+“wife-husband”). 
+At the beginning, all I did was get the nodes and links fles in a usable shape. 
+But while wrangling my way through the “force layout,” which is what you use in 
+D3.js to create a network visual, I thought about new variables to add or values 
+to pre-calculate to get more insights from the structure of this gigantic family tree. 
+Another addition came in the form of trying to fll in missing information. The original 
+fle has several characteristics for individuals: a unique ID, the name, their royal 
+title, birth date, and death date (and location). Birth dates especially seemed like 
+a wonderful way to create some more structure in the network, but these weren’t 
+known for everybody in the dataset. Thankfully I didn’t need an exact date; I just 
+needed a date that was in the right half of the century. 
+I wrote a small script in R that estimated birth dates either by looking if the 
+death date of a person was known and then subtracting 60 years, or by looking 
+at the birth or death date of the spouse, children, or parents, in that order, and again 
+subtracting or adding some years to account for generational diferences. This gave 
+me an estimate for 95% of the people with unknown birth dates and I eventually 
+fltered the remaining people out when I only kept the people born after 1000 AD. 
+My fnal addition to the data was to calculate which of the 10 royal hereditary 
+families each person was most closely related to and within how many steps. I used 
+this in the fnal network to make each individual want to be, horizontally, near their 
+closest royal family connection. 
+This will probably 
+make more sense 
+once you’ve read the 
+fnal parts of the next 
+section and see the 
+fnal visual. 
+Sketch & Code 
+In my initial sketches, I couldn’t go beyond drawing some abstract circles connected 
+by lines; I didn’t actually know what kind of network the data would give me. I frst 
+needed to know the insights that were hidden in the “shape” of the data and thus 
+had to visualize the network frst before I could think about the more broader design. 
+Instead of sketching with pen and paper, 
+I sketched with code 
+The frst challenge was just getting something visible on the screen. Being new 
+to the updated force layout in D3.js, and not fully understanding all of its settings, 
+I found basic examples on the site “Block Builder” which helped me visualize circles 
+and lines. 
+
+=== PAGE 121 ===
+120 
+NADIEH
+ 
+Fig.4.2 Fig.4.3
+Fig.4.2 
+09:40 The frst 
+successful result on my 
+screen, a collection of 
+circles and lines that 
+were quickly expanding 
+and moving out of my 
+screen. 
+Fig.4.3 
+09:53 Slightly updating 
+the network settings 
+left me with a “hairball.” 
+Fig.4.4Fig.4.4 
+10:08 Making the 
+canvas 36× bigger 
+in size fnally created 
+enough space for the 
+network to reveal some 
+structure. 
+
+
+=== PAGE 122 ===
+121 
+PRESIDENTS & ROYALS
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+ 
+ 
+ 
+ 
+  
+Fig.4.5
+However, they just kept on expanding outward right outside of my screen 
+(Figure 4.2), which wasn’t very helpful… 
+Adjusting some settings of the network so the circles wouldn’t keep excessively 
+pushing themselves away gave me an even more useless “hairball” as a result 
+(Figure 4.3). What the network really needed was some space. I therefore converted 
+back to my initial settings and zoomed the page out very far on my browser 
+so it would ft a square of 6,000 pixels wide, instead of the 1,000 pixels I had before. 
+Everything became very tiny, but some structure started to appear (Figure 4.4). 
+Some time and many iterations later I managed to squish it into a square of “only” 
+3,500 pixels.Even with some structure visible, I quickly came to the conclusion that 
+I really needed more context to fnd insights. As mentioned before, I felt that birth 
+year would be the most interesting variable that brings sense to the connections 
+in this network; chronology is quite inherent to a family tree. I therefore colored 
+the nodes by year of birth from dark blue for people born the longest time ago, 
+all the way to yellow for the youngest person. 
+Fig.4.5 
+11:42 Coloring 
+everybody by birth 
+year (when known). 
+The underlying algorithm that is used in D3.jst o create these networks is based 
+on the idea of gravity and charges. The circles try to push away from other circles, 
+but the lines between them work a little like (elastic) strings making sure connected 
+circles don’t move away from each other (too far). In short, it has its roots in actual 
+physics. But thankfully, in a computer environment we can “mess” with the laws 
+f nature and play with how “gravity” works. 
+A network is called a 
+“hairball” when it looks 
+like a circular clump 
+showing no structure. 
+It’s pretty much 
+the worst possible 
+outcome. 
+At this point I was still 
+relying only on those 
+individuals with known 
+birth dates. People with 
+missing dates remained 
+grey. 
+
+=== PAGE 123 ===
+122 
+NADIEH
+Fig.4.7
+Fig.4.6Fig.4.6 
+12:50 Pulling the 
+network apart by 
+year of birth, but the 
+40% of individuals 
+with unknown birth 
+dates represented as 
+grey circles are pulled 
+towards the center. 
+Fig.4.7 
+15:51 After estimating 
+a birth year for the 
+people with unknown 
+years of birth the 
+network was fnally 
+truly “pulled apart” 
+chronologically.. 
+
+=== PAGE 124 ===
+123 
+PRESIDENTS & ROYALS
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+  
+ 
+ 
+Fig.4.8Fig.4.8 
+Fixing the 10 current 
+royal hereditary 
+leaders, the big circles, 
+along a vertical line 
+started to pull 
+apart the separate 
+family trees. 
+The change that had the biggest impact on the structure came when I started using 
+the year that an individual was born to defne which horizontal position that person’s 
+circle would be placed in the visual. 
+Although I’ve since fallen in love with this technique of applying a data 
+variable to the gravitational pull, it has one major caveat: you can’t have unknown 
+data for the variable that you use. Just like you can’t place a circle in a scatterplot 
+if you don’t know the value for both the x- and y-axis, you need to know where each 
+circle needs to be pulled. (And my dataset didn’t have birth data for about 40% 
+of the people.) That didn’t stop me from frst trying the most straightforward “fx” 
+to at least get a sense of the result: everybody with unknown birth dates would be 
+pulled towards the center. It created the rather odd looking shape from Figure 4.6, 
+which I felt showed enough potential to investigate further. 
+That’s when I decided that I had to estimate a birth year for all the unknowns. 
+A few hours later, I was looking at a network that was organized in a way that’s 
+normal for a family tree: chronologically, from left to right in this case (Figure 4.7). 
+And although I frst thought that I had gotten to the point where I could get 
+some insights, when I truly started looking for info, the network was still rather 
+uninsightful; it didn’t tell me anything about recent royal history, or what has led 
+to there now being only 10 royal families in Europe these days. Having spent more 
+than six hours on this in one sitting (what are weekends for otherwise…) I stopped 
+to try again the next day. 
+To get my mind of the network structure itself I started thinking more about 
+the general design. As an astronomer, many things remind me of the night sky and 
+network visuals often look like constellations to me. I therefore switched to a deep 
+dark blue background and made the circles look like little stars by adding a touch 
+of yellow glow. 
+Now that I was more pleased with the aesthetic look, I remembered the initial 
+question that I wanted the visual to convey: how intermarried and interconnected 
+were all of the royal families? To answer this, I knew that I needed to make 
+distinctions between the diferent “branches” of the current royal families and 
+see how intertwined they remained and/or became. 
+First, I made the current royal hereditary leaders big and noticeable. Then 
+I spread them out evenly along the vertical axis, which would hopefully pull apart the 
+network, placing closely related royal leaders near each other and the most loosely 
+connected monarchs on the outside (Figure 4.8 ). 
+I explained how 
+I estimated the birth 
+dates in the “Data” 
+section. 
+
+
+=== PAGE 125 ===
+124 
+NADIEH
+  
+ 
+  
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+  
+ 
+Fig.4.9Fig.4.9 
+Pulling the family trees 
+more apart by making 
+each individual be 
+slightly pulled towards 
+their closest current 
+relative that’s at the 
+head of a royal family. 
+Continuing on the idea of connections and focusing on the current monarchs, 
+I calculated the “distance” of each person to a current monarch, in other words, 
+how many hops did it take to go from that person, through family connections, 
+to each royal. I used that number to set the circles’ opacity. Individuals closest 
+to a royal would be very visible, diminishing to almost completely transparent for 
+those more than six steps away from all of the royal leaders. And that’s when 
+I fnally started to see some potential! 
+To separate the network even more into the current family trees I used the 
+“shortest distance to a royal” in another way as well: By generating a slight pull 
+of the individuals to their closest current royal descendant. And also (non-linearly) 
+squishing the date scale the farther back in time it goes. This makes the visual more 
+focused on the (most interesting) last two centuries. 
+The entire network is 
+connected; each and 
+every person is related 
+to everybody else. 
+A vertical pull in the 
+previous landscape 
+style screenshots, and 
+a horizontal pull in the 
+newer portrait-style 
+version. 
+And that’s when I ended up with a network structure that I was happy with. It now 
+revealed insights into how connected the current monarchs are. For example, the 
+Monaco line (all the way on the right side of Figure 4.9) separated from the rest 
+of Europe more than 200 years ago—the most recent connection to the rest of the 
+network happens at around 1800—but Denmark, England, Norway, and Sweden, 
+which are closer in relation, are all in the center. 
+Next up, I wanted to investigate how to use interactivity to make the closest 
+connection between two people more apparent. After some brainstorming 
+I came up with two main things to achieve: frst, to show how far “six degrees 
+of separation” spread from a hovered-over person into the network. The second 
+thing was to show the shortest path between any two people. 
+This genealogy seems 
+mostly focused on the 
+English bloodline the 
+farther back it goes. 
+In this case I mean 
+that as six generations 
+backwards and forward 
+in time. 
+
+=== PAGE 126 ===
+125 
+PRESIDENTS & ROYALS
+  
+ 
+  
+  
+ 
+ 
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Design with Code 
+Unlike more general graphic design, the efectiveness of a data visualization 
+design really stands or falls with the data that goes into it. You can have an amazing 
+looking pixel perfect design based on dummy data, but when the actual data behaves 
+in an unexpected way, you’ll have to restart your design process. That’s why I prefer 
+to only sketch out the rough abstract shape that I want to ft my data into, and then 
+move towards making the idea into a reality by using the actual data. If that idea 
+doesn’t work with my data I can easily sketch out some other rough idea and try 
+it again. 
+Afterwards I continue to design with code, where I test out other aspects 
+of a typical design, such as details, colors, fonts, and efects, by programming it. 
+That way I can see the efect of, say, a diferent color palette appearing on all of the 
+data after just one refresh of my page. 
+Although you can assess pretty well how a chart would look if your dataset only 
+has a dozen or so datapoints, the more data that you need to visualize, the faster you 
+need to go from design to working with the actual, and total, dataset! 
+I typically start out with very simple and typically slow code, which makes it quick 
+for me to determine if I’m happy with the visual result. Only when I saw that the “six 
+degrees of separation” hover showed interesting aspects across diferent people, 
+did I implement a faster method. 
+Due to the overall “space” theme, I decided to scale the colors that appear 
+on a hover to the temperature scale of actual stars. 
+Fig.4.10Fig.4.10 
+Hovering over 
+Sissi shows which 
+other people she’s 
+connected to within 
+six generations; 
+including three current 
+monarchs. 
+
+=== PAGE 127 ===
+126 
+NADIEH
+ 
+ 
+  
+ 
+  
+ 
+  
+  
+ 
+  
+  
+Fig.4.11Fig.4.11 
+The visual 
+representation 
+of the shortest path 
+between two clicked 
+people. A solid line 
+is a connection by 
+blood, a dotted line 
+represents a marriage 
+connection. 
+At frst I was afraid that with almost 3,000 circles in the network that a “shortest 
+path calculation” would take too much time. I nevertheless frst wanted to make 
+it actually work and then see if it was something to keep and optimize. After a short 
+search I found a script on GitHub
+2 I adjusted to my needs. Surprisingly enough 
+it performed amazingly well, returning a shortest path before I could blink! Adding 
+some transitions to fade out the other circles and highlight the shortest path, 
+and I was done much faster than expected. 
+I’m quite happy with the 
+small dotted rings that 
+rotate around the two 
+selected people. It’s the 
+small victories. 
+Finally, to add a little bit more of a hierarchy and visual appeal to the visual, 
+I highlighted several “interesting” royals throughout history, from Henry VIII to Marie 
+Antoinette to the last monarchs of several European countries that are no longer 
+a monarchy. A quick introduction and legend at the top, and I was done with 
+my “Royal Constellations.” 
+Fig.4.12Fig.4.12 
+Several famous royals 
+from the past are 
+highlighted as well. 
+
+=== PAGE 128 ===
+127 
+PRESIDENTS & ROYALS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Reflections 
+I completed this project in just two weeks due to an upcoming vacation. With more 
+time, I would’ve added other things, like a search box where you could fnd any royal 
+in the visual by name. But I’m happy with what I managed in two weeks. While the 
+interactive experience could have been improved upon, it accomplishes exactly 
+what I wanted: to show how interconnected the European royal families really are. 
+Plus, I learned a heck of a lot more about creating network charts with D3.js! 
+A year later, I fnally felt comfortable enough with canvas that I rebuilt and 
+replaced the entire visual in canvas instead of SVG, making it a lot faster. 
+2 ShortestPathCalculator script by @julianbrowne: 
+https:/ /github.com/julianbrowne/dijkstra/blob/master/javascripts/ShortestPathCalculator.js 
+
+=== PAGE 129 ===
+ 
+Royal Constellations 
+RoyalConstellations.VisualCinnamon.com 
+Fig.4.13Fig.4.13 
+The fnal result of 
+“Royal Constellations.” 
+
+=== PAGE 130 ===
+129 
+PRESIDENTS & ROYALS
+
+
+=== PAGE 131 ===
+130 
+NADIEH
+ 
+ 
+ 
+Fig.4.14
+Fig.4.15
+Fig.4.14 
+The shortest path between Queen Elizabeth II of the UK and 
+Elizabeth of Bavaria (also known as Sissi), Empress of Austria and 
+Queen of Hungary in the 1800s, is a bit of a distant one. However, 
+all connections except one are blood relations: the other 
+is a husband-wife connection between a previous king 
+of Belgium (Leopold III) and princess of Sweden (Astrid). 
+Fig.4.15 
+Hovering over Louis XIV of France, also known as the Sun King. 
+With 72 years, he has been the longest reigning monarch 
+in European history. 
+
+=== PAGE 132 ===
+131 
+PRESIDENTS & ROYALS
+ 
+ 
+Fig.4.17
+Fig.4.16
+Fig.4.17 
+Hovering over Queen Margrethe II of Denmark, 
+the big blue circle in the top/middle-left. 
+Fig.4.16 
+Hovering over Queen Elizabeth II shows one 
+connection within six steps to another monarch: 
+King Harald V of Norway, seen as the red large 
+circle to the left of Elizabeth’s blue large circle. 
+He is Queen Elizabeth’s closest relative who 
+is also a monarch, and they are second cousins. 
+(As a side note, Queen Margrethe II of Denmark, 
+King Juan Carlos of Spain and King Carl XVI Gustaf 
+of Sweden aren’t much farther away: they are her 
+third cousins.) 
+
+=== PAGE 133 ===
+
+
+=== PAGE 134 ===
+133
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+ 
+  
+ 
+ 
+Putting Emojis 
+on the 
+President’s Face 
+SHIRLEY 
+Originally, Nadieh and I slotted October for the US presidential elections, 
+in order to have something ready by Election Day. But as October 
+approached, I realized more and more that I wanted absolutely nothing 
+to do with the 2016 election (other than to vote). We mused on what 
+to do instead, and I realized: a future president getting voted in also 
+means a current president leaving the White House. 
+While we might not all agree on what the Obama administration did 
+or didn’t do politically, I think most of us can agree that the Obamas 
+are one cool couple. I thought of them as the slightly dorky parents 
+that I wouldn’t mind associating with if they were my friends’ parents. 
+Like that time when Mr. President recorded a video of himself talking 
+to a mirror so that he could plug healthcare.gov, or when Madame First 
+Lady Carpool Karaoke’d with James Corden and she was so hilariously 
+relatable. This made me realize that I would, in some way, miss them 
+being our POTUS and FLOTUS. 
+OCTOBER 2016 PRESIDENTS & ROYALS 
+
+=== PAGE 135 ===
+134 
+SHIRLEY
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+    
+   
+ 
+   
+  
+ 
+   
+ 
+ 
+Data 
+I wanted to do something silly and light-hearted to commemorate the Obama’s eight 
+years in ofce. And the frst thing I could think of was all of their appearances on 
+late-night talk shows I watched on YouTube (that “Slow Jam the News with President 
+Obama” was so good). I started digging around to see if there was a list of talk show 
+appearances for both Barack and Michelle—and it was IMDb to the rescue again! 
+Both of them had their own IMDb pages, so I cross-referenced Barack Obama’s 214 
+credits and Michelle Obama’s 123 with a Wikipedia article of late-night American 
+network TV programs. I was able to narrow down the credits to 24 late-night 
+appearances for Barack and 22 for Michelle. I then compiled a list with the date 
+of their appearance, name of the late-night talk show, and the show’s YouTube 
+channel if available. 
+Using that information, I was able to use the YouTube Search API to search 
+for keyword “obama” and flter the results down by channelId and a publish date 
+within fve days of the interview date. Unfortunately, because I wasn’t sure how 
+many videos were published for each interview (if at all), I set the maxResults 
+to 15. This meant that I would get back videos within those days that had nothing 
+to do with the Obamas, and I had to manually go through all of the videos to weed 
+out the irrelevant ones (there were 244 videos, and 186 were ultimately fltered out, 
+leaving only 58). 
+The list was unfortunately incomplete, as there were interviews with past shows 
+and hosts like the Late Show with David Letterman and the Tonight Show with Jay 
+Leno that weren’t on YouTube. I chose to keep them out instead of trying to fnd 
+the videos on other websites or on unofcial channels, in the hopes that this would 
+make for cleaner and more consistent data. 
+Around that time, I attended the annual D3.js unconference. I told 
+some friends there about the dataset I had gathered and how I wasn’t sure what 
+to do with it. They were enthusiastic: “You should get the captions for each video 
+and do something with the words!”; “Wouldn’t it be cool if you could run facial 
+detection on the video and correlate their emotions with what they’re saying?” 
+And even though I was quite worried about how long it would take me, the idea 
+took root in my mind. 
+After some research, I realized there wasn’t a fnancially afordable way for me 
+to pass whole videos into any facial recognition software, but thankfully I was still 
+surrounded by some very resourceful friends at the conference. They suggested 
+an alternative: take screenshots of the video and upload the images to Google 
+Cloud Vision API for analysis. Here’s what I did (and the Node.js packages I used): 
+1. I took the list of all videos, and downloaded them (and their captions, 
+if available) with youtube-dl. 
+2. I used vtt-to-json to convert the captions into JSON and got the 
+timestamp every time someone talked, and used that timestamp to 
+screenshot the video with fluent-ffmpeg. 
+3. For each screenshot, I uploaded it to Google Cloud Vision API, which gave 
+back data of any faces it found in the image, the x/y bounds of the face, 
+and any emotions detected on the face. 
+4. I saved the videos’ captions into one JSON fle. 
+5. I joined the captions with the annotated image data (including emotions) 
+from the Google Cloud Vision API. 
+I actually didn’t realize 
+until I published it and 
+someone pointed it 
+out: I included The Ellen 
+DeGeneres Show but 
+that’s a daytime TV 
+show! The errors that 
+happen in our data 
+gathering. (￣ー￣； 
+The sort-of annual 
+d3.unconf started out 
+in San Francisco and 
+is an event very dear 
+to my heart. 
+Thank you Ian Johnson 
+and Erik Cunningham! 
+
+=== PAGE 136 ===
+135 
+PRESIDENTS & ROYALS
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+  
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+This entire process took a few days, and once I fnally had all the data cleaned 
+I started thinking about the design. I learned my lesson from “Travel,” and made sure 
+to explore the basic shape of the data, as well as all the diferent types of data I had 
+on hand before starting to sketch. 
+Fig.4.1Fig.4.1 
+List of the data I had. 
+Data Can Be Found in Many 
+Diferent Ways 
+When I start on a data visualization project, I always start with a curiosity, a topic 
+I’m interested in—whether that’s the Obamas’ late-night talk show appearances, 
+recurring themes in Hamilton the musical, Dance Dance Revolution, or summer 
+blockbusters. I fnd that having that curiosity keeps me motivated and gives 
+me direction when looking for datasets. 
+Once I have a curiosity, I start with a Google search. Sometimes I’m lucky, 
+and I fnd a dataset that’s already downloadable in JSON or CSV format (very rare). 
+Oftentimes, I’ll fnd a website where the data is in plain text on the page; in those 
+instances, I can get the data with their API or by scraping the site. For scraping, I like 
+using Node.js modules (mostly http to programmatically request the webpage), 
+and for APIs, I’ve found that there’s usually a corresponding Node.js package that 
+does all the hard parts (like OAuth authentication for signing into a service) for me. 
+If I can’t piece the data together from resources online, then I have to manually 
+gather and enter the dataset. It’s tedious work, but I’ve learned (the hard way) that 
+Excel makes the process so much easier. One time, I found the data I wanted in image 
+form, and was able to get the underlying raw data by just … asking the person who ran 
+the website. It was amazing. 
+For a short explanation 
+of JSON and CSV, 
+see “Technologies & 
+Tools” at the beginning 
+of the book. 
+Whenever I think, 
+“Somebody must have 
+done this already” while 
+coding, somebody 
+usually has! 
+You can read about 
+this story in my “Music” 
+chapter. (*≧▽≦) 
+
+=== PAGE 137 ===
+136 
+SHIRLEY
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+Sketch 
+Once I had the metadata listed, I started thinking about what I wanted to convey. 
+I knew it was ambitious, but I wanted to make full use of such a rich dataset and also 
+get across why even though there were 44 appearances I only had screenshots 
+for 29 videos. I’d also been wanting to try my hand at “scrollytelling” to test my 
+technical skills and decided to create a multi-section project. I mapped out 
+“Scrollytelling” 
+is a popularmy frst few sections to introduce the dataset by show and hos t (Figure 4.2, ①) technique where 
+and then by date (Figure 4.2, ②). I would display all the videos I had (Figure 4.2, ③), we tie progression 
+highlight the videos with captions (Figure 4.2, ④), and for the videos with captions, of the story and 
+its corresponding
+plot the emotions detected throughout the video on a timeline (Figure 4.2, ⑤). visualizations 
+And even though I was still blurry on the latter half of the sections, I decided to user scroll. 
+to take a few days to build out those initial sections frst. This helped me get a better 
+feel of the video data, which I hadn’t explored in as much detail as the hosts and 
+appearances data. 
+I’m glad I did that because I originally envisioned something where all the 
+videos would be lined up in rows, and a timeline would show a bar graph of both 
+word frequency based on the captions and all the times that POTUS and FLOTUS 
+laughed. But after working on the initial sections, I realized that that was way too 
+much data to try and show on one screen. I came up with another sequence 
+of sections to introduce the videos instead and decided to only show the selected 
+video’s timeline of captions and laughs (Figure 4.3). 
+Fig.4.2Fig.4.2 
+Sketch of the frst few 
+sections. 
+
+=== PAGE 138 ===
+137 
+PRESIDENTS & ROYALS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.4.3Fig.4.3 
+Revised sketch to 
+introduce the videos 
+and the emotions I 
+detected in them. 
+Code 
+As soon as I fgured out that the Google Cloud Vision API gave me the x /y bounds 
+of faces and heads, I knew I had to put emojis on their faces (unfortunately I couldn’t 
+include these screenshots for copyright reasons, but please make sure to visit the 
+fnished projec t online
+1 to see them instead). 
+And boy, do I not regret it at all; it brought me so much joy. The rest of the 
+visualization was basically just a build up to the end tool for exploring all the photos 
+with emojis on their faces. 
+Silliness aside, this project’s implementation actually brought me quite a few 
+frst-time technical challenges: 
+• Animation based on scroll 
+• Cropping SVG images 
+• Horizontal fsheye to expand hovered images 
+• Fitting all the visualizations in mobile
+ ( ⚆ _ ⚆ ) 
+• Making scrubbing the fsheye smooth on mobile ( ╬ಠ益ಠ)
+1 Shirley Wu, “Putting Emojis on the President’s Face”: http:/ / shirleywu.studio/projects/obamas 
+
+=== PAGE 139 ===
+138 
+SHIRLEY
+  
+ 
+ 
+  
+  
+ 
+  
+  
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Fig.4.4
+Fig.4.5
+And because I was just trying to get it all done, I didn’t take many screenshots 
+of my progress (which I do regret). But I did spend quite a bit of time fnding 
+headshots of the Obamas and cutting just their faces out to use as icons 
+throughout the visualization 
+(Figure 4.4).ヾ(０∀０*★)ﾟ* 
+The frst thing I wanted to do was to implement animation tied to scrolling 
+like Tony Chu’s and Stephanie Yee's “ A Visual Introduction to Machine Learning”2 
+(an incredible piece of scrollytelling where all the animations are tied to scroll), 
+because it always seemed like a fun technical challenge. I was able to work out 
+the logic with the help of Tony’s “Small Scroll-linked Animation Demo”
+3: The key 
+is to leave a subset of the section static, where scrolling results in no movement 
+in the visualization (so that the reader can actually read the text), and then tie 
+scrolling through the rest of the section with animating the visualization from 
+that frst section to the ne xt (Figure 4.5). 
+For example, in the top two sections, each headshot of the Obamas 
+represented a late-night TV show appearance. In the frst section, I grouped 
+the appearances by the show host and laid the headshots out in a grid under the 
+show host’s headshots (Figure 4.6, top). For the second section, I arranged their 
+appearances along a timeline of their eight years in ofce and linked them to the 
+corresponding show host (Figure 4.7, bottom). 
+There are a lot of 
+explainers out there 
+now on how to do 
+scrollytelling, but I 
+really found Tony’s 
+helpful when I was 
+getting started. 
+It’s really important 
+to make sure not to 
+move too many things 
+at once. You don’t 
+want to have text 
+moving at the same 
+time the visualization 
+is animating. Too much 
+movement makes 
+people unsure where 
+to concentrate on and 
+might even make them 
+nauseous. 
+Fig.4.4 
+Headshots of the 
+Obamas that I spent 
+a long time cutting out 
+with Photoshop. 
+Fig.4.5 
+Logic for scroll-based 
+animation. 
+2 Tony Chu and Stephanie Yee, “ A Visual Introduction to Machine Learning”: http:/ /www.r2d3.us/visual-intro-to-machine-learning-part-1/ 
+3 Tony Chu, “Small Scroll-linked Animation Demo”: http:/ /bl.ocks.org/tonyhschu/raw/af64df46f7b5b760fc1db1260dd6ec6a/ 
+
+=== PAGE 140 ===
+139 
+PRESIDENTS & ROYALS
+ 
+  
+ 
+ 
+Fig.4.6Fig.4.6 
+First two sections with 
+annotations of where 
+scroll does or does not 
+trigger animations. 
+I passed the Obamas’ and show hosts’ positions in the frst section as starting points 
+into d3.interpolate() , and the positions in the second section as the ending 
+points. I then passed the amount scrolled between the sections into the interpolator 
+to get the correct in-between x/y positions for the Obamas and show hosts and 
+animate them down the screen. I repeated this for every pair of sections. 
+
+=== PAGE 141 ===
+140 
+SHIRLEY
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+Fig.4.7
+Fig.4.8
+Fig.4.7 
+For section two, 
+hovering a host 
+shows corresponding 
+guest appearances. 
+It was a very simple 
+implementation, but 
+it made me really happy 
+because it helped a lot 
+in making the tangle of 
+links easier to navigate. 
+Fig.4.8 
+In section four, 
+hovering on a caption 
+within a video shows 
+the emotions that 
+were detected for 
+that caption. 
+In the third section, I introduced the videos I downloaded from YouTube, with the 
+x-axis using the same timeline as the previous section (I love this little detail) and 
+the y-axis being the number of views. In the fourth section, I fltered down to just 
+the videos with captions; the flled circle radius is the number of views, and the 
+outer ring radius is the duration of the video. It’s fun to see that some of the videos 
+got a lot of views despite being shorter in duration, or vice versa. The small dots 
+on the ring represented the times when Google Cloud Vision API said there were 
+expressions of joy, so we can see whether the laughter was present throughout the 
+video, or if it was concentrated in specifc block s (Figure 4.8). My favorite part about 
+this was actually in the description, where I calculated the number of times the 
+POTUS and FLOTUS laughed and found out that the FLOTUS had signifcantly 
+more laughter! 
+I like the intent behind 
+the dots and outer 
+ring, but it’s defnitely 
+some of my more 
+experimental work— 
+I’m not sure if I’ll do the 
+same thing now, since 
+it is quite overwhelming 
+and confusing. 
+For the fnal section (that I spent the whole project building up to), my goal was 
+to create an interface that would encourage exploration of the emoji-flled photos. 
+It centers around a timeline of the captions and emotions detected in the selected 
+video, and hovering the timeline shows the full screenshot for that scene with emojis 
+placed on any detected faces. 
+
+=== PAGE 142 ===
+ 
+ 
+ 
+  
+    
+ 
+    
+    
+ 
+  
+     
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+How Scrollytelling Works 
+I use scrollytelling when I want to explain diferent parts of the data or break down interesting 
+visual insights step-by-step to a more general audience. It’s great because I can control exactly 
+how the reader interacts with the visualization, and all the reader has to do is scroll. 
+Scrollytelling is when a user scrolls past a series of “containers” on the page—usually 
+divs—and each container triggers a change in the visualization. At the bare minimum, 
+there are four things that scrollytelling has to do: 
+1. Add event listener for scroll. I also usually use lodash.js’s debounce to make sure that 
+the callback function isn’t called more than once every 64–200ms, depending on how 
+computationally heavy the visualization update is. 
+2. Within the scroll callback function, calculate which container we’re in given the scroll 
+position and each container’s top and bottom y-positions. 
+3. Trigger corresponding changes to the visualization. If there are animations and those 
+animations are tied to scroll (the animation progress is directly mapped to the scroll 
+progress, rather than automatically started upon entering the container), calculate 
+the diference between the scroll position and the top of that container. 
+4. Divide the diference by the height of the container, and pass that decimal value 
+to the interpolator. 
+I implemented my frst scrollytelling project from scratch because I wanted to understand 
+how it worked, but I’ve since relied on JavaScript libraries to help me manage the scrolling. 
+My current favorite is Scrollama.js from The Pudding, because of its super straightforward 
+API and focus on performance; I highly recommend it. (And let’s face it, scrollytelling isn’t 
+something you ever want to implement twice!) 
+A callback function 
+is a common type 
+of function used in web 
+development that is run 
+(“called back”) when 
+some other action— 
+in this case, scroll— 
+has occurred. 
+For how animations 
+and interpolators work, 
+see the lesson “Custom 
+Animations” on page 
+269 of my “Nature” 
+chapter. 
+Scrollama.js aims 
+to be more performant 
+by ofoading the 
+computations in step 
+2 (which can get 
+expensive if done 
+on every scroll) to the 
+Intersection Observer 
+API, which can detect 
+when an element enters 
+the viewport—I’m such 
+a fan! 
+
+=== PAGE 143 ===
+142 
+SHIRLEY
+ 
+  
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.4.9
+As soon as I implemented the timeline, I knew I needed to implement the fsheye 
+efect—a way for users to hover and expand specifc slices to better preview them. 
+I had seen the New York Times implementation of the horizontal fsheye for 
+navigating through fashion week images
+4, and I knew Nadieh had adjusted that 
+code for canvas before. It took a bit of digging to fnd an SVG equivalent for 
+cropping centered images (use preserveAspectRatio and set the viewBox 
+width the same as the image width), and a few passes through Nadieh’s and the 
+original fsheye code to get the subset I needed (mapping an x -coordinate 
+to its new position based on the distortion) to get it working in my own code. 
+I found my SVG image 
+cropping solution 
+on Sara Soueidan’s 
+blog
+5; she has the best 
+explainers. (ﾉ≧∀≦)ﾉ
+Fig.4.9 
+The timeline as-is (top) 
+and the timeline with 
+the fsheye efect on 
+hover (bottom). 
+One of the fnal things I had to do was make sure that all the visualizations worked 
+in mobile. It was the frst time I really tried to be mobile friendly, and after some 
+research, I ended up using ismobilejs, a JavaScript package that detects what 
+device the user is on (and I’ve used this package in all my projects ever since). If the 
+package detected the user was coming from mobile, I passed in a narrower width 
+for all my visualizations, resulting in very squished visualizations (but they did ft 
+the screen!). My happiest mobile moment, though, was getting that fsheye efect 
+working in mobile. When Iinitially used the browser’s built-in touchmove event 
+listener, scrubbing was extremely buggy and fnicky. After spending an entire day 
+thinking of a diferent interaction I could make with the timeline on mobile, I realized 
+that D3.jsalr eady had a great touch implementation with the drag module; the end 
+result was so smooth it was magical butter. 
+For examples on 
+designing visualizations 
+specifcally for mobile, 
+see Nadieh’s “Dataviz 
+For Mobile And 
+Desktop Isn’t Always 
+About Scaling” lesson 
+on page 290 of her 
+“Culture” chapter. 
+4 Front Row to Fashion Week, February 2014: http:/ /www.nytimes.com/newsgraphics/2014/02/14/fashion-week-editors-picks/index.html 
+5 https:/ /www.sarasoueidan.com/blog/svg-coordinate-systems/ 
+
+=== PAGE 144 ===
+143 
+PRESIDENTS & ROYALS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+Reflections 
+This project took much longer than all my previous Data Sketches projects, but I’m 
+so happy with myself for overcoming all the technical challenges I faced and fgured 
+out. I’m especially happy that I implemented scrollytelling from scratch because 
+I now know exactly how it all works and use that knowledge regularly in my work. 
+One of the best things, though, is that it gave me a sense of technical fearlessness, 
+where I really felt that if there was something I wanted to implement, that I’d be able 
+to fgure out how to do it, given enough time and the right Google searches. 
+Sadly, the response to this project was less enthusiastic than I was hoping for, 
+considering the amount of efort I put into animating the visuals and the overall 
+amount of time I ended up spending. I think this was because my text merely recited 
+the facts in the data—which wasn’t very memorable for anyone. (This was in contrast 
+to my “Book” project about Hamilton the musical, where I really focused on what 
+I learned in my analysis and wrote an article that really made the Hamilton fans feel 
+for the musical; that was much more successful.) 
+But that in turn also taught me a great lesson; how I feel about my own projects 
+shouldn’t be dictated by external validation, but rather how much fun I had building 
+it. And I’m really proud of everything I was able to accomplish; I think it really set me 
+up well technically for all my subsequent projects. I like my silly, fun, Obamas project 
+very much.
+ ｡ﾟ✶ฺ.ヽ(*^∀^*)ﾉ.✶ฺﾟ｡
+
+=== PAGE 145 ===
+ 
+Putting Emojis on the President’s Face 
+shirleywu.studio/projects/obamas 
+
+
+=== PAGE 146 ===
+145 
+PRESIDENTS & ROYALS
+Fig.4.10Fig.4.10 
+Scroll-based 
+animation from frst 
+section to the next. 
+
+
+=== PAGE 147 ===
+146 
+SHIRLEY
+
+
+=== PAGE 148 ===
+147 
+PRESIDENTS & ROYALS
+
+
+=== PAGE 149 ===
+148 
+BOOK 
+
+=== PAGE 150 ===
+149 
+BOOKS 

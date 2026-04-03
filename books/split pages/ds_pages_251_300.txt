@@ -1,0 +1,1144 @@
+=== PAGE 251 ===
+HEIDAN
+052
+Data
+To start, I needed a subject to guide the generative art concept. The frst things
+I was drawn to were fowers, but I couldn’t fnd a single dataset about fowers that
+contained information such as the main color, average number of petals, blooming
+period, etc. I only came across images of fowers to be used for image processing
+training, or taxonomy lists (in other words, lists that classify fowers into specifc
+groups, families, and species). I therefore turned my attention to butterfies, for Don’t ask my boyfriend
+which I also have a fascination. However, I encountered the same problem here; how many times he’s
+had to wait for me on
+I only came across taxonomy lists.
+vacations while I was
+The best dataset that I was able to fnd, I kid you not, came from the website trying to perfectly
+capture a butterfy.
+“Gardens with Wings.”1 It had a section that divided butterfies by main colors, wing
+shape, size, and species (Figure 8.1). I felt that scraping the site was more trouble
+than the manual approach, so I just copy-pasted information that I needed from
+each page into an Excel fle, resulting in a list of 86 diferent butterfies.
+FFiigg..88..11
+The diferent options
+you have to search
+for butterfies on the
+website “Gardens
+with Wings.” Website
+design, usability,
+and UX – Fred Miller;
+website data and
+project management –
+Patty Bigner.
+Data Can Be Found in Many
+Diferent Ways
+Just like my previous project about Dragon Ball Z, this one also came down to gathering
+the data totally manually after I had given up hope to fnd a more “proper” already
+structured dataset.
+1 Gardens with Wings: http://gardenswithwings.com/
+
+=== PAGE 252 ===
+251
+NATURE
+Sketch
+Once I fgured out the “butterfy and generative art” angle, it seemed most fun
+to me to mimic a butterfy’s path across the screen. They always seem to fy quite
+randomly and change direction quite suddenly (and that was it, really, the full
+idea! (•ω•)).
+At frst I thought about using the diferent path options to build up the
+butterfy’s route; for example, the Skipper butterfy’s path would travel in straight
+lines, and Swallowtails would be arcs. I tried sketching out this idea, but then quickly
+switched to coding it instead. No sketch could capture the delicateness of the lines
+I had in mind. I wrote down several questions or ideas I wanted to keep in mind while
+coding, such as “Should a line (e.g. butterfy) quit after a certain time?”
+FFiigg..88..22
+This “sketch” with
+questions to keep in
+mind is what I used to
+fgure out how to draw
+the butterfy lines.
+Code
+I knew there would be many paths going all across the screen at once with
+no interactivity. So for this project, I fnally did it right and decided to start building
+the visual with canvas instead of D3.js. For my very frst attempt I just wanted the For a short explanation
+simplest thing on the screen, which in my mind was representing the butterfies with of canvas, please see
+“Technology & Tools”
+random straight paths, switching to a diferent direction every so often (Figure 8.3).
+at the beginning
+Well, that looked absolutely dreadful! (⊙_⊙) This taught me that making of the book.
+random things look beautiful is difcult (and I developed even more respect for
+people like generative artists Jared Tarbell and Anders Hof).
+I started from a generative-like example2 I created about a year before for
+my butterfies, which in itself was based on a demo from Sketch.js that shows
+a stream of circles bursting from a line moving across the shape of an infnity
+symbol (∞).
+2 Color blending—infnity showcase: http://bl.ocks.org/nbremer/cbf61944aeb3204d3e4986ea645 afc2b
+
+=== PAGE 253 ===
+HEIDAN
+252
+FFiigg..88..33
+Very frst result on
+my screen, using only
+straight lines.
+The horrible screenshot in Figure 8.3 showed me that I would probably need
+some smoothing of the curves. And that’s when I found a tutorial on Anders Hof’s
+site3 about creating nicely curved lines through a set of points and then slightly
+jittering them. It looked absolutely amazing, and I immediately knew I wanted
+to try something similar.
+Thankfully, I could start from the code of a Stack Overfow question that draws
+a so-called curved spline through a set of points, in essence smoothing out the
+original line and taking of any edges. In Figure 8.4 you can see some of my earliest
+tests, frst just getting a smooth curve and next starting to gently jitter the path
+of the butterfies on each redraw to get a more random looking path. Once I also
+dropped the opacity a lot and got to the smoky bottom line in Figure 8.4, I fnally
+felt that this could turn out ok after all. (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧
+FFiigg..88..44 aa bb cc dd
+((aa,,bb,,cc,,dd))
+Slowly working towards
+random, smoky looking
+butterfy paths.
+1 Anders Hof “Sand Spline”: https://inconvergent.net/generative/sand-spline/
+
+=== PAGE 254 ===
+253
+NATURE
+For ease, I let all my paths begin from the center and move outward. I started
+to add some rules based on my actual butterfy data. Each frame, a few butterfies
+are created, randomly picked from the dataset of ±50 butterfies. The color of the I fltered out brown-
+butterfy path is defned by the main color of the butterfy. However, to get more colored butterfies
+because I didn’t like the
+diversity I used the Tinycolor.js library to pick randomly between fve very
+color on the screen.
+similar colors. The opacity and thickness of the path, and the way a butterfy futters
+across the screen, is governed by the butterfy’s wingspan, which I split into “small,”
+“medium,” and “large” categories. Naturally, larger butterfies have thicker paths.
+FFiigg..88..55
+Butterfy-based random paths
+starting from the center that get
+jittered on each redraw.
+
+=== PAGE 255 ===
+HEIDAN
+452
+I then turned to the paths themselves. In my initial setup, the paths were quite
+straight. A butterfy would dash over the screen never to be seen again. To better
+mimic a butterfy, I started to make the paths more curved. However, it took some
+efort to make the efect look natural. Once a butterfy curved to one side, it would
+have to futter for a while before curving in a diferent direction, versus quickly
+jumping from one direction to the next.
+FFiigg..88..66 aa bb
+((aa,,bb,,cc,,dd))
+cc dd
+Drawing paths only in solid lines seemed a bit boring, so I started playing around
+with diferent types of paths. The smallest butterfies got a dotted line. One
+particular species, the Skippers, was drawn with larger circles across the path
+instead of a solid line. I did have to experiment a lot to fgure out some decent
+settings for the random number generators, because jittering a set of circles
+around would eventually result in a very thick blobby line.
+Things were starting to look better and more diverse now. I played around
+with diferent bubble efects and I quite like the “scatter” approach in Figure 8.8.
+
+=== PAGE 256 ===
+255
+NATURE
+FFiigg..88..77
+Clearly, I had a bug in my code when
+creating the new circle based paths!
+FFiigg..88..88
+One of my favorite results, although
+this efect wouldn’t remain looking
+good when the code was running for
+more than a few seconds.
+
+=== PAGE 257 ===
+HEIDAN
+652
+Design with Code
+Although there’s always an element of “designing with code” in my projects, this one,
+like the “Royal Constellations” project, came down to designing the whole visual with
+code. My sketch only illustrated my idea vaguely; I just couldn’t quite capture what I had
+in mind. Figure 8.3 doesn’t indicate that this would ever turn into something beautiful.
+But by keeping an eye open for inspiration from others, and continuing to iterate and
+play with the code, I ended up with a visual that I was pleased with.
+For fun I added the hexagon and circle of our Data Sketches’ logo in the center and
+played around with placing a butterfy-like shape in the middle, but it (naturally…)
+took more time to fgure out than expected 눈_눈 (about 3–4 hours).
+FFiigg..88..99
+Having the paths
+start from outside the
+screen and adding a
+hexagon and circle
+(from the Data
+Sketches’ logo)
+in the center.
+Using the openType.js library I could recreate a font as a canvas path to spell I called it “Marble
+out the name of the piece; “Marble Butterfies” (Figure 8.10). And then I could also Butterfies” because
+the smoky lines across
+wiggle the letters around to get a less clean look to ft better with the overall style.
+the screen remind me
+After what seemed like endless tweaking of the path’s settings to get better of patterns in marble.
+looking results, I checked out my timing app and saw that I’d reached 19:45 hours for
+this project, so it was time to fnish and “ship it” to reach my goal of staying under These write-ups also
+20 hours. take an additional few
+hours!
+
+=== PAGE 258 ===
+257
+NATURE
+FFiigg..88..1100 One thing I really like about this piece is that due to the randomness, every version
+that anyone opens will be a completely unique piece of data art!
+Adding a central
+butterfy shape and
+the title of the project
+in wiggled letters
+as a fnal touch.
+Reflections
+It was quite fun not to have to create a visual that needed to be “understood” for
+a change. I was free to just experiment and kept the parts that looked nice. In the
+future I would defnitely like to continue investigating the more artful or generative
+side of dataviz.
+
+=== PAGE 259 ===
+Marble Butterflies
+MarbleButterfies.VisualCinnamon.com
+FFiigg..88..1111
+This screenshot shows
+a version that was
+taken about a minute
+before the one on the
+right page.
+FFiigg..88..1122
+
+=== PAGE 260 ===
+259
+NATURE
+FFiigg..88..1133
+
+=== PAGE 261 ===
+(no text extracted)
+
+=== PAGE 262 ===
+261
+Send Me Love
+SHIRLEY
+When we frst decided on the topic of “Nature,” I wanted to do something
+with the BBC’s Planet Earth 2. I even started gathering data for the frst
+episode, jotting down which animals appeared when, but it didn’t go any
+further than that. (I really wasn’t excited enough about the idea for the
+amount of manual data entry it required.)
+More than a year later, I had fnished a piece for the San Francisco Museum
+of Modern Art (SFMOMA) that I thought could maybe double for Data
+Sketches. I have to admit it’s still sort of cheating; the data isn’t about
+nature, it’s about texts sent to SFMOMA. But I looked at individuals’ texts
+and their interactions with SFMOMA, so it could ft under human nature
+(*≧∇≦). I’m very thankful that Nadieh was okay with me bending our rules
+a little bit (again).
+FEBRUARY
+2018
+–
+JUNE
+2018
+NATURE
+
+=== PAGE 263 ===
+YELRIHS
+262
+Data
+In June 2017, SFMOMA launched “Send Me SFMOMA,” a service where people could
+text requests like “send me love,” or “send me art,” and SFMOMA would respond
+with an artwork in their collection that best matched the request. They received
+more than fve million texts from hundreds of thousands of people. A few months
+later, they contacted me to do something with that data, and I was over the moon
+with excitement.
+When I frst started looking at the data, I did some simple explorations: what the
+attributes were, what keywords were most popular, and what artworks came back
+the most often (Figure 8.1). I also knew that I wanted the end result to be a painting,
+because I’m a cheesy individual and I wanted to make art out of art. (*´艸`*)
+The idea I ended up pitching to SFMOMA was to trace an individual’s “journey”
+throughout the month, what “positive” or “negative” thing they might have asked
+for, and what kind of artwork they got back. I wanted to see if I could experience
+what that person experienced and feel what that person felt.
+FFiigg..88..11
+Notes from my initial
+data exploration.
+
+=== PAGE 264 ===
+263
+NATURE
+As far as data collection, preparation, and cleaning went, this was probably one
+of the most straightforward projects I’ve done for Data Sketches (and I’m really
+grateful for that). For the data collection, SFMOMA gave me a huge fle of all the
+texts they ever received and another huge 1TB fle of all the texts they ever sent
+back. From that second fle, I wrote a script to only retrieve texts and information
+from the frst 100 participants. I decided to focus on the frst 100 participants
+because it otherwise would have been a lot to analyze, and I hypothesized that
+the project’s early adopters would have the most interesting interactions.
+I ran the keyword in each text through sentiment, a Node.js package that
+gives a score for how positive or negative a word is, and my cousin Max
+(a junior in college studying Computer Science) wrote a script to get additional
+metadata for each artwork—including date, title, artists, country of origin, color
+palette, and Shannon Entropy (how “chaotic” the artwork is)—from the
+SFMOMA API.
+Sketch
+The very frst thing I did once I had the data was to try and implement my own
+version of Tyler Hobb’s generative watercolor efect.1 It didn’t turn out quite well:
+FFiigg..88..22
+Tyler’s implementation (left) versus
+my own attempt (right), a real case
+of expectation versus reality.
+(￣ロ￣·;)
+1 https://tylerxhobbs.com/essays/2017/a-generative-approach-to-simulating-watercolor-paints
+
+=== PAGE 265 ===
+YELRIHS
+462
+But thankfully when I tweeted about this, my friend (and developer) Taylor Baldwin
+came to the rescue with a link to his own implementation,2 and later on Tyler chimed
+in with a fx.3 I was able to get my version looking more like Tyler’s (Figure 8.3), but
+once I plugged in the actual data with each “paint stroke” colored by the artwork
+SFMOMA texted back, it was a mess again (Figure 8.4).
+Around the time I started working on this project, I had moved to Tokyo for
+three months. Japan is a country that reveres nature and the change in seasons;
+when I arrived in March, fowers were everywhere. I remember walking past
+an ad of illustrated fowers in a subway station and doing a double take because
+I just loved the whimsy and simple beauty of it. I knew then and there that I wanted
+to work fowers and nature into the project.
+As soon as I got back in front of my computer, I jotted down my ideas for how
+to incorporate fowers into the visualization. At the same time, I started looking
+at the SFMOMA API to see what kind of data I could get back about each artwork.
+FFiigg..88..33
+Programmatically
+generated
+“watercolor” strokes.
+FFiigg..88..44
+Programmatically
+generated
+“watercolor” efects
+with data plugged in.
+2 https://github.com/rolyatmax/watercolor-canvas
+3 https://twitter.com/tylerxhobbs/status/959178572375232517
+
+=== PAGE 266 ===
+265
+NATURE
+I started working on the fower petals a few days later, taking what I learned
+from the “Movies” project about SVG curve commands, as well as newly learned
+functions like p5.js’s randomGaussian (randomness centered around p5.js is a JavaScript
+a given number) and noise (an implementation of Perlin noise that simulates library for creating
+generative art and
+a more natural looking randomness) to get a more natural fower petal shape
+interactive experiences
+(Figure 8.5). I was especially proud of the hand-drawn efect I achieved, where on the web.
+the lines of the petal vary in width as if they were drawn with a thin brush (Figure
+8.6). I was able to do this by frst drawing the petal shape with an SVG path,
+calling getPointAtLength to get the x/y coordinates every few pixels along
+the path, and drawing a circle in canvas for every x/y coordinate I got back. The
+most important part, though, was that as I drew the circles, I varied their radius
+with Perlin noise so that they increased and decreased in size in a very natural
+looking way (if I had used randomness instead, it would have looked very messy
+and blotchy). I was inspired to try this approach after watching a series of explainers
+on Perlin noise by Dan Shifman,4 where I learned how it was implemented.
+FFiigg..88..55
+Notes on what
+metadata to map to a
+fower (left) and how
+to code more natural
+looking fowers (right).
+FFiigg..88..66
+Iterations on natural
+fower shapes, with
+SVG to color the petals
+and canvas to produce
+the hand-drawn efect.
+I’m extremely proud of
+the hand-drawn efect;
+I love it so much.
+4 Dan Shifman, Introduction - Perlin Noise and p5.js Tutorial: https://www.youtube.com/watch? v=Qf4dIN99e2w
+
+=== PAGE 267 ===
+YELRIHS
+662
+Code
+This was the project that proved that even if the data and sketch parts went
+smoothly and I knew exactly what I wanted to do, the actual execution (code)
+could still take a really, really long time.
+For my very frst code attempt, I drew each text message as a fower placed
+around a spiral (I was able to repurpose the code from my “Music” project
+(*•` •´*) و̑̑), colored with the most predominant color in the artwork SFMOMA sent
+back, and animated by the time the text message was sent (Figure 8.7). Not only was
+it aesthetically unappealing, it was so computationally heavy that my Macbook Pro
+(with 16GB RAM!) was choking up. I immediately moved the watercolor calculation
+into a web worker so they wouldn’t clog up the UI.
+Much to my sadness, I also decided to get rid of the hand-drawn efect
+because it was too computationally expensive to loop through hundreds of points
+along each fower petal when I was trying to draw hundreds of fowers, and the
+result was too subtle to appreciate on such small fowers anyway.
+FFiigg..88..77
+First attempt at
+drawing each text
+message as fowers.
+I didn’t know how to deal with the aesthetics, until I went to the joint graduation
+exhibition of fve art universities at the National Art Center in Tokyo and saw
+a gorgeous piece of a pregnant woman with fowers surrounding her. The fowers
+were cut out of the paper, showing the watercolor underneath.
+
+=== PAGE 268 ===
+Web Workers
+In data visualization, the performance bottleneck is usually in rendering to the
+DOM (Document Object Model), but once in a while the data calculation will
+be heavy enough to tie up the main CPU thread. And as JavaScript is single- For rendering
+threaded, any time-consuming calculations will cause the page to become bottlenecks, consider
+limiting the number
+unresponsive and prevent user interaction until they’ve fnished processing,
+of DOM operations or
+which is horrible for user experience. Most of the time, we can move the super- using canvas instead
+of SVG; see the lesson
+heavy work (like calculating node-link positions with force simulations) ofine
+“SVG vs. Canvas”
+and load it in a fle with the calculations already done. But sometimes the fle will on page 82 of my
+be too large or we need to do the calculations on the fy, and that’s when web “Olympics” chapter
+for details.
+workers are super helpful.
+Web workers are background threads we can spin up to communicate back and
+forth with the main thread, where regular JavaScript code is executed and user
+interactions are handled. When we need to do some heavy computation, we can
+send the data to the worker with postMessage and the main thread will be free
+to keep executing other code or to listen for user events. The worker will receive
+the data in an onmessage callback, execute the code, and pass the calculated
+data back to the main thread to handle.
+It’s important to keep in mind, though, that web workers don’t necessarily
+execute the code any faster (as they’re still running on the CPU); they just don’t
+freeze up the web page. They also don’t have access to the DOM, so we can’t
+manipulate SVG elements or draw directly to a canvas element from within
+a web worker.
+
+=== PAGE 269 ===
+YELRIHS
+862
+I was immediately taken by the cutout efect, and I knew I wanted to recreate it
+(Figure 8.8). I was able to achieve the efect by using three layers of DOM elements:
+1. A canvas element with the watercolor efects
+2. A second canvas element that I flled fully white frst, then set the blend
+mode (globalCompositeOperation) to destination-out so that any
+subsequent fowers I drew subtracted from the white background like cutouts
+3. A fnal SVG element on top that I used to draw the outlines for each
+fower petal
+I liked the look of this cutout efect very much, but soon realized that having
+a fower for every text message was just too much, so I decided instead to only
+draw a fower for each positive text message that was sent. I tried circles and
+squares for the neutral and negative text messages, and eventually ended
+up with leaves (Figure 8.8).
+Even with the fowers and leaves fgured out, I was still unhappy with the layout
+of the fowers, especially because text messages that were sent in close procession
+translated to fowers that overlapped each other or were pushed of the edge
+of the screen. I was stuck for weeks (and worked on other projects in the meantime)
+until cherry blossom season hit Tokyo. Suddenly there was pink everywhere, and I lived in Japan for six
+it was gorgeous and emotional, and I spent the whole week going to diferent spots years as a child, and
+cherry blossoms are
+to admire the cherry blossoms. (ﾉ^ ヮ ^)ﾉ*:・ﾟ✿
+amongst my fondest
+childhood memories.
+FFiigg..88..88
+The fowers with a cutout efect,
+frst experiment with squares
+and circles (left) and then with
+leaves (right).
+
+=== PAGE 270 ===
+Custom Animations
+Animations are an essential part of data visualizations—to convey the passage
+of time, or to transition from one data state to the next—and it’s been extremely
+helpful knowing how to implement them.
+At its core, an animation needs an interpolator, duration, and (optionally) an easing
+function. To implement a custom animation:
+1. C reate an interpolator with a start and end value.
+I nterpolators are functions that calculate all of the in-between values given
+a start and end value. D3.js has a great implementation that not only
+interpolates numbers, but also colors, strings (including simple SVG path
+strings and CSS styles), arrays, and objects.
+2. S tart a timer, and pass in t (elapsed time divided by animation duration)
+to the interpolator at each tick.
+T he most basic way to implement a timer is to pass a callback function
+to requestAnimationFrame and use Date.now() to keep track of the
+elapsed time. But personally, I like to use D3.js’s timer module that abstracts
+that away for me.
+3. O ptional: use an easing function to alter the rate of change in the animation
+and make it feel more natural, because nothing in nature moves at a perfectly
+linear rate. For example, when we drop a ball, it bounces a few times before
+stopping, or when we open a drawer, we might pull it out quickly at frst but
+slow down when it’s pulled out enough—we use easing functions when
+we want to mimic natural motions like these.
+4. T erminate the timer once the elapsed time is larger than the animation
+duration.
+I like using D3.js’s transition module when animating SVG elements and
+Greensock’s timeline when I need to chain multiple animations together
+and manage their timing. When I have to animate in canvas, I’ll go full-custom
+with d3.timer() and d3.interpolate() functions.
+
+=== PAGE 271 ===
+YELRIHS
+072
+FFiigg..88..99 It was on one of those walks through Shinjuku Gyoen (Figure 8.9), one
+of my favorite parks in Tokyo, that I realized: I was trying to lay out the fowers
+A photo I took of
+the beautiful cherry in random ways, but fowers grow on tree branches (what a facepalm moment),
+blossoms in Shinjuku
+and tree branches are just fractals. Thinking of the images in terms of fractals
+Gyoen.
+made it a very straightforward computer science problem to solve (Figure 8.10).
+I again referenced Dan Shifman’s work, this time a chapter on fractals in his
+book The Nature of Code. I adapted his code and drew my fowers on branches,
+with each tree of fowers representing one day’s worth of text messages (Figure
+8.11). I loved it immediately.
+It took another two months after this point of tweaking to get to the fnal
+product. I added a slight curve to the branches to make them look a bit more natural,
+made the fower petal shape less spiky, fddled with the timing of the animations,
+and fxed bugs.
+
+=== PAGE 272 ===
+271
+NATURE
+FFiigg..88..1100
+Notes on how to
+program fractal tree
+branches.
+FFiigg..88..1111
+Flowers laid out with
+branches.
+
+=== PAGE 273 ===
+YELRIHS
+272
+FFiigg..88..1122 But most of all, I had a lot of trouble laying out the trees (each representing a day
+Flowers and trees of text messages). I originally wanted to have all the fowers “animate in” around
+arranged around an a circle, surrounding the artworks SFMOMA sent back (Figure 8.12). This caused
+artwork in a circular
+several problems: there was a lot of overlap between days when the trees spread
+layout. (Artwork
+covered for copyright out too far, some of the bigger trees often disappeared of the screen, and most
+reasons)
+importantly, putting the artworks in the central circle meant cutting of the artwork—
+something that went against the original artists’ wishes.
+I decided to try out a horizontal layout next, frst with each tree (day) getting
+the same amount of horizontal space. But with seven days and limited screen
+space, I couldn’t fully display each tree. So I tried a carousel format next, where the
+selected tree was layered above all of the other trees (Figure 8.13). And because
+I had so much vertical space, I decided to put in additional information underneath
+the tree: a log of the keywords texted and their corresponding timestamps. (I liked
+thinking of this as the tree of fowers sprouting from the soil of that day’s text
+messages. (*´艸`*))
+
+=== PAGE 274 ===
+273
+NATURE
+FFiigg..88..1133
+Trees arranged
+horizontally in a
+carousel format.
+I really liked this layout but missed being able to see all the trees unobscured at the
+same time, and so I fnally adopted a layout where one tree could be expanded and
+the rest would be minimized. This layout made me the happiest, not only because
+I could see all the trees at the same time, but also because it was implemented with
+CSS Grid and was perfectly responsive. The article “A Complete
+Once I had the layout, I started working on the fnal touches. I named the fve Guide to Grid” on
+CSS-Tricks6 was so
+individuals whose text messages I chose to display with the keywords they asked
+comprehensive, it was
+for the most often (“love,” “happiness,” “smiles,” “sunshine,” “moons”), and wrote all I needed to get up
+and running with Grid.
+an artist statement. I added a legend and tried to tell a story with it: what mood the
+individual was in (fower versus leaf), what they got back from SFMOMA (color),
+and how that might have afected them (Figure 8.14). And to support the last part
+of how the artwork might have afected them, I devised an interaction where
+on hover, I drew an arrow from the last text message they sent to the next, and
+so on. I loved this interaction because I found that I could follow the series of texts
+the individuals sent, and learned that oftentimes, they were infuenced by the
+artworks they got back.
+Reflections
+I love this project because I learned so much from it. I successfully used a web
+worker and learned CSS Grid to lay out all of the trees. It will always remind me
+of all the experiences I had in Japan, as my stay there deeply infuenced the form
+of this visualization. I’ll always have little tweaks I want to do (I’m never 100%
+satisfed with my projects), but it’s one of those projects where I’m really happy
+with the outcome.
+6 “A Complete Guide to Grid; CSS-Tricks”: https://css-tricks.com/snippets/css/complete-guide-grid/
+
+=== PAGE 275 ===
+Send Me Love
+send-me-love.com
+FFiigg..88..1177
+Hovering a fower or leaf shows the
+arrows pointing to the texts sent
+before and after, as well as the key-
+word in the text, timestamp, and the
+artwork that was sent back. (Artwork
+blurred for copyright reasons.)
+FFiigg..88..1188
+I loved the fowers so much I made
+them into postcards.
+
+=== PAGE 276 ===
+275
+NATURE
+
+=== PAGE 277 ===
+CULTURE
+276
+
+=== PAGE 278 ===
+TURE
+277
+
+=== PAGE 279 ===
+(no text extracted)
+
+=== PAGE 280 ===
+Beautiful
+in English
+NADIEH
+I still remember Shirley and me getting an email from Alberto Cairo
+in October 2016 that asked if we’d be interested in doing a Data Sketches
+style project for Google News Lab. Our answer: yes, of course!
+We were completely free to supply our own ideas for topics as long
+as it revolved around Google data. So Shirley and I made a list with four
+topics, and each of us put our own spin on it as usual. Simon Rogers, our
+main point of contact at Google, picked the topic of “Culture,” something
+a bit light and fun. Alberto oversaw the general progress of the designs,
+akin to an art director.
+My angle for “Culture” came from something I experience with Google
+quite often. Being a Dutch native speaker who communicates in English
+about 95% of my working day, I sometimes need to translate a word into
+English. I either type “<<Dutch word>> in het Engels” into Google itself
+or go to Google Translate (“in het Engels” means “into English” in Dutch).
+I was really interested to know what people from other languages translate
+into English the most, especially if it’s just one word. Do German speakers
+search for the same kinds of word translations as Spanish speakers?
+Would it reveal something about their cultures?
+JANUARY
+–
+MARCH
+2017
+279
+CULTURE
+
+=== PAGE 281 ===
+HEIDAN
+082
+Data
+To help us get this data, we turned to the Google Translate team. They warned
+us that the results would probably be quite mundane, but both Simon and I were
+quite intrigued by that idea.
+The Google Translate team wrote a query to get all the single word translations
+that happened on Google Translate between August 2016 and December 2016 for
+10 chosen popular languages. (That was about as far back as the translation queries
+are saved.) Doing the query once took hours and extra resources, and therefore we
+couldn’t get multiple subsets (such as a set per month). Nevertheless, I was super
+excited about this one dataset, even if no time comparison was possible.
+Before getting the actual data, I had already decided only to look at nouns.
+I suspected that common words and phrases like “Hello” or “I” or “Thank you” Nouns are words used
+would probably be the most often translated words. Instead I was interested in the to identify any of a
+class of people, places,
+more subtle diferences between the words that remained when the most common
+or things. Such as
+phrases were removed. So, after receiving the data, I wrote a script in R that could “dog” or “chair.”
+help pick out nouns by tagging each English translation (and if available, tagging
+the original word as well) with its grammatical form with the NLP and OpenNLP
+packages in R.
+FFiigg..99..11
+The results of the auto-
+mated word tagging.
+Browsing through the results I noticed three things. First, the adjectives, typically
+placed before a noun, such as “young” and “intelligent,” also held interesting results
+and seemed quite diverse across languages. Therefore, I decided to keep both
+nouns and adjectives. Whenever I say “most
+Second, I saw that some languages have masculine and feminine variations translated word(s)”
+from here on out
+of the same word, such as “hermosa” (feminine) and “hermoso” (masculine), both
+I mean this to be based
+of which mean “beautiful” in Spanish. I also observed the use of synonyms which on the subset of nouns
+and adjectives.
+translated to one word in English, such as “bonito,” again, meaning beautiful
+in Spanish. To get a fair comparison between rankings within languages, I combined
+the search frequencies for all terms that translated to the same English word
+manually (per language).
+
+=== PAGE 282 ===
+281
+CULTURE
+And third, as I’d expected, the automatically generated tagging results by R weren’t
+perfect. For example, an English word can be both a verb or a noun, depending
+on the context. Therefore, to get a top 10 word list per language, I actually ended up
+looking up each original word that I wasn’t sure about on Wiktionary to see what the
+most probable translation/grammatical form was. It took a long time, but I eventually
+had a top 10 most translated word list for each of the 10 chosen languages.
+To get an overall top 10 word list combining all the languages, I looked
+at the rankings per language to compare relative popularity. I used a point based
+system where the top word in a language would get the most points, the second
+most popular word would get one point less, and so on. The overall most translated
+word would then be the English translation that had the most points from
+all languages combined.
+Sketch
+The sketching part of this project actually happened before the data preparation,
+because Simon and Alberto wanted to see possible designs of visualizations
+beforehand. As I was dealing with words and languages, I was inspired by the idea
+of using the words themselves as much as possible. Initially I wanted each element
+in the fnal visuals to be comprised of the word that it represented; all the visuals
+would only consist of words. Figure 9.2 shows the (cleaned-up) designs that
+I sketched on my iPad Pro and sent to Simon and Alberto.
+FFiigg..99..22
+The cleaned up design
+made on my iPad
+Pro of the diferent
+translation-based
+visuals
+
+=== PAGE 283 ===
+HEIDAN
+282
+I took a “start at the top and provide more details with each new visual” approach.
+All the way at the top, I’d place the most often translated word across all languages.
+Next, the most translated word per language would appear, which was interlinked
+by a swirling word string consisting of the top 100 translated words overall.
+Taking another step deeper would reveal the top 10 per language in a tree ring
+like structure, comparing all the original words to their English translations. To see
+similarities between languages I drew a network where each link represented
+a word that both languages had in common between their top 10 words (such
+as “beautiful”). Finally, there would be a bump chart comparing the top 10 across
+time. However, this last bump chart eventually wasn’t possible because I only had
+that one dataset without a time component.
+For the frst time, I created a secret “mood board” on Pinterest just for It was so useful that
+a project. Collecting things that inspired me resulted in many black-and-white I’ve been creating
+these boards for
+silhouettes, especially art-like pieces consisting mostly of cut-out hand lettering
+almost every client
+from children’s books. project I’ve done since.
+During the project itself I also sketched a lot to help me fgure out the math.
+All of the visuals have some form of text placed along curved paths. And for
+all of these paths I had to fgure out the custom SVG path formula using math.
+As an added difculty, the paths had to be constructed so words on crossing paths
+wouldn’t overlap too much and the text had to be placed as upright as possible.
+FFiigg..99..33 aa bb
+((aa,,bb,,cc,,dd))
+The many diferent
+sketches I made to try
+and fgure out which
+word string concept I
+could make work.
+cc dd
+
+=== PAGE 284 ===
+283
+CULTURE
+For the top visual, where a string of words runs through the most translated word
+of each language, I wanted something that swirled around in a very natural way.
+However, I also had to make the page responsive and “mobile frst”. And I just
+couldn’t fnd a programmable/mathematical way to create a natural looking swirl
+that would work for many diferent screen sizes.
+Therefore, I started to work more with the idea of “beads on a string” which
+went down along an angle. Figure 9.3 shows that it still took a lot of sketches
+to fgure out which layouts would work and how things should look and function
+when either two, three, or four circles ft in a row on the screen.
+Sketch to Discover and Remove
+Thinking Errors
+By sketching out the swirly path that I had in mind, I realized I couldn’t fnd a way
+to actually recreate it in code. Thankfully, I was able to quickly iterate and think of other
+ideas, eventually leading to the “beads on a string” concept. And I can’t say this often
+enough: If you can’t make your design work logically on paper, it’s defnitely not going
+to work on the computer with the actual data.
+For the second visualization of the “tree ring” top 10 words per language I didn’t
+have to sketch that much. The third visual of the network, on the other hand,
+was more involved. Although the lines inside the network weren’t too difcult,
+the problems arose when an outer circle, representing a language, was clicked
+on, which made it move towards the center. I’ll spare you the details, but it had
+to do with the text always reappearing in an upright manner combined with the
+animation of the curved lines the text was drawn on. Figuring out how that was
+supposed to work took even more pages in my little notebook!
+FFiigg..99..44 aa bb
+((aa,,bb,,cc,,dd))
+A few of the sketches
+I made to fgure out
+the language similarity
+network mathematics.
+cc dd
+(d)
+
+=== PAGE 285 ===
+HEIDAN
+482
+The fnal thing I looked into was the overall design of the page. I wanted to recreate
+the old children’s book, black cut-out style imagery. But I couldn’t really fnd
+a way to incorporate that with the theme of translations (or a responsive page).
+So I eventually turned to hand lettering and decided to create my own title and
+headers. Drawing them on my iPad Pro, I started out trying to make the letters look
+smooth and fow nicely. However, for an inexperienced hand like mine, that was very
+hard to do. Plus, I wasn’t happy with the resulting style. So instead I made them look
+a bit quirky and imperfect, distinct from anything else I managed to fnd online.
+FFiigg..99..55
+Work-in-progress
+screenshot of my
+quirky header titles.
+Code
+In terms of coding, I started with the “tree ring” visual that displayed the top
+10 most translated words of a language. By now I’d worked with SVG arcs often
+enough in the past to set up the basic forms in an hour or so.
+FFiigg..99..66
+The very basics of the
+tree ring visual.
+
+=== PAGE 286 ===
+285
+CULTURE
+Next, I focused on how to animate switching between languages. Due to space
+constraints, especially on a mobile phone, I made one big circle in which the top
+10 can be read. The other languages would be squished into tiny, almost fower-like,
+circles. In my frst design, when clicked, a tiny circle would move towards the top
+and simultaneously open up to reveal its top 10, while the previous big circle did
+the exact opposite. However, when I had that working, the animation was extremely If I got a “tribble”
+staggered. It was so bad that it became difcult to see that these two circles every time I had to
+compromise on my
+actually switched places.
+original design due
+Therefore, I set about trying a diferent approach: the text in the circle would to bad (animation)
+performance, my
+rotate out of view before rotating back in again in the new chosen language. When
+apartment would be
+I fnally overcame all the browser bugs to achieve the efect, I actually liked the result stufed by now…
+more than the previous idea (Figure 9.7).
+In terms of the design, Alberto suggested only making one word stand out
+to prevent making the visual appear too busy. But as far as I know, it isn’t possible
+to use diferent styles in one SVG textPath element. Therefore I incorporated
+three diferent textPath elements: a light grey one on the left and a light grey one
+on the right displaying the original word and a bigger black word with the English
+translation in the middle (Figure 9.8). Figuring out how to place those three elements
+so it looked like one string of words that never overlap was another “interesting”
+puzzle to solve. ಥ_ಥ
+FFiigg..99..88
+FFiigg..99..77
+The fnal design,
+An older design of the showing the top 10
+tree ring visual. Japanese words.
+
+=== PAGE 287 ===
+HEIDAN
+682
+Next up was creating the word string, or “word snake” as I started calling it. Because
+I couldn’t mathematically fgure out the natural looking swirl while sketching the
+design, I frst tried some other approaches, but I wasn’t happy with how those turned
+out (Figure 9.9). I therefore revisited the swirl idea, this time visualizing the circles
+as beads on a string—something that I could mathematically solve and create,
+thankfully. Of course, actually coding up the correct SVG path formula took some
+trial and error…
+Due to screen size, I created several options for the “beads” to be positioned.
+It calculates if two, three, or four circles ft in a row and the rest updates automatically.
+Personally, I like the “two beads per row” version the most (Figure 9.10).
+FFiigg..99..99
+An initial idea to visual-
+ize the most translated
+word per language.
+However, I didn’t like
+the look of it.
+aa
+(a)
+bb
+(b)
+cc
+FFiigg..99..1100
+((aa,,bb,,cc))
+The diferent layouts for the top 100
+word string depends on the available
+screen width.
+
+=== PAGE 288 ===
+287
+CULTURE
+Learn to Love Math
+You might already love math, but if you don’t, I highly recommend at least trying
+to understand the basics of geometry, especially trigonometry (remember sine
+and cosine?) and statistics.
+When you start moving away from more mainstream visuals, and you want
+to place the data on your screen according to your own design, chances are that
+you’ll be needing some math to calculate those locations. For example, using a radial
+layout will involve trigonometry. I’m not talking about difcult math here though—
+no diferential equations—but knowing how to go from the (Euclidean coordinates of)
+x and y to the (polar coordinates of) angle and radius, and back, will become invaluable.
+For this project, being able to transform my “beads on a circle” sketches
+to trigonometric functions that actually drew the swirly line made all the diference!
+Alberto and Simon told me that the word string made the inner “language circles”
+look like they could be clicked on, as if they were buttons. That hadn’t been my
+original intent, but that did make me think about what other interesting information
+I could reveal on a hover or click to reward the people that actually interacted with
+the visual.
+This brought me to Google Trends, where I looked up the trend of these most
+translated words and their related queries. Thankfully, all of the words had some
+interesting peaks and dips throughout the past few years. I thus set about making
+the most extensive tooltip I’ve ever made! At the top it showed the worldwide trend I annotated the line
+of the English word over the last fve years. Below the line chart I added a word chart in the tooltip
+using the awesome
+cloud about the related queries. (The word “mama” was defnitely my favorite, with d3-annotation.js
+related queries such as “maternal insult” and “yo mama”.) library.
+FFiigg..99..1111
+The most extensive
+tooltip I’ve ever made,
+which reveals itself
+when hovering over
+the most translated
+word of one of the
+10 languages.
+
+=== PAGE 289 ===
+HEIDAN
+882
+The fnal visual of the full piece was focused on showing the similarities between the
+top 10 word lists. Each language is a circle and each word that two languages have
+in common between their top 10 is represented by a line. Interestingly, the highest
+similarity happened between Spanish, Portuguese, and Italian, and also with Russian
+and Polish.
+I frst had to set up a system in which two “nodes” could be connected by
+multiple “links.” Typically people use a thicker line when two nodes are more highly
+linked. However, because I wanted to eventually replace the lines with their actual
+words, I had to fnd something else. Using ever more curved lines seemed like
+an elegant solution.
+FFiigg..99..1122 (aaa ) bb (b)
+((aa,,bb,,cc,,dd))
+Setting up the
+network with multiple
+links between two
+nodes, getting ever
+more curved.
+cc dd
+(c) (d)
+
+=== PAGE 290 ===
+289
+CULTURE
+I then replaced the lines with the words themselves, using a design similar to the
+tree ring and saw … chaos (Figure 9.13 a). I totally forgot to think about the fact that
+many lines would overlap, making it impossible to read the words. Furthermore, the
+words themselves made the visual extremely full and cluttered. So I put the lines
+back in and only kept the words on those lines attached to the central circle. Alberto
+advised to make it even more minimal and only keep the central dark (English) word
+on the line, to really get the focus.
+(c)
+(a)
+aa bb
+FFiigg..99..1133 (b)
+((aa,,bb,,cc))
+cc
+Going from chaos
+to an ever more
+minimal and focused
+design for words
+on the network lines.
+More time than I’d like to admit later, and the animation to click a language circle
+and make it move smoothly towards the center was working. And with that all of the
+three visuals were done! I investigated some interesting insights that I’d discovered
+from each visual and wrote the accompanying text, added in my hand-drawn
+section headers, to have the whole become my frst fully-fedged article as part
+of Data Sketches.
+
+=== PAGE 291 ===
+Dataviz for Both Mobile and Desktop
+This was the frst project where it was important that all the visuals worked well on both
+desktop and mobile screen sizes. Making a data visualization work on widely diferent screen
+sizes is one of the most difcult (and sometimes frustrating) aspects of my work. I totally
+ignored small screens in all of my previous projects, but I do try and fnd proper ways to handle
+the large diference in screen real estate when I have to. What I see a lot on the web is to either
+scale down the whole visual to ft it on smaller screens, or to stack sections horizontally on
+large screens and vertically on small screens. Naturally, there are other ways as well. My favorite
+is more about changing the layout and moving the data itself. Instead of scaling anything down,
+you move things around to make the most out of the available space. For example, the fnal
+visual from this project uses this approach. On large screens the languages are displayed
+in a circular layout, which is a visually pleasing shape. However, on mobile screens the network
+becomes a rectangle, so the “language circles” can be placed as far apart as possible .
+FFiigg..99..1144
+The circular version on large screens and
+the rectangular layout on small screens.
+The same idea happens for the word snake in Figure 9.10, where I don’t make the language
+circles any smaller, but instead move them into a smaller and smaller layouts. This required more
+math to fgure out how the swirly line of words should be calculated, with either two, three,
+or four beads side by side. However, 80% of that was already done by fguring out how to draw
+the swirly line for one of those options. So keep an open mind when you have to create a data
+visualization that needs to work well on many diferent sizes; there’s more possible than just
+scaling and stacking.
+
+=== PAGE 292 ===
+291
+CULTURE
+Reflections
+This was defnitely the project that took the most hours to create until now (about
+120 hours), but it was also the biggest one, so that makes sense. And, having done
+this as an actual, paid project made it easy to justify working on it. (⌐ _ )
+It was really great for Shirley and me to work together with Google and Alberto
+Cairo. I thoroughly enjoyed having the chance to create such an extensive, full,
+dataviz-driven story using data that I had specifcally requested and that was
+impossible to fnd anywhere else!
+
+=== PAGE 293 ===
+Beautiful in English
+BeautifulInEnglish.com
+FFiigg..99..1155
+The tooltip for the word “beautiful.”
+FFiigg..99..1166
+The frst visual showing the most translated word
+for each of the 10 chosen languages. Hovering over
+or clicking on a word reveals an elaborate tooltip
+that shows Google Trends about that word over
+the past fve years. Because some languages have
+multiple words that translate to the English word
+“beautiful,” every now and then the words in the
+center might change. Such as Spanish switching
+between “hermosa,” “hermoso,” and “bonito.”
+
+=== PAGE 294 ===
+293
+CULTURE
+FFiigg..99..1177
+The full overview of the
+“Beautiful in English” page.
+
+=== PAGE 295 ===
+HEIDAN
+492
+aa bb cc
+FFiigg..99..1188
+((aa,,bb,,cc))
+The tree ring visual while a change
+between languages happens. First
+the previous language rings rotate
+away and afterwards the new
+language rings rotate back in.
+FFiigg..99..1199
+The header for the frst section that
+reveals the most translated word for
+10 popular languages.
+FFiigg..99..2200
+The quirky header for the second
+section of the article that looks at the
+top 10 per words language.
+
+=== PAGE 296 ===
+295
+CULTURE
+aa bb
+cc dd
+ee
+FFiigg..99..2211
+((aa,,bb,,cc,,dd,,ee))
+Hovering over a language in the
+similarity network highlights all the
+lines connected to it to provide
+a focus for the viewer.
+
+=== PAGE 297 ===
+(no text extracted)
+
+=== PAGE 298 ===
+297
+Explore
+Adventure
+SHIRLEY
+When Nadieh and I got the email from Alberto Cairo and Simon Rogers
+to work with Google News Lab, I was ecstatic and beyond intimidated.
+After all, it was Google, it was Simon and Alberto, and they had search data
+going back to 2004. They had already published projects in collaboration
+with Accurat and Truth & Beauty (two data visualization studios whose
+works I fnd really inspiring), and I wasn’t sure if I could live up to that—
+but I was determined to try my best.
+Nadieh and I explored Google Trends and presented a few ideas, and Simon
+and Alberto chose our “Culture” proposal. Nadieh decided to look into
+language and explored the most common words people in other countries
+searched for to translate into English. I chose to focus on travel and dug
+into the travel destinations that people in one country searched for
+in another.
+And because Alberto was a fan of our process write-ups, we agreed
+to include our “Culture” projects and their corresponding write-ups
+as part of Data Sketches.
+JANUARY
+–
+APRIL
+2017
+CULTURE
+
+=== PAGE 299 ===
+YELRIHS
+892
+Data
+As Simon preferred having the data live-update, I subcontracted my friend Charles
+(my very frst subcontractor!) to build a database that would periodically pull
+udpated data from Google Trends and process them into the format my client-side
+visualizations needed. It was really fun and encouraging to have someone else
+to work on the project with; not only did he do most of the data collection and
+clean-up (so I didn’t have to (ﾉ ≧ ∀ ≦ )ﾉ), but it was also great to bounce ideas
+of of someone who was intimately familiar with the data.
+To start, we began with a central question: given a country, which other
+countries searched for that country the most? Were people looking for particular
+cities in that country? Museums? Specifc landmarks? And as I started digging into
+the data with Google Trends’ Explore function, I also started to wonder if people
+looked for places geographically closer to them. This thought occurred to me when
+I saw that Australians often searched for places on the American West Coast, which
+is geographically closer to them than other parts of the United States.
+With Google Trends, I can enter up to fve search terms and get back their
+“search interest” (a score out of 100 that describes the term’s relative popularity),
+search interest by region, and related and top topics over a specifc time period.
+I can also flter the results by time range, by a specifc “source” country, and
+by broad, Google-defned categories:
+FFiigg..99..11
+The data we were
+ultimately trying to
+get. Because of how
+Google Trends works,
+we had to approach
+it from the opposite
+direction and start with
+the “target” countries
+to be able to get their
+“source” countries,
+and fnally get topics
+for that pair.
+(From now on, I’ll call countries that did the searching the “source” countries,
+and the 20 countries that were searched for the “target” countries.)
+To get the data needed, we:
+1. S earched for every country using Google’s list of country IDs and narrowed
+the results down by both the category “Travel → Tourist Destinations” and
+the date “2004 - present.”
+2. U sed the results to aggregate the top 20 most searched for “target”
+countries.
+3. N oted the “source” countries (found in “search interest by region”) that
+searched for each of the 20 “target” countries the most in every quarter
+since 2004.
+4. N oted the top Google-defned topics (“Niagara Falls,” “Terracotta
+Soldiers,” “Naples,” etc.) for each set of “source” and “target” countries.
+The plan sounded reasonable when we frst came up with the steps, but the data
+we got back was overwhelmingly vast. We had thousands of travel-related topics,
+and in order to make sense of all those topics, we needed a way to meaningfully
+categorize them.
+
+=== PAGE 300 ===
+299
+CULTURE
+As the topics were defned by Google, Charles used Google’s Knowledge Graph
+Search to fnd their details, including images, descriptions, and an array of “types”
+for each topic. Three of the most common “types”—cities, people, and nature—
+made sense as categories, but the remaining types were more difcult to defne.
+Some were too broad, like “Thing” or “Place,” and others were too narrow, like
+“LodgingBusiness” or “MovieTheater.” After much discussion, we came up with eight
+categories that could encompass the 252 “types” we got back from the Knowledge
+Graph: city, region, attraction, nature, person, history, arts, and other:
+FFiigg..99..22 From there, Charles produced a mapping of the Knowledge Graph “types”
+Relationship between to our eight categories and was able to map most of the thousands of travel topics
+topics, types, and that way. For the 45 remaining topics that either fell into multiple categories or none
+categories.
+at all, we manually assigned their category.
+Sketch & Code
+Because there was so much data, I switched between sketching my ideas and
+prototyping those ideas on the screen for this project. I started by looking at Brazil
+(the top searched country for travel) as well as the countries that searched for For the longest time
+it in a given year, defaulting to 2016 (Figure 9.3). Immediately, I could tell by I wondered why Brazil
+was the top searched
+looking at the map that a lot of the countries that searched for Brazil were indeed
+country for travel,
+geographically close to Brazil, proving my theory. But this map only showed 2016 and I fnally have
+a theory: Brazil was
+search data, and I wanted a way to see a breakdown of all the countries searching
+the host country for
+for Brazil each year since 2004. the Olympics in 2016!

@@ -1,0 +1,1043 @@
+ο
+
+ο
+
+ο
+
+ο
+
+126
+
+6. Rules of Thumb
+
+Total KW consumption ECN 
+
+KW 
+
+17 dec. 
+
+12 nov. 
+
+8 oct. 
+
+3 sep. 
+
+2000 
+
+1600 
+
+1200 
+
+800 
+
+400 
+
+0 
+
+KW 
+
+30 jul. 
+
+25 jun. 
+
+21 may 
+
+days 
+
+24:00 
+
+18:00 
+
+5 feb. 
+
+1 jan. 
+
+0:00 
+
+12:00 
+
+6:00 
+
+hours 
+
+16 apr. 
+
+12 mar. 
+
+(a) 
+
+Figure 6.7.  3D versus 2D. (a) A 3D representation of this time-series dataset introduces the problems of occlusion 
+and  perspective  distortion.  (b)  The  linked  2D  views  of  derived  aggregate  curves  and  the  calendar  allow  direct 
+comparison and show more ﬁne-grained patterns. From [van Wijk and van Selow 99, Figures 1 and 4].
+
+(b) 
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+6.3. No Unjustiﬁed 3D
+
+127
+
+‣  Linked  views  are  dis-
+cussed in Chapter 12. 
+
+related  sets  of  measurements:  the  number  of  people  inside  and  amount 
+of  power  used  in  an  ofﬁce  building,  with  measurements  over  the  course 
+of  each  day  for  one  full  year.  The  authors  compare  a  straightforward  3D 
+representation with a carefully designed approach using linked 2D views, 
+which  avoids  the  problems  of  occlusion  and  perspective  distortion.  Fig-
+ure  6.7(a)  shows  the  straightforward  3D  representation  created  directly 
+from the original time-series data,  where each cross-section is a 2D time 
+series  curve showing  power  consumption  for  one  day,  with  one  curve  for 
+each day of the year along the extruded third axis.  Only very large-scale 
+patterns  such  as  the  higher  consumption  during  working  hours  and  the 
+seasonal variation between winter and summer are visible.
+
+The  ﬁnal  vis  designed  by  the  authors  uses  multiple  linked  2D  views 
+and a different data abstraction.  They created the derived data of a hier-
+archical  clustering  of  the  time-series  curves  through  an  iterative  process 
+where the most similar curves are merged together into a cluster that can 
+be represented by the average of the curves within it. 
+
+Figure  6.7(b)  shows  a  single  aggregate  curve  for  each  of  the  highest-
+level  groups  in  the  clustering  in  the  window  on  the  right  of  the  display. 
+There  are  few  enough  of  these  aggregate  curves  that  they  can  all  be  su-
+perimposed  in  the  same  2D  image  without  excessive  visual  clutter.  Di-
+rect comparison between the curve heights at all times of the day is easy 
+because  there  is  no  perspective  distortion  or  occlusion. 
+(The  cluster – 
+calendar vis shows the number of people in the building, rather than the 
+power consumption of the 3D extruded vis.) 
+
+On  the  left  side  of  Figure  6.7(b)  is  a  calendar  view.  Calendars  are  a 
+very traditional and successful way to show temporal patterns.  The views 
+are  linked  with  shared  color  coding.  The  same  large-scale  patterns  of 
+seasonal variation between summer and winter that can be seen in 3D are 
+still very visible, but smaller-scale patterns that are difﬁcult or impossible 
+to spot in the 3D view are also revealed.  In this Dutch calendar, weeks are 
+vertical strips with the weekend at the bottom.  We can identify weekends 
+and holidays as the nearly ﬂat teal curve where nobody is in the building, 
+and normal weekdays as the topmost tan curve with a full house. Summer 
+and Fridays during the winter are the brown curve with one hundred fewer 
+people,  and  Fridays  in  the  summer  are  the  green  curve  with  nearly  half 
+of the employees gone.  The blue and magenta curves show days between 
+holiday times where most people also take vacation.  The red curve shows 
+the  unique  Dutch  holiday  of  Santa  Claus  day,  where  everybody  gets  to 
+leave work an hour early. 
+
+While unbridled enthusiasm for 3D is no longer common, there 
+are indeed situations where its use is justiﬁable even for abstract 
+data.
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+128
+
+6. Rules of Thumb
+
+Example: Layer-Oriented Time-Series Vis 
+
+Figure  6.8  shows  an  example  that  is  similar  on  the  surface  to  the  pre-
+vious  one,  but  in  this  case  3D  is  used  with  care  and  the  design  is  well 
+justiﬁed  [Lopez-Hernandez  et  al.  10].  In  this  system  for  visualizing  os-
+cilloscope time-series data,  the user starts by viewing the data using the 
+traditional  eye  diagram  where  the  signal  is  wrapped  around  in  time  and 
+shown  as  many  overlapping  traces.  Users  can  spread  the  traces  apart 
+using the metaphor of opening a drawer, as shown in Figure 6.8(a).  This 
+drawer interface does use 3D, but with many constraints.  Layers are or-
+thographically projected and always face the viewer. Navigation complexity 
+is controlled by automatically zooming and framing as the user adjusts the 
+drawer’s orientation, as shown in Figure 6.8(b). 
+
+(a) 
+
+(b) 
+
+Figure 6.8. Careful use of 3D. (a) The user can evolve the view from the traditional 
+overlapping eye diagram with the metaphor of opening a drawer.  (b) The interac-
+tion is carefully designed to avoid the difﬁculties of unconstrained 3D navigation. 
+From [Lopez-Hernandez et al. 10, Figures 3 and 7].
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+6.3. No Unjustiﬁed 3D
+
+129
+
+6.3.9  Empirical Evidence 
+
+Empirical  experiments  are  critical  in  understanding  user  perfor-
+mance, especially because of the well-documented dissociation be-
+tween  stated  preference  for  3D  and  actual  task  performance  [An-
+dre and Wickens 95].  Experimental evidence suggests that 3D in-
+terfaces are better for shape understanding,  whereas 2D are best 
+for  relative  position  tasks:  those  that  require  judging  the  precise 
+distances  and  angles  between  objects  [St.  John  et  al.  01].  Most 
+tasks  involving  abstract  data  do  not  beneﬁt  from  3D;  for  exam-
+ple,  an  experiment  comparing  3D  cone  trees  to  an  equivalent  2D 
+tree  browser  found  that  the  3D  interaction  had  a  signiﬁcant  time 
+cost [Cockburn and McKenzie 00]. 
+
+Designing  controlled  experiments  that  untangle  the  efﬁcacy  of 
+speciﬁc interfaces that use 3D can be tricky.  Sometimes the goal 
+of the experimenter is simply to compare two alternative interfaces 
+that differ in many ways; in such cases it is dangerous to conclude 
+that  if  an  interface  that  happens  to  be  3D  outperforms  another 
+that  happens  to  be  2D,  it  is  the  use  of  3D  that  made  the  differ-
+ence.  In several cases,  earlier study results that were interpreted 
+as showing beneﬁts for 3D were superseded by more careful exper-
+imental design that eliminated uncontrolled factors.  For example, 
+the 3D Data Mountain interface for organizing web page thumbnail 
+images  was  designed  to  exploit  human  spatial  cognition  and  was 
+shown to outperform the standard 2D Favorites display in Internet 
+Explorer  [Robertson  et  al.  98].  However,  this  study  left  open  the 
+question of whether the beneﬁt was from the use of 3D or the use 
+of the data mountain visual encoding, namely, a spatial layout al-
+lowing immediate access to every item in each pile of information. 
+A  later  study  compared  two  versions  of  Data  Mountain,  one  with 
+3D perspective and one in 2D, and no performance beneﬁt for 3D 
+was found [Cockburn and McKenzie 01]. 
+
+Another  empirical  study  found  no  beneﬁts  for  3D  landscapes 
+created  to  reﬂect  the  density  of  a  2D  point  cloud,  compared  with 
+simply  showing  the  point  cloud  in  2D  [Tory  et  al.  07].  In  the  3D 
+information landscape idiom, the density of the points on the plane 
+is computed as a derived attribute and used to construct a surface 
+whose  height  varies  according  to  this  attribute  in  order  to  show 
+its value in a form similar to geographic terrain.*  A third alterna-
+tive to landscapes or points is a contour plot, where colored bands 
+show  the  outlines  of  speciﬁc  heights.  A  contour  plot  can  be  used 
+alone as a 2D landscape or can be combined with 3D for a colored 
+landscape.  Proponents of this idiom have argued that landscapes
+
+*  Other  names  for  a  3D 
+landscape  are  height  ﬁeld 
+and terrain. 
+
+‣  Contour  plots  are  dis-
+cussed in Section 8.4.1.
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+130
+
+6. Rules of Thumb
+
+(a)
+
+(b)
+
+(c)
+
+(d) 
+
+(e)
+
+(f)
+
+(g) 
+
+Figure 6.9.  Point-based displays were found to outperform information landscapes in an empirical study of visual 
+encodings for dimensionally reduced data.  (a) Colored points.  (b) Grayscale points.  (c) Colored 2D landscape. 
+(d) Grayscale 2D landscape.  (e) Colored 3D landscape.  (f) Grayscale 3D landscape.  (g) Height only.  From [Tory 
+et al. 07, Figure 1]. 
+
+‣  Dimensionality  reduction 
+in  Section 
+is  discussed 
+13.4.3. 
+
+are familiar and engaging, and they have been used in several sys-
+tems for displaying high-dimensional data after dimensionality re-
+duction was used to reduce to two synthetic dimensions [Davidson 
+et al. 01, Wise et al. 95].
+
+Figure 6.9 shows the seven possibilities tested in the empirical 
+study comparing points to colored and uncolored landscapes.  The 
+ﬁndings were that points were far superior to landscapes for search 
+and  point  estimation  tasks  and  in  the  landscape  case  2D  land-
+scapes  were  superior  to  3D  landscapes  [Tory  et  al.  07].  A  follow-
+up  study  for  a  visual  memory  task  yielded  similar  results  [Tory 
+et al. 09].
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+6.4. No Unjustiﬁed 2D
+
+131
+
+6.4  No Unjustiﬁed 2D 
+
+Laying out data in 2D space should also be explicitly justiﬁed, com-
+pared  with  the  alternative  of  simply  showing  the  data  with  a  1D 
+list. 
+
+Lists have several strengths.  First, they can show the maximal 
+amount  of  information,  such  as  text  labels,  in  minimal  space.  In 
+contrast, 2D layouts such as node–link representations of network 
+data require considerably more space to show the same number of 
+labels, so they have notably lower information density. 
+
+Second,  lists  are  excellent  for  lookup  tasks  when  they  are  or-
+dered  appropriately,  for  example  in  alphabetical  order  when  the 
+goal  is  to  ﬁnd  a  known  label.  In  contrast,  ﬁnding  a  speciﬁc  label 
+in  a  2D  node–link  representation  might  require  the  user  to  hunt 
+around the entire layout, unless a speciﬁc search capability is built 
+into the vis tool. 
+
+When  the  task  truly  requires  understanding  the  topological 
+structure of the network,  then the beneﬁts of showing those rela-
+tionships explicitly outweigh the cost of the space required.  How-
+ever, some tasks are handled well by linear lists, even if the original 
+data has network structure. 
+
+6.5  Eyes Beat Memory 
+
+Using  our  eyes  to  switch  between  different  views  that  are  visible 
+simultaneously has much lower cognitive load than consulting our 
+memory  to  compare  a  current  view  with  what  was  seen  before. 
+Many interaction idioms implicitly rely on the internal use of mem-
+ory  and  thus  impose  cognitive  load  on  the  viewer.  Consider  navi-
+gation within a single view, where the display changes to show the 
+scene  from  a  different  viewpoint.  Maintaining  a  sense  of  orienta-
+tion implicitly relies on using internal resources, either by keeping 
+track  of  past  navigation  choices  (for  example,  I  zoomed  into  the 
+nucleus) or by remembering past views (for example, earlier all the 
+stock options in the tech sector were in the top corner of the view).  In 
+contrast,  having  a  small  overview  window  with  a  rectangle  within 
+it showing the position and size of the current camera viewport for 
+the main view is a way to show that information through an exter-
+nal representation easily consulted by looking at that region of the 
+screen, so that it can be read off by the perceptual system instead 
+of remembered.
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+132
+
+6. Rules of Thumb
+
+6.5.1  Memory and Attention 
+
+Broadly  speaking,  people  have  two  different  categories  of  mem-
+ory:  long-term memory that can last a lifetime, versus short-term 
+memory  that  lasts  several  seconds,  also  known  as  working mem-
+ory.  While the capacity of long-term memory doesn’t have a strict 
+upper  limit,  human  working  memory  is  a  very  limited  resource. 
+When  these  limits  are  reached,  people  experience  cognitive  load 
+and will fail to absorb all of the information that is presented. 
+
+Human  attention  also  has  severe  limits.  Conscious  search  for 
+items  is  an  operation  that  grows  more  difﬁcult  with  the  number 
+of  items  there  are  to  be  checked.  Vigilance  is  also  a  highly  lim-
+ited resource:  our ability to perform visual search tasks degrades 
+quickly, with far worse results after several hours than in the ﬁrst 
+few minutes. 
+
+6.5.2  Animation versus Side-by-Side Views 
+
+Some animation-based idioms also impose signiﬁcant cognitive load 
+on the viewer because of implicit memory demands.  Animation is 
+an  overloaded  word  that  can  mean  many  different  things  consid-
+ered through the lens of vis encoding and interaction.  I distinguish 
+between these three deﬁnitions: 
+
+.  narrative storytelling, as in popular movies; 
+
+.  transitions from just one state to another; 
+
+.  video-style  playback  of  a  multiframe  sequence:  play,  pause, 
+
+stop, rewind, and step forward/back. 
+
+Some  people  have  the  intuition  that  because  animation  is  a 
+powerful storytelling medium for popular movies, it should also be 
+suitable in a vis context.  However, the situation is quite different. 
+Successful  storytelling  requires  careful  and  deliberate  choreogra-
+phy to ensure that action is only occurring in one place at a time 
+and  the  viewer’s  eyes  have  been  guided  to  ensure  that  they  are 
+looking in the right place.  In contrast,  a dataset animation might 
+have simultaneous changes in many parts of the view. 
+
+Animation is extremely powerful when used for transitions be-
+tween two dataset conﬁgurations because it helps the user main-
+tain context.  There is considerable evidence that animated transi-
+tions can be more effective than jump cuts, because they help peo-
+ple track changes in object positions or camera viewpoints.  These
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+6.5. Eyes Beat Memory
+
+133
+
+transitions  are  most  useful  when  only  a  few  things  change;  if  the 
+number of objects that change between frames is large, people will 
+have  a  hard  time  tracking  everything  that  occurs.  We  are  blind 
+to  changes  in  regions  of  the  image  that  are  not  the  focus  of  our 
+attention. 
+
+Although  jump  cuts  are  hard  to  follow  when  only  seen  once, 
+giving the user control of jumping back and forth between just two 
+frames  can  be  effective  for  detecting  whether  there  is  a  localized 
+change between two scenes.  This blink comparator idiom was used 
+by the astronomer who found Pluto. 
+
+Finally,  I  consider  animations  as  sequences  of  many  frames, 
+where  the  viewer  can  control  the  playback  using  video-style  con-
+trols  of  play,  pause,  stop,  rewind,  and  sometimes  single-step  for-
+ward  or  backward  frame  by  frame.  I  distinguish  animation  from 
+true interactive control,  for example,  navigation by ﬂying through 
+a  scene.  With  animation  the  user  does  not  directly  control  what 
+occurs, only the speed at which the animation is played. 
+
+The difﬁculty of multiframe animations is that making compar-
+isons between frames that do not adjoin relies on internal memory 
+of what previous frames looked like.  If changes only occur in one 
+place at a time, the demands on attention and internal memory are 
+small.  However, when many things change all over the frame and 
+there  are  many  frames,  we  have  a  very  difﬁcult  time  in  tracking 
+what  happens.  Giving  people  the  ability  to  pause  and  replay  the 
+animation is much better than only seeing it a single time straight 
+through, but that control does not fully solve the problem. 
+
+For  tasks  requiring  detailed  comparison  across  many  frames, 
+seeing  all  the  frames  at  once  side  by  side  can  be  more  effective 
+than  animation.  The  number  of  frames  must  be  small  enough 
+that  the  details  within  each  can  be  discerned,  so  this  approach 
+is  typically  suitable  for  dozens  but  not  hundreds  of  frames  with 
+current display resolutions.  The action also should be segmented 
+into meaningful chunks, rather than keyframes that are randomly 
+chosen.  Many  vis  idioms  that  use  multiple  views  exploit  this  ob-
+servation, especially small multiples. 
+
+6.5.3  Change Blindness 
+
+The human visual system works by querying the world around us 
+using our eyes.  Our visual system works so well that most people 
+have  the  intuition  that  we  have  detailed  internal  memory  of  the 
+visual ﬁeld that surrounds us.  However, we do not.  Our eyes dart 
+around, gathering information just in time for our need to use it, so
+
+‣ Change blindness is cov-
+ered in Section 6.5.3. 
+
+‣  Small  multiples  are  cov-
+ered in Section 12.3.2. 
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+134
+
+6. Rules of Thumb
+
+quickly that we do not typically notice this motion at a conscious 
+level. 
+
+The  phenomenon  of  change blindness  is  that  we  fail  to  notice 
+even  quite  drastic  changes  if  our  attention  is  directed  elsewhere. 
+For example,  experimenters set up a real-world interaction where 
+somebody  was  engaged  by  a  stranger  who  asked  directions,  only 
+to be interrupted by people carrying a door who barged in between 
+them.  The experimenters orchestrated a switch during this visual 
+interruption,  replacing  the  questioner  with  another  person.  Re-
+markably,  most  people  did  not  notice,  even  when  the  new  ques-
+tioner  was  dressed  completely  differently—or  was  a  different  gen-
+der than the old one! 
+
+Although  we  are  very  sensitive  to  changes  at  the  focus  of  our 
+attention, we are surprisingly blind to changes when our attention 
+is not engaged.  The difﬁculty of tracking complex and widespread 
+changes across multiframe animations is one of the implications of 
+change blindness for vis. 
+
+6.6  Resolution over Immersion 
+
+Pixels are precious:  if you are faced with a trade-off between reso-
+lution and immersion, resolution usually is far more important. 
+
+Immersive  environments  emphasize  simulating  realistic  inter-
+action  and  perception  as  closely  as  possible  through  technology 
+such  as  stereo  imagery  delivered  separately  to  each  eye  to  en-
+hance  depth  perception,  and  full  six-degree-of-freedom  head  and 
+position  tracking  so  that  the  displays  respond  immediately  to  the 
+user’s  physical  motion  of  walking  and  moving  the  head  around. 
+The  most  common  display  technology  is  head-mounted  displays, 
+or  small  rooms  with  rear-projection  displays  on  walls,  ﬂoor,  and 
+ceilings.  Immersion  is  most  useful  when  a  sense  of  presence  is 
+an  important  aspect  of  the  intended  task.  With  current  display 
+hardware,  there  is  a  trade-off  between  resolution,  the  number  of 
+available  pixels  divided  by  the  display  area,  and  immersion,  the 
+feeling  of  presence  in  virtual  reality.  The  price  of  immersion  is 
+resolution;  these  displays  cannot  show  as  many  pixels  as  state-
+of-the-art desktop displays of the equivalent area.  The number of 
+pixels  available  on  a  computer  display  is  a  limited  resource  that 
+is  usually  the  most  critical  constraint  in  vis  design.  Thus,  it  is 
+extremely rare that immersion is worth the cost in resolution. 
+
+Another  price  of  immersion  is  the  integration  of  vis  with  the 
+rest  of  a  user’s  typical  computer-based  workﬂow.  Immersive  dis-
+
+‣  Display  resolution  con-
+straints  are  discussed  in 
+Section 1.13. 
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+6.7. Overview First, Zoom and Filter, Details on Demand
+
+135
+
+play environments are almost always special-purpose settings that 
+are a different physical location than the user’s workspace, requir-
+ing them to leave their usual ofﬁce and go to some other location, 
+whether down the hall or in another building.  In most cases users 
+stand  rather  than  sit,  so  working  for  extended  periods  of  time  is 
+physically taxing compared with sitting at a desk.  The most critical 
+problem is that they do not have access to their standard working 
+environment of their own computer system.  Without access to the 
+usual input devices of mouse and keyboard, standard applications 
+such as web browsing, email reading, text and spreadsheet editing, 
+and other data analysis packages are completely unusable in most 
+cases,  and  very  awkward  at  best.  In  contrast,  a  vis  system  that 
+ﬁts  into  a  standard  desktop  environment  allows  integration  with 
+the usual workﬂow and fast task switching between vis and other 
+applications. 
+
+A compelling example of immersion is the use of virtual reality 
+for phobia desensitization;  somebody with a fear of heights would 
+need a sense of presence in the synthetic environment in order to 
+make progress.  However, this example is not an application of vis, 
+since the goal is to simulate reality rather than to visually encode 
+information.  The most likely case where immersion would be help-
+ful for vis is when the chosen abstraction includes 3D spatial data. 
+Even in this case, the designer should consider whether a sense of 
+presence is worth the penalties of lower resolution and no workﬂow 
+integration.  It is very rare that immersion would be necessary for 
+nonspatial, abstract data.  Using 3D for visual encoding of abstract 
+data  is  the  uncommon  case  that  needs  careful  justiﬁcation.  The 
+use of an immersive display in this case would require even more 
+careful justiﬁcation. 
+
+6.7  Overview  First,  Zoom  and  Filter,  Details 
+
+on Demand 
+
+Ben Shneiderman’s inﬂuential mantra of Overview First, Zoom and 
+Filter,  Details on Demand  [Shneiderman  96]  is  a  heavily  cited  de-
+sign guideline that emphasizes the interplay between the need for 
+overview and the need to see details, and the role of data reduction 
+in general and navigation in particular in supporting both. 
+
+A  vis  idiom  that  provides  an  overview  is  intended  to  give  the 
+user a broad awareness of the entire information space.  Using the 
+language  of  the  what–why–how  analysis  framework,  it’s  an  idiom
+
+‣ The need for justifying 3D 
+for abstract data is covered 
+in Section 6.3. 
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+136
+
+6. Rules of Thumb
+
+with  the  goal  of  summarize.  A  common  goal  in  overview  design 
+is  to  show  all  items  in  the  dataset  simultaneously,  without  any 
+need for navigation to pan or scroll.  Overviews help the user ﬁnd 
+regions where further investigation in more detail might be produc-
+tive.  Overviews are often shown at the beginning of the exploration 
+process, to guide users in choosing where to drill down to inspect 
+in  more  detail.  However,  overview  usage  is  not  limited  to  initial 
+reconnaissance;  it’s  very  common  for  users  to  interleave  the  use 
+of overviews and detail views by switching back and forth between 
+them many times. 
+
+When the dataset is sufﬁciently large, some form of reduce  ac-
+tion  must  be  used  in  order  to  show  everything  at  once.  Overview 
+creation  can  be  understood  in  terms  of  both  ﬁltering  and  aggre-
+gation.  A  simple  way  to  create  overviews  is  by  zooming  out  ge-
+ometrically,  so  that  the  entire  dataset  is  visible  within  the  frame. 
+Each object is drawn smaller, with less room to show detail.  In this 
+sense, overviews are created by removing all ﬁltering:  an overview 
+is  created  by  changing  from  a  zoomed-in  view  where  some  items 
+are  ﬁltered  out,  to  a  zoomed-out  view  where  all  items  are  shown. 
+When  the  number  of  items  in  a  dataset  is  large  enough,  showing 
+an overview of the entire dataset in a single screen using one mark 
+per item is impossible, even if the mark size is decreased to a sin-
+gle pixel.  When the number of items to draw outstrips the number 
+of available pixels, the number of marks to show must be reduced 
+with aggregation.  Moreover, even for datasets of medium size, ex-
+plicitly  designing  an  overview  display  using  a  more  sophisticated 
+approach  than  simple  geometric  zooming  can  be  fruitful.  These 
+custom overviews are similar in spirit to semantic zooming, in that 
+the representation of the items is qualitatively different rather than 
+simply  being  drawn  smaller  than  the  full-detail  versions.  These 
+kinds of overviews often use dynamic aggregation that is implicitly 
+driven  by  navigation,  rather  than  being  explicitly  chosen  by  the 
+user. 
+
+There is no crisp line dividing an “overview” from an “ordinary” 
+vis idiom, because many idioms provide some form of overview or 
+summary.  However, it’s often useful to make a relative distinction 
+between  a  less  detailed  view  that  summarizes  a  lot  of  data  and  a 
+more detailed view that shows a smaller number of data items with 
+more  information  about  each  one.  The  former  one  is  clearly  the 
+overview, the latter one is the detail view.  It’s particularly obvious 
+how to distinguish between these when the idiom design choice of 
+multiple views is being used; the mantra is particularly applicable 
+when the detail view pops up in response to a select  action by the
+
+‣ Aggregation is discussed 
+in Section 13.4. 
+
+‣  Geometric  and  semantic 
+zooming  are  discussed  in 
+Section 11.5. 
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+6.8. Responsiveness Is Required
+
+137
+
+‣ Chapter 12 covers multi-
+ple views. 
+
+‣  Chapter  13  covers  ap-
+proaches to data reduction. 
+
+‣  Chapter  14  covers  fo-
+cus+context idioms.
+
+user,  but  it’s  also  common  for  the  detail  view  to  be  permanently 
+visible side by side with the overview.  There two other major fam-
+ilies  of  idioms  that  support  overviewing.  One  is  to  use  a  single 
+view that dynamically changes over time by providing support for 
+reduce actions such as zooming and ﬁltering; then that single view 
+sometimes acts as an overview and sometimes as a detail view. The 
+third choice is to embed both detailed focus and overview context 
+information together within a single view. 
+
+This mantra is most helpful when dealing with datasets of mod-
+erate size.  When dealing with enormous datasets, creating a useful 
+overview  for  top-down  exploration  may  not  be  feasible.  In  slogan 
+form, an alternative approach is Search, Show Context, Expand on 
+Demand [van Ham and Perer 09], where search results provide the 
+starting point for browsing of local neighborhoods. 
+
+6.8  Responsiveness Is Required 
+
+The latency of interaction, namely, how much time it takes for the 
+system to respond to the user action, matters immensely for inter-
+action design.  Our reaction to latency does not simply occur on a 
+continuum, where our irritation level gradually rises as things take 
+longer and longer.  Human reaction to phenomena is best modeled 
+in  terms  of  a  series  of  discrete  categories,  with  a  different  time 
+constant associated with each one.  A system will feel responsive if 
+these latency classes are taken into account by providing feedback 
+to  the  user  within  the  relevant  time  scale.  The  three  categories 
+most relevant for vis designers are shown in Table 6.1. 
+
+The perceptual processing time constant of one-tenth of a sec-
+ond is relevant for operations such as screen updates. The immedi-
+ate response time constant of one second is relevant for operations 
+such as visual feedback showing what item that user has selected 
+with  a  mouse  click,  or  the  length  of  time  for  an  animated  transi-
+tion from one layout to another.  The brief task time constant of ten 
+
+Time Constant
+perceptual processing
+immediate response
+brief tasks
+
+Value (in seconds) 
+0.1 
+1 
+10 
+
+Table 6.1.  Human response to interaction latency changes dramatically at these 
+time thresholds. After [Card et al. 91, Table 3].
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+138
+
+6. Rules of Thumb
+
+seconds is relevant for breaking down complex tasks into simpler 
+pieces; a good granularity for the smallest pieces is this brief task 
+time. 
+
+6.8.1  Visual Feedback 
+
+From  the  user’s  point  of  view,  the  latency  of  an  interaction  is 
+the  time  between  their  action  and  some  feedback  from  the  sys-
+tem indicating that the operation has completed.  In a vis system, 
+that  feedback  would  most  naturally  be  some  visual  indication  of 
+state change within the system itself, rather than cumbersome ap-
+proaches such as printing out status indications at the console or 
+a popup dialog box conﬁrmation that would interfere with the ﬂow 
+of exploration. 
+
+The most obvious principle is that the user should indeed have 
+some  sort  of  conﬁrmation  that  the  action  has  completed,  rather 
+than  being  left  dangling  wondering  whether  the  action  is  still  in 
+progress, or whether the action never started in the ﬁrst place (for 
+example, because they missed the target and clicked on the back-
+ground  rather  than  the  intended  object).  Thus,  feedback  such  as 
+highlighting  a  selected  item  is  a  good  way  to  conﬁrm  that  the  de-
+sired  operation  has  completed  successfully.  In  navigation,  feed-
+back  would  naturally  come  when  the  user  sees  the  new  frame 
+is  drawn  from  the  changed  viewpoint.  Visual  feedback  should 
+typically  take  place  within  the  immediate  response  latency  class: 
+around one second. 
+
+Another  principle  is  that  if  an  action  could  take  signiﬁcantly 
+longer than a user would naturally expect,  some kind of progress 
+indicator  should  be  shown  to  the  user.  A  good  rule  of  thumb  for 
+signiﬁcantly longer is crossing from one latency class into another, 
+as shown in Table 6.1. 
+
+6.8.2 
+
+Latency and Interaction Design 
+
+Successful  interaction  design  for  a  vis  system  depends  on  hav-
+ing a good match between the latencies of the low-level interaction 
+mechanism,  the  visual  feedback  mechanism,  the  system  update 
+time, and the cognitive load of operation itself. 
+
+For  example,  consider  the  operation  of  seeing  more  details  for 
+an item and the latency difference between three different low-level 
+interaction mechanisms for doing so.  Clicking on the item is slow-
+est,  because the user must move the mouse toward the target lo-
+cation,  stop the motion in the right place,  and press down on the
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+6.8. Responsiveness Is Required
+
+139
+
+mouse.  Mouseover hover, where the cursor is placed over the ob-
+ject  for  some  short  period  of  dwell  time  but  no  click  is  required, 
+may or may not be faster depending on the dwell time.  Mouseover 
+actions  with  no  dwell  time  requirement,  where  the  action  is  trig-
+gered  by  the  cursor  simply  crossing  the  object,  are  of  course  the 
+fastest because the second step is also eliminated and only the ﬁrst 
+step needs to take place. 
+
+For  visual  feedback,  consider  three  different  mechanisms  for 
+showing  the  information.  One  is  showing  the  information  on  a 
+ﬁxed  detail  pane  at  the  side  of  the  screen.  In  order  to  see  the  in-
+formation,  the  user’s  eyes  need  to  move  from  the  current  cursor 
+location  to  the  side  of  the  screen,  so  this  operation  has  relatively 
+high  latency  for  making  use  of  the  visual  feedback.  On  the  other 
+hand,  from  a  visual  encoding  point  of  view,  an  advantage  is  that 
+a  lot  of  detail  information  can  be  shown  without  occluding  any-
+thing  else  in  the  main  display.  A  second  feedback  mechanism  is 
+a popup window at the current cursor location,  which is faster to 
+use  since  there  is  no  need  to  move  the  eyes  away  from  tracking 
+the cursor.  Since placing information directly in the view might oc-
+clude other objects, there is a visual encoding cost to this choice.  A 
+third mechanism is a visual highlight change directly in the view, 
+for instance by highlighting all neighbors within the graph that are 
+one  hop  from  the  graph  node  under  the  cursor  through  a  color 
+change. 
+
+System  update  time  is  another  latency  to  consider.  With  tiny 
+datasets  stored  completely  locally,  update  time  will  be  negligible 
+for any of these  options.  With  larger datasets,  the time  to redraw 
+the entire view could be considerable unless the rendering*  frame-
+work  has  been  designed  to  deliver  frames  at  a  guaranteed  rate. 
+Similarly, scalable rendering frameworks can support fast update 
+for changing a few items or a small part of the display without re-
+drawing the entire screen, but most graphics systems do not offer 
+this  functionality  by  default.  Thus,  designing  systems  to  guar-
+antee  immediate  response  to  user  actions  can  require  signiﬁcant 
+algorithmic attention.  With distributed datasets, obtaining details 
+may  require  a  round  trip  from  the  client  to  the  server,  possibly 
+taking several seconds on a congested network. 
+
+When  systems  are  designed  so  that  all  of  these  latencies  are 
+well  matched,  the  user  interacts  ﬂuidly  and  can  stay  focused  on 
+high-level  goals  such  as  building  an  internal  mental  model  of  the 
+dataset.  When  there  is  a  mismatch,  the  user  is  jarred  out  of  a 
+state  of  ﬂow  [Csikszentmihalyi  91]  by  being  forced  to  wait  for  the 
+system.
+
+*  The  term  rendering  is 
+used  in  computer  graphics 
+for drawing an image. 
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+ο
+
+140
+
+6. Rules of Thumb
+
+6.8.3 
+
+Interactivity Costs 
+
+Interactivity  has  both  power  and  cost.  The  beneﬁt  of  interaction 
+is that people can explore a larger information space than can be 
+understood in a single static image.  However, a cost to interaction 
+is  that  it  requires  human  time  and  attention.  If  the  user  must 
+exhaustively  check  every  possibility,  use  of  the  vis  system  may 
+degenerate  into  human-powered  search.  Automatically  detecting 
+features of interest to explicitly bring to the user’s attention via the 
+visual encoding is a useful goal for the vis designer.  However, if the 
+task at hand could be completely solved by automatic means, there 
+would be no need for a vis in the ﬁrst place.  Thus, there is always 
+a trade-off between ﬁnding automatable aspects and relying on the 
+human in the loop to detect patterns. 
+
+6.9  Get It Right in Black and White 
+
+‣  The  principles  of  us-
+ing color to visually encode 
+data  are  discussed  in  Sec-
+Figure  12.13 
+tion  10.2. 
+shows  an  example  of  ex-
+plicitly  checking  luminance 
+contrast  between  elements 
+on different layers. 
+
+Maureen Stone has advocated the slogan Get It Right in Black and 
+White  as  a  design  guideline  for  effective  use  of  color  [Stone  10]. 
+That  is,  ensure  that  the  most  crucial  aspects  of  visual  represen-
+tation  are  legible  even  if  the  image  is  transformed  from  full  color 
+to black and white.  Do so by literally checking your work in black 
+and white, either with image processing or by simply printing out a 
+screenshot on a black and white printer.  This slogan suggests en-
+coding the most important attribute with the luminance channel to 
+ensure adequate luminance contrast and considering the hue and 
+saturation channels as secondary sources of information. 
+
+6.10 
+
+Function First, Form Next 
+
+The best vis designs should shine in terms of both form and func-
+tion; that is, they should be both beautiful and effective.  Neverthe-
+less, in this book, I focus on function. 
+
+My rationale is that given an effective but ugly design, it’s possi-
+ble to reﬁne the form to make it more beautiful while maintaining 
+the base of effectiveness. Even if the original designer of the vis has 
+no training in graphic design, collaboration is possible with people 
+who do have that background. 
+
+In  contrast,  given  a  beautiful  and  ineffective  design,  you  will 
+probably need to toss it out and start from scratch.  Thus,  I don’t 
+advocate  a  “form  ﬁrst”  approach,  because  progressive  reﬁnement
+
+ο
+
+ο
+
+ο
+
+ο
+
+

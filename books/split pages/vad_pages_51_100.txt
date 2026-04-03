@@ -1,0 +1,1985 @@
+--- PAGE 51 ---
+ο ο
+ο ο
+26 2. What: DataAbstraction
+atFtierlidbute
+item cell
+20
+Figure 2.5. In a simple table of orders, a row represents an item, a column rep-
+resents an attribute, and their intersection is the cell containing the value for that
+* A synonym for networks pairwise combination.
+is graphs. The word graph
+is also deeply overloaded in
+vis. Sometimes it is used
+2.4.2 Networks and Trees
+to mean network as we dis-
+cuss here, for instance in
+The dataset type of networks is well suited for specifying that there
+the vis subfield called graph is some kind of relationship between two or more items.* An item in
+drawing or the mathemat- a network is often called a node.* A link is a relation between two
+ical subfield called graph items.* For example, in an articulated social network the nodes
+theory. Sometimes it is
+are people, and links mean friendship. In a gene interaction net-
+used in the field of statisti-
+work, the nodes are genes, and links between them mean that
+cal graphics to mean chart,
+these genes have been observed to interact with each other. In a
+as in bar graphs and line
+computer network, the nodes are computers, and the links repre-
+graphs.
+sent the ability to send messages directly between two computers
+* A synonym for node is using physical cables or a wireless connection.
+vertex. Network nodes can have associated attributes, just like items in
+a table. In addition, the links themselves could also be considered
+* A synonym for link is to have attributes associated with them; these may be partly or
+edge. wholly disjoint from the node attributes.
+ο ο
+ο ο
+
+--- PAGE 52 ---
+О О
+О О
+2.4. DatasetTypes 27
+It is again important to distinguish between the abstract con- ‣ The spatial arrangement
+cept of a network and any particular visual layout of that network
+of networks is covered in
+where the nodes and edges have particular spatial positions. This
+Chapter 9.
+chapter concentrates on the former.
+2.4.2.1 Trees
+Networks with hierarchical structure are more specifically called
+trees. In contrast to a general network, trees do not have cycles:
+each child node has only one parent node pointing to it. One exam-
+ple of a tree is the organization chart of a company, showing who
+reports to whom; another example is a tree showing the evolu-
+tionary relationships between species in the biological tree of life,
+where the child nodes of humans and monkeys both share the
+same parent node of primates.
+2.4.3 Fields
+The field dataset type also contains attribute values associated
+with cells.1 Each cell in a field contains measurements or calcula-
+tions from a continuous domain: there are conceptually infinitely
+many values that you might measure, so you could always take
+a new measurement between any two existing ones. Continuous
+phenomena that might be measured in the physical world or simu-
+lated in software include temperature, pressure, speed, force, and
+density; mathematical functions can also be continuous.
+For example, consider a field dataset representing a medical
+scan of a human body containing measurements indicating the
+density of tissue at many sample points, spread regularly through-
+out a volume of 3D space. A low-resolution scan would have
+262,144 cells, providing information about a cubical volume of
+space with 64 bins in each direction. Each cell is associated with
+a specific region in 3D space. The density measurements could
+be taken closer together with a higher resolution grid of cells, or
+further apart for a coarser grid.
+Continuous data requires careful treatment that takes into ac-
+count the mathematical questions of sampling, how frequently to
+1 My use of the term field is related to but not identical to its use in the math-
+ematics literature, where it denotes a mapping from a domain to a range. In this
+case, the domain is a Euclidean space of one, two, or three dimensions, and the ad-
+jective modifying field is a statement about the range: scalars, vectors, or tensors.
+Although the term field by itself is not commonly found in the literature, when I
+use it without an adjective I’m emphasizing the continuous nature of the domain,
+rather than specifics of the ranges of scalars, vectors, or tensors.
+О О
+О О
+
+--- PAGE 53 ---
+ο ο
+ο ο
+28 2. What: DataAbstraction
+take the measurements, and interpolation, how to show values in
+between the sampled points in a way that does not mislead. In-
+terpolating appropriately between the measurements allows you
+to reconstruct a new view of the data from an arbitrary viewpoint
+that’s faithful to what you measured. These general mathematical
+problems are studied in areas such as signal processing and statis-
+tics. Visualizing fields requires grappling extensively with these
+concerns.
+In contrast, the table and network datatypes discussed above
+are an example of discrete data where a finite number of individ-
+ual items exist, and interpolation between them is not a mean-
+ingful concept. In the cases where a mathematical framework is
+necessary, areas such as graph theory and combinatorics provide
+relevant ideas.2
+2.4.3.1 Spatial Fields
+Continuous data is often found in the form of a spatial field, where
+the cell structure of the field is based on sampling at spatial po-
+sitions. Most datasets that contain inherently spatial data occur
+in the context of tasks that require understanding aspects of its
+spatial structure, especially shape.
+For example, with a spatial field dataset that is generated with a
+medical imaging instrument, the user’s task could be to locate sus-
+pected tumors that can be recognized through distinctive shapes or
+densities. An obvious choice for visual encoding would be to show
+something that spatially looks like an X-ray image of the human
+body and to use color coding to highlight suspected tumors. An-
+other example is measurements made in a real or simulated wind
+tunnel of the temperature and pressure of air flowing over airplane
+wings at many points in 3D space, where the task is to compare
+the flow patterns in different regions. One possible visual encod-
+ing would use the geometry of the wing as the spatial substrate,
+showing the temperature and pressure using size-coded arrows.
+The likely tasks faced by users who have spatial field data con-
+strains many of the choices about the use of space when designing
+visual encoding idioms. Many of the choices for nonspatial data,
+* A synonym for nonspatial where no information about spatial position is provided with the
+data is abstract data. dataset, are unsuitable in this case.*
+2 Technically, all data stored within a computer is discrete rather than continu-
+ous; however, the interesting question is whether the underlying semantics of the
+bits that are stored represents samples of a continuous phenomenon or intrinsically
+discrete data.
+ο ο
+ο ο
+
+--- PAGE 54 ---
+ο ο
+ο ο
+2.4. DatasetTypes 29
+Thus, the question of whether a dataset has the type of a spa-
+tial field or a nonspatial table has extensive and far-reaching im-
+plications for idiom design. Historically, vis diverged into areas of
+specialization based on this very differentiation. The subfield of
+scientific visualization, or scivis for short, is concerned with situ-
+ations where spatial position is given with the dataset. A central
+concern in scivis is handling continuous data appropriately within
+the mathematical framework of signal processing. The subfield of
+information visualization, or infovis for short, is concerned with sit-
+uations where the use of space in a visual encoding is chosen by
+the designer. A central concern in infovis is determining whether
+the chosen idiom is suitable for the combination of data and task,
+leading to the use of methods from human–computer interaction
+and design.
+2.4.3.2 Grid Types
+When a field contains data created by sampling at completely reg-
+ular intervals, as in the previous example, the cells form a uniform
+grid. There is no need to explicitly store the grid geometry in terms
+of its location in space, or the grid topology in terms of how each
+cell connects with its neighboring cells. More complicated exam-
+ples require storing different amounts of geometric and topological
+information about the underlying grid. A rectilinear grid supports
+nonuniform sampling, allowing efficient storage of information that
+has high complexity in some areas and low complexity in others, at
+the cost of storing some information about the geometric location of
+each each row. A structured grid allows curvilinear shapes, where
+the geometric location of each cell needs to be specified. Finally,
+unstructured grids provide complete flexibility, but the topological
+information about how the cells connect to each other must be
+stored explicitly in addition to their spatial positions.
+2.4.4 Geometry
+The geometry dataset type specifies information about the shape
+of items with explicit spatial positions. The items could be points,
+or one-dimensional lines or curves, or 2D surfaces or regions, or
+3D volumes.
+Geometry datasets are intrinsically spatial, and like spatial fields
+they typically occur in the context of tasks that require shape un-
+derstanding. Spatial data often includes hierarchical structure at
+multiple scales. Sometimes this structure is provided intrinsically
+ο ο
+ο ο
+
+--- PAGE 55 ---
+ο ο
+ο ο
+30 2. What: DataAbstraction
+with the dataset, or a hierarchy may be derived from the original
+data.
+Geometry datasets do not necessarily have attributes, in con-
+trast to the other three basic dataset types. Many of the design
+issues in vis pertain to questions about how to encode attributes.
+Purely geometric data is interesting in a vis context only when it
+‣ Section 3.4.2.3 covers is derived or transformed in a way that requires consideration of
+deriving data. design choices. One classic example is when contours are derived
+from a spatial field. Another is when shapes are generated at an
+‣ Section 8.4 covers gen- appropriate level of detail for the task at hand from raw geographic
+erating contours from scalar data, such as the boundaries of a forest or a city or a country, or
+fields. the curve of a road. The problem of how to create images from a ge-
+ometric description of a scene falls into another domain: computer
+graphics. While vis draws on algorithms from computer graphics,
+it has different concerns from that domain. Simply showing a geo-
+metric dataset is not an interesting problem from the point of view
+of a vis designer.
+Geometric data is sometimes shown alone, particularly when
+shape understanding is the primary task. In other cases, it is the
+backdrop against which additional information is overlaid.
+2.4.5 Other Combinations
+Beyond tables, there are many ways to group multiple items to-
+gether, including sets, lists, and clusters. A set is simply an un-
+ordered group of items. A group of items with a specified ordering
+* In computer science, ar- could be called a list.* A cluster is a grouping based on attribute
+ray is often used as a syn- similarity, where items within a cluster are more similar to each
+onym for list. other than to ones in another cluster.
+There are also more complex structures built on top of the basic
+network type. A path through a network is an ordered set of seg-
+ments formed by links connecting nodes. A compound network is
+a network with an associated tree: all of the nodes in the network
+are the leaves of the tree, and interior nodes in the tree provide a
+hierarchical structure for the nodes that is different from network
+links between them.
+Many other kinds of data either fit into one of the previous cat-
+egories or do so after transformations to create derived attributes.
+Complex and hybrid combinations, where the complete dataset
+contains multiple basic types, are common in real-world applica-
+tions.
+The set of basic types presented above is a starting point for
+describing the what part of an analysis instance that pertains to
+ο ο
+ο ο
+
+--- PAGE 56 ---
+ο ο
+ο ο
+2.5. AttributeTypes 31
+Dataset Availability
+Static Dynamic
+Figure 2.6. Dataset availability can be either static or dynamic, for any dataset
+type.
+data; that is, the data abstraction. In simple cases, it may be possi-
+ble to describe your data abstraction using only that set of terms.
+In complex cases, you may need additional description as well.
+If so, your goal should be to translate domain-specific terms into
+words that are as generic as possible.
+2.4.6 Dataset Availability
+Figure 2.6 shows the two kinds of dataset availability: static or
+dynamic.
+The default approach to vis assumes that the entire dataset is
+available all at once, as a static file. However, some datasets are
+instead dynamic streams, where the dataset information trickles in
+over the course of the vis session.* One kind of dynamic change is * A synonym for dynamic
+to add new items or delete previous items. Another is to change is online, and a synonym
+the values of existing items. for static is offline.
+This distinction in availability crosscuts the basic dataset types:
+any of them can be static or dynamic. Designing for streaming
+data adds complexity to many aspects of the vis process that are
+straightforward when there is complete dataset availability up front.
+2.5 Attribute Types
+Figure 2.7 shows the attribute types. The major disinction is be-
+tween categorical versus ordered. Within the ordered type is a
+further differentiation between ordinal versus quantitative. Or-
+dered data might range sequentially from a minimum to a maxi-
+mum value, or it might diverge in both directions from a zero point
+in the middle of a range, or the values may wrap around in a cycle.
+Also, attributes may have hierarchical structure.
+ο ο
+ο ο
+
+--- PAGE 57 ---
+ο ο
+ο ο
+32 2. What: DataAbstraction
+Attributes
+Attribute Types
+Categorical Ordered
+Ordinal Quantitative
+Ordering Direc tion
+Sequential Diverging Cyclic
+Figure 2.7. Attribute types are categorical, ordinal, or quantitative. The direction
+of attribute ordering can be sequential, diverging, or cyclic.
+2.5.1 Categorical
+The first distinction is between categorical and ordered data. The
+type of categorical data, such as favorite fruit or names, does not
+* A synonym for categori- have an implicit ordering, but it often has hierarchical structure.*
+cal is nominal. Categories can only distinguish whether two things are the same
+(apples) or different (apples versus oranges). Of course, any ar-
+bitrary external ordering can be imposed upon categorical data.
+Fruit could be ordered alphabetically according to its name, or
+by its price—but only if that auxiliary information were available.
+However, these orderings are not implicit in the attribute itself, the
+way they are with quantitative or ordered data. Other examples of
+categorical attributes are movie genres, file types, and city names.
+2.5.2 Ordered: Ordinal and Quantitative
+All ordered data does have an implicit ordering, as opposed to un-
+ordered categorical data. This type can be further subdivided. With
+ordinal data, such as shirt size, we cannot do full-fledged arith-
+metic, but there is a well-defined ordering. For example, large
+minus medium is not a meaningful concept, but we know that
+medium falls between small and large. Rankings are another kind
+ο ο
+ο ο
+
+--- PAGE 58 ---
+ο ο
+ο ο
+2.5. AttributeTypes 33
+of ordinal data; some examples of ordered data are top-ten lists of
+movies or initial lineups for sports tournaments depending on past
+performance.
+A subset of ordered data is quantitative data, namely, a mea-
+surement of magnitude that supports arithmetic comparison. For
+example, the quantity of 68 inches minus 42 inches is a mean-
+ingful concept, and the answer of 26 inches can be calculated.
+Other examples of quantitative data are height, weight, tempera-
+ture, stock price, number of calling functions in a program, and
+number of drinks sold at a coffee shop in a day. Both integers and
+real numbers are quantitative data.3
+In this book, the ordered type is used often; the ordinal type is
+only occasionally mentioned, when the distinction between it and
+the quantitative type matters.
+2.5.2.1 Sequential versus Diverging
+Ordered data can be either sequential, where there is a homoge-
+neous range from a minimum to a maximum value, or diverging,
+which can be deconstructed into two sequences pointing in oppo-
+site directions that meet at a common zero point. For instance,
+a mountain height dataset is sequential, when measured from a
+minimum point of sea level to a maximum point of Mount Everest.
+A bathymetric dataset is also sequential, with sea level on one end
+and the lowest point on the ocean floor at the other. A full elevation
+dataset would be diverging, where the values go up for mountains
+on land and down for undersea valleys, with the zero value of sea
+level being the common point joining the two sequential datasets.
+2.5.2.2 Cyclic
+Ordered data may be cyclic, where the values wrap around back
+to a starting point rather than continuing to increase indefinitely.
+Many kinds of time measurements are cyclic, including the hour
+of the day, the day of the week, and the month of the year.
+2.5.3 Hierarchical Attributes
+There may be hierarchical structure within an attribute or between
+multiple attributes. The daily stock prices of companies collected
+3 In some domains the quantitative category is further split into interval versus
+ratio data [Stevens 46]; this distinction is typically not useful when designing a
+visual encoding, so in this book these types remain collapsed together into this
+single category.
+ο ο
+ο ο
+
+--- PAGE 59 ---
+ο ο
+ο ο
+34 2. What: DataAbstraction
+over the course of a decade is an example of a time-series data-
+set, where one of the attributes is time. In this case, time can be
+aggregated hierarchically, from individual days up to weeks, up to
+months, up to years. There may be interesting patterns at mul-
+tiple temporal scales, such as very strong weekly variations for
+‣ Section 13.4 covers hi- weekday versus weekend, or more subtle yearly patterns show-
+erarchical aggregation in ing seasonal variations in summer versus winter. Many kinds of
+more detail, and Section 7.5 attributes might have this sort of hierarchical structure: for exam-
+covers the visual encoding ple, the geographic attribute of a postal code can be aggregated up
+of attribute hierarchies. to the level of cities or states or entire countries.
+2.6 Semantics
+Knowing the type of an attribute does not tell us about its seman-
+tics, because these two questions are crosscutting: one does not
+dictate the other. Different approaches to considering the seman-
+tics of attributes that have been proposed across the many fields
+where these semantics are studied. The classification in this book
+is heavily focused on the semantics of keys versus values, and the
+related questions of spatial and continuous data versus nonspa-
+tial and discrete data, to match up with the idiom design choice
+analysis framework. One additional consideration is whether an
+attribute is temporal.
+2.6.1 Key versus Value Semantics
+A key attribute acts as an index that is used to look up value at-
+* A synonym for key at-
+tributes.* The distinction between key and value attributes is im-
+tribute is independent at-
+portant for the dataset types of tables and fields, as shown in Fig-
+tribute. A synonym for
+ure 2.8.
+value attribute is depen-
+dent attribute. The lan-
+guage of independent and 2.6.1.1 Flat Tables
+dependent is common in
+A simple flat table has only one key, where each item corresponds
+statistics. In the language
+to a row in the table, and any number of value attributes. In this
+of data warehouses, a syn-
+case, the key might be completely implicit, where it’s simply the in-
+onym for independent is di-
+dex of the row. It might be explicit, where it is contained within the
+mension, and a synonym
+table as an attribute. In this case, there must not be any duplicate
+for dependent is measure.
+values within that attribute. In tables, keys may be categorical or
+ordinal attributes, but quantititive attributes are typically unsuit-
+able as keys because there is nothing to prevent them from having
+the same values for multiple items.
+ο ο
+ο ο
+
+--- PAGE 60 ---
+2.6. Semantics 35
+Tables Fields (Continuous)
+Attributes (columns) Grid of positions
+I tems
+Cell
+(rows)
+Cell containing value Attributes (columns)
+Value in cell
+Multidimensional Table
+Value in cell
+Figure 2.8. Key and value semantics for tables and fields.
+For example, in Table 2.1, Name is a categorical attribute that
+might appear to be a reasonable key at first, but the last line shows
+that two people have the same name, so it is not a good choice. Fa-
+vorite Fruit is clearly not a key, despite being categorical, because
+Pear appears in two different rows. The quantitative attribute of
+Age has many duplicate values, as does the ordinal attribute of
+Shirt Size. The first attribute in this flat table has an explicit unique
+identifier that acts as the key.4 This key attribute could either be
+ordinal, for example if the order that the rows were entered into
+the table captures interesting temporal information, or categorical,
+if it’s simply treated as a unique code.
+Figure 2.9 shows the order table from Figure 2.5 where each
+attribute is colored according to its type. There is no explicit key:
+even the Order ID attribute has duplicates, because orders consist
+of multiple items with different container sizes, so it does not act
+as a unique identifier. This table is an example of using an implicit
+key that is the row number within the table.
+4 It’s common to store the key attribute in the first column, for understandability
+by people and ease of building data structures by computers.
+
+--- PAGE 61 ---
+ο ο
+ο ο
+36 2. What: DataAbstraction
+1q =u Qanuatnittiatattiivvee
+22
+2o =r dNionmailnal
+3 = Ordinal
+categorical
+Figure 2.9. The order table with the attribute columns colored by their type; none
+of them is a key.
+2.6.1.2 Multidimensional Tables
+The more complex case is a multidimensional table, where multi-
+ple keys are required to look up an item. The combination of all
+keys must be unique for each item, even though an individual key
+attribute may contain duplicates. For example, a common multidi-
+mensional table from the biology domain has a gene as one key and
+time as another key, so that the value in each cell is the activity
+level of a gene at a particular time.
+The information about which attributes are keys and which are
+values may not be available; in many instances determining which
+attributes are independent keys versus dependent values is the
+goal of the vis process, rather than its starting point. In this case,
+the successful outcome of analysis using vis might be to recast a
+flat table into a more semantically meaningful multidimensional
+table.
+ο ο
+ο ο
+
+--- PAGE 62 ---
+ο ο
+ο ο
+2.6. Semantics 37
+2.6.1.3 Fields
+Although fields differ from tables a fundamental way because they
+represent continuous rather than discrete data, keys and values
+are still central concerns. (Different vocabulary for the same basic
+idea is more common with spatial field data, where the term in-
+dependent variable is used instead of key, and dependent variable
+instead of value.)
+Fields are structured by sampling in a systematic way so that
+each grid cell is spanned by a unique range from a continuous
+domain. In spatial fields, spatial position acts as a quantitative
+key, in contrast to a nonspatial attribute in the case of a table that
+is categorical or ordinal. The crucial difference between fields and
+tables is that useful answers for attribute values are returned for
+locations throughout the sampled range, not just the exact points
+where data was recorded.
+Fields are typically characterized in terms of the number of keys
+versus values. Their multivariate structure depends on the number
+of value attributes, and their multidimensional structure depends
+on the number of keys. The standard multidimensional cases are
+2D and 3D fields for static measurements taken in two or three
+spatial dimensions,5 and fields with three or four keys, in the case
+where these measurements are time-varying. A field can be both
+multidimensional and multivariate if it has multiple keys and mul-
+tiple values. The standard classification according to multivariate
+structure is that a scalar field has one attribute per cell, a vector * These definitions of
+field has two or more attributes per cell, and a tensor field has scalar, vector, and ten-
+many attributes per cell.* sor follow the common
+usage in vis. In a strict
+2.6.1.4 Scalar Fields mathematical sense, these
+distinctions are not techni-
+A scalar field is univariate, with a single value attribute at each
+cally correct, since scalars
+point in space. One example of a 3D scalar field is the time-varying
+and vectors are included
+medical scan above; another is the temperature in a room at each
+as a degenerate case
+point in 3D space. The geometric intuition is that each point in
+of tensors. Mapping the
+a scalar field has a single value. A point in space can have sev-
+mathematical usage to the
+eral different numbers associated with it; if there is no underlying
+vis usage, scalars mean
+connection between them then they are simply multiple separate
+mathematical tensors of
+scalar fields.
+order 0, vectors mean
+mathematical tensors of
+2.6.1.5 Vector Fields
+order 1, and tensors mean
+A vector field is multivariate, with a list of multiple attribute values mathematical tensors of
+at each point. The geometric intuition is that each point in a vector order 2 or more.
+5 It’s also possible for a spatial field to have just one key.
+ο ο
+ο ο
+
+--- PAGE 63 ---
+ο ο
+ο ο
+38 2. What: DataAbstraction
+field has a direction and magnitude, like an arrow that can point in
+any direction and that can be any length. The length might mean
+the speed of a motion or the strength of a force. A concrete example
+of a 3D vector field is the velocity of air in the room at a specific time
+point, where there is a direction and speed for each item. The di-
+mensionality of the field determines the number of components in
+the direction vector; its length can be computed directly from these
+components, using the standard Euclidean distance formula. The
+standard cases are two, three, or four components, as above.
+2.6.1.6 Tensor Fields
+A tensor field has an array of attributes at each point, representing
+a more complex multivariate mathematical structure than the list
+of numbers in a vector. A physical example is stress, which in the
+case of a 3D field can be defined by nine numbers that represent
+forces acting in three orthogonal directions. The geometric intution
+is that the full information at each point in a tensor field cannot be
+represented by just an arrow and would require a more complex
+shape such as an ellipsoid.
+2.6.1.7 Field Semantics
+This categorization of spatial fields requires knowledge of the at-
+tribute semantics and cannot be determined from type informa-
+tion alone. If you are given a field with multiple measured values
+at each point and no further information, there is no sure way to
+know its structure. For example, nine values could represent many
+things: nine separate scalar fields, or a mix of multiple vector fields
+and scalar fields, or a single tensor field.
+2.6.2 Temporal Semantics
+A temporal attribute is simply any kind of information that re-
+lates to time. Data about time is complicated to handle because
+of the rich hierarchical structure that we use to reason about time,
+and the potential for periodic structure. The time hierarchy is
+deeply multiscale: the scale of interest could range anywhere from
+nanoseconds to hours to decades to millennia. Even the common
+words time and date are a way to partially specify the scale of tem-
+poral interest. Temporal analysis tasks often involve finding or ver-
+ifying periodicity either at a predetermined scale or at some scale
+not known in advance. Moreover, the temporal scales of interest
+do not all fit into a strict hierarchy; for instance, weeks do not fit
+ο ο
+ο ο
+
+--- PAGE 64 ---
+ο ο
+ο ο
+2.6. Semantics 39
+cleanly into months. Thus, the generic vis problems of transforma- ‣ Section 3.4.2.3 intro-
+tion and aggregation are often particularly complex when dealing duces the problem of
+with temporal data. One important idea is that even though the data transformation. Sec-
+dataset semantics involves change over time, there are many ap- tion 13.4 discusses the
+proaches to visually encoding that data—and only one of them is question of aggregation in
+to show it changing over time in the form of an animation. detail.
+Temporal attributes can have either value or key semantics. Ex-
+‣ Vision versus memory is
+amples of temporal attributes with dependent value semantics are
+discussed further in Sec-
+a duration of elapsed time or the date on which a transaction oc-
+tion 6.5.
+curred. In both spatial fields and abstract tables, time can be an
+independent key. For example, a time-varying medical scan can
+have the independent keys of x, y, z , t to cover spatial position and
+time, with the dependent value attribute of density for each com-
+bination of four indices to look up position and time. A temporal
+key attribute is usually considered to have a quantitative type, al-
+though it’s possible to consider it as ordinal data if the duration
+between events is not interesting.
+2.6.2.1 Time-Varying Data
+A dataset has time-varying semantics when time is one of the key
+attributes, as opposed to when the temporal attribute is a value
+rather than a key. As with other decisions about semantics, the
+question of whether time has key or value semantics requires ex-
+ternal knowledge about the nature of the dataset and cannot be
+made purely from type information. An example of a dataset with
+time-varying semantics is one created with a sensor network that
+tracks the location of each animal within a herd by taking new
+measurements every second. Each animal will have new location
+data at every time point, so the temporal attribute is an indepen-
+dent key and is likely to be a central aspect of understanding the
+dataset. In contrast, a horse-racing dataset covering a year’s worth
+of races could have temporal value attributes such as the race start
+time and the duration of each horse’s run. These attributes do in-
+deed deal with temporal information, but the dataset is not time-
+varying.
+A common case of temporal data occurs in a time-series dataset,
+namely, an ordered sequence of time–value pairs. These datasets
+are a special case of tables, where time is the key. These time-
+value pairs are often but not always spaced at uniform temporal
+intervals. Typical time-series analysis tasks involve finding trends,
+correlations, and variations at multiple time scales such as hourly,
+daily, weekly, and seasonal.
+ο ο
+ο ο
+
+--- PAGE 65 ---
+ο ο
+ο ο
+40 2. What: DataAbstraction
+The word dynamic is often used ambiguously to mean one of
+two very different things. Some use it to mean a dataset has time-
+‣ The dataset types of dy- varying semantics, in contrast to a dataset where time is not a key
+namic streams versus static attribute, as discussed here. Others use it to mean a dataset has
+files are discussed in Sec- stream type, in contrast to an unchanging file that can be loaded
+tion 2.4.6. all at once. In this latter sense, items and attributes can be added
+or deleted and their values may change during a running session
+of a vis tool. I carefully distinguish between these two meanings
+here.
+2.7 Further Reading
+The Big Picture The framework presented here was inspired in part
+by the many taxonomies of data that have been previously
+proposed, including the synthesis chapter at the beginning of
+an early collection of infovis readings [Card et al. 99], a tax-
+onomy that emphasizes the division between continuous and
+discrete data [Tory and Mo¨ller 04a], and one that emphasizes
+both data and tasks [Shneiderman 96].
+Field Datasets Several books discuss the spatial field dataset type
+in far more detail, including two textbooks [Telea 07, Ward
+et al. 10], a voluminous handbook [Hansen and Johnson 05],
+and the vtk book [Schroeder et al. 06].
+Attribute Types The attribute types of categorical, ordered, and quan-
+titative were proposed in the seminal work on scales of mea-
+surement from the psychophysics literature [Stevens 46].
+Scales of measurement are also discussed extensively in the
+book The Grammar of Graphics [Wilkinson 05] and are used
+as the foundational axes of an influential vis design space
+taxonomy [Card and Mackinlay 97].
+Key and Value Semantics The Polaris vis system, which has been com-
+mercialized as Tableau, is built around the distinction be-
+tween key attributes (independent dimensions) and value at-
+tributes (dependent measures) [Stolte et al. 02].
+Temporal Semantics A good resource for time-oriented data vis
+is a recent book, Visualization of T ime-Oriented Data [Aigner
+et al. 11].
+ο ο
+ο ο
+
+--- PAGE 66 ---
+O O
+O O
+O O
+O O
+
+--- PAGE 67 ---
+ο ο
+ο ο
+Why?
+Ac tions Targets
+Analyze All Data
+Consume Trends Outliers Features
+Discover Present Enjoy
+Attributes
+Produce
+One Many
+Annotate Record Derive
+Distribution Dependency Correlation Similarity
+tag
+Extremes
+Search
+Target k nown Target unk nown
+Location
+Lookup Browse Network Data
+k nown
+Location Topology
+Locate Explore
+unk nown
+Quer y
+Paths
+Identify Compare Summarize
+What?
+Spatial Data
+Why?
+Shape
+How?
+Figure 3.1. Why people are using vis in terms of actions and targets.
+ο ο
+ο ο
+
+--- PAGE 68 ---
+ο ο
+ο ο
+Chapter 3
+Why: Task Abstraction
+3.1 The Big Picture
+Figure 3.1 breaks down into actions and targets the reasons why
+a vis tool is being used. The highest-level actions are to use vis
+to consume or produce information. The cases for consuming are
+to present, to discover, and to enjoy; discovery may involve gen-
+erating or verifying a hypothesis. At the middle level, search can
+be classified according to whether the identity and location of tar-
+gets are known or not: both are known with lookup, the target is
+known but its location is not for locate, the location is known but
+the target is not for browse, and neither the target nor the location
+are known for explore. At the low level, queries can have three
+scopes: identify one target, compare some targets, and summarize
+all targets. Targets for all kinds of data are finding trends and out-
+liers. For one attribute, the target can be one value, the extremes
+of minimum and maximum values, or the distribution of all values
+across the entire attribute. For multiple attributes, the target can
+be dependencies, correlations, or similarities between them. The
+target with network data can be topology in general or paths in
+particular, and with spatial data the target can be shape.
+3.2 Why Analyze Tasks Abstractly?
+This framework encourages you to consider tasks in abstract form,
+rather than the domain-specific way that users typically think
+about them.
+Transforming task descriptions from domain-specific language
+into abstract form allows you to reason about similarities and dif-
+ferences between them. Otherwise, it’s hard to make useful com-
+parisons between domain situations, because if you don’t do this
+kind of translation then everything just appears to be different.
+That apparent difference is misleading: there are a lot of similar-
+43
+ο ο
+ο ο
+
+--- PAGE 69 ---
+ο ο
+ο ο
+44 3. Why: TaskAbstraction
+ities in what people want to do once you strip away the surface
+language differences.
+For example, an epidimiologist studying the spread of a new
+strain of influenza might initially describe her task as “contrast
+the prognosis of patients who were intubated in the ICU more
+than one month after exposure to patients hospitalized within the
+first week”, while a biologist studying immune system response
+might use language such as “see if the results for the tissue sam-
+ples treated with LL-37 match up with the ones without the pep-
+tide”. Even if you know what all the specialized vocabulary means,
+it’s still hard to think about what these two descriptions have in
+common because they’re using different words: “contrast” versus
+“match up”. If you transform these into descriptions using a con-
+sistent set of generic terms, then you can spot that these two tasks
+are just two instances of the same thing: “compare values between
+two groups”.
+The analysis framework has a small set of carefully chosen
+words to describe why people are using vis, designed to help you
+crisply and concisely distinguish between different goals. This set
+has verbs describing actions, and nouns describing targets. It’s
+possible that you might decide to use additional terms to com-
+pletely and precisely describe the user’s goals; if so, strive to trans-
+late domain-specific terms into words that are as generic as possi-
+ble.
+The same vis tool might be usable for many different goals. It is
+often useful to consider only one of the user’s goals at a time, in or-
+der to more easily consider the question of how a particular idiom
+supports that goal. To describe complex activities, you can specify
+a chained sequence of tasks, where the output of one becomes the
+input to the next.
+Another important reason to analyze the task is to understand
+whether and how to transform the user’s original data into different
+forms by deriving new data. That is, the task abstraction can and
+should guide the data abstraction.
+3.3 Who: Designer or User
+It’s sometimes useful to augment an analysis instance specifica-
+tion by indicating who has a goal or makes a design choice: the
+designer of the vis or the end user of the vis. Both cases are com-
+mon.
+ο ο
+ο ο
+
+--- PAGE 70 ---
+ο ο
+ο ο
+3.4. Actions 45
+Vis tools fall somewhere along a continuum from specific to gen-
+eral. On the specific side, tools are narrow: the designer has built
+many choices into the design of the tool itself in a way that the user
+cannot override. These tools are limited in the kinds of data and
+tasks that they can address, but their strength is that users are not
+faced with an overwhelming array of design choices. On the gen-
+eral side, tools are flexible and users have many choices to make.
+The breadth of choices is both a strength and a limitation: users
+have a lot of power, but they also may make ineffective choices if
+they do not have a deep understanding of many vis design issues.
+Specialized vis tools are designed for specific contexts with a
+narrow range of data configurations, especially those created
+through a problem-driven process. These specialized datasets are
+often an interesting mix of complex combinations of and special
+cases of the basic data types. They also are a mix of original and
+derived data. In contrast, general vis tools are designed to handle a
+wide range of data in a flexible way, for example, by accepting any ‣ Dataset types are cov-
+dataset of a particular type as input: tables, or fields, or networks. ered in Section 2.4.
+Some particularly broad tools handle multiple dataset types, for in-
+stance, supporting transformations between tables and networks.
+3.4 Actions
+Figure 3.2 shows three levels of actions that define user goals. The
+high-level choices describe how the vis is being used to analyze,
+either to consume existing data or to also produce additional data.
+The mid-level choices cover what kind of search is involved, in
+terms of whether the target and location are known or not. The
+low-level choices pertain to the kind of query: does the user need
+to identify one target, compare some targets, or summarize all of
+the targets? The choices at each of these three levels are indepen-
+dent from each other, and it’s usually useful to describe actions at
+all three of them.
+3.4.1 Analyze
+At the highest level, the framework distinguishes between two pos-
+sible goals of people who want to analyze data using a vis tool:
+users might want only to consume existing information or also to
+actively produce new information.
+The most common use case for vis is for the user to consume
+information that has already been generated as data stored in a
+ο ο
+ο ο
+
+--- PAGE 71 ---
+ο ο
+ο ο
+46 3. Why: TaskAbstraction
+Actions
+Analyze
+Consume
+Discover Present Enjoy
+Produce
+Annotate Record Derive
+tag
+Search
+Target k nown Target unk nown
+Location
+Lookup Browse
+k nown
+Location
+Locate Explore
+unk nown
+Query
+Identify Compare Summarize
+Figure 3.2. Three levels of actions: analyze, search, and query.
+format amenable to computation. The framework has three fur-
+ther distinctions within that case: whether the goal is to present
+something that the user already understands to a third party, or
+for the user to discover something new or analyze information that
+ο ο
+ο ο
+
+--- PAGE 72 ---
+ο ο
+ο ο
+3.4. Actions 47
+is not already completely understood, or for users to enjoy a vis to
+indulge their casual interests in a topic.
+3.4.1.1 Discover
+The discover goal refers to using vis to find new knowledge that was
+not previously known. Discovery may arise from the serendipitous
+observation of unexpected phenomena, but investigation may be
+motivated by existing theories, models, hypotheses, or hunches.
+This usage includes the goal of finding completely new things; that
+is, the outcome is to generate a new hypothesis. It also includes
+the goal of figuring out whether a conjecture is true or false; that
+is, to verify—or disconfirm—an existing hypothesis.
+While vis for discovery is often associated with modes of sci-
+entific inquiry, it is not restricted to domain situations that are * This distinction between
+formally considered branches of science. The discover goal is often the goals of presentation of
+discussed as the classic motivation for sophisticated interactive id- the known and discovery of
+ioms, because the vis designer doesn’t know in advance what the the unknown is very com-
+user will need to see.* The fundamental motivation of this analysis mon in the vis literature, but
+framework is to help you separate out the questions of why the vis other sources may use dif-
+is being used from how the vis idiom is designed to achieve those ferent terms, such as ex-
+goals, so I will repeatedly emphasize that why doesn’t dictate how. plain versus explore.
+3.4.1.2 Present
+The present goal refers to the use of vis for the succinct commu-
+nication of information, for telling a story with data, or guiding
+an audience through a series of cognitive operations. Presenta-
+tion using vis may take place within the context of decision mak-
+ing, planning, forecasting, and instructional processes. The crucial
+point about the present goal is that vis is being used by somebody
+to communicate something specific and already understood to an
+audience.
+Presentation may involve collaborative or pedagogical contexts,
+and the means by which a presentation is given may vary accord-
+ing to the size of the audience, whether the presentation is live or
+prerecorded, and whether the audience is in the same place as the
+presenter. One classic example of a present vis is static informa-
+tion graphics, such as a diagram in a newspaper or an image in
+a blog. However, the present goal is not intrinsically limited to a
+static visual encoding idiom; it’s very possible to pursue this goal
+with dynamic vis idioms that include interaction and animation.
+Once again, the decision about why is separable from how the id-
+ο ο
+ο ο
+
+--- PAGE 73 ---
+ο ο
+ο ο
+48 3. Why: TaskAbstraction
+iom is designed: presentation can be supported through a wide
+variety of idiom design choices.
+A crucial aspect of presentation is that the knowledge commu-
+nicated is already known to the presenter in advance. Sometimes
+the presenter knows it before using vis at all and uses the vis only
+for communication. In other cases, the knowledge arose from the
+presenter’s previous use of vis with the goal of discovery, and it’s
+useful to think about a chained sequence of tasks where the output
+of a discover session becomes the input to a present session.
+3.4.1.3 Enjoy
+The enjoy goal refers to casual encounters with vis. In these con-
+texts, the user is not driven by a previously pressing need to verify
+or generate a hypothesis but by curiosity that might be both stim-
+ulated and satisfied by the vis. Casual encounters with vis for
+enjoyment can be fleeting, such as when looking at an infographic
+while reading a blog post. However, users can become sufficiently
+engaged with an enjoyable vis tool that they use it intensively for a
+more extended period of time.
+One aspect of this classification that’s tricky is that the goals
+of the eventual vis user might not be a match with the user goals
+conjectured by the vis designer. For example, a vis tool may have
+been intended by the designer for the goal of discovery with a par-
+ticular audience, but it might be used for pure enjoyment by a
+different group of people. In the analyses presented in this book
+I’ll assume that these goals are aligned, but in your own experience
+as a designer you might need to consider how they might diverge.
+Figure 3.3 shows the Name Voyager, which was created for ex-
+pectant parents deciding what to name their new baby. When the
+user types characters of a name, the vis shows data for the popu-
+larity of names in the United States since 1900 that start with that
+sequence of characters. The tool uses the visual encoding idiom
+where each name has a stripe whose height corresponds to popu-
+larity at a given time. Currently popular names are brighter, and
+gender is encoded by color. The Name Voyager appealed to many
+people with no interest in having children, who analyzed many dif-
+ferent historical trends and posted extensively about their findings
+in their personal blogs, motivated by their own enjoyment rather
+than a pressing need [Wattenberg 05].
+ο ο
+ο ο
+
+--- PAGE 74 ---
+ο ο
+ο ο
+3.4. Actions 49
+Figure 3.3. Name Voyager, a vis tool originally intended for parents focused deciding on what to name their expected
+baby, ended up being used by many nonparents to analyze historical trends for their own enjoyment. Left: Names
+starting with ‘O’ had a notable dip in popularity in the middle of the century. Right: Names starting with ‘LAT’ show
+a trend of the 1970s. After [Wattenberg 05, Figures 2 and 3], using http://www.babynamewizard.com.
+3.4.2 Produce
+In contrast to using vis only for consuming existing information, in
+the produce case the intent of the user is to generate new material.
+Often the goal with produce is to produce output that is used im-
+mediately, as input to a next instance. Sometimes the user intends
+to use this new material for some other vis-related task later on,
+such as discovery or presentation. Sometimes the intended use of
+the new material is for some other purpose that does not require
+vis, such as downstream analysis using nonvisual tools. There are
+three kinds of produce goals: annotate, record, and derive.
+3.4.2.1 Annotate
+The annotate goal refers to the addition of graphical or textual an-
+notations associated with one or more preexisting visualization el-
+ements, typically as a manual action by the user. When an annota-
+tion is associated with data items, the annotation could be thought ‣ Attributes are covered in
+of as a new attribute for them. For example, the user could anno- Chapter 2.
+tate all of the points within a cluster with a text label.
+3.4.2.2 Record
+The record goal saves or captures visualization elements as persis-
+tent artifacts. These artifacts include screen shots, lists of book-
+ο ο
+ο ο
+
+--- PAGE 75 ---
+ο ο
+ο ο
+50 3. Why: TaskAbstraction
+Figure 3.4. Graphical history recorded during an analysis session with Tableau. From [Heer et al. 08, Figure 1].
+marked elements or locations, parameter settings, interaction logs,
+or annotations. The record choice saves a persistent artifact, in
+contrast to the annotate, which attaches information temporarily
+to existing elements; an annotation made by a user can subse-
+quently be recorded. One interesting example of a record goal is
+to assemble a graphical history, in which the output of each task
+includes a static snapshot of the view showing its current state,
+and these snapshots accumulate in a branching meta-visualization
+showing what occurred during the user’s entire session of using
+the vis tool. Figure 3.4 shows an example from the Tableau vis
+tool [Heer et al. 08]. Recording and retaining artifacts such as these
+are often desirable for maintaining a sense of analytical prove-
+nance, allowing users to revisit earlier states or parameter settings.
+3.4.2.3 Derive
+The derive goal is to produce new data elements based on existing
+data elements. New attributes can be derived from information
+contained within existing ones, or data can be transformed from
+one type into another. Deriving new data is a critical part of the vis
+design process. The common case is that deriving new data is a
+choice made by vis designers, but this choice could also be driven
+by a user of a vis tool.
+When you are faced with a dataset, you should always consider
+whether to simply use it as is, or to transform it to another form:
+you could create newly derived attributes from the original ones, or
+even transform the dataset from the original type to another one.
+There is a strong relationship between the form of the data—
+the attribute and dataset types—and what kinds of vis idioms are
+ο ο
+ο ο
+
+--- PAGE 76 ---
+ο ο
+ο ο
+3.4. Actions 51
+effective at displaying it. The good news is that your hands are
+not tied as a designer because you can transform the data into a
+form more useful for the task at hand. Don’t just draw what you’re
+given; decide what the right thing to show is, create it with a series
+of transformations from the original dataset, and draw that!
+The ability to derive new data is why the data abstraction used
+in a vis tool is an active choice on the part of the designer, rather
+than simply being dictated by what the user provides. Changing
+the dataset to another form by deriving new attributes and types
+greatly expands the design space of possible vis idioms that you
+can use to display it. The final data abstraction that you choose
+might simply be the dataset in its original form, but more complex
+data abstractions based on deriving new attributes and types are
+frequently necessary if you’re designing a vis tool for a complex,
+real-world use case. Similarly, when you consider the design of
+an existing vis system, understanding how the original designer
+chose to transform the given dataset should be a cornerstone of
+your analysis.
+A dataset often needs to be transformed beyond its original state
+in order to create a visual encoding that can solve the desired prob-
+lem. To do so, we can create derived attributes that extend the
+dataset beyond the original set of attributes that it contains.* * A synonym for derive is
+In some cases, the derived attribute encodes the same data as transform.
+the original, but with a change of type. For example, a dataset
+might have an original attribute that is quantitative data: for in-
+stance, floating point numbers that represent temperature. For
+some tasks, like finding anomalies in local weather patterns, that
+raw data might be used directly. For another task, like deciding
+whether water is an appropriate temperature for a shower, that
+quantitative attribute might be transformed into a new derived at-
+tribute that is ordered: hot, warm, or cold. In this transformation,
+most of the detail is aggregated away. In a third example, when
+making toast, an even more lossy transformation into a binary cat-
+egorical attribute might suffice: burned or not burned.
+In other cases, creating the derived attribute requires access
+to additional information. For a geographic example, a categorical
+attribute of city name could be transformed into two derived quan-
+titative attributes containing the latitude and longitude of the city.
+This transformation could be accomplished through a lookup to a
+separate, external database.
+A new derived attribute may be created using arithmetic, log-
+ical, or statistical operations ranging from simple to complex. A
+common simple operation is subtracting two quantitative attributes
+ο ο
+ο ο
+
+--- PAGE 77 ---
+O O
+O O
+52 3. Why: TaskAbstraction
+exports
+imports
+t r a d e
+b a l a n c e
+trade balance = expor ts − impor ts
+Original Data Derived Data
+(a) (b)
+Figure 3.5. Derived attributes can be directly visually encoded. (a) Two original
+data attributes are plotted, imports and exports. (b) The quantitative derived at-
+tribute of trade balance, the difference between the two originals, can be plotted
+directly.
+to create a new quantitative difference attribute, which can then be
+directly visually encoded. Figure 3.5 shows an example of encod-
+ing two attributes directly, versus encoding the derived variable of
+the difference between them. For tasks that require understanding
+this difference, Figure 3.5(b) is preferable because it encodes the
+difference directly. The user can interpret the information by judg-
+ing position along a common frame. In contrast, in Figure 3.5(a)
+the user must judge the difference in heights between the two orig-
+inal curves at each step, a perceptual operation that is more diffi-
+cult and demanding. This operation is simple because it is local-
+ized to a pair of attribute values; a more complex operation would
+require global computations across all values for an attribute, such
+as averaging for a single attribute or the correlation between two of
+them.
+Datasets can be transformed into new ones of a different type,
+just as new attributes can be derived from existing ones. The
+full process of creating derived data may involve multiple stages
+of transformation.
+For example, the VxInsight system transforms a table of ge-
+nomics data into a network through a multistage derivation pro-
+cess by first creating a quantitative derived attribute of similarity,
+and then creating a derived network with links only between the
+most similar items [Davidson et al. 01]. The table had 6000 rows
+of yeast genes, and 18 columns containing measurements of the
+gene activity level in a specific experimental condition. The values
+in the columns were used to derive a new attribute, the similar-
+O O
+O O
+
+--- PAGE 78 ---
+ο ο
+ο ο
+3.4. Actions 53
+ity score, defined between each pair of genes. The similarity score
+was computed using sophisticated statistical processing to be ro-
+bust in the presence of nonlinear and noisy data, as occurs in this
+sort of biological application. This derived attribute was then used
+to create a derived network, where the nodes in the network were
+genes. A link was established between two genes when the simi-
+larity score was high; specifically, links were created only for the
+top 20 similarity scores.
+3.4.3 Search
+All of the high-level analyze cases require the user to search for
+elements of interest within the vis as a mid-level goal.* The classi- * The verb find is often
+fication of search into four alternatives is broken down according used as a synonym in de-
+to whether the identity and location of the search target is already scriptions of search tasks,
+known or not. implying a successful out-
+come.
+3.4.3.1 Lookup
+If users already know both what they’re looking for and where it
+is, then the search type is simply lookup. For example, a user
+of a tree vis showing the ancestral relationships between mammal
+species might want to look up humans, and can get to the right
+spot quickly by remembering how humans are classified: they’re
+in the group that has live young rather than laying eggs like a
+platypus or having a pouch like kangaroos, and within that group
+humans fall into the category of primates.
+3.4.3.2 Locate
+To find a known target at an unknown location, the search type is
+locate: that is, find out where the specific object is. In a similar
+example, the same user might not know where to find rabbits, and
+would have to look around in a number of places before locating
+them as lagomorphs (not rodents)!
+3.4.3.3 Browse
+In contrast, the exact identity of a search target might not be
+known in advance; rather, it might be specified based on char-
+acteristics. In this case, users are searching for one or more items
+that fit some kind of specification, such as matching up with a
+particular range of attribute values. When users don’t know ex-
+actly what they’re looking for, but they do have a location in mind
+ο ο
+ο ο
+
+--- PAGE 79 ---
+ο ο
+ο ο
+54 3. Why: TaskAbstraction
+of where to look for it, the search type is browse. For instance,
+if a user of a tree vis is searching within a particular subtree for
+leaf nodes having few siblings, it would be an instance of browse
+because the location is known in advance, even though the exact
+identity of the search target isn’t. Another example of browsing is a
+user of a vis tool with the visual encoding idiom of a line graph dis-
+playing the share price of multiple companies over the past month,
+who examines the share price of each line on June 15.
+3.4.3.4 Explore
+When users are not even sure of the location, the search type is
+explore. It entails searching for characteristics without regard to
+their location, often beginning from an overview of everything. Ex-
+amples include searching for outliers in a scatterplot, for anoma-
+lous spikes or periodic patterns in a line graph of time-series data,
+or for unanticipated spatially dependent patterns in a choropleth
+map.
+3.4.4 Query
+Once a target or set of targets for a search has been found, a low-
+level user goal is to query these targets at one of three scopes:
+identify, compare, or summarize. The progression of these three
+corresponds to an increase in the amount of search targets under
+consideration: one, some, or all. That is, identify refers to a single
+target, compare refers to multiple targets, and summarize refers to
+the full set of possible targets.
+For a concrete example, consider different uses of a choropleth
+map of US election results, where each state is color-coded by the
+party that won. A user can identify the election results for one
+state, compare the election results of one state to another, or sum-
+marize the election results across all states to determine how many
+favored one candidate or the other or to determine the overall dis-
+tribution of margin of victory values.
+3.4.4.1 Identify
+The scope of identify is a single target. If a search returns known
+targets, either by lookup or locate, then identify returns their char-
+acteristics. For example, a user of a static map that represents
+US election results by color coding each state red or blue, with the
+saturation level of either hue showing the proportion, can identify
+ο ο
+ο ο
+
+--- PAGE 80 ---
+ο ο
+ο ο
+3.5. Targets 55
+the winning party and margin of victory for the state of California.
+Conversely, if a search returns targets matching particular charac-
+teristics, either by browse or explore, then identify returns specific
+references. For instance, the election map user can identify the
+state having the highest margin of victory.
+3.4.4.2 Compare
+The scope of compare is multiple targets. Comparison tasks are
+typically more difficult than identify tasks and require more so-
+phisticated idioms to support the user. For example, the capability
+of inspecting a single target in detail is often necessary, but not
+sufficient, for comparison.
+3.4.4.3 Summarize
+The scope of summarize task is all possible targets. A synonym for
+summarize is overview, a term is frequently used in the vis liter-
+ature both as a verb, where it means to provide a comprehensive
+view of everything, and as a noun, where it means a summary dis- ‣ Section 6.7 discusses the
+play of everything. The goal of providing an overview is extremely question of how and when
+common in visualization. to provide overviews.
+3.5 Targets
+Figure 3.6 shows four kinds of abstract targets. The actions dis-
+cussed above refer to a target, meaning some aspect of the data
+that is of interest to the user. Targets are nouns, whereas actions
+are verbs. The idea of a target is explicit with search and query
+actions. It is more implicit with the use actions, but still relevant:
+for example, the thing that the user presents or discovers.
+Three high-level targets are very broadly relevant, for all kinds * Indeed, a synonym for
+of data: trends, outliers, and features. A trend is a high-level char- trend is simply pattern.
+acterization of a pattern in the data.* Simple examples of trends in-
+clude increases, decreases, peaks, troughs, and plateaus. Almost * There are many other
+inevitably, some data doesn’t fit well with that backdrop; those el- synonyms for outliers, in-
+ements are the outliers.* The exact definition of features is task cluding anomalies, novel-
+dependent, meaning any particular structures of interest. ties, deviants, and sur-
+Attributes are specific properties that are visually encoded. The prises.
+lowest-level target for an attribute is to find an individual value.
+‣ Attributes are discussed
+Another frequent target of interest is to find the extremes: the
+in detail in Chapter 2.
+minimum or maximum value across the range. A very common
+ο ο
+ο ο
+
+--- PAGE 81 ---
+ο ο
+ο ο
+56 3. Why: TaskAbstraction
+Targets
+All Data
+Trends Outliers Features
+Attributes
+One Many
+Distribution Dependency Correlation Similarity
+Extremes
+Network Data
+Topology
+Paths
+Spatial Data
+Shape
+Figure 3.6. The goals of the user might be to find or understand specific aspects
+of the data: trends and outliers for all kinds of data; individual values, the minimum
+or maximum extremes of the range, or the entire distribution of a single attribute; or
+the dependencies, correlations, or similarities between multiple attributes; topology
+or paths for network data, and shape for spatial data.
+ο ο
+ο ο
+
+--- PAGE 82 ---
+ο ο
+ο ο
+3.6. How: APreview 57
+target that has high-level scope is the distribution of all values for
+an attribute.
+Some targets encompass the scope of multiple attributes: de-
+pendencies, correlations, and similarities between attributes. A first
+attribute can have a dependency on a second, where the values for
+the first directly depend on those of the second. There is a correla-
+tion between one attribute and another if there is a tendency for the
+values of second to be tied to those of the first. The similarity be-
+tween two attributes can be defined as a quantitative measurement
+calculated on all of their values, allowing attributes to be ranked
+with respect to how similar, or different, they are from each other.
+The abstract tasks of understanding trends, outliers, distribu-
+tions, and correlations are extremely common reasons to use vis.
+Each of them can be expressed in very diverse terms using domain-
+specific language, but you should be on the lookout to recognize
+these abstractions.
+Some targets pertain to specific types of datasets. Network data ‣ The network datatype is
+specifies relationships between nodes as links. The fundamental covered in Section 2.4.2,
+target with network data is to understand the structure of these and choices for how ar-
+interconnections; that is, the network’s topology. A more specific range networks are covered
+topological target is a path of one or more links that connects two in Chapter 9.
+nodes. For spatial data, understanding and comparing the geo-
+metric shape is the common target of user actions.
+‣ Section 2.4.3.1 covers
+the dataset type of spa-
+3.6 How: A Preview
+tial fields, and Section 2.4.4
+covers geometry. Choices
+The third part of an analysis instance trio is how a vis idiom can for arranging spatial data
+be constructed out of a set of design choices. Figure 3.7 provides are covered in Chapter 8.
+a preview of these choices, with a high-level breakdown into four
+major classes.
+The family of how to encode data within a view has five choices
+for how to arrange data spatially: express values; separate, order,
+and align regions; and use given spatial data. This family also in-
+cludes how to map data with all of the nonspatial visual channels
+including color, size, angle, shape, and many more. The manipu-
+late family has the choices of change any aspect of the view, select
+elements from within the view, and navigate to change the view-
+point within the view—an aspect of change with a rich enough set
+of choices to merit its own category. The family of how to facet
+data between views has choices for how to juxtapose and coordi-
+nate multiple views, how to partition data between views, and how
+to superimpose layers on top of each other. The family of how to
+ο ο
+ο ο
+
+--- PAGE 83 ---
+ο ο
+ο ο
+58 3. Why: TaskAbstraction
+How?
+Encode Manipulate Facet Reduce
+Arrange Change Juxtapose Filter
+Express Separate
+Order Align Select Partition Aggregate
+Use
+Navigate Superimpose Embed
+Map
+from categorical and ordered
+attributes
+Color
+Hue S aturation Luminance
+Size, Angle, Cur vature, ...
+Shape
+What?
+Motion Why?
+Direction, Rate, Frequenc y, ...
+How?
+Figure 3.7. How to design vis idioms: encode, manipulate, facet, and reduce.
+reduce the data shown has the options of filter data away, aggre-
+gate many data elements together, and embed focus and context
+information together within a single view.
+The rest of this book defines, describes, and discusses these
+choices in depth.
+ο ο
+ο ο
+
+--- PAGE 84 ---
+ο ο
+ο ο
+3.7. AnalyzingandDeriving: Examples 59
+3.7 Analyzing and Deriving: Examples
+The three analysis and derivation examples below give a taste of
+how this what–why–how framework can be used right away. The
+first example covers comparative analysis between two vis tools.
+The second example discusses deriving a single attribute, an im-
+portance measure for trees to decide which branches to show to
+summarize its topological structure. The third example covers de-
+riving many new attributes and augmenting a spatial fluid dynam-
+ics dataset by creating derived spaces in which features of interest
+are easy to find.
+3.7.1 Comparing Two Idioms
+The what–why–how analysis framework is useful for comparative
+analysis, for example, to examine two different vis tools that have
+different answers for the question of how the idiom is designed
+when used for exactly the same context of why and what at the
+abstraction level.
+SpaceTree [Plaisant et al. 02], shown in Figure 3.8(a), and Tree-
+Juxtaposer [Munzner et al. 03], shown in Figure 3.8(b), are tree vis
+(a) (b)
+Figure 3.8. Comparing two idioms. (a) SpaceTree [Plaisant et al. 02]. (b) TreeJuxtaposer. From http://www.cs.umd.
+edu/hcil/spacetree and [Munzner et al. 03, Figure 1].
+ο ο
+ο ο
+
+--- PAGE 85 ---
+ο ο
+ο ο
+60 3. Why: TaskAbstraction
+What? Why? How?
+Tree Ac tions SpaceTree
+Present Locate Identify Encode Navigate Selec t Filter Aggregate
+Targets TreeJux taposer
+Path bet ween t wo nodes Encode Navigate Selec t Arrange
+Figure 3.9. Analyzing what–why–how comparatively for the SpaceTree and TreeJuxtaposer idioms.
+tools that use somewhat different idioms. What these tools take as
+input data is the same: a large tree composed of nodes and links.
+Why these tools are being used is for the same goal in this sce-
+nario: to present a path traced between two nodes of interest to a
+colleague. In more detail, both tools can be used to locate paths
+between nodes and identify them.
+Some aspects of idioms are the same: both systems allow the
+user to navigate and to select a path, with the result that it’s en-
+coded differently from the nonselected paths through highlighting.
+The systems differ in how elements of the visualization are ma-
+nipulated and arranged. SpaceTree ties the act of selection to a
+change of what is shown by automatically aggregating and filtering
+the unselected items. In contrast, TreeJuxtaposer allows the user
+to arrange areas of the tree to ensure visibility for areas of interest.
+Figure 3.9 summarizes this what–why–how analyis.
+3.7.2 Deriving One Attribute
+In a vis showing a complex network or tree, it is useful to be able to
+filter out most of the complexity by drawing a simpler picture that
+communicates the key aspects of its topological structure. One
+way to support this kind of summarization is to calculate a new
+derived attribute that measures the importance of each node in
+the graph and filter based on that attribute. Many different ap-
+proaches to calculating importance have been proposed; centrality
+metrics do so in a way that takes into account network topology.
+The Strahler number is a measure of node importance originally
+ο ο
+ο ο
+
+--- PAGE 86 ---
+ο ο
+ο ο
+3.7. AnalyzingandDeriving: Examples 61
+(a) (b)
+Figure 3.10. The derived quantitative attribute of Strahler numbers is used to filter
+the tree in order to create a recognizable summary. (a) The important skeleton of
+a large tree is visible when only 5000 of the highest-ranked nodes are drawn. (b)
+The full tree has over a half million nodes. From [Auber 02, Figures 10 and 13].
+developed in hydrogeology to characterize the branching structure
+of rivers that has been adapted and extended for use visualizing
+trees and networks [Auber 02]. Very central nodes have large
+Strahler numbers, whereas peripheral nodes have low values. The
+Strahler number is an example of a derived attribute for network
+data that is the result of a complex and global computation, rather
+than simply a local calculation on a small neighborhood around a
+node.
+Figure 3.10 shows an example of filtering according to the Strah-
+ler derived attribute to summarize a tree effectively. The result of
+drawing only the top-ranked 5000 nodes and the links that con-
+nect them is a recognizable skeleton of the full tree, shown in
+Figure 3.10(a), while over a half million nodes are shown in Fig-
+ure 3.10(b). In contrast, if the 5000 nodes to draw were picked ran-
+domly, the structure would not be understandable. Both versions
+of the network are also colored according to the Strahler number,
+to show how the centrality measure varies within the network.
+To summarize this example concisely in terms of a what–why–
+how analysis, as shown in Figure 3.11, a new quantitative attribute
+is derived and used to filter away the peripheral parts of a tree, in
+support of the task of summarizing the tree’s overall topology. As in
+the previous example, the tree is encoded as a node–link diagram,
+the most common choice for tree and network arrangment.
+ο ο
+ο ο
+
+--- PAGE 87 ---
+ο ο
+ο ο
+62 3. Why: TaskAbstraction
+Task 1 Task 2
+.58 .74 .58 .74
+.64 .64
+.54 .84 .54 .84
+.74 .84 .74 .84
+.24 .84 .64 .24 .84 .64
+.94 .94
+I n Out I n I n Out
+Tree Quantitative Tree + Quantitative Filtered tree
+attribute on nodes attribute on nodes Removed
+unimpor tant par ts
+What? Why? What? Why? How?
+In Tree Derive In Tree Summarize Reduce
+Out Quantitative In Quantitative attribute on nodes Topology Filter
+attribute on nodes Out Filtered tree
+Figure 3.11. Analyzing a chained sequence of two instances where an attribute is derived in order to summarize a
+tree by filtering away the unimportant parts.
+3.7.3 Deriving Many New Attributes
+Data transformations can shed light into spatial data as well. In an
+example from computational fluid dynamics, linked derived spaces
+are used for feature detection [Henze 98]. The vis system shown
+in Figure 3.12 allows the user to quickly create plots of any two
+original or derived variables from the palette of variables shown
+‣ Multiple views are dis- in the upper left derived fields pane. The views are linked together
+cussed further in Chap- with color highlighting. The power of this idiom lies in seeing where
+ter 12. regions that are contiguous in one view fall in the other views.
+The original dataset is a time-varying spatial field with measure-
+ments along a curvilinear mesh fitted to an airfoil. The plot in the
+physical space pane on the upper right of Figure 3.12 shows the
+data in this physical space, using the two spatial field variables.
+Undisturbed airflow enters the physical space from the left, and
+the back tip of the airfoil is on the right. Two important regions
+in back of the airfoil are distinguished with color: a red recircula-
+tion region and a yellow wake region. While these regions are not
+easy to distinguish in this physical view, they can be understood
+and selected more easily by interaction with the four other derived
+views. For example, in the derived space of vorticity vs enthalpy in
+the upper middle of Figure 3.12, the recirculation zone is distin-
+guishable as a coherent spatial structure at the top, with the yellow
+wake also distinguishable beneath it. As the white box shows, the
+ο ο
+ο ο
+
+--- PAGE 88 ---
+ο ο
+ο ο
+3.7. AnalyzingandDeriving: Examples 63
+Figure 3.12. Computational fluid dynamics vis showing the list of many derived attributes (top left), one view of
+the original spatial field (top right), and four other views showing pairs of selected derived attributes. The multiple
+juxtaposed views are coordinated with shared colored highlights. From [Henze 98, Figure 5].
+recirculation zone can easily be selected in this view. The pressure
+vs temperature pane in the bottom middle of Figure 3.12 shows an-
+other derived space made by plotting the pressure versus the tem-
+perature. In this view, the red recirculation zone and the yellow
+wake appear where both the pressure and temperature variables
+are high, in the upper right. Without getting into the exact tech-
+nical meaning of the derived variables as used in fluid dynamics
+(vorticity, entropy, enthalpy, and so on), the point of this example
+is that many structures of interest in fluid dynamics can be seen
+more easily from layouts in the derived spaces.
+ο ο
+ο ο
+
+--- PAGE 89 ---
+ο ο
+ο ο
+64 3. Why: TaskAbstraction
+Task 1 Task 2
+I n Out I n I n Out
+Spatial field Many quantitative Spatial field + M any quantitative Jux taposed attribute plots with
+attributes attributes linked coloring
+What? Why? What? Why? How?
+In Spatial field Derive In Spatial field Ac tions Map Arrange
+Out Many In Many quantitative Discover Hue Express
+quantitative attributes Explore
+attributes Out Jux taposed Browse Facet Manipulate
+attribute plots with Identify Jux tapose Selec t
+linked coloring Compare Par tition Navigate
+Targets
+Features
+Figure 3.13. Analyzing a chained sequence, where many attributes are derived and visually encoded.
+To summarize this example in terms of a what–why–how analy-
+sis, as shown in Figure 3.13, many new quantitative attributes are
+derived from an original spatial field dataset. Each pair of them
+is visually encoded into a view, as is the original spatial data, and
+the multiple juxtaposed views are coordinated with shared color
+coding and highlighting.
+3.8 Further Reading
+The Big Picture An earlier version of the what–why–how framework
+was first presented as a paper [Brehmer and Munzner 13],
+which includes a very detailed discussion of its relationship
+to the extensive previous work in classifications of tasks and
+interaction idioms. That discussion covers 30 previous clas-
+sifications and 20 relevant references, ranging from a charac-
+terization of the scientific data analysis process [Springmeyer
+et al. 92], to an influential low-level task classification [Amar
+et al. 05], to a taxonomy of tasks for network datasets [Lee
+et al. 06], to a recent taxonomy of interaction dynamics [Heer
+and Shneiderman 12].
+ο ο
+ο ο
+
+--- PAGE 90 ---
+ο ο
+ο ο
+3.8. FurtherReading 65
+Who: Designers versus Users Some of the challenges inherent in bridg-
+ing the gaps between vis designers and users are discussed
+in an influential paper [van Wijk 06].
+Derive Many vis pipeline models discuss the idea of data trans-
+formation as a critical early step [Card et al. 99, Chi and
+Riedl 98], and others also point out the need to transform be-
+tween different attribute types [Velleman and Wilkinson 93].
+A later taxonomy of vis explicitly discusses the idea that data
+types can change as the result of the transformation [Tory
+and Mo¨ller 04b].
+Examples The analysis examples are SpaceTree [Plaisant et al. 02],
+TreeJuxtaposer [Munzner et al. 03], Strahler numbers for tree
+simplification [Auber 02], and linked derived spaces for fea-
+ture detection [Henze 98].
+ο ο
+ο ο
+
+--- PAGE 91 ---
+ο ο
+ο ο
+Domain situation
+Obser ve target users using existing tools
+D a ta/ task a bstr a c tion
+Visua l e n c o d ing/ i n t e r a c tio n idio m
+Justify design with respec t to alternatives
+A lgo rith m
+Measure system time/memor y
+Analyze computational complexity
+Analyze results qualitatively
+Measure human time with lab experiment (lab study)
+Obser ve target users af ter deployment ( )
+Measure adoption
+Figure 4.1. The four nested levels of vis design have different threats to validity at each level, and validation
+approaches should be chosen accordingly.
+ο ο
+ο ο
+
+--- PAGE 92 ---
+ο ο
+ο ο
+Chapter 4
+Analysis: Four Levels for Validation
+4.1 The Big Picture
+Figure 4.1 shows four nested levels of design: domain situation,
+task and data abstraction, visual encoding and interaction idiom,
+and algorithm. The task and data abstraction level addresses the
+why and what questions, and the idiom level addresses the ques-
+tion of how. Each of these levels has different threats to validity, so
+it’s a good idea to choose your validation method with these levels
+in mind.
+4.2 Why Validate?
+Validation is important for the reasons discussed in Chapter 1: the
+vis design space is huge, and most designs are ineffective. In that
+chapter, I also discuss the many reasons that validation is a tricky
+problem that is difficult to get right. It’s valuable to think about
+how you might validate your choices from the very beginning of
+the design process, rather than leaving these considerations for
+the end as an afterthought.
+This chapter introduces two more levels of design to consider,
+one above the why–what abstraction level and one below the how
+idiom level. While this book focuses on the two middle levels, con-
+sidering all four is helpful when thinking about how to validate
+whether a given design has succeeded.
+4.3 Four Levels of Design
+Splitting the complex problem of vis design into four cascading lev-
+els provides an analysis framework that lets you address different
+concerns separately. Figure 4.2 shows these four levels.
+67
+ο ο
+ο ο
+
+--- PAGE 93 ---
+ο ο
+ο ο
+68 4. Analysis: FourLevelsforValidation
+Domain situation
+Dat a/task abstra c tion
+Visual enco ding/int e ra c tion idiom
+Al gorithm
+Figure 4.2. The four nested levels of vis design.
+At the top is the situation level, where you consider the details
+of a particular application domain for vis. Next is the what–why
+abstraction level, where you map those domain-specific problems
+and data into forms that are independent of the domain. The fol-
+lowing how level is the design of idioms that specify the approach
+to visual encoding and interaction. Finally, the last level is the
+design of algorithms to instantiate those idioms computationally.
+These levels are nested; the output from an upstream level above
+is input to the downstream level below. A block is the outcome of
+the design process at that level. The challenge of this nesting is
+that choosing the wrong block at an upstream level inevitably cas-
+cades to all downstream levels. If you make a poor choice in the
+abstraction stage, then even perfect choices at the idiom and algo-
+rithm levels will not result in a vis system that solves the intended
+problem.
+The value of separating these concerns into four levels is that
+you can separately analyze the question of whether each level has
+been addressed correctly, independently of whatever order design
+decisions were made in the process of building the vis tool. Al-
+though I encourage you to consider these four levels separately for
+analysis, in practice you wouldn’t finalize design decisions at one
+level before moving on to the next. Vis design is usually a highly
+iterative refinement process, where a better understanding of the
+ο ο
+ο ο
+
+--- PAGE 94 ---
+ο ο
+ο ο
+4.3. FourLevelsofDesign 69
+blocks at one level will feed back and forward into refining the
+blocks at the other levels. Thus, it is one of many examples of the
+principle of design as redesign [Green 89].
+4.3.1 Domain Situation
+Blocks at this top level describe a specific domain situation, which
+encompasses a group of target users, their domain of interest, their
+questions, and their data. The term domain is frequently used in
+the vis literature to mean a particular field of interest of the target
+users of a vis tool, for example microbiology or high-energy physics
+or e-commerce. Each domain usually has its own vocabulary for
+describing its data and problems, and there is usually some exist-
+ing workflow of how the data is used to solve their problems. The
+group of target users might be as narrowly defined as a handful
+of people working at a specific company, or as broadly defined as
+anybody who does scientific research.
+One example of a situation block is a computational biologist
+working in the field of comparative genomics, using genomic se-
+quence data to ask questions about the genetic source of adaptiv-
+ity in a species [Meyer et al. 09]. While one kind of situation is a
+specific set of users whose questions about their data arise from
+their work, situations arise in other contexts. For example, an-
+other situation is members of the general public making medical
+decisions about their healthcare in the presence of uncertainty [Mi-
+callef et al. 12].
+At this level, situation blocks are identified : the outcome of
+the design process is an understanding that the designer reaches
+about the needs of the user. The methods typically used by de-
+signers to identify domain situation blocks include interviews, ob-
+servations, or careful research about target users within a specific
+domain.
+Developing a clear understanding of the requirements of a par-
+ticular target audience is a tricky problem for a designer.* While * Working closely with a
+it might seem obvious to you that it would be a good idea to un- specific target audience to
+derstand requirements, it’s a common pitfall for designers to cut iteratively refine a design
+corners by making assumptions rather than actually engaging with is called user-centered de-
+any target users. sign or human-centered
+In most cases users know they need to somehow view their data, design in the human–com-
+but they typically cannot directly articulate their analysis needs in puter interaction literature.
+a clear-cut way. Eliciting system requirements is not easy, even
+when you have unfettered access to target users fluent in the vo-
+cabulary of the domain and immersed in its workflow. Asking
+ο ο
+ο ο
+
+--- PAGE 95 ---
+ο ο
+ο ο
+70 4. Analysis: FourLevelsforValidation
+users to simply introspect about their actions and needs is no-
+toriously insufficient: what users say they do when reflecting on
+their past behavior gives you an incomplete picture compared with
+what they actually do if you observe them.
+The outcome of identifying a situation block is a detailed set of
+questions asked about or actions carried out by the target users,
+about a possibly heterogeneous collection of data that’s also un-
+derstood in detail. Two of the questions that may have been asked
+by the computational biologist working in comparative genomics
+working above were “What are the differences between individual
+nucleotides of feature pairs?” and “What is the density of coverage
+and where are the gaps across a chromosome?” [Meyer et al. 09].
+In contrast, a very general question such as “What is the genetic
+basis of disease?” is not specific enough to be useful as input to
+the next design level.
+4.3.2 Task and Data Abstraction
+Design at the next level requires abstracting the specific domain
+questions and data from the domain-specific form that they have
+at the top level into a generic representation. Abstracting into the
+domain-independent vocabulary allows you to realize how domain
+situation blocks that are described using very different language
+might have similar reasons why the user needs the vis tool and
+what data it shows.
+Questions from very different domain situations can map to the
+same abstract vis tasks. Examples of abstract tasks include brows-
+ing, comparing, and summarizing. Task blocks are identified by
+the designer as being suitable for a particular domain situation
+‣ Chapter 3 covers abstract block, just as the situation blocks themselves are identified at the
+tasks in detail. level above.
+Abstract data blocks, however, are designed. Selecting a data
+block is a creative design step rather than simply an act of identifi-
+cation. While in some cases you may decide to use the data in ex-
+actly the way that it was identified in the domain situation, you will
+often choose to transform the original data from its upstream form
+to something quite different. The data abstraction level requires
+you to consider whether and how the same dataset provided by a
+user should be transformed into another form. Many vis idioms
+are specific to a particular data type, such as a table of numbers
+where the columns contain quantitative, ordered, or categorical
+data; a node–link graph or tree; or a field of values at every point
+in space. Your goal is to determine which data type would support
+ο ο
+ο ο
+
+--- PAGE 96 ---
+ο ο
+ο ο
+4.3. FourLevelsofDesign 71
+a visual representation of it that addresses the user’s problem. Al- ‣ Chapter 2 covers ab-
+though sometimes the original form of the dataset is a good match stract data types, and Sec-
+for a visual encoding that solves the problem, often a transforma- tion 3.4.2.3 discusses trans-
+tion to another data type provides a better solution. forming and deriving data.
+Explicitly considering the choices made in abstracting from
+domain-specific to generic tasks and data can be very useful in the
+vis design process. The unfortunate alternative is to do this ab-
+straction implicitly and without justification. For example, many
+early web vis papers implicitly posited that solving the “lost in hy-
+perspace” problem should be done by showing the searcher a vi-
+sual representation of the topological structure of the web’s hyper-
+link connectivity graph. In fact, people do not need an internal
+mental representation of this extremely complex structure to find
+a page of interest. Thus, no matter how cleverly the information
+was visually encoded at the idiom design level, the resulting vis
+tools all incurred additional cognitive load for the user rather than
+reducing it.
+4.3.3 Visual Encoding and Interaction Idiom
+At the third level, you decide on the specific way to create and
+manipulate the visual representation of the abstract data block
+that you chose at the previous level, guided by the abstract tasks
+that you also identified at that level. I call each distinct possible
+approach an idiom. There are two major concerns at play with
+idiom design. One set of design choices covers how to create a sin-
+gle picture of the data: the visual encoding idiom controls exactly
+what users see. Another set of questions involves how to manip-
+ulate that representation dynamically: the interaction idiom con-
+trols how users change what they see. For example, the Word Tree
+system [Wattenberg and Viegas 08] shown in Figure 4.3 combines
+the visual encoding idiom of a hierarchical tree representation of
+keywords laid out horizontally, preserving information about the
+context of their use within the original text, and the interaction
+idiom of navigation based on keyword selection. While it’s often
+possible to analyze encoding and interaction idioms as separable
+decisions, in some cases these decisions are so intertwined that
+it’s best to consider the outcome of these choices to be a single
+combined idiom.
+Idiom blocks are designed: they are the outcome of decisions ‣ Chapters 7 through 14
+that you make. The design space of static visual encoding idioms feature a thorough look at
+is already enormous, and when you consider how to manipulate the design space of vis id-
+them dynamically that space of possibilities is even bigger. The ioms.
+ο ο
+ο ο
+
+--- PAGE 97 ---
+ο ο
+ο ο
+72 4. Analysis: FourLevelsforValidation
+Figure 4.3. Word Tree combines the visual encoding idiom of a hierarchical tree of keywords laid out horizontally
+and the interaction idiom of navigation based on keyword selection. From [Wattenberg and Viegas 08, Figure 3].
+nested model emphasizes identifying task abstractions and decid-
+‣ Chapters 5 and 6 cover ing on data abstractions in the previous level exactly so that you
+principles of human percep- can use them to rule out many of the options as being a bad match
+tion and memory that are for the goals of the users. You should make decisions about good
+relevant for making idiom and bad matches based on understanding human abilities, espe-
+design choices. cially in terms of visual perception and memory.
+While it’s common for vis tools to provide multiple idioms that
+users might choose between, some vis tools are designed to be very
+narrow in scope, supporting only a few or even just a single idiom.
+4.3.4 Algorithm
+The innermost level involves all of the design choices involved in
+creating an algorithm: a detailed procedure that allows a computer
+to automatically carry out a desired goal. In this case, the goal
+is to efficiently handle the visual encoding and interaction idioms
+that you chose in the previous level. Algorithm blocks are also
+designed, rather than just identified.
+You could design many different algorithms to instantiate the
+same idiom. For example, one visual encoding idiom for creating
+images from a three-dimensional field of measurements, such as
+scans created for medical purposes with magnetic resonance imag-
+ο ο
+ο ο
+
+--- PAGE 98 ---
+ο ο
+ο ο
+4.4. AnglesofAttack 73
+ing, is direct volume rendering. Many different algorithms have
+been proposed as ways to achieve the requirements of this idiom,
+including ray casting, splatting, and texture mapping. You might
+determine that some of these are better than others according to
+measures such as the speed of the computation, how much com-
+puter memory is required, and whether the resulting image is an
+exact match with the specified visual encoding idiom or just an
+approximation.
+The nested model emphasizes separating algorithm design,
+where your primary concerns are about computational issues, from
+idiom design, where your primary concerns are about human per-
+ceptual issues.
+Of course, there is an interplay between these levels. For ex-
+ample, a design that requires something to change dynamically
+when the user moves the mouse may not be feasible if computing
+that would take minutes or hours instead of a fraction of a second.
+However, clever algorithm design could save the day if you come
+up with a way to precompute data that supports a fast enough
+response.
+4.4 Angles of Attack
+There are two common angles of attack for vis design: top down or
+bottom up. With problem-driven work, you start at the top domain
+situation level and work your way down through abstraction, id-
+iom, and algorithm decisions. In technique-driven work, you work
+at one of the bottom two levels, idiom or algorithm design, where
+your goal is to invent new idioms that better support existing ab-
+stractions, or new algorithms that better support existing idioms.
+In problem-driven vis, you begin by grappling with the problems
+of some real-world user and attempt to design a solution that helps
+them work more effectively. In this vis literature, this kind of work
+is often called a design study. Often the problem can be solved
+using existing visual encoding and interaction idioms rather than
+designing new ones, and much of the challenge lies at the abstrac-
+tion level. However, sometimes the problem motivates the design
+of new idioms, if you decide that no existing ones will adequately
+solve the abstracted design problem.
+Considering the four levels of nested model explicitly can help
+you avoid the pitfall of skipping important steps in problem-driven
+work. Some designers skip over the domain situation level com-
+pletely, short-circuit the abstraction level by assuming that the
+ο ο
+ο ο
+
+--- PAGE 99 ---
+ο ο
+ο ο
+74 4. Analysis: FourLevelsforValidation
+first abstraction that comes to mind is the correct one, and jump
+immediately into the third level of visual encoding and interaction
+idiom design. I argue against this approach; the abstraction stage
+is often the hardest to get right. A designer struggling to find the
+right abstraction may end up realizing that the domain situation
+has not yet been adequately characterized and jump back up to
+work at that level before returning to this one. As mentioned above,
+the design process for problem-driven work is almost never strictly
+linear; it involves iterative refinement at all of the levels.
+In technique-driven work, your starting point is an idea for a
+new visual encoding or interaction idiom, or a new algorithm. In
+this style of work, you start directly at one of the two lower levels
+and immediately focus design at that level. Considering the nested
+model can help you articulate your assumptions at the level just
+above your primary focus: either to articulate the abstraction re-
+quirements for your new idiom, or to articulate the idiom require-
+ments for your algorithm.
+The analysis framework of this book is focused on the what–
+why abstraction and how idiom levels and is intended to help you
+work in either direction. For problem-driven work, it allows you to
+work downward when searching for existing idioms by analyzing
+what design choices are appropriate for task abstraction that you
+have identified and data abstraction that you have chosen. For
+technique-driven work, it allows you to work upward by classifying
+your proposed idiom within the framework of design choices, giv-
+ing you a clear framework in which to discuss its relationship with
+previously proposed idioms. Similarly, it is helpful to explicitly an-
+alyze a new algorithm with respect to the idioms that it supports.
+Although in some cases this analysis is very straightforward, it
+can sometimes be tricky to untangle connections between algo-
+rithms and idioms. Can your new algorithm simply be switched
+for a previous one, providing a faster way to compute the same
+visual encoding? Or does your new algorithm result in a visual
+encoding different enough to constitutes a new idiom that requires
+justification to show it’s a good match for human capabilities and
+the intended task?
+4.5 Threats to Validity
+‣ Section 1.12 presented Validating the effectiveness of a vis design is difficult because there
+many questions to consider are so many possible questions on the table. Considering the va-
+when validating a vis design. lidity of your decisions at each level of the nested model separately
+ο ο
+ο ο
+
+--- PAGE 100 ---
+ο ο
+ο ο
+4.6. ValidationApproaches 75
+Domain situation
+You misunderstood their needs
+Dat a/task abstra c tion
+You’re showing them the wrong thing
+Visual enco ding/int e ra c tion idiom
+The way you show it doesn’t work
+* I have borrowed the
+Al gorithm
+evocative phrase threats to
+Your code is too slow
+validity from the computer
+security domain, by way of
+the software engineering lit-
+erature. I use the word
+Figure 4.4. The four nested levels of vis design have different threats to validity at validation rather than eval-
+each level. uation to underscore the
+idea that validation is re-
+quired for every level and
+can help you find your way through this thicket of questions about
+extends beyond user stud-
+validating your decisions, in the same way that the levels also con-
+ies and ethnographic obser-
+strain the decision-making process itself.
+vation to include complex-
+Each of the four levels has a different set of threats to valid-
+ity analysis and benchmark
+ity: that is, different fundamental reasons why you might have
+timings. In software engi-
+made the wrong choices.* Figure 4.4 summarizes the four classes neering, validation is about
+of threats, where they means the target users and you means the
+whether you have built the
+vis designer: right product, and verifica-
+tion is about whether you
+. Wrong problem: You misunderstood their needs.
+have built the product right.
+Similarly, in the simulation
+. Wrong abstraction: You’re showing them the wrong thing.
+community, validation of
+. Wrong idiom: The way you show it doesn’t work. the scientific model with re-
+spect to real-world obser-
+. Wrong algorithm: Your code is too slow. vations is similarly consid-
+ered separately from veri-
+fication of the implementa-
+4.6 Validation Approaches
+tion, and connotes a level
+of rigor beyond the methods
+Different threats require very different approaches to validation. discussed here. My use of
+Figure 4.5 shows a summary of the threats and validation ap- validation includes both of
+proaches possible at each level. The rest of this section explains these questions.
+ο ο
+ο ο

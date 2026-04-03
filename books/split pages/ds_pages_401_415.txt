@@ -1,0 +1,413 @@
+=== PAGE 401 ===
+An Ode to Cardcaptor Sakura
+CardcaptorSakura.VisualCinnamon.com
+FFiigg..1122..1199
+The main visual outlining the 50
+chapters around the outside and the
+characters along the inside circle.
+=== PAGE 402 ===
+401
+FEARLESS
+FFiigg..1122..2200
+When hovering over a character, such
+as Sakura here, the lines reveal in which
+chapter they have appeared (while
+awake). Sakura is the main character
+of the story and is in all chapters.
+FFiigg..1122..2211
+Hovering over a chapter “pill” in the outer
+ring, such as Chapter 50 here, shows all the
+characters that appeared in that chapter.
+=== PAGE 403 ===
+HEIDAN
+204
+FFiigg..1122..2222
+Being Sakura’s best
+friend (and classmate
+and dress creator
+and maker of videos),
+Tomoyo also appears in
+almost every chapter.
+aa bb cc
+FFiigg..1122..2233
+((aa,,bb && cc))
+When hovering over any of the
+“relationship lines,” a small annota-
+tion provides more detail about it.
+=== PAGE 404 ===
+403
+FEARLESS
+FFiigg..1122..2244
+A close-up of the outer CMYK dotted circles,
+where each cluster of circles gives an idea of the
+colors used on the (gorgeous) cover art of each
+chapter. Hovering over any cluster will reveal
+a line for the characters appearing on the cover
+(here just Sakura).
+FFiigg..1122..2266
+A zoom-in on several CMYK
+dotted circles.
+FFiigg..1122..2255
+The fnal legend using the visual itself
+to overlay explanations on what each
+of the diferent rings represent.
+=== PAGE 405 ===
+[No text extracted]
+=== PAGE 406 ===
+405
+One Amongst
+Many
+SHIRLEY
+For the last few years, I’ve been wanting to bring my data visualizations
+into the physical world, to express my data-driven stories as immersive
+installations that people can walk through, explore, touch, and feel.
+I struggled with this dream for years, until I realized why I felt such a mental
+block: because I designed and coded primarily in 2D and not 3D, I had
+no idea how to even think in the third dimension. As soon as I realized that,
+I created Legends with Three.js and WebGL, and it really helped me
+understand how to think about space and lighting in the third dimension.
+But being able to code in 3D isn’t, by itself, enough to create
+a physical installation; I also needed to learn hardware. In the fall
+of 2019, I did an Artist-in-Residency at New York University’s Interactive
+Telecommunications Program (ITP), a master’s program that is at the
+intersection of art and technology. I went to ITP with two major hopes:
+to learn more about hardware and to collaborate with talented people
+on a physical data installation.
+To learn hardware, I audited “Introduction to Fabrication,” where I learned
+about power tools and machines and played with the laser cutter, and
+“Introduction to Physical Computation,” where I learned about circuits
+and sensors and lights and Arduinos. Through those classes (and the
+ofce hours I was asked to hold as a resident), I was able to meet my two
+collaborators: Christina Dacanay1 with her beautiful illustration style
+and bold uses of color, and Tina Rungsawang2 with her architectural
+background and keen awareness of space. When I asked them if they
+wanted to collaborate with me on a project for ITP's Winter Show, they
+immediately agreed.
+NOVEMBER
+2019
+FEARLESS
+1 Christina Dacanay: http://www.cdacanay.com
+2 Tina Rungsawang: http://tina.pizza
+=== PAGE 407 ===
+YELRIHS
+604
+Data
+From the very beginning, we agreed that we should focus the project on women
+in computing. It’s a topic that I’ve been interested in since I created Legends
+with women Nobel Laureates, and Tina and Christina agreed that it would also
+be a perfect topic for ITP, with its emphasis on combining code and computation
+with art.
+I started my data gathering with a Wikipedia article—the same way as Legends.
+I was able to fnd a page titled “Women in Computing,” and from there I discovered For my data gathering
+the Wikipedia category “Women computer scientists.” I started by scraping the list process, please see
+the data section
+of women in the “Women computer scientists” category, but after a day of cleaning
+of “Myths & Legends”
+and exploring the data, I realized that both the data I pulled and the analysis I did where I did almost
+exactly the same
+were too simplistic to tell me anything interesting. Instead of trying to devise a more
+thing. For the
+sophisticated analysis (we were quite limited on time), I decided to take a step back analysis, I looked at
+and try my hand at another dataset. I had initially avoided scraping the “Women distributions of birth
+years and backlinks,
+in Computing” article because the women’s names were scattered throughout the
+and intersection
+paragraphs instead of cleanly in a list, and that would be more work to extract. But of keywords in the
+summary—none
+once I realized that the data in there was much richer—the paragraphs succinctly
+of which produced
+described each woman’s accomplishments and even gave an approximate anything noteworthy.
+timeframe for most women’s contributions—I knew immediately it would be worth
+the trouble.
+For this second attempt at scraping the data, I wrote a script to:
+1 U se wikijs to access all the links in the “Women in Computing” page,
+and flter down to only those that link to other Wikipedia pages.
+2 U se Google’s Knowledge Graph Search to determine whether the Wikipedia
+page is for a person or thing, and only keep those that the Knowledge Graph
+returned as “Person.”
+3 F or each person, use wikijs to pull their Wikipedia article summaries, and for
+each summary, see if it includes “she/her” or “he/him.” Keep those that have
+more mentions of “she/her.”
+4 If there were no mentions of either, mark the person for a manual check.
+5 Save name, summary, and certainty of gender into a spreadsheet.
+Once I had the spreadsheet, I went through each person to double-check their
+gender. For each of the remaining 46 women, I wrote a one sentence summary and
+found an approximate year for their contributions by reading through the “Women
+in Computing” article and cross-referencing their own Wikipedia pages.
+Because of the space constraint for the ITP Winter Show, we could only design
+an installation with a maximum of 20 women. While gathering and cleaning the data,
+I highlighted approximately 30 women that I found particularly inspiring and brilliant.
+For the fnal pass, Christina, Tina, and I sat down and narrowed the list down to the
+16 women that we found undeniably inspiring. (We achieved “undeniably inspiring”
+if all three of us, upon reading her summary, said “wow, she’s so cool, I want to learn
+more about her!”—a very scientifc process.)
+=== PAGE 408 ===
+407
+FEARLESS
+Sketch
+For our very frst brainstorm, we asked ourselves what we’d make if we had This was the most
+no restrictions on time, space, or money. We went through many diferent ideas, unique and interesting
+sketch section out of
+but at the core of all of them was the desire to highlight the invisibility of these
+all the Data Sketches
+women and raise awareness of their incredible contributions through our projects I’ve done, and
+should more accurately
+installation. We also wanted to create an experience that would leave people
+be called “Prototype.”
+feeling inspired, stimulated, and wanting to go through it again. Finally, we wanted
+to create something interactive, where people’s interactions with the piece could
+potentially alter it and leave something of themselves behind.
+For the second brainstorm, we narrowed our ideas down to the more
+budget-and time-friendly ones and looked at existing installations for inspiration.
+We especially liked Judith G Levy’s “Memory Cloud,”3 where nostalgic photographs
+are placed within small souvenir viewers and people are invited to walk through
+dozens of these viewers and peek in to see each 35mm slide. We loved the idea
+of people interacting with each object and decided to do something similar:
+mapping each object to a woman and placing their information inside (Figure 12.1).
+We wanted people to take their time reading and learning about each woman,
+and I especially loved the motion of looking inside, like looking into a secret world
+and learning something precious.
+FFiigg..1122..11
+Initial notes on the
+aesthetic, interaction,
+and data mapping
+of the installation
+From there, the rest of the data mappings came quickly: the women would
+be organized in the z-axis by the year of accomplishment, from earliest to most
+recent. The y-axis would correlate to the number of their backlinks, so the more
+backlinks they had and the more “renowned” they were, the higher up we would
+suspended them from the ceiling because they were more “out of reach.” And
+for the women with fewer backlinks and less “renown,” we placed them lower
+and easier to reach, so that more people could read and learn about them.
+3 Judith G Levy, “Memory Cloud”:
+https://judithglevy.com/section/421361-Memory-Cloud-1-Indianapolis-Museum-of-Art-an-interactive-installation.html
+=== PAGE 409 ===
+YELRIHS
+804
+To encourage people to “leave something behind,” we wanted to include
+a “summary board” near the exit with a prompt for participants to place a (gold,
+star-shaped ) sticker by women they felt particularly inspired by because of the
+installation (Figure 12.2).
+When we shared our initial ideas in class, our professor suggested an
+interaction where when one object is pulled down, it triggers others to drop down.
+This feedback inspired us to group the women so that when a visitor walks up and
+reads about one woman, the others in the group would drop down and create
+a path, guiding them through the rest of the installation.
+FFiigg..1122..22
+Initial foor plan with
+the “summary board”
+placement courtesy
+of Tina. We originally
+wanted a clear enter
+and exit, so that
+people would have
+a path they could
+follow, but we weren’t
+able to do this in the
+Winter Show with the
+space we were given.
+With the majority of the idea feshed out, Christina went about sourcing materials,
+and Tina and I began work on fguring out how to detect a person interacting with
+our objects in the installation. We brainstormed several ideas: a pulley system that
+would complete the circuit when pulled, a motor at the top that would unwind the
+cord when pulled, a capacitive touch sensor on the object, infrared motion sensors
+placed somewhere nearby … all the options felt overly engineered, fnicky,
+or sensitive.
+When we went to our Fabrication professor’s ofce hours, he suggested
+we go simpler. He gave us a vibration sensor (where the circuit completes when
+we shake the sensor, Figure 12.3), and a tilt sensor (the circuit completes when
+it’s tilted up, Figure 12.4) to experiment with.
+FFiigg..1122..33
+Vibration sensor, which unfortunately
+would only trigger when I ficked it at
+full force.
+=== PAGE 410 ===
+409
+FEARLESS
+FFiigg..1122..44
+Tilt sensor, which
+completes the circuit
+when tilted above a
+certain angle. Slightly
+fnicky but fairly reliable.
+Unfortunately, the vibration sensor took quite a bit of force to trigger, which meant
+that if we used it in our object a person would have to really shake it (instead
+of gently picking it up) for us to know that they’d interacted with it. On the other
+hand, though the tilt sensor wasn’t perfect—there didn’t seem to be an exact angle
+that it started sending “on” signals, and even then those signals were quite noisy—
+it was a much better option. We also considered
+Through this process, we realized how fnicky and fragile a motor would be, an accelerometer,
+which would have more
+especially with the thousands of people (many with kids!) coming through the
+sophisticated readings
+Winter Show and pulling on the cords. Even though we really liked the idea—motion than a tilt sensor but
+was 4x more expensive.
+is always great for capturing attention—we decided to nix the idea. Instead,
+We quickly decided
+we agreed to put lights in the objects since changes in light are quite noticeable against it.
+and even more importantly, much easier to control.
+As soon as we settled on using lights, we knew the perfect way to take
+advantage of it: we would start the installation with each of the objects dimmed—
+a metaphor that despite their important contributions to computing, these women
+are still largely unknown—and as people went through and read about each woman,
+their lights would grow brighter and brighter, until by the end of the show, all of their
+lights would be brightly lit. This not only gave us a great overarching metaphor,
+it also accomplished our goal of having people’s interactions alter the piece itself.
+For the lights themselves, we went with Adafruit’s brand of individually
+controllable RGB color lights called the Neopixel. We originally went with them
+because we wanted to map data to the color of the lights, but quickly decided
+against the idea when we realized how hard it was to distinguish most colors from
+each other (unless they were very diferent, like between red, blue, and green).
+We did end up keeping the Neopixels though, because they gave us better
+programming control than most LEDs (and also we’d already spent money
+on them (〃￣ω￣〃ゞ).
+=== PAGE 411 ===
+YELRIHS
+014
+The hardest part about prototyping and working with these Neopixels was having
+to solder them to wires. Because the conductive areas on the Neopixel strips
+were so small and close to each other, we ran the risk of the solder touching and
+causing short-circuits if we weren’t being careful. Fortunately, a kind ITP student On the bright side,
+taught me about soldering paste (Figure 12.5), which makes the solder stick only I eventually learned
+how to use
+to the conductive part and nowhere else and it was such a magical time-saver. I also
+a multimeter to test
+learned to use a hot glue gun after soldering to make sure that the wires wouldn’t fall for shorts—but only
+after accidentally
+of easily. These are precisely the sorts of lessons I went to ITP for. (๑•`ㅂ•´)و✧
+short-circuiting
+my (and Tina’s) Arduino
+boards…
+FFiigg..1122..55
+Soldering a Neopixel
+strip with the help of
+soldering paste, which
+was life changing.
+FFiigg..1122..66
+The spray painted orbs,
+which unfortunately
+did not have a mirror-
+like fnish.
+At the same time we were fguring out the electrical components for each object,
+Christina was sourcing and experimenting with materials. She quickly landed
+on using fllable Christmas ornaments, and we went about acquiring one from
+a nearby Michael’s to prototype with, while also ordering three dozen from
+Amazon at the same time. Christina then went about sanding the nobs of
+of each ornament and carefully drilling holes into the center for running the
+wires through. To hide the tilt sensor and Neopixel within the orb, we frst tried
+to spray paint the interior of the orbs. We had bought refective spray paint that
+was supposed to give a mirror-like fnish, but it didn’t turn out well. That was the
+night we learned refective spray paint only works on glass and not plastic
+(Figure 12.6). (⌒_⌒;)
+=== PAGE 412 ===
+411
+FEARLESS
+FFiigg..1122..77 We also took the opportunity to test out two competing ideas we had: we couldn’t
+The two options we decide whether we wanted people to peek in through a small hole to read the
+considered for how the information, or whether we should leave the orb as is and have a larger area
+orb should look.
+to read the information from (Figure 12.7). So it was really great to have the spray
+painted prototypes, because right away we could tell that the peephole would
+be way too small and too much of a struggle for people to read large amounts
+of information through.
+We also realized that we should place the information placard at a certain
+angle so that people would: 1) know that there was a placard inside they needed
+to read, and 2) be incentivized to pick it up in the correct direction to trigger the
+tilt sensor:
+FFiigg..1122..88
+Prototype of the
+second option with no
+peephole and a large
+transparent area to
+read the information
+through.
+=== PAGE 413 ===
+YELRIHS
+214
+As the refective spray paint didn’t work out, Christina suggested cellophane
+(Christina was an absolute pro when it came to materials). This not only hid the tilt
+sensor and neopixel, it also had a beautiful efect when lit up in the dark:
+FFiigg..1122..99 It was really fun to prototype the materials. The whole process was so diferent
+A quick prototype with from working digitally, where we never have to worry about gathering materials,
+cellophane and the that it felt like a fun new challenge. Overall, it took about two weeks for us to settle
+information printed on
+on all the parts.
+vellum, a translucent
+paper to help mimic
+frosted acrylic and
+difuse the light, that
+can also be printed on. We had to be strategic about buying just
+enough material to test with and ordering
+the rest early enough to get them by the
+time we had to start production.
+I also learned a lot about prototyping with cheap, readily available materials
+(like masking tape, cardboard, and tin foil) to mimic the efect and quickly try out
+an idea.
+=== PAGE 414 ===
+413
+FEARLESS
+Code
+Once we had all the physical components fgured out for the orb, I started on the
+coding. To control the tilt sensor and Neopixel we settled on, we used the Arduino:
+FFiigg..1122..1100
+An Arduino Nano on a
+breadboard.
+Arduino is a brand of microcontrollers, and the way we use it is by wiring the pins
+on the Arduino (circled in orange in the photo) to our lights, sensors, motors, etc.
+Each of those pins have a corresponding number it is identifed by, and in our code,
+we can tell Arduino to read a certain pin as input (usually a sensor) and another
+as output to write to and control.
+(You never thought you were gonna get a run-down of Arduino from
+Data Sketches, did you? Well, we aim to go above and beyond! (๑•`ㅂ•´)و✧)
+Because this was my frst full project with Arduino, I started by keeping my
+code simple. I used a button as a stand-in for the tilt sensor and an LED in place
+of the Neopixel. I used an array to keep track of which pins the buttons were wired
+to and another for which pins the LEDs were wired to. I also had an array for keeping
+track of which buttons were pressed and another for each LED’s brightness. Every
+time the button was pressed it was the equivalent of a “tilt” and I’d increase the
+brightness of the LED and save it to the brightness array. I wanted to use the button
+and LED (which I was already familiar with how to code) frst so that I could get the
+functionality working frst, before having to worry about incorporating the tilt sensor
+and Neopixel—both things I hadn’t worked with before.
+=== PAGE 415 ===
+YELRIHS
+414
+Once I had the basic functionality, I went about replacing the LED and push button
+with the Neopixel and tilt sensor in my code. The Neopixel actually comes with its
+own library of functions, but because it assumes that I’m programming a strip We needed to set
+of many Neopixels, it took me a long time and a lot of guesswork to setup each up the Neopixels
+individually because
+orb’s Neopixel individually.
+the wiring between
+Reading the tilt sensor was a little more straightforward, though I did have each Neopixel was
+too long, and the
+to adapt an Adafruit example to accomodate for noisy signals. One of the most
+electronic signals that
+interesting lessons I learned working with hardware is that nothing in the physical carry the instructions
+world is clear cut like it is in digital and all sensor readings are noisy. would decay at those
+lengths—another
+With the Neopixel and tilt sensor code incorporated, the rest of the code from
+physical constraint I’d
+my frst iteration worked perfectly. have never expected.
+With one orb working, I had to make sure it could work both scaled up and with
+groups. As a team, we’d decided to group our list of 16 women into four categories:
+mathematicians, computer scientists, creatives, and other (executives, inventors,
+etc.). If any one orb was interacted with and lit up, the rest of the women in the same
+group would also light up in a delayed stagger.
+To implement the delayed stagger, I needed to incorporate time into my code.
+The only way to do this in Arduino is with mills(), which returns the number
+of milliseconds since the Arduino began running. I refactored my code to store the
+following information: whether the whole group should be lit up or not, which orb
+in the group triggered that change, and at what millisecond that change was
+triggered (which I called startTime ). I could then use that information to loop
+through each orb in the group, and given the index of the orb that triggered the
+change (activeOrb ), calculate each orb’s startTime based on the distance
+of that orb from the activeOrb. I would then set the orb’s brightness if the time
+was past that orb’s startTime .
+FFiigg..1122..1111
+Four Neopixel strips
+and one orb with
+Neopixel and tilt sensor
+all frighteningly wired
+up for my code testing
+purposes.

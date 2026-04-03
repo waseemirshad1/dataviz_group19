@@ -1,0 +1,353 @@
+=== PAGE 416 ===
+415
+FEARLESS
+I also included a fade animation by storing a starting and ending brightness
+for each orb, which made the change in lighting much gentler. Finally, I added
+in code for a pulsating introductory orb to catch visitor’s attention and explain
+the installation.
+Coding in Arduino was an interesting challenge in trying to make sure I was
+being memory efcient, especially when I had to add in groups and remember
+milliseconds (which were stored as unsigned longs). It defnitely made my code more
+complex, but I had a really fun time trying to fgure out the challenge.
+FFiigg..1122..1122
+Lifting up the orb makes it shine at full brightness, and
+putting it back down leaves it slightly brighter than
+before. I got this interaction working around 1 AM after
+a few late nights and I was so deliriously happy.
+FFiigg..1122..1133
+The Neopixels lighting up with
+a staggered delay when the tilt sensor
+in my hand is lifted, and dimming down
+when the tilt sensor is down.
+=== PAGE 417 ===
+YELRIHS
+614
+Production
+One of the frst things that Tina did to kick-start the production phase was to 3D At this point, I had
+model an enclosure to hold both the tilt sensor (which is very sensitive to the angle to return home (and
+then to a conference
+of its placement) and Neopixel in place (Figure 12.15, top left). We also received
+in Tokyo), so I wasn’t
+a brilliant suggestion to use a phone jack to connect our orbs to our wires, so that able to help through
+production. I highly
+we could make the orbs easily detachable (Figure 12.15, bottom left). That way
+recommend reading
+if an orb malfunctioned, we could easily separate it and debug it away from the both Tina’s4 and
+rest of the installation. Tina incorporated the phone jack into her enclosure design, Christina’s5 write-ups
+for more details on this
+and together with Christina, 3D printed seventeen of them and spent roughly
+section.
+30 hours soldering them all.
+FFiigg..1122..1144
+3D model of the enclosure (top left), the soldered parts
+(top right), tilt sensor and Neopixel soldered to a phone
+jack within the 3D printed enclosure (bottom left), and
+the 3D printed enclosure inside an orb (bottom right).
+4 Tina Rungsawang, One Amongst Many: https://tina.pizza/one-amongst-many
+5 Christina Dacanay, One Amongst Many—Connecting Women in Computing:
+http://www.cdacanay.com/itp-blog/2019/12/23/one-amongst-many-connecting-womxn-in-computing
+=== PAGE 418 ===
+417
+FEARLESS
+To hang the orbs from the ceiling, they mapped each woman’s position data to long They pre-labeled the
+planks of wood and drilled holes to run the wires through (Figure 12.18). The wires wires to make sure
+the correct orbs were
+were then plugged into an Arduino Mega, which was powered by an iPhone USB
+plugged into the
+power adapter connected to a wall plug. correct Arduino pins.
+FFiigg..1122..1155
+A prototype of the orb
+wired up and working
+as a stand-alone piece!
+FFiigg..1122..1166
+Each woman’s
+information laser-
+etched into acrylic.
+FFiigg..1122..1177
+Position data mapped to each plank of wood, the
+wires taped to the wood and Christina plugging
+the wires into the Arduino Mega.
+=== PAGE 419 ===
+YELRIHS
+814
+Reflections
+It was absolutely incredible to see this whole project come together. We received
+great feedback at the Winter Show, where more than 200 people experienced our
+installation. Christina and Tina told me stories of young women looking inspired,
+of little girls giddily sticking gems on our summary board, but my favorite story is that
+of an older woman who had spent her entire life working in computing. As she went
+through our installation, she became emotional with the thought that someday,
+future generations might come to highlight and recognize her contributions as well.
+I’m so happy that we created such meaningful work that has resonated with
+so many people, and I’m really grateful for Tina and Christina, the best teammates
+I could have pulled of this ambitious project with. I’m also grateful to the teachers,
+residents, and students who graciously ofered their time and wisdom; I don’t think
+we could have done so much anywhere else except at ITP.
+I’m also really happy and grateful that I get to wrap-up Data Sketches with
+this project. It encapsulates all of my personal and professional growth from the
+last three years; I’ve grown from someone who used to only care about the code,
+to someone who also values design and the end experience. I started freelancing
+with the hope of learning the kind of challenges I want to work on and the problems
+I want to solve. I’ve found them. I want to tell human-centric, data-driven, and
+personally meaningful stories. I’ve been able to expand the formats in which
+I do this, from 2D to 3D, from digital to physical. As I fnish Data Sketches and
+enter a new decade, I’m excited to move onto the next phase of my career and
+to boldly, unapologetically, courageously pursue my biggest dreams.
+Thank you, Data Sketches, for all of that courage.
+FFiigg..1122..1188
+Dream team (in our
+natural habitat)!
+=== PAGE 420 ===
+419
+FEARLESS
+FFiigg..1122..1199
+My friend Alice gave me
+this card before I left
+for ITP and it perfectly
+encapsulates my feels
+as I wrap up Data
+Sketches and move
+onto the next phase
+of my career.
+=== PAGE 421 ===
+One Amongst Many
+oneamongstmany.com
+FFiigg..1122..2233
+Summary board where people could place a gem in
+the categories (mathematicians, computer scientists,
+creatives, and other) they identify most with.
+FFiigg..1122..2211
+A timelapse of the Winter Show.
+More than 200 people came
+through our installation!
+FFiigg..1122..2244
+The major downside of a physical installation is
+that people outside of that area can’t experience
+it. Because we wanted people around the world to
+learn about these women in computing, I created
+a digital counterpart with D3.js, Three.js,
+Greensock, and Vue.js.
+=== PAGE 422 ===
+421
+FEARLESS
+=== PAGE 423 ===
+The lessons are grouped into the sections
+in which they appear in the chapters.
+However, a few lessons appear in multiple
+chapters. These have been placed in the
+section most appropriate.
+422
+SNOSSEL
+Data
+Check Data Accuracy and Completeness
+Olympics - Nadieh - page 63
+Data Can Be Found in Many Diferent Ways
+Presidents & Royals - Shirley - page 135
+Books - Nadieh - page 152
+Nostalgia - Nadieh - page 218
+Nature - Nadieh - page 250
+Exploring Data: Ask Questions
+Culture - Shirley - page 304
+Exploring Data: List Attributes
+Travel - Shirley - page 105
+Exploring Data: Use Charting Libraries
+Community - Shirley - page 336
+Manually Add New Variables to Your Data
+Movies - Nadieh - page 30
+Travel - Nadieh - page 93
+Books - Nadieh - page 153
+Sketch
+Add Context Using Remaining Visual Channels
+Olympics - Nadieh - page 64
+Music - Nadieh - page 194
+Design to Maximize for Delight
+Books - Shirley - page 176
+Music - Nadieh - page 196
+Nostalgia - Nadieh - page 219
+Fearless - Nadieh - page 398
+Design with Code
+Presidents & Royals - Nadieh - page 125
+Nature - Nadieh - page 256
+Culture - Shirley - page 306
+Marks and Channels
+Movies - Shirley - page 47
+=== PAGE 424 ===
+Sketch to Discover and Remove Thinking Errors Remix What’s Out There
+Olympics - Nadieh - page 66 Movies - Nadieh - page 38
+Travel - Nadieh - page 94 Myths & Legends - Nadieh - page 353
+Culture - Nadieh - page 283
+Scales in D3.js
+Visual Metaphors Movies - Shirley - page 53
+Community - Shirley - page 338
+SVG vs. Canvas
+Olympics - Shirley - page 82
+Code
+The Extensive Applications of D3.js’ Functions
+Community - Nadieh - page 325
+Annotations Are of Vital Importance Trigonometry
+Myths & Legends - Nadieh - page 362 Travel - Shirley - page 109
+Canvas Interactions Web Workers
+Books - Shirley - page 181 Nature - Shirley - page 266
+Combine Tools
+Music - Nadieh - page 200
+Fearless - Nadieh - page 399
+Custom Animations
+Nature - Shirley - page 269
+Dataviz for Both Mobile and Desktop
+Culture - Nadieh - page 290
+Drawing with SVG
+Movies - Shirley - page 50
+How Scrollytelling Works
+Presidents & Royals - Shirley - page 140
+Know When to Ask for Help
+Community - Nadieh - page 329
+Learn to Love Math
+Culture - Nadieh - page 287
+Myths & Legends - Nadieh - page 350
+Fearless - Nadieh - page 390
+Outside Strokes with SVG
+Music - Nadieh - page 197
+Precalculate “Visual” Variables
+Olympics - Nadieh - page 68
+Books - Nadieh - page 161
+Fearless - Nadieh - page 387
+423
+=== PAGE 425 ===
+THE STARTING
+AND THE FINISHING
+Interview with Series Editor Tamara Munzner
+In this interview, we sit down with Tamara Munzner, beyond just the technical. When I went into Data Sketches,
+professor of computer science at the University of British I had about four years working as a software engineer on the
+Columbia and editor for this series of visualization books, front end. I knew I was strong with D3.js and would be able
+to discuss how we came up with the idea for Data Sketches, to create visualizations in SVG or canvas. But when
+the “bookifcation” process, and what we plan to do when I frst started, I didn’t know what I didn’t know. I didn’t fully
+it’s fnally printed. understand how important the design component would
+be. I didn’t know how much there was in terms of data analysis.
+This interview has been edited for brevity and clarity. I also didn’t know what it took to tell a compelling and easily
+navigable story. All of this is so important to me now, but when
+Tamara Munzner: This has been a long process, but you’re I frst started with Data Sketches, I often approached it with
+almost done. What do you know now that you didn’t a focus on fun and less of a focus on the end user. But now
+know before? I recognize that the end user is extremely important, that their
+ability to read and understand the whole visualization
+Nadieh Bremer: I learned a lot of new techniques, such as is critical and I should not do something just for the technical
+working with WebGL, getting a better grip on canvas, and fun of it. I think that’s my biggest learning lesson, coming
+fguring out how to visually render bigger datasets on the in as an engineer but then refocusing to place more emphasis
+screen. I also learned how to go from making singular and on design.
+smaller visuals to making an entire dataviz-driven story. This
+taught me that it’s more than just the visuals and the layout; TM: What fantastic answers. You learn so much when writing
+you must be able to design for multiple visuals and make them a book, and what, if anything, did you learn from the process
+fow together. That’s what I took away from Data Sketches of bookifcation?
+in terms of the technical part. I also learned how extremely
+valuable it is to have a teammate that you can go through this SW: Writing is hard! I don’t know about Nadieh, but I know
+process with. I didn’t have to do everything on my own, and I really struggled with the bookifcation part. Data Sketches
+knowing that Shirley was there for me helped immensely. started out as something we were just doing for fun, so I never
+felt the obligation to have the write-ups make 100% sense.
+Shirley Wu: I don’t know if I can say that any better than In fact, sometimes I would just dump all the screenshots, add
+Nadieh did. It was so valuable to have someone to bounce some words in between and that was my write-up. I think
+my ideas of of and to discuss visualizations with. We also that was still helpful for people because they got to see all
+went through this whole freelance journey together, learning of those notebook sketches and all of the diferent iterations
+together. From a personal perspective, for Data Sketches, of my code. But for the bookifcation part itself, the biggest
+the biggest thing for me is that I’ve really expanded my skills struggle I had was having to really think through and explain
+424
+=== PAGE 426 ===
+my process; not just show it, but also explain it. I had to help about the format, too, and we fgured we could just pass code
+people understand my thought process and explain why back and forth and maybe it could be a 12-month thing with
+I did certain things—which is often, honestly, for no apparent 12 projects. I didn’t even think about how big that would
+reason other than simply trying it out. So, I was really be in terms of time commitment. We came up with the format
+challenged by turning all my write-ups into applicable in an hour, just shooting ideas back and forth, and we spent
+learning lessons. much more time on the name. We literally took two days just
+brainstorming the name.
+NB: For me in general, the bookifcation and the writing of the
+chapters themselves, wasn’t too difcult. I don’t mind writing. TM: Do you have any advice for people who might want
+However, I have a tendency to want to explain everything to do something similar?
+in lists: “And then I did A and then I did B and then I did C,”
+and my write-ups were a lot like that. So as the projects NB: My advice is to thoroughly understand the project before
+became bigger, the write-ups became longer and longer and you start and consider placing constraints on how you
+longer. For example, my frst write-up was about nine pages approach your work. For example, if we’d placed one, saying
+in the book manuscript, and my fnal one started out at 25! that whatever we made after 20 hours, we’d use, it may have
+This process taught me how to downsize what information been a little easier. You don’t want to constrain your creativity,
+I give to a reader and to present it more succinctly. This, of course, but sometimes constraints can actually make you
+in turn, helped me get a better grip on what is interesting and, more creative. I also recommend doing it with somebody else.
+conversely, what is just rambling. I learned that it’s not easy Working with Shirley helped with this process a lot and I think
+and it was a little bit painful to have to downsize but I’m thrilled the partnership works really well.
+with the result and I know people will enjoy the writing better.
+I didn’t want to be responsible for making this a 600-page SW: I appreciated that a lot too. Basically, between the two
+book, so making it more concise was critical for me. I wanted of us, I prefer to look more into the future and plan for the
+to focus on the actual story without going on too many future and Nadieh is so good at making sure that what needs
+tangents and potentially losing the reader. The most painful to be done in the present is done in the present. It’s a very
+part for me, overall, was mostly the fact that this process has good balance.
+been a long one. This book was always in the back of my mind
+and that can get kind of stressful, so I really wanted to have TM: I’ve got to say, I think it was a match made in heaven.
+it fnished. You were both able to push each other towards doing things
+you might not have done individually.
+TM: Fair enough. I think the process of creating a book
+is always a mix of the logistic and technical, and then just SW: Yeah, defnitely.
+the emotional part of doing the thing and making it be done.
+It is not at all easy. Can you say a little more about the mindset TM: Both for the starting and for the fnishing, which are
+you had when you started the project? Why did you decide two excellent verbs. What are you going to do the day you
+this would be a good thing to do? physically pick up a book that is your book?
+NB: Well, it seemed like a fun way to make new projects. SW: Cry in joy. Cry with joy. It’s done!
+We started Data Sketches because we felt as if we hadn’t
+created enough actual projects in the previous months. NB: Yeah, happy dance!
+We felt like having this collaboration and forcing each other
+to work on it would be a great way to consistently create new SW: Just hug it, cry, tears, dance around, and then
+things—and with a high level of fun woven into it. I did not go on with life.
+expect it to become the thing that it became.
+Even though this is the end of our Data Sketches “Awesome
+SW: Yeah, defnitely. When we started this project, we were Collaboration Marathon,” we intend to keep working on
+chatting back and forth on Slack. It’s not even that we were projects that excite us, together or individually. Follow our
+like, “Okay, we’re going to do this super serious, big project. latest progress on Twitter and Instagram at @sxywu and
+It’s going to be a big deal.” We were actually saying “Hey, @NadiehBremer, and on our websites at shirleywu.studio
+do you want to do something together?” We were very casual and VisualCinnamon.com!
+425
+=== PAGE 427 ===
+Acknowledgments
+No book (or large-scale project) happens in a vacuum. We want to thank our
+loved ones, our friends, and all of the friendly strangers on the Internet that
+have supported us through this journey and gotten us to this point.
+To Alberto Cairo, for giving us the idea of creating a book and all of the
+encouragement, feedback, and mentorship he’s given us; Tamara Munzner,
+for never hesitating to champion us, including us in her data visualization book
+series, and encouraging us every time we needed that extra push or piece
+of advice to keep going.
+To our editors Stephanie Morillo and Tianna Mañón, for making sure our
+rambles and tangents were turned into beautiful, coherent sentences; Kirsten Barr,
+Elliott Morsia, Sunil Nair, and the staf of CRC Press who have guided us throughout
+the publishing process.
+To the team at Praline who turned our written manuscript and images into this
+wonderfully designed book weaving together the images and text in such a way we
+were once afraid was impossible.
+To Alice Lee, the creator of our gorgeous cover, who had endless patience
+and listened to every one of our exceptionally specifc requests.
+To the many people who have looked at our works in progress to provide
+thoughtful feedback, gave tips to solve particularly gnarly coding problems,
+or replied to our Twitter calls for help. In particular, we wouldn’t have reached the
+same level of sophistication in our projects without the help of RJ Andrews, Taylor
+Baldwin, Tony Chu, Erik Cunningham, Matt Daniels, Matt DesLauriers, Sarah Drasner,
+Russell Goldenberg, Ian Johnson, Isaac Kelly, Susie Lu, Elijah Meeks, Philippe Rivière,
+and Sam Saccone.
+For giving feedback on our fnal manuscript to polish it as much as we could:
+Zan Armstrong, Peter Beshai, Mike Brondbjerg, Chen Hui Jing, Jen Christiansen,
+Michael K Freeman, Andy Kirk, Maarten Lambrechts, John Burn-Murdoch, Mollie
+Pettit, Visnu Pitiyanuvath, Jane Pong, Lisa Charlotte Rost, Sara Sprinkhuizen, Alli
+Torban, Jan Willem Tulp, Jim Vallandingham, Jonni Walker, and Amelia Wattenberger.
+To Sonja Kuijpers and Nicholas Rougeux for joining us as guests for two
+of the topics in the online version of Data Sketches, and experiencing the stress
+of creating an elaborate data visualization from scratch with us.
+=== PAGE 428 ===
+From Nadieh From Shirley
+My biggest hug to Ralph, my highschool sweetheart for 16 To Alex, who’s been my boyfriend, fancé, and now
+years and counting now, for understanding that my visuals husband through Data Sketches and the creation of this
+needed many evenings of sitting behind my laptop and still book, who’s stayed with me and cooked delicious food for
+making sure that I remembered to drink, eat, and go to bed me as motivation—even through all of my whining about this
+on time. To Snookie, my weird laser-pointer-obsessed cat, book; my (Asian) parents, who really don’t understand my
+who has been my cuddle support throughout it all, sleeping career choices but are (silently) proud of me nonetheless;
+on her pillow next to me on my desk while I was drawing, and my (Asian-American) sister, who frequently tells me how
+working, and writing on each project. proud of me she is to make up for how much our parents
+rarely voice it.
+And thank you so, so very much, Shirley, for taking me along And, fnally, a huge thank you to Nadieh without whom I don’t
+on this amazing journey which I’d never dared to have done think I could have ever fnished this gigantic, monumental,
+on my own. ambitious project.
+Liefs, Nadieh ʕっ•ᴥ•ʔっ (ﾉ^ヮ^)ﾉ*:·ﾟ✧! ♡ Shirley
+The diferent ways Nadieh/Shirley/Bremer/Wu would combine
+into one person, as imagined by our friend Susie Lu.

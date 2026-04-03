@@ -1,0 +1,1988 @@
+
+
+--- PAGE 351 ---
+350 
+NADIEH
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+Fig.11.3
+Sketch 
+Fig.11.3 
+Brainstorming concept 
+ideas and data to use 
+for this project. 
+This project was pretty light on actual “design” sketching. That’s mostly because 
+the basic idea was quite simple: I would focus on one star and visualize all the 
+constellations that use that star. I created a sketch that surrounded a star with 
+a donut-like mini chart that would show the constellations it appeared in. You can 
+see the tiny sketch from my brainstorm in Figure 11.3 (bottom of the left page). 
+I wanted the star map to look like a combination between current and ancient 
+sky maps. An example of the latter is the exquisite illustration made by the author 
+Alexander Jamieson in 1822 (see Figure 11.4). 
+That’s three projects 
+in a row with very little 
+sketching—defnitely 
+unusual for me! 
+Another part of the project that took up more pages in my little notebook was math 
+(as usual). If there were multiple constellations with a line between the same two 
+stars, I wanted to draw those lines side by side. I started out thinking it would require 
+some trigonometry, with four diferent cases. In Figure 11.5 you can see how I tried 
+to conclude if there were diferent solutions for the four orientations. However, 
+it eventually all came down to a little vector math; I had to fnd the normal vector, 
+which is simple to calculate, and I needed each new line from a constellation to 
+move up a little farther along the normal vector. The red sort-of-circle in the middle-
+left of Figure 11.5 b shows when I fnally realized the normal vector was all I needed. 
+Learn to Love Math 
+Math is truly your best friend in creating more unique data visuals. And although it’s 
+usually trigonometry, this time knowing just a little bit of linear algebra/vector math 
+helped turn a rather difcult problem into a straightforward approach. 
+The four were cases 
+being defned by how 
+the target star was 
+positioned relative to 
+the source star, in the 
+top-right quadrant, or 
+any of the other three 
+quadrants. 
+The normal vector lies 
+perpendicular to the 
+line you’re focusing 
+on, making a straight 
+angle. 
+
+--- PAGE 352 ---
+351 
+MYTHS & LEGENDS
+  
+a b
+Fig.11.4Fig.11.4 
+Plate 1 from A Celestial 
+Atlas by Alexander 
+Jamieson from 1822. 
+a b 
+Fig.11.5Fig.11.5 
+(a & b)(a & b) 
+Sketches about fguring out how to 
+get lines next to each other. 
+
+--- PAGE 353 ---
+352 
+NADIEH
+(a) (b)
+ 
+ 
+  
+  
+  
+  
+  
+  
+ 
+ 
+  
+  
+a b c
+Fig.11.6
+(a,b,c)
+a bFig.11.7 
+(a & b)
+Finally, I made some sketches of the general page layout. The title would stand out 
+nicely against a background of the night sky. With the sky maps themselves already 
+providing more than enough aesthetically, I wanted to simplify the other elements 
+of the text and layout. 
+a b c 
+(c) 
+Fig.11.6 
+(a,b,c) 
+Sketching out the 
+layout of the page 
+in later stages of the 
+project. 
+(b) 
+Code 
+My frst goal, before focusing on the actual data visualization side of things, was 
+to create a “base map” of the sky. I’ve never created one, so I did a little research 
+on what kind of map projection is typically used for sky maps. (I decided to go with 
+a stereographic one.) 
+I never truly worked 
+with projections beforeGiven this map would include 9,000 stars for the full sky, mini donut charts, outside of the default 
+and many constellation lines, I set out to create this project with canvas due to its Mercator projection. 
+better performance. I loaded my star data and set up my code following several 
+D3.jsba sed examples of sky maps.6 But all my code produced was a thin stripe 
+of stars. ಥ﹏ಥ (see Figure 11.7 a). 
+Fig.11.7 a b (b) 
+(a & b) 
+The very frst results 
+on screen, failing frst, 
+but getting it right the 
+second time. 
+
+
+--- PAGE 354 ---
+353 
+MYTHS & LEGENDS
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+ 
+  
+  
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+  
+  
+a b c
+Fig.11.8 
+(a,b,c)
+After a more careful comparison of the other sky map examples and mine, I realized 
+I forgot an easy-to-miss transformation calculation of the RA (right ascension) 
+and declination. A few code adjustments later and I had the map from Figure 11.7 
+b. However, it was still too abstract for me to see if it was correct or just a random 
+collection of points. I felt that the one thing that would probably help me realize 
+if the stars were correctly plotted was to add the graticule lines, the background 
+grid. Thankfully the D3.jsbased sky map examples helped out again. When 
+I rotated the projection to face North, added the stick fgure lines for the modern 
+constellations, and even recognized a few, I fnally knew for sure that the stars were 
+in the correct location (Figure 11.8). 
+For the rest of the sky map, I focused mostly on the central star of Orion, 
+my favorite constellation for a variety of reasons: it contains many bright stars, 
+is easy to pick out, and I could look at it from the living room window of my childhood 
+home for many winters. 
+a b c 
+Fig.11.8 
+(a,b,c) 
+Steps in setting up the sky map, such as adding 
+a background graticule, rotating it to face North, 
+and zooming in on Orion. 
+Remix What’s Out There 
+Mentally, it’s sometimes easier to get started on a project when you don’t have 
+to do everything from scratch. Even though the code for the D3.js based sky map 
+examples wasn’t very long or intricate, I felt it was just the right thing for me to use 
+as a base to start working from. Beginning from some basic code examples can help 
+unblock you and allow you to build on something. And I don’t mean just plug your own 
+data into the base code and calling it fnished! I mean to truly remix it and turn it into 
+a new visual that takes the quirks of your data into account and has its own style. 
+(Think “inspired by” instead of “cheap knock-of”.) 
+6 Star Map by Mike Bostock: https:/ /observablehq.com/@mbostock/star-map and Sky by Matteo Abrate: http:/ /bl.ocks.org/nitaku/9607405 
+
+--- PAGE 355 ---
+354 
+NADIEH
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+  
+  
+ 
+ 
+Fig.11.9
+As you can see in the images of Figure 11.7 and 11.8, I was already using the 
+magnitude to scale the radius of each star; the brighter they appear to us, the 
+bigger the circle. Now it was time to look at the colors of these circles. I started 
+with a temperature-to-color-scale I’d already investigated and developed to be 
+very similar to the star’s actual perceivable colors for a previous astronomy-related 
+project. For a while I played around with making the colors more vibrant, but that 
+made the sky way too colorful. 
+Fig.11.9 
+A much too saturated 
+colorful sky. 
+But even with the more real and nuanced colors and adding a glow to each star 
+(with canvas’ useful shadowBlur  property), the bigger stars looked a bit fat. 
+In reality, our Sun looks a bit brighter in the center and dimmer around the edge. 
+Luckily, canvas has the option to create radial gradients, which I could use 
+to set up a unique gradient for each star: I’d have a base color for each star using 
+a slightly lighter color in the center and a darker color at the edge (I used chroma. 
+js to create the lighter and darker color from the base color). It took some 
+experimentation to fgure out the best settings. Figure 11.10 a, where I made the stars 
+bigger to better assess the gradients, was defnitely not correct. 
+
+--- PAGE 356 ---
+355 
+MYTHS & LEGENDS
+  
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+  
+  
+  
+a bFig.11.10 Fig.11.10 a b 
+(a & b)(a & b) 
+Trying to create 
+a unique (sometimes 
+tiny) gradient for 
+each star 
+I clipped the sky map to a circle with a dashed line around it and added a separate 
+dashed line inside the map to show the so-called ecliptic, for embellishment. This 
+is the path that the Sun makes across the sky relative to us. Because our Earth’s 
+rotational axis is tilted by 23.44° with respect to the plane in which the planets 
+go around the Sun, the ecliptic is not a straight line across the image (following 
+the 0° declination line). 
+For the points where the background lines touch the sky map’s edge 
+I added the RA and declination degrees. I really liked the use of the zodiac signs 
+in Alexander Jamieson’s map from Figure 11.4 and replaced the degree number 
+by the corresponding zodiac signs for 12 “major-RA ” lines. 
+Fig.11.11Fig.11.11 
+(a & b)(a & b) 
+aa bb 
+Clipping to a circle and adding the ecliptic 
+path on the left, while calculating where the 
+background grid touches the circle boundary for 
+degree notations and zodiac signs on the right. 
+
+--- PAGE 357 ---
+356 
+NADIEH
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.11.12 
+(a,b,c,d)
+a b
+dc
+Fig.11.12 
+(a,b,c,d) 
+Slowly building up a 
+“swirly background” 
+using the contour 
+function of D3.js. 
+Having fnished with the lines, it was time for the fnal big aspect that I had in mind 
+for the sky map base: space itself. The background color (“space”) up until this point 
+was a dark blue. I really wanted to add some depth to each image by mimicking 
+lighter colored streaks across the background, inspired by the gorgeous streaks 
+of the Milky Way. Not long before, I’d seen some great experiments and bloopers 
+from a friend that was using the contouring options of D3.jsand r emembered that 
+it gave exactly the kind of feeling I was looking for with my “outer space.” I started 
+to experiment with the contour functionality and, after several iterations, built 
+something I was happy with (see Figure 11.12) 
+A North and South pointer as the fnal ornamental element and my night 
+sky base map was done! (See Figure 11.13) I was fnally ready for the actual data 
+visualization part of this project. 
+(๑•`ㅂ•´)ง✧ 
+a b (a) (b) 
+c (c) d 
+
+--- PAGE 358 ---
+357 
+MYTHS & LEGENDS
+Fig.11.13
+Fig.11.13 
+The fnal result of the base 
+sky map. Now the data 
+visualization would still 
+need to be overlayed. 
+
+--- PAGE 359 ---
+358 
+NADIEH
+(a) (b)
+(a) (b)
+  
+  
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+Fig.11.15 
+(a & b)
+a b
+The end goal was to visualize how many constellations used each star. I started with 
+creating a small donut chart around each star that was part of a constellation. Even 
+though one star would be chosen to focus the visualization on, many neighboring 
+stars would also be included in the diferent constellations. I frst created simple 
+I chose to switch and 
+focus on the brightestdonut charts featuring only white slices. When that was working and looked good star in the night sky,
+I turned it into a colored version with rounded edges and a bit of padding. Sirius. 
+Fig.11.14Fig.11.14 
+(a & b)(a & b) 
+Creating a mini donut 
+chart around each 
+constellation star. 
+aa bb 
+The lines in between the stars were a bit of a diferent story. I wanted these lines 
+to be placed alongside each other, but I only had the exact center location of each 
+star, so calculating the ofset in the x- and y-direction that each extra line would 
+need wasn’t trivial, I thought. Until I fnally remembered not to think in trigonometry, 
+which created the wrong image of Figure 11.15 a, but in vectors and the normal 
+vector (resulting in Figure 11.15 b). 
+You could already see 
+my (mostly useless) 
+math in the “Sketch” 
+section earlier. 
+Fig.11.15 
+(a & b) 
+Positioning the lines 
+to run parallel between 
+the stars—doing it 
+wrong at frst and 
+corrected eventually. 
+a b 
+
+
+--- PAGE 360 ---
+359 
+MYTHS & LEGENDS
+(b)  
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.11.16 
+(a & b)
+Fig.11.17
+a b
+Fig.11.16 
+(a & b) 
+Focusing on (the white 
+circle) Betelgeuse 
+(in the modern 
+constellation of Orion) 
+and on Sirius in a 
+star-line from Hawaiian 
+culture. 
+Fig.11.17 
+The separate 
+constellations in a ring 
+around the main sky 
+map. 
+a b
+(a) 
+Working with the diferent constellations showed me that using one particular zoom 
+level and center would defnitely not work to properly reveal each of the separate 
+constellations. It took me a while to fnally fgure out the logic and to automatically 
+calculate the optimum zoom level, rotation, and center that would nicely ft any 
+constellation that I would give the program (see Figure 11.16). 
+To make it easier to select and see the full shape of each separate constellation 
+(using the same star), I added all of the separate constellations in a ring around the 
+version that showed all of the constellations at once. 
+
+--- PAGE 361 ---
+360 
+NADIEH
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+Fig.11.18Fig.11.18 
+The fnal look of the 
+circular sky map 
+with the mini circles 
+around it. 
+That immediately showed me two things. For one, this was excruciatingly slow! 
+But also, the complete sky map on the mini circles wasn’t needed at all. They were 
+too small to really have any visual efect, and they were too distracting from the 
+central map. Luckily, removing elements from the mini maps would also make them 
+faster to load. The main thing to see were the constellation shapes anyway, which 
+was the most performant part of the sky map’s three layers: the glowing stars, the 
+constellation lines and donut charts, and the entire background. After some fddling 
+around, I got it all working and ended up with the version from Figure 11.18. Finally, 
+I added an interaction that allowed visitors to click any of the outside mini circles 
+to see it drawn properly, and bigger, in the center (see Figure 11.30 for an example 
+of selecting an outside mini circle). 
+I could’ve stopped there. The sky map was a complete visualization in its own 
+right. But just showing the star Betelgeuse felt so incomplete! I had so much more 
+data that I could use to tell a fuller and more interesting story. So even though I had 
+already racked up way too many hours to get to this point, I decided that this project 
+would become a complete article; with beginning, middle, and end. (In other words, 
+even more visuals. 
+(◍•﹏•))
+
+
+--- PAGE 362 ---
+361 
+MYTHS & LEGENDS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.11.19
+Fig.11.20
+An (almost) full sky map that would show all of the constellations of one chosen 
+culture was the frst on my list. It would allow users to select a culture and view its 
+constellations separately. Given how complete my circular sky map function was, 
+setting up the base for this was quite easy. In essence, the only change I had to make 
+was to adjust the projection from stereographic to an equirectangular one (while 
+also using a diferent width/height and not clipping the visual to a circle). For this 
+full sky map I made sure to have the background fuzzy patches follow the actual 
+rough location of the Milky Way. 
+Fig.11.19 
+The full sky, now with the background 
+fuzzy patches sort-of following the 
+shape of the Milky Way. 
+Betelgeuse might be a fascinating star, but I wanted to reveal many more interesting 
+stars and constellations! The function to create the full sky map with all of its 
+constellations could be used for any star, thankfully. What did end up taking several 
+hours was the exact design of these extra sky maps on the page and manually going 
+through about a hundred stars and selecting the ±15 I thought looked the most 
+interesting and diverse. 
+I was quite happy with 
+the result, so I decided 
+to use it for the header 
+of the full article as well. 
+Fig.11.20 
+An early look of several smaller sky maps, 
+each focusing on a diferent star. 
+
+--- PAGE 363 ---
+362 
+NADIEH
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+a b c
+Fig.11.21 (a,b,c)
+The fnal visual pieces to add to the page were the statistical charts, starting 
+with the scatter plot that displayed a star’s brightness versus the number 
+of constellations it was a part of. As ±2,200 stars were included in at least one 
+constellation, I went for canvas as the base. However, I used a separate SVG on 
+top for all the axes, text, interactivity, and annotations. Using canvas made it easy 
+to reuse the same coloring of the stars as I had in the sky maps. However, with the 
+white background those colors looked much too soft, and the gradient efect was 
+too distracting (Figure 11.21 a). Removing the gradient and adding a multiply efect 
+to darken any overlapping stars helped to make it visually more appealing (see 
+Figure 11.21 b). However, I felt that the colors were still too soft. So I made them more 
+vibrant, added a bit of “glow” around the edges, cleaned up the axes a bit, and the 
+visual style of the scatterplot was done (see Figure 11.21 c). Eventually, I also added 
+a mouse hover and textual annotations. 
+a b c 
+Fig.11.21 (a,b,c) 
+First using the same star colors and gradients as I did for the 
+sky maps, but later going for darker colors and no gradient, 
+and fnally even more vibrant and glowing stars. 
+Annotations Are of Vital Importance 
+Often overlooked, annotations are one of the best ways to make a chart understandable 
+to an audience. Underutilized in many data visualizations, annotations are the ideal way 
+to highlight exactly those things that you, as the creator, want the audience to pay 
+attention to. My current go-to is the wonderful d3-annotations library. And I think 
+the scatter plot from this project has the most intricate placement of annotations that 
+I’ve ever applied (see Figure 11.26 later in this chapter for the fully annotated version). 
+At the bottom of the article I added a section that tells more about each 
+culture. Selecting a culture results in the full sky map updating to show all of the 
+constellations from that culture. And a bar chart that I had in mind with the average 
+number of stars per culture eventually ended up as a small mini bar in each of the 
+culture “boxes” (Figure 11.22). 
+
+--- PAGE 364 ---
+363 
+MYTHS & LEGENDS
+ 
+ 
+ 
+  
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Fig.11.22
+Fig.11.22 And then! Then I replaced as many of the visuals as I could with images. (●__●) 
+All the sky cultures in Images are much easier to load than doing the heavy sky map calculation, and the 
+their own overview. sky maps wouldn’t change anyway. 
+Adding in text between all the diferent visuals, and my second (and thankfully 
+last) full article style data visualization was fnally done! 
+Reflections 
+This was my longest project in terms of hourly investment. I clocked about 
+110 hours, but estimate I spent more than that, due to not always timing myself 
+whenever I thought something would take fve minutes to do, and suddenly, 
+I was an hour in. Some parts took an unexpected amount of time to work on, 
+such as setting up the functionality to create a base sky map that could handle 
+any star and constellation combination. I am generally less enthusiastic about 
+working on overall page layouts, but I spent extra time trying to perfect this layout 
+since it was a vital part of the story. 
+Even though it took so long, I’m super happy to have created a project that 
+combines my love of astronomy with my passion for dataviz! Especially since this 
+was, for me, my farewell to the creation of new visualizations as a part of Data 
+Sketches. I’m amazed at all the things that I’ve learned about making data visual 
+across the 12 topics. And it’s fascinating to look back at my skills for the very frst 
+project and comparing that to the full-length article that my fnal project became. 
+I’m exceptionally happy to have been a part of Data Sketches. It has opened 
+doors to opportunities that I didn’t even know I was looking for! 
+“Beautiful in English” 
+isn’t far behind in terms 
+of hours spent. 
+I ain’t ever doing it 
+again though. Damn, 
+such work!! [¬°-°]¬ 
+
+--- PAGE 365 ---
+ 
+Fig.11.23
+Figures in the Sky 
+FiguresInTheSky.VisualCinnamon.com 
+Fig.11.23 
+The start of the “Figures 
+in the Sky” article. 
+
+--- PAGE 366 ---
+365 
+MYTHS & LEGENDS
+Fig.11.24
+Fig.11.25
+Fig.11.26
+Fig.11.24 
+The many constellations that 
+use the star Dubhe, part of the 
+well-known Big Dipper. 
+Fig.11.25 
+All constellations that are connected to the star Deneb. 
+In Western cultures its constellation is known as 
+Cygnus (the Swan), but it is also part of the “Summer 
+Triangle,” a very easy-to-make-out group of three 
+stars in the high of a Summer night on the Northern 
+hemisphere. 
+Fig.11.26 
+The full sky map showing all 88 
+“modern” (Western) constellations. 
+
+--- PAGE 367 ---
+366 
+NADIEH
+ 
+Fig.11.27Fig.11.27 
+This beauty of a constellation comes from several 
+tribes in South America and is called Veado (which 
+Google tells me is similar to “deer”). I would say 
+that it seems a bit too specifc for a constellation 
+that can “easily” be found in the sky, but that’s 
+perhaps my own bias of having lived in very light-
+polluted areas all my life. 
+Fig.11.28Fig.11.28 
+After highlighting 
+the constellations 
+of Betelgeuse, Sirius 
+and Deneb, the 
+article lets the viewer 
+inspect 15 more stars 
+by clicking on any 
+of the mini images. 
+
+
+--- PAGE 368 ---
+367 
+MYTHS & LEGENDS
+ 
+Fig.11.29
+Fig.11.30
+Fig.11.29 
+A scatter plot showing all ±2,200 
+stars that are included in at least 
+one constellation. 
+Fig.11.30 
+The full sky map of the 318 diferent 
+Chinese constellations. 
+
+--- PAGE 369 ---
+[no text]
+
+--- PAGE 370 ---
+369 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Legends 
+SHIRLEY 
+Just like Nadieh, it took me forever to decide on a good dataset and angle 
+for this project. We chose “Myths & Legends” because it sounded like 
+a great topic with a lot of potential, but the ideas I came up with either 
+didn’t excite me much or were difcult from a data gathering perspective. 
+I wanted to do something related to my Chinese background and bounced 
+from Chinese and Asian mythology to classic Chinese literature to 
+Mythbusters episodes. 
+Then, the idea came to me after watching Crazy Rich Asians. I loved 
+Michelle Yeoh in the movie, but it wasn’t until I read more about her that 
+I learned how accomplished and legendary she was. It made me wonder 
+about all of the legendary women across history that I’ve never heard 
+of, and the idea took shape from there. 
+DECEMBER 2018 MYTHS & LEGENDS 
+
+--- PAGE 371 ---
+370 
+SHIRLEY
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Data 
+Once I had the idea about doing something with legendary women, the next step 
+was fguring out how to get the data. I decided early on that Wikipedia, with its user-
+generated content, would be a great resource. I wanted to fgure out a way to get 
+the “top” women on the platform, but ran into a tricky problem: I didn’t have any idea 
+how to defne “top.” Would it be page views? Page length? Inbound links? And even 
+though I had seen something similar on The Pudding—they were even awesome 
+enough to write about their methodology
+1—I still wasn’t sure how to go about 
+adopting their approach for my own project. 
+Then, it hit me: instead of trying to defne “top” myself, I should just look for 
+a defnitive list. After a few Google searches, I ended up on a Wikipedia page with 
+a list of the 51 female Nobel Laureates. They were all incredible women, yet I hadn’t 
+heard of most of them. It was the perfect dataset. 
+I copy-pasted the table—with information about the category (Peace, 
+Literature, Physiology or Medicine, Chemistry, Physics, Economic Sciences) 
+and year of their awards, as well as the achievements that led to the award— 
+into a spreadsheet and did some light formatting and cleaning. I exported the 
+spreadsheet as a CSV and used an online converter to get the data into 
+JSON format. 
+Because I also wanted to get data from the laureates’ individual Wikipedia 
+pages, I researched for ways to access the Wikipedia API. It was a little hard 
+to navigate (I wasn’t sure if I should use Wikidata or MediaWiki, which are the two 
+options that came up when I searched “Wikipedia API”), but thankfully The Pudding 
+had me covered. A quick dig through their repo led me to their code that used 
+wiki.js, and I could interface with that Node.js package instead of the actual 
+Wikipedia API. 
+After that, I wrote a script using wiki.js to programmatically get additional 
+data from each woman’s Wikipedia page, including basic biographical information, 
+the number of links into their page (“backlinks”), and the number of sources at the 
+bottom of their page. 
+Sketch 
+The Pudding is the 
+same awesome visual 
+essay collective 
+I published my 
+“Hamilton” project on! 
+This is one of the 
+most important data 
+gathering lessons 
+I learned from Nadieh: 
+spreadsheets are 
+great for cleaning 
+data. The extended 
+lesson is to use the 
+right tool for the job, 
+instead of trying to 
+use the same hammer 
+(code) every time. 
+In early 2018, my friend and I pitched a design to a potential client. We didn’t get the 
+contract, but the core idea—to represent the individual data points as multifaceted 
+crystals—really stuck with me. I pinned some gorgeous photos and paintings 
+of crystals and mused how I could programmatically recreate them. 
+Fast-forward to fall 2018 and I had the idea of legendary women but wasn’t 
+sure how I wanted to visualize them. Then, one day as I was going through the 
+“Information Is Beautiful Awards” shortlist and pinning my favorite entries, I came 
+across the crystals again in one of my Pinterest boards. As soon as I saw artist 
+Rebecca Chaperon’s gorgeous paintings of crystals,
+2 I knew I wanted to represent 
+each of the legendary women as one of those bright, colorful crystals—because 
+how beautiful would that be? 
+1 The Pudding, “What Does the Path to Fame Look Like?”: https:/ /pudding.cool/2018/10/wiki- breakout/ 
+2 Rebecca Chaperon, “Crystals”: https:/ /www.thechaperon.ca/gallery/crystals 
+
+--- PAGE 372 ---
+371 
+MYTHS & LEGENDS
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+ 
+ 
+  
+  
+   
+  
+ 
+  
+ 
+  
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+  
+ 
+It wasn’t long before I had come up with the other details. The size of the crystal 
+would represent the number of articles linking back to a laureate’s Wikipedia page 
+(her “infuence”). The number of faces on the crystal would map to the number 
+of sources at the bottom of her page (because she’s “multi-faceted”; get it? 
+(*≧艸≦), 
+and the colors would represent the award category. 
+The only thing that evaded me was how to position the crystals. For the longest 
+time, I could only think to lay them out in a two-dimensional grid and have the reader 
+scroll through them. But then I took Matt DesLauriers’s “Creative Coding” workshop 
+on Frontend Masters3, where he taught (among other things) Three.js and 
+WebGL. The workshop inspired me to try out a 3D layout, and I knew immediately 
+that I would use the z-axis for the date they received their award: the closer to the 
+foreground, the more recent her award. 
+All of this came to me so quickly and naturally, that I didn’t draw a single sketch 
+of the idea. 
+Code 
+For more explanation 
+of Three.js 
+and WebGL, see 
+“Technologies & Tools” 
+at the beginning 
+of the book. 
+For years I wanted to make something physical, and in 2018, I made it a goal 
+to create a physical installation. But every time I thought about it, I got stuck 
+thinking about 2D projections (or TVs) on walls; I didn’t know how to take 
+advantage of all that foor space. 
+And then one day, it hit me: of course I didn’t know how to think in physical 
+spaces, I worked digitally in 2D all day long. So if I could teach myself to work in 3D 
+digitally, then it should (hopefully) follow that I could think in physical spaces also. 
+I put Three.js and WebGL at the top of my list of technologies to learn. 
+I took Matt’s Frontend Masters workshop and learned the basics 
+of Three.js, fragment shaders, and vertex shaders. I learned the “right-hand 
+rule” to orient myself in WebGL ’s coordinate system: with my right palm facing 
+me, use the thumb for the x-axis (increases going right), index fnger for the y-axis 
+(increases going up, which is the opposite of SVG and canvas), and the middle 
+fnger for the z-axis (increases coming out of the screen and towards us). I learned 
+that WebGL ’s coordinate system doesn’t operate in pixels, but rather in “units” 
+of measurement that we can think of as feet or meters or whatever we like, as long 
+as we’re consistent. 
+In mid-November, David Ronai asked me if I was interested in participating 
+in Christmas Experiments, an annual WebGL advent calendar. I was hesitant 
+to accept, since I had never worked with WebGL before, but David encouraged 
+me to give it a try and promised to put me later in the month to give me more 
+time. I agreed, knowing that the deadline would give me the motivation I needed 
+to complete the project. I made it a goal to do a little bit each weekday starting 
+December 1st, until I could get to something presentable on the 23rd—the slotted 
+date for my Christmas Experiment. 
+I started by reading the frst two chapters of WebGL Programming Guide,
+4 
+which taught me how WebGL was set up. I then rewatched the Three.js section 
+of Matt’s workshop so that I could see what heavy lifting it was doing for me. 
+After the workshop, I created an Observable notebook to fgure out the minimum 
+amount of setup required to draw with Three.js. 
+I always like 
+understanding the 
+most fundamental 
+building blocks 
+required to make 
+something work—the 
+core foundation of a 
+technology or library. 
+3 Matt DesLauriers on Frontend Masters: https:/ /frontendmasters.com/teachers/matt-deslauriers/ 
+
+--- PAGE 373 ---
+372 
+SHIRLEY
+  
+     
+ 
+ 
+ 
+  
+   
+  
+ 
+ 
+ 
+Fig.11.1 
+Fig.11.2
+After setting up the notebook, I wanted to create a crystal shape. I decided 
+to use Three.js’s PolyhedronGeometry  because I could defne a set of points 
+and specify which three points would make up each triangular face. On the frst 
+day, I only managed to create a triangle, but on the second day, I managed a 3D 
+(rotating!) crystal as well as the crystal shape I had in mind (Figure 11.1). And even 
+though I later found a better and easier way to create the crystals I wanted, 
+I’m really grateful for the practice PolyhedronGeometry  gave me to think 
+through WebGL ’s x, y, and z coordinates. 
+Fig.11.1 
+Notes trying to fgure 
+out the math for where 
+to position the points, 
+and the two resulting 
+successful crystal 
+shapes. 
+Once I was satisfed with the shapes, I moved on to learning how to add color 
+to them. I went back through the workshop’s section on vertex and fragment 
+shaders and played around with Matt’s fragment shader code (Figure 11.2), which 
+taught me some commonly-used GLSL (OpenGL Shading Language) functions. 
+Fig.11.2 
+Experimenting with 
+Matt’s fragment 
+shader code. 
+Shaders were originally 
+computer programs 
+used for shading, 
+but are now used in 
+a variety of ways in 
+computer graphics. 
+In WebGL, fragment 
+shaders are used to 
+color a shape, and 
+vertex shaders are 
+used to manipulate the 
+position of each point 
+in a shape. 
+4 Matsuda & Lea, “WebGL Programming Guide”: https:/ /sites.google.com/site/webglbook/ 
+
+--- PAGE 374 ---
+373 
+MYTHS & LEGENDS
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  
+  
+          
+ 
+ 
+Fig.11.3
+Fig.11.4
+The next goal was to use the fragment shader to color the crystal shape, but I wasn’t 
+a fan of how it ended up looking, so I decided to read more into the diferent ways 
+of outputting colors with shaders. This is when I turned more heavily to Patricio 
+Gonzalez Vivo’s The Book of Shaders,
+5 and in particular, the chapter on “Shaping 
+Functions.” I learned about GLSL ’s built-in trigonometry and math functions, which 
+take in a number (or a set of numbers) and output another. I also learned about 
+the mix()  function, where I could input two colors and not only get a new color 
+between those two, but also individually mix the Red, Green, and Blue channels 
+to make completely new colors that aren’t between the two original colors. Once 
+I combined those two functions, I was able to get beautiful gradients and shapes. 
+Fig.11.3 
+Gradients that were created by mixing blue and yellow, and 
+tweaking the Red, Green, and Blue channels at each “pixel” 
+with power() , sine() , absolute() , step() , and smoothstep() . 
+When I felt happy with the colors, I switched gears and started plugging in the data: 
+number of faces for number of references at the bottom of the Wikipedia page, size 
+for number of Wikipedia backlinks, and color for the Nobel Prize award category. 
+Fig.11.4 
+First attempt at the 
+crystals with the data 
+plugged in. 
+5 Patricio Gonzalez Vivo, The Book of Shaders: https:/ /thebookofshaders.com/ 
+
+--- PAGE 375 ---
+374 
+SHIRLEY
+ 
+    
+  
+  
+   
+ 
+ 
+ 
+ 
+    
+  
+ 
+  
+ 
+     
+ 
+ 
+ 
+Fig.11.5Fig.11.5 
+The new crystals where 
+I programmatically set 
+the number of faces, 
+instead of hard-coding 
+every shape. 
+I really didn’t like this output for two reasons: 
+• I was hard-coding each shape, so I only had three distinct shapes: 
+a rectangle, a rectangle with a triangle on top, and a rectangle with 
+a triangle on the top and bottom. This meant most of the “crystals” 
+were just rectangles. 
+• I also wanted one color per category for a total of six colors; so for each 
+crystal I only passed in one color and programmatically manipulated that 
+color with a shaping function. The resulting colors didn’t look good at all. 
+It was around this time that I came across a demo for Bloom
+6 (a post-processing 
+efect that gives objects a glow around them), and in that example there were round, 
+gem-like objects that looked quite similar to the crystals I wanted. 
+When I looked at the code, I learned that it used Three.js’s 
+SphereGeometry  but with the flatShading  option on, which shows each 
+distinct face of a shape instead of the default smooth, round surface. This made 
+me realize that in addition to being able to manipulate and mix colors to get new 
+ones, I could also manipulate the settings on an existing Three.js geometry 
+to get a new (and completely diferent looking) shape—very cool! So I swapped out 
+the PolyhedronGeometry  with SphereGeometry , set the width and height 
+segments to programmatically vary the number of faces depending on the data, 
+stretched out the shape by setting the vertical scale to twice the horizontal scale, 
+added jitter to the vertices so that each crystal looked a little diferent, and ended 
+up with a much more interesting set of shapes: 
+6 https:/ /vanruesc.github.io/postprocessing/public/demo/#bloom 
+
+--- PAGE 376 ---
+375 
+MYTHS & LEGENDS
+(a) )
+  
+  
+   
+     
+ 
+ 
+  
+  
+Fig.11.6 
+Fig.11.7
+Fig.11.8
+Fig.11.6 
+The crystals with the 
+new fragment shader 
+code applied. 
+Fig.11.7 
+The crystals with the 
+edges defned. 
+Once I had my new shapes, I went back to my fragment shader code to apply 
+what I learned about color mixing and shaping functions (Figure 11.6). 
+I liked the new colors, but didn’t like that I had lost the hard edges. 
+Thankfully, Matt taught me I could get the defnition back by calling 
+computeFlatVertexNormals()  on the geometry and adding it to each 
+“pixel” color in the fragment shader. This not only made the edges really apparent, 
+but also faked a light source, making the bottom and back of the crystals appear 
+darker and in shadow (Figure 11.7). 
+From there, I played around with two sets of gradients: one for awards 
+in the humanities (Peace, Literature, Economic Sciences), and another for 
+awards in the natural sciences (Physics, Chemistry, Medicine) (Figure 11.8). 
+(b 
+I love how much the 
+frst one looks like 
+sweet potatoes, which 
+is seriously my dad’s 
+favorite food. (*≧▽≦) 
+Fig.11.8 
+Experimenting with two 
+diferent color schemes 
+to distinguish awards 
+in the humanities and 
+natural sciences. 
+Two because I knew 
+that I couldn't come 
+up with two distinct 
+gradients 
+
+--- PAGE 377 ---
+376 
+SHIRLEY
+   
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+   
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+Fig.11.9
+Next came the background. I created the “foor” by using a PlaneGeometry 
+placed below the crystals, dividing it up into a constant number of segments 
+and jittering the y-position of those segments to create a sense of uneven ground. 
+I created the “sky” by placing a huge sphere around the scene with the viewer 
+inside of it. I experimented with three diferent kinds of lights: hemisphere lights and 
+ambient lights to give the “sky” a nice sunrise glow, and directional lights to cast 
+shadows from the crystals to the “foor” (Figure 11.9 ). 
+To fnish the piece, I added “stars” to represent all the men who won Nobel 
+Prizes in the same time period, as well as annotations for each crystal. It was 
+a fun challenge trying to add text for the annotations: I tried to create the text 
+using Three.js’s TextGeometry  at frst, but the page became completely 
+unresponsive because Three.js was rendering each letter as a 3D object. 
+After some Google searches, I found a solution to render the text within canvas, 
+create a PlaneGeometry , and use that canvas as an image texture to fll 
+the PlaneGeometry —a much more performant solution! 
+My favorite part of the visualization is how I decided to use the third dimension 
+to represent time. The crystals are placed according to the decade the laureate 
+received her award, so the closer to the front (and the viewer), the more recent the 
+award. But the decades are only revealed when a user “fies up” to view the crystals 
+from above; if they “walk through” the crystals at ground level, they will only see 
+information about each woman. I did this because I really wanted the user to learn 
+more about each laureate frst, before they “few up” for a holistic view. 
+To fnish, I created a landing page with a legend for my legends (hehe), 
+and managed the componentization and interaction with Vue.js. 
+I was quite upset when 
+I learned that there 
+have been 866 male 
+Nobel Laureates but 
+only 53 women Nobel 
+Laureates. There’s 
+always a gasp of 
+disbelief when I reveal 
+to an audience that the 
+stars are male Nobel 
+Laureates, because 
+there are so many 
+of them compared 
+to the crystals. 
+Unfortunately, because 
+the text is rendered 
+in canvas, it is treated 
+as an image and thus 
+isn’t a11y (accessibility) 
+compliant—something 
+I only realized later on. 
+Fig.11.9 
+Background with a foor and sky added. 
+
+--- PAGE 378 ---
+377 
+MYTHS & LEGENDS
+ 
+  
+  
+  
+ 
+ 
+  
+Reflections 
+This project was super fun, and I’m so proud that I was able to fnish it in three 
+weeks—something I hadn’t been able to do since the “Travel” project. I was also 
+able to teach myself Three.js and a little bit of GLSL, which I wanted to do for 
+a very long time. This project was a great opportunity to use the third dimension 
+and also gave me the confdence to experiment with more 3D and physical 
+installation projects in the future. But most importantly, I’m so glad I chose this 
+dataset of women Nobel Laureates; it has since motivated me to work with 
+and highlight datasets featuring underrepresented groups. 
+
+--- PAGE 379 ---
+  
+Legends 
+shirleywu.studio/projects/legends 
+
+--- PAGE 380 ---
+[no text]
+
+--- PAGE 381 ---
+380 
+SHIRLEY
+Fig.11.11
+Fig.11.12
+Fig.11.11 
+Recent women Nobel Laureates 
+I fnd incredibly inspiring. 
+Fig.11.12 
+I also turned this project into washi 
+tape! But because each crystal 
+wasn’t distinct enough, I turned them 
+into fowers instead. 
+
+--- PAGE 382 ---
+381 
+MYTHS & LEGENDS
+ 
+ 
+Fig.11.13
+Fig.11.13 
+My main goal with this project was to create a physical 
+installation, and I got the opportunity when I collaborated with 
+my studio-mate and illustrator-muralist-extraordinaire Alice 
+Lee! It was a fun learning experience as I had to pay attention 
+to details I never had to when working digitally, like physically 
+organizing the pieces by prize category so we painted them 
+the correct colors (top left), and then again by decade so that 
+we hung them up in the right order (middle left). 
+
+--- PAGE 383 ---
+382 
+FEARLESS 
+
+--- PAGE 384 ---
+383 
+FEARLESS 
+
+--- PAGE 385 ---
+[no text]
+
+--- PAGE 386 ---
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ –
+An Ode to 
+Cardcaptor Sakura 
+NADIEH 
+I’m starting to understand that the topics which make me really 
+enthusiastic are quite niche topics. Not many other people know them. 
+I can only hope this visual will be a joy to explore. I chose to dive into 
+“Cardcaptor Sakura.” 
+Cardcaptor Sakura (or CCS) is a magical-girl manga (a Japanese comic 
+or graphic novel) that was released about 20 years ago and revolves 
+around a kind, brave, and fearless girl called Sakura. It was the very frst 
+manga I owned, and I’ve read it dozens of times. I picked up CCS because 
+the cover looked like the most beautiful comic I had ever seen, and 
+basically every panel within was just mind-blowingly perfect and cute. 
+Even though it’s been more than 20 years since the last chapter was 
+published, I’d recently learned about a new “arc” of CCS that was 
+released and thus it was on my mind again. One of my favorite things 
+about CCS is how beautiful each page looks. The covers of each chapter 
+are tiny works of art. I wanted to investigate those covers through data 
+somehow, as I had never done any kind of analysis based on image data 
+before. I loved the idea of creating a visualization that abstracted the 
+colors of each cover into a few colors and thought it would be a fun way 
+to explore and learn. Due to copyright, I’m sadly unable to show any 
+images of CCS in this book 
+(╥_╥). 
+NOVEMBER  DECEMBER 2017 385 FEARLESS 
+
+--- PAGE 387 ---
+386 
+NADIEH
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.12.1
+Data 
+Fig.12.1 
+Color distribution 
+of the frst CCS 
+chapter using a 
+K-means clustering. 
+Imagine a Japanese 
+girl, in front of a mostly 
+blue sky with clouds, 
+wearing a black and 
+white school uniform. 
+There are 50 chapters in the original CCS manga, divided into two “arcs.” I fipped 
+through the 12 complete CCS volumes to see what image was on the cover of the 
+chapters. However, these chapter covers were printed in black and white. Thankfully, 
+all of those chapter covers have since been published in full-color in several CCS art 
+books. A quick search revealed that they were all available as a color image from the 
+CCS Wiki page.
+1 
+Using the imager package, I loaded the images into R where each pixel was 
+transformed into a multidimensional array of RGBA values. I converted this complex 
+array into something more simple, having three columns (for the RGB values), 
+with the number of rows being equal to the number of pixels. To fgure out which 
+algorithm would cluster the data points (pixels) into decent color groups, I tried 
+several things. First, I experimented with diferent clustering techniques: from the 
+standard K-means, to hierarchical clustering, and even tSNE. Then I also converted 
+the RGB values of each pixel into other color spaces (where colors have diferent 
+“distances” to each other, which leads to diferent clustering results per color 
+space), using (among others) the colorspace package in R. 
+I converted the results of each test into a bar chart such as the one in Figure 
+12.1 to see the color groups. Eventually, I found that using K-means together with the 
+colors converted to LAB color-space visually gave the best ftting results, with the 
+most distinct groupings of colors. 
+A volume combines 
+several chapters. 
+RGBA stands for red, 
+green, blue, and alpha. 
+Alpha refers to the 
+opacity/transparency. 
+Examples of colors 
+spaces are: RGB, HSL, 
+HSV, and LAB. 
+1 Cardcaptor Sakura Wiki: https:/ /ccsakura.fandom.com/wiki/ Artbook 
+
+--- PAGE 388 ---
+387 
+FEARLESS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Fig.12.2Fig.12.2 
+Color distributions of 
+several K-means run 
+on the same image, 
+but with a diferent 
+number of groups 
+predetermined. 
+However, one of the tricky things with K-means is fguring out exactly how many 
+clusters are needed to create groups. Eventually, I settled for a method that could 
+gauge this better than any of the techniques I used before: my own eyes! I created 
+a graph such as Figure 12.2 for each chapter which shows the color distribution for 
+three groups, up to 11. I then compared the actual cover to these groups and chose 
+the one that achieved the best balance between capturing all the colors and having 
+a good blend of distinct colors. The color hex codes were then saved into a JSON 
+fle, along with the cluster/color percentage. (This is the percentage of the image’s 
+pixels that were grouped into the corresponding color.) 
+To complement this data about the chapter covers, I also wanted to gather 
+information about which characters appeared in each chapter and which “card” 
+was captured in which chapter. The CCS Wiki page on each chapter seemed like just 
+the resource I needed, but only the frst eight chapters contained this information. 
+There was nothing else to do but re-read every chapter myself and manually 
+populate an Excel fle with the information I needed about characters, cards, 
+and covers. 
+┐(￣ヮ￣)┌ 
+Precalculate “Visual” Variables 
+Use the tool that is best suited for data preparation and collection work. In this case, 
+I created several diferent fles with R that I needed for each of the information layers 
+in the CCS visual instead of keeping all the data in one large fle, such as a separate fle 
+about the colors per chapter cover, but also the chapters each character appeared 
+in, the relationships between characters, and more. Doing it in R saved me having to 
+add more data preparation steps and aggregations, flters, and nesting in my JavaScript 
+code, which (for me) wasn’t the easiest/best place for those kinds of operations. 
+CCS is about a magical 
+girl, Sakura, who has 
+to collect so-called 
+magical “Clow Cards.” 
+
+--- PAGE 389 ---
+388 
+NADIEH
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+Sketch 
+Figuring out the design for this project came slowly. It was more of a domino efect; 
+a concrete idea for one aspect led to a vague idea for the next part of the data 
+which I then explored. I started with visualizing the results of the color analysis. 
+Having a cluster of small colored circles per chapter in a radial layout seemed like 
+a logical and interesting option. At frst I wanted to do a semi-circle with the color 
+clusters to the right and character information to the left (see the top-right page 
+of Figure 12.3). However, with 50 chapters, I needed as much space as I could get. 
+So I went with an “onion-layered approach”: a smaller, inner circle related to the 
+characters and a bigger, outer circle related to the color clusters. These two circles 
+would then be connected by lines to show which characters appeared in which 
+chapters (the bottom-right page of Figure 12.3). 
+I’ve always been fascinated by the CMYK dot printing process; you can see 
+the separate dots when you’re looking at it up close, but move farther back and the 
+bigger picture comes into view. The CMYK dot technique for a visualization about 
+a printed manga seemed like a proper style, and a challenge. And a challenge it was! 
+I’ll explain more about the technical difculties in the “Code” section, but the right 
+page of Figure 12.4 shows some of my “how to understand CMYK” scribbles. 
+Fig.12.3Fig.12.3 
+Sketch of the overall 
+design for the CCS 
+visualization. 
+
+--- PAGE 390 ---
+389 
+FEARLESS
+   
+ 
+  
+ 
+Fig.12.4
+Fig.12.5 
+(a & b)
+a b
+Fig.12.4 
+Sketch of 
+trigonometric 
+functions to fgure out 
+CMYK dots. 
+Fig.12.5 
+(a & b) 
+Sketch of the swirling 
+lines between 
+characters and 
+chapters and fguring 
+out tangent lines. 
+a 
+Figure 12.5 b shows how I handled the calculation of a tangent line to a circle for 
+diferent circumstances. I needed this information for those swirly lines from Figure 
+12.5 a. But even though I ended up with diferent lines in the fnal result, I was able 
+to use some of these ideas to easily convert the lines to the formulas needed for the 
+fnal result (which are more circular running lines). 
+b 
+
+
+--- PAGE 391 ---
+390 
+NADIEH
+(b)
+ 
+ 
+  
+ 
+  
+  
+  
+  
+ 
+ 
+ 
+ 
+  
+Learn to Love Math 
+Having an understanding of the SVG Cubic Bézier Curve paths was of vital importance 
+at the start of the project. However, to set up a function that would somewhat correctly 
+make the lines fow around the inner circle, I defnitely relied on my knowledge 
+of geometry. This was especially true for thinking in polar coordinates (radius and 
+angle), and how lines should move from start to end point. 
+As I’ve mentioned in previous projects, I strongly recommend learning the 
+basics of both geometry (especially trigonometry) and statistics if you want 
+to be able to shape your data visualization to whatever idea you have in mind! 
+Code 
+I frst focused on getting the ring of color circles on my screen. Mostly because 
+I wanted to see how that CMYK idea would look as soon as possible. Thanks 
+to an excellent test that Shirley made for her “Books” project
+2 to distribute clusters 
+of circles in a grid, making this was actually a piece of cake! But darn it, those circles 
+had to become quite small to make room for all 50 chapters (Figure 12.6). I was 
+starting to have my doubts if the CMYK efect would work as well in this particular 
+design as I’d hoped … 
+aa bb 
+Fig.12.6Fig.12.6 
+(a & b)(a & b) 
+(a) 
+All the main colors of 50 chapters, frst 
+together and then clustered per chapter 
+around a circle. 
+2 Test Shirley created for her “Books” project: https:/ /bl.ocks.org/sxywu/570df88e66e420191d33dc5b5650aaf4 
+
+--- PAGE 392 ---
+391 
+FEARLESS
+  
+ 
+ 
+  
+  
+  
+  
+ 
+  
+ 
+ 
+Fig.12.8
+I wasn’t going to give up without trying. I found an example3 that neatly coded 
+up a CMYK dot efect as SVG patterns. I rewrote it to create a separate pattern for 
+each color in my data, which resulted in a ring full of CMYK-based colored circles. 
+But on closer inspection I found something I didn’t quite like. Although the circles 
+on the inside looked exactly how I wanted them, they were still SVGs. So they 
+had been perfectly clipped into a circle (Figure 12.7). But I wanted my CMYK dots 
+to smoothly fade out, not end abruptly. Furthermore, I also wanted to play around 
+with partially overlapping circles and having the colors mix even further, which 
+wasn’t possible with this technique. 
+Fig.12.7Fig.12.7 
+Each SVG circle 
+flled with a CMYK 
+dot pattern, but too 
+perfectly cut to a circle 
+at the edges. 
+I already suspected that using canvas was probably the way to go. I found two 
+interesting code snippets4 that took me a good 3–4 hours to wrap my head around 
+and combine them mathematically into one. [¬°-°]¬ 
+Fig.12.8 
+Comparing the CMYK 
+transformations to the 
+original group of circles. 
+3 CMYK Halftone Printing by Noah Veltman: https:/ /bl.ocks.org/veltman/50a350e86de82278fb2df248499d3e2 
+4 Color Halftone Filter by Patrick Matte: http:/ /www.patrickmatte.com/?p=352 and 
+Canvas Halftoning by @ucnv: https:/ /gist.github.com/ucnv/249486 
+
+--- PAGE 393 ---
+392 
+NADIEH
+ 
+  
+  
+  
+  
+  
+  
+ 
+  
+ 
+  Fig.12.9 a b cFig.12.9 
+Eventually I got the smooth edges I was going for (with the dots getting smaller 
+around the sides instead of being clipped—see the images of Figure 12.9 ). Plus, 
+I was able to plot the circles on top of each other which combined the CMYK 
+efects of these circles. 
+I applied it to all the circles from the 50 chapters and …, the circles were 
+so small that there wasn’t “enough CMYK” going on. It was often too difcult 
+to actually get a feeling for the circle’s true color because it contained only 
+a few CMYK dots in itself. 
+o(╥﹏╥)o 
+Well, that’s how (dataviz) design works; sometimes you spend hours of work 
+on something that never makes the cut. I took a closer look at the original SVG 
+version again, and wondered what to do about the crisp outer edges. Hmmm … 
+what about adding a thick stroke? And yup, that fxed it enough for me 
+┐(￣ヮ￣)┌ 
+(see Figure 12.10). 
+a b c 
+(a,b,c)(a,b,c) 
+Final canvas CMYK 
+circles that have 
+smooth edges (left 
+images) and can 
+overlap (rightmost 
+image). 
+Fig.12.10Fig.12.10 
+Going back to the SVG 
+version, but now with 
+a stroke to “mask” the 
+sharp edges of the 
+CMYK dots a little. 
+
+--- PAGE 394 ---
+393 
+FEARLESS
+(b)  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fig.12.11 
+(a,b,c,d)
+a b
+c d
+Fig.12.11 
+(a,b,c,d) 
+Figuring out the SVG 
+paths of the “inner 
+relationship” lines. 
+I thought the swirly lines between the inner and outer circles would probably 
+be the second most difcult thing to tackle. So I frst completed the donut-chart-like 
+inner circle where the lines would connect to. Still, I wanted to see if I could get the 
+connections/relations between the characters “visually working” in the inner circle 
+before I moved to the outer lines. If the inner lines didn’t work, I would have to think 
+of a diferent general layout. Time to write some custom SVG paths again! Figure 12.11 
+shows the progress from the simplest approach, straight lines in Figure 12.11 a, to the 
+fnal nicely curved lines in Figure 12.11 d. 
+I colored the lines according to the type of connection (e.g., family, love, 
+friend). With the fnal result on my screen I could see that there weren’t too many 
+lines in there, no visual overload. 
+(๑•`ㅂ•´)ง✧ Finally, it was time to dive into those 
+swirly lines connecting the chapters to the characters. 
+a(a) b 
+The paths in the fnal 
+version are made up 
+of circle segments. 
+I reused code that 
+I initially wrote for 
+the small arcs in my 
+“Books” project about 
+fantasy books. 
+c d 
+
+--- PAGE 395 ---
+394 
+NADIEH
+(a)
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+ 
+ 
+ 
+  
+a
+b
+Fig.12.12 
+(a & b)
+The most extreme and difcult lines that I could create would run from a character 
+to a chapter that’s on the other side of the circle. The line would have to swirl around 
+the inner circle, without touching any of the other character’s names. I thought 
+I could probably pull that of by combining two Cubic Bézier Curves. But making one 
+of those curves act as you want, depending on the data, can be a hassle. And I found 
+out that two was more than twice the hassle. 
+(◍•﹏•) 
+With such difcult paths I started out by placing small dots along the line path 
+itself (the red circle in the center of Figure 12.12 a) and the anchor points (the blue, 
+green, and yellow-orange circle [ignore the pink circle]). It gave me an idea of what 
+“handles” I was moving around and how that afected the shape of the visible line. 
+b 
+Fig.12.12 
+(a & b) 
+a 
+Placing circles on 
+the SVG path anchor 
+points to understand 
+the line movement. 
+After some manual tweaking with fxed numbers I had a shape for the longer line 
+that I liked. I saved those settings and made a shorter line. I then inspected how all 
+of the settings changed between the two options. This gave me hints on how to infer 
+several formulas that would hopefully create nice looking lines, no matter the start 
+and end points. But, like I said, that wasn’t as easy as I’d hoped. 
+I don’t really want to think back on the journey that eventually led me to the 
+lines I needed, but for a long, long time I kept messing it all up completely 
+(see Figure 12.13). 
+
+--- PAGE 396 ---
+395 
+FEARLESS
+(b)
+(a) (b)
+(c)
+ 
+ 
+ 
+ 
+  
+ 
+  
+ 
+c
+b
+a b
+Fig.12.13 
+(a,b,c)
+Fig.12.14 (a & b)
+aa
+(a) c 
+b 
+a b 
+Fig.12.13 
+(a,b,c) 
+Some lines might look 
+ok, but for others the 
+angle might not be 
+right anymore and the 
+lines would get very 
+strange loops. 
+Only through many, many hours of testing, drawing, thinking, and fddling did I inch 
+closer to having all the lines sort of going around the center, and I was left with the 
+image of Figure 12.14 a where I visualized all of the lines. Awesome, that looked like 
+one big mess! There were too many lines in there to glean any insight. 
+(ー_ー*; ) 
+I also didn’t like those thin lines. Perhaps they should have more body? So another 
+session of line formula tweaking ensued. I decided to taper the lines, similar to what 
+I did in my Dragon Ball Z visualization. It felt like an improvement over the same-width 
+lines I had before, but I was still not happy (Figure 12.14 b). 
+Fig.12.14 (a & b) 
+Thin lines at frst, but trying tapered lines 
+to make it look better visually. 
+
+--- PAGE 397 ---
+396 
+NADIEH
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+  
+Fig.12.15Fig.12.15 
+Setting up the 50 
+chapter “pills” around 
+the outside. 
+I moved on from the lines for a bit to adding the chapter and volume numbers to the 
+visual. The inner donut chart inspired me to try something similar for the chapters 
+as well, so I created a donut chart with 50 equally sized, rounded-of sections 
+(shaped like small “pills”) in which I could place a number (See a work-in-progress 
+shot in Figure 12.15). I was happy with the end result and moved on. 
+Next, I organized the volumes (typically a collection of four chapters) into 
+a thinner donut chart which I placed outside the ring of circles. I wasn’t as happy 
+with that as the chapter “pills,” but in the meantime something else was bothering 
+me even more. Now that I’d placed more elements on the page and the look and feel 
+of the visualization was more consistent, those inner lines didn’t appear to ft the 
+design. 
+ಠ_ಠ 
+Accepting that the swirly lines weren’t working, I decided to try something 
+radically diferent. Inspired by the way the rest of the visual looked with all of the 
+added elements, my new idea was to make the lines swirl around and have them 
+run along circular paths. (Think of subway map lines or pipes in a home, but then 
+transformed to a radial layout.) Calculating the small array of radii and angles that 
+I now needed to draw a line was a walk in the park compared to my previous SVG 
+Cubic Bézier Curve shenanigans! Naturally, all that didn’t go right on the frst try, 
+but thankfully I could use some of the work I’d done with the swirly lines. 
+With the change of how the lines looked, I felt that the resulting lines one 
+saw when hovering over a character or chapter ft perfectly with the “straight-
+roundedness” of the rest. And as an added beneft, no more lines overlapped! 
+(See Figure 12.16 f) 
+The screenshots from 
+Figure 12.16 were all 
+made within two hours; 
+not bad in terms 
+of progress! 
+
+--- PAGE 398 ---
+397 
+FEARLESS
+(c)
+(d)
+(b)
+(e)
+(f )
+ 
+ 
+c
+d
+e
+f
+(a)
+Fig.12.16
+Fig.12.16 
+(a,b,c,d,e,f)
+(a,b,c,d,e,f) 
+Diferent steps in the 
+process of creating the 
+third iteration of lines. 
+a
+a 
+b
+b 
+c
+d 
+e
+f 
+
+--- PAGE 399 ---
+398 
+NADIEH
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+Fig.12.17 a b
+Design to Maximize for Delight 
+Cutting out square images from the 50 chapters and 15 characters was yet another 
+to-do in this already long month, but I knew that having actual images of CCS in the 
+visual would make the whole visual a lot more fun to investigate for readers. Plus, it was 
+an important part of teaching people about CCS and therefore worth the efort! 
+Since part of the visualization was about the covers of the chapters, and because 
+I knew most people that landed on the page would probably not know about CCS, 
+I wanted to incorporate some of its imagery. Thankfully, I just so happened to have 
+a nice large circular area in the center! It took a while to manually “cut out” a good 
+looking square image from all 50 chapter covers, but at that time I was in an airport 
+and on a plane anyway. These covers would then be shown in the center when 
+I was fying back 
+from a great nightsomeone hovers over any of the chapters. at the “Information 
+While reading through all the chapters, I took some notes of interesting story Is Beautiful Awards” 
+points that I wanted to highlight. These were easy to add around the outer circle where Data Sketches 
+won GOLD!! Woohoo!
+with the help of the excellent d3-annotation.js library. The super handy “edit” 
+mode let me drag the annotations around, see where I wanted them, and then 
+hardcode and add those locations back into my code. I did end up creating my own 
+lines connecting the visual with the annotations because I wanted them radiating 
+outward from the center (Figure 12.17 b). 
+Fig.12.17 a b 
+(a & b)(a & b) 
+Starting out with the 
+original annotation 
+lines, but eventually 
+creating my own radial 
+lines. 
+With all these elements and layers of information in the visualization, I really needed 
+a legend. I created it using Adobe Illustrator (Figure 12.18), saving me a lot of time 
+over creating them through code. However (as I was getting used to for this project), 
+this legend did not turn out to be the fnal result. 
+I added an introduction at the top to explain the series and its main characters, 
+the legend at the bottom, and with the full visualization ready to preview I shared 
+it with some friends to ask for feedback. I received great suggestions on how to 
+improve the (interactivity) understanding and a much better idea for the legend that 
+would show the visualization with its rings and explain what each ring truly meant 
+(see Figure 12.26 later in this chapter). And after all that time and efort, I fnally had 
+a visualization to share with everybody! 
+
+--- PAGE 400 ---
+399 
+FEARLESS
+ 
+  
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+ 
+  
+ 
+  
+  
+  
+  
+Fig.12.18Fig.12.18 
+The frst legend 
+I created in Adobe 
+Illustrator, explaining 
+how to read the 
+visualization. 
+Combine Tools 
+For a very long time, I created most of my visuals completely using JavaScript code. 
+However, I noticed that some parts of the visual, such as legends and annotations, 
+took up both a lot of time to create and many lines of code. 
+I later realized this was a silly process for visuals that ended up as static images 
+anyway. For those, I now only create the “base” visualization while programming. 
+Then I copy the SVG visual from my browser into a vector drawing program and add 
+any surrounding annotations, pointers, titles, and other elements. 
+I can still make use of the ease of a vector program even when the fnal visual 
+remains interactive. For example, you can create a legend, either completely as an 
+image, and place this next/within your visual (which I did for this project). Or you can 
+save your legend as an SVG and load it into your visual. There are certain ways in which 
+the (legend) SVG remains changeable by your JavaScript code. Which means that you 
+can adjust the colors of each element separately, resize it, or even add an animation 
+to it! 
+So keep an open mind when deciding which tool to use; not everything has 
+to be done in the tool that you use for the (interactive) visualization. Tools are typically 
+not meant to do everything, but specialize in certain things. 
+Reflections 
+I use either Adobe 
+Illustrator or Afnity 
+Designer for my vector 
+work, but Inkscape, 
+GIMP , or Sketch are 
+other options. 
+This visual took me 86 hours to create, and a lot of that time went into things that 
+weren’t used in the fnal visualization. I spent ±5 hours on a CMYK canvas-based 
+dot efect, ±15 hours on the swirly lines, and ±6 hours on a page layout that is only 
+really visible when you press “Read More.” 
+Still, I’m happy with how the visualization turned out. I feel I haven’t 
+quite seen a similar radial visualization like it before. And Data Sketches 
+is all about experimenting with new ideas, so it’s always a joy when a project 
+turns out refreshing. I hope you enjoy interacting with the visualization online, 
+even if you’ve never heard of Cardcaptor Sakura before. (It’s great, btw!) 
