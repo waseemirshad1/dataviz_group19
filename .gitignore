@@ -1,0 +1,3 @@
+# Books (large PDF files)
+books/*.pdf
+books/**/*.pdf
