@@ -18,19 +18,10 @@ def _():
     import os
     from pathlib import Path
 
-    # Resolve data path: read DATA_PATH from ../.env (one level above this
-    # script). If the file or key isn't there, use the fallback below.
     def _resolve_data_path():
-        fallback = os.path.expanduser("~/dataviz_group19/data/g0r72a_data_ines_2526-main/")
-        env_file = Path(__file__).resolve().parent.parent / ".env"
-        if env_file.is_file():
-            for line in env_file.read_text(encoding="utf-8").splitlines():
-                if line.strip().startswith("DATA_PATH="):
-                    value = line.split("=", 1)[1].strip()
-                    if value:
-                        path = os.path.expanduser(value)
-                        return path if os.path.isabs(path) else str(env_file.parent / path)
-        return fallback
+        default = os.path.expanduser("~/dataviz_group19/data/g0r72a_data_ines_2526-main/")
+        path = Path(__file__).resolve().parent.parent / "data"
+        return str(path) if path.is_dir() else default
 
     base_path = _resolve_data_path()
     if not base_path.endswith(("/", "\\")):
@@ -314,12 +305,33 @@ def _(df_tulip, mo):
         label="Yield range (zoom y)",
     )
 
-    mo.hstack([size_scale, groups_filter, show_all_dots, bio_range, yield_range])
-    return bio_range, groups_filter, show_all_dots, size_scale, yield_range
+    # Decides which species win the greedy non-overlap competition.
+    sort_priority = mo.ui.dropdown(
+        options=["Most prevalent", "High-yield association", "Bridge candidates"],
+        value="Most prevalent",
+        label="Visibility priority",
+    )
+
+    mo.hstack([size_scale, groups_filter, show_all_dots, sort_priority, bio_range, yield_range])
+    return (
+        bio_range,
+        groups_filter,
+        show_all_dots,
+        size_scale,
+        sort_priority,
+        yield_range,
+    )
 
 
 @app.cell
-def _(bio_range, df_tulip, groups_filter, size_scale, yield_range):
+def _(
+    bio_range,
+    df_tulip,
+    groups_filter,
+    size_scale,
+    sort_priority,
+    yield_range,
+):
     df_visible = df_tulip[df_tulip['group'].isin(groups_filter.value)].copy()
 
     # Filter by zoom window: solving the fact that species overlap, when you zoom, there is less overlap as more is drawn.
@@ -330,7 +342,16 @@ def _(bio_range, df_tulip, groups_filter, size_scale, yield_range):
         (df_visible['yield_assoc'] >= ymin) & (df_visible['yield_assoc'] <= ymax)
     ]
 
-    df_visible = df_visible.sort_values('n_sites', ascending=False).reset_index(drop=True)
+    # Priority decides which species win the overlap competition.
+    # Top-tier= sites in tiers 4+5 (high-yield).
+    # Bridge score = top × bottom, non-zero only when the species appears at both ends of the gradient.
+    if sort_priority.value == "High-yield association":
+        df_visible['_priority'] = df_visible['tier_counts'].apply(lambda t: t[3] + t[4])
+    elif sort_priority.value == "Bridge candidates":
+        df_visible['_priority'] = df_visible['tier_counts'].apply(lambda t: (t[0] + t[1]) * (t[3] + t[4]))
+    else:
+        df_visible['_priority'] = df_visible['n_sites']
+    df_visible = df_visible.sort_values('_priority', ascending=False).reset_index(drop=True)
 
     # Greedy non-overlap on the visible window only
     if len(df_visible) > 0:
@@ -537,13 +558,14 @@ def _(
     pinned_species,
     show_all_dots,
     size_scale,
+    sort_priority,
     tulip_chart,
     yield_range,
 ):
     mo.vstack([
         mo.md("---"),
         mo.md("## Design 3 Interactive Panel"),
-        mo.hstack([size_scale, groups_filter, show_all_dots], justify="start", gap=2),
+        mo.hstack([size_scale, groups_filter, show_all_dots, sort_priority], justify="start", gap=2),
         mo.hstack([bio_range, yield_range], justify="start", gap=2),
         tulip_chart,
         pinned_species,
