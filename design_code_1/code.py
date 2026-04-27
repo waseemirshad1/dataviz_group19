@@ -1,7 +1,7 @@
 import marimo
 
-__generated_with = "0.21.1"
-app = marimo.App(width="medium")
+__generated_with = "0.23.3"
+app = marimo.App(width="full")
 
 
 @app.cell
@@ -718,6 +718,299 @@ def _(mo):
     - *Evolution:* Transitioning from abstract points -> vectors -> physical plot size metaphors.
     """)
     return
+
+
+@app.cell
+def _():
+    import math
+    from svg import SVG, Rect, G, Line, Text, Title
+
+    return G, Line, Rect, SVG, Text, Title, math
+
+
+@app.cell
+def _(mo):
+    mo.md("""
+    ---
+    # Coffee site biodiversity vs. yield
+
+    Bar width = site's share of group yield. Bar height = total species
+    richness, stacked as woody (red) / herbaceous (green) / bryophyte (blue).
+    The thin band on top of each bar shows the year-over-year change.
+    Hover for details.
+    """)
+    return
+
+
+@app.cell
+def _(df):
+    # Add group prefix and a numeric site index so we can filter Ge/Go and sort
+    # naturally (Ge1, Ge2, ..., Ge10) without disturbing the df used by the
+    # earlier visualizations.
+    df_bar = df.copy()
+    df_bar["group"] = df_bar["Site ID"].str[:2]
+    df_bar["site_num"] = df_bar["Site ID"].str[2:].astype(int)
+    df_bar = df_bar.sort_values(["group", "site_num"]).reset_index(drop=True)
+    return (df_bar,)
+
+
+@app.cell
+def _():
+    svg_width = 1200
+    svg_height = 720
+    margin_left = 60
+    margin_right = 80
+    margin_top = 50
+    margin_bottom = 110
+    plot_width = svg_width - margin_left - margin_right
+    plot_height = svg_height - margin_top - margin_bottom
+    return (
+        margin_left,
+        margin_top,
+        plot_height,
+        plot_width,
+        svg_height,
+        svg_width,
+    )
+
+
+@app.function
+def rescale(x, dmin, dmax, rmin, rmax):
+    return rmin + (x - dmin) * (rmax - rmin) / (dmax - dmin)
+
+
+@app.cell
+def _(math):
+    # Three width-scaling options because yields span 4 orders of magnitude.
+    def scale_yield(y, ymin, ymax, kind):
+        if kind == "linear":
+            return rescale(y, ymin, ymax, 1, 100)
+        if kind == "sqrt":
+            return rescale(math.sqrt(y), math.sqrt(ymin), math.sqrt(ymax), 1, 100)
+        if kind == "log":
+            return rescale(math.log10(y), math.log10(ymin), math.log10(ymax), 1, 100)
+
+    return (scale_yield,)
+
+
+@app.cell
+def _(G, Line, Rect, Text, Title):
+    def draw_bar(x, w, baseline_y, h_woody, h_veg, h_bryo, label, tip, delta):
+        top_y = baseline_y - (h_woody + h_veg + h_bryo)
+        cx = x + w / 2
+
+        elements = [
+            Rect(x=x, y=top_y, width=w, height=h_woody, class_="seg woody",
+                 elements=[Title(elements=[tip])]),
+            Rect(x=x, y=top_y + h_woody, width=w, height=h_veg, class_="seg veg",
+                 elements=[Title(elements=[tip])]),
+            Rect(x=x, y=top_y + h_woody + h_veg, width=w, height=h_bryo, class_="seg bryo",
+                 elements=[Title(elements=[tip])]),
+            Line(x1=cx, x2=cx, y1=baseline_y, y2=baseline_y + 4, class_="tick"),
+            Text(x=cx, y=baseline_y + 7, text=label, class_="x-label",
+                 transform=f"rotate(-90, {cx}, {baseline_y + 7})"),
+        ]
+        if delta:
+            elements.append(Rect(x=x, y=top_y - 5, width=w, height=3,
+                                 class_=f"delta {delta}",
+                                 elements=[Title(elements=[tip])]))
+        return G(elements=elements, class_="bar")
+
+    return (draw_bar,)
+
+
+@app.cell
+def _(Line, Text, margin_left, margin_top, plot_height, plot_width):
+    def draw_y_axis(max_v):
+        if max_v <= 50:
+            step = 10
+        elif max_v <= 100:
+            step = 20
+        else:
+            step = 25
+        elements = []
+        v = 0
+        while v <= max_v:
+            y = margin_top + plot_height - rescale(v, 0, max_v, 0, plot_height)
+            elements.append(Line(x1=margin_left, x2=margin_left + plot_width,
+                                 y1=y, y2=y, class_="grid"))
+            elements.append(Text(x=margin_left - 6, y=y, text=str(v), class_="y-label"))
+            v += step
+        cy = margin_top + plot_height / 2
+        elements.append(Text(x=15, y=cy, text="Total species richness",
+                             class_="axis-title",
+                             transform=f"rotate(-90, 15, {cy})"))
+        return elements
+
+    return (draw_y_axis,)
+
+
+@app.cell
+def _(Line, Text, margin_left, margin_top, plot_height, plot_width):
+    def draw_mean_line(mean_v, max_v):
+        y = margin_top + plot_height - rescale(mean_v, 0, max_v, 0, plot_height)
+        return [
+            Line(x1=margin_left, x2=margin_left + plot_width,
+                 y1=y, y2=y, class_="mean-line"),
+            Text(x=margin_left + plot_width + 4, y=y,
+                 text=f"mean {mean_v:.1f}", class_="mean-label"),
+        ]
+
+    return (draw_mean_line,)
+
+
+@app.cell
+def _(Rect, Text):
+    def draw_legend(x0, y0):
+        items = [
+            ("Woody (WV)",        "seg woody"),
+            ("Herbaceous (NWV)",  "seg veg"),
+            ("Bryophyte (BT)",    "seg bryo"),
+            ("Yield up vs prev",  "delta up"),
+            ("Yield down vs prev","delta down"),
+        ]
+        elements = []
+        for _i, (_label, _cls) in enumerate(items):
+            _x = x0 + _i * 140
+            elements.append(Rect(x=_x, y=y0, width=12, height=12, class_=_cls))
+            elements.append(Text(x=_x + 16, y=y0 + 6, text=_label, class_="legend"))
+        return elements
+
+    return (draw_legend,)
+
+
+@app.cell
+def _(mo):
+    mo.md("""
+    <style>
+    svg.notebook { border: 1px solid #ccc; background: white; }
+
+    rect.seg {
+        stroke: black;
+        stroke-width: 0.6;
+        transition: x 350ms ease, y 350ms ease,
+                    width 350ms ease, height 350ms ease;
+    }
+    rect.seg.woody { fill: #d62728; }
+    rect.seg.veg   { fill: #2ca02c; }
+    rect.seg.bryo  { fill: #1f77b4; }
+
+    rect.delta { stroke: none; }
+    rect.delta.up   { fill: #2ca02c; }
+    rect.delta.down { fill: #d62728; }
+
+    g.bar { transition: opacity 200ms; cursor: crosshair; }
+    svg.notebook:has(g.bar:hover) g.bar:not(:hover) { opacity: 0.25; }
+
+    line.grid       { stroke: #ddd; stroke-width: 0.5; }
+    line.tick       { stroke: black; stroke-width: 1; }
+    line.mean-line  { stroke: #555; stroke-width: 1; stroke-dasharray: 4 4; opacity: 0.7; }
+
+    text.y-label    { font: 11px sans-serif; text-anchor: end; dominant-baseline: middle; }
+    text.x-label    { font: 10px sans-serif; text-anchor: end; dominant-baseline: middle; }
+    text.axis-title { font: 12px sans-serif; text-anchor: middle; font-weight: 600; }
+    text.legend     { font: 11px sans-serif; dominant-baseline: middle; }
+    text.mean-label { font: 10px sans-serif; fill: #555; dominant-baseline: middle; }
+    </style>
+    """)
+    return
+
+
+@app.cell
+def _(
+    SVG,
+    df_bar,
+    draw_bar,
+    draw_legend,
+    draw_mean_line,
+    draw_y_axis,
+    group_dd,
+    margin_left,
+    margin_top,
+    mo,
+    pd,
+    plot_height,
+    plot_width,
+    scale_dd,
+    scale_yield,
+    svg_height,
+    svg_width,
+    year_dd,
+):
+    _yield_col = "CC_Yield_" + year_dd.value
+    _visible = df_bar[df_bar["group"] == group_dd.value].reset_index(drop=True)
+    _missing = _visible[_visible[_yield_col].isna()]["Site ID"].tolist()
+    _visible = _visible.dropna(subset=[_yield_col]).reset_index(drop=True)
+
+    # Bar widths fill the plot area exactly.
+    _yields = _visible[_yield_col].tolist()
+    _ymin, _ymax = min(_yields), max(_yields)
+    _raw = [scale_yield(_y, _ymin, _ymax, scale_dd.value) for _y in _yields]
+    _total = sum(_raw)
+    _widths = [_r / _total * plot_width for _r in _raw]
+
+    _max_r = int(_visible["Total_Spps_richness"].max())
+    _mean_r = _visible["Total_Spps_richness"].mean()
+    _baseline_y = margin_top + plot_height
+    _year = int(year_dd.value)
+    _prev_col = f"CC_Yield_{_year - 1}" if _year > 2017 else None
+
+    _bars = []
+    _x = margin_left
+    for _i, _row in _visible.iterrows():
+        _w = _widths[_i]
+        _h_woody = rescale(_row["Woody_Spps"], 0, _max_r, 0, plot_height)
+        _h_veg   = rescale(_row["Veg_Spps"],   0, _max_r, 0, plot_height)
+        _h_bryo  = rescale(_row["Bryo_Spps"],  0, _max_r, 0, plot_height)
+
+        _tip = (
+            f"Site: {_row['Site ID']}\n"
+            f"Yield {year_dd.value}: {_row[_yield_col]:.1f}\n"
+            f"Total richness: {_row['Total_Spps_richness']}\n"
+            f"  Woody:       {_row['Woody_Spps']}\n"
+            f"  Herbaceous:  {_row['Veg_Spps']}\n"
+            f"  Bryophyte:   {_row['Bryo_Spps']}"
+        )
+
+        _delta = None
+        if _prev_col and not pd.isna(_row[_prev_col]):
+            _pct = (_row[_yield_col] - _row[_prev_col]) / _row[_prev_col] * 100
+            if _pct > 0:
+                _delta = "up"
+                _tip += f"\nvs {_year - 1}: +{_pct:.0f}%"
+            elif _pct < 0:
+                _delta = "down"
+                _tip += f"\nvs {_year - 1}: {_pct:.0f}%"
+
+        _bars.append(draw_bar(_x, _w, _baseline_y, _h_woody, _h_veg, _h_bryo,
+                              _row["Site ID"], _tip, _delta))
+        _x += _w
+
+    _svg = SVG(width=svg_width, height=svg_height, class_="notebook",
+               elements=[draw_legend(margin_left, 16),
+                         draw_y_axis(_max_r),
+                         draw_mean_line(_mean_r, _max_r),
+                         _bars])
+
+    _stats = (
+        f"**Group {group_dd.value}, year {year_dd.value}** — "
+        f"{len(_visible)} sites · yield {_ymin:.1f}–{_ymax:.1f} · "
+        f"mean richness {_mean_r:.1f} · max richness {_max_r}"
+    )
+    if _missing:
+        _stats += f"<br>*Dropped (no {year_dd.value} data): {', '.join(_missing)}*"
+
+    mo.vstack([mo.Html(_svg.as_str()), mo.md(_stats)])
+    return
+
+
+@app.cell
+def _(mo):
+    year_dd = mo.ui.dropdown(options=["2017", "2018", "2019"], value="2017", label="Year")
+    group_dd = mo.ui.dropdown(options=["Ge", "Go"], value="Ge", label="Group")
+    scale_dd = mo.ui.dropdown(options=["sqrt", "linear", "log"], value="sqrt", label="Width scale")
+    mo.hstack([year_dd, group_dd, scale_dd], justify="start", gap=2)
+    return group_dd, scale_dd, year_dd
 
 
 if __name__ == "__main__":
