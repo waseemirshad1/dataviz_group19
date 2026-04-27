@@ -716,6 +716,9 @@ def _(mo):
     - *Novel Space:* Utilizing a geographical hex-grid metaphor for non-spatial site plots, flower-glyph mark-as-metaphor at species unit (semantic uniqueness across two units of analysis)
     - *Annotation/Theory:* Hatch strokes for colorblind safety on the hex map
     - *Evolution:* Transitioning from abstract points -> vectors -> physical plot size metaphors.
+
+    **Stacked Bar Chart**
+    The stacked bar chart re-frames sites as competitors for yield share within their group. Toggling between Ge and Go reveals that the two groups are structurally different — Ge sites span a wider richness range (max 111 species vs Go's 86) while Go contains the higher-yield outliers. Toggling across years exposes the volatility of the system: 2017→2018 shows almost universal yield gains (most top bands green), while 2018→2019 shows the reverse — a visual signal that single-year snapshots can mislead. The stacked composition also surfaces a consistent ecological pattern: herbaceous species dominate richness at every site in both groups, with the woody and bryophyte layers contributing the differentiation between sites.
     """)
     return
 
@@ -738,6 +741,22 @@ def _(mo):
     richness, stacked as woody (red) / herbaceous (green) / bryophyte (blue).
     The thin band on top of each bar shows the year-over-year change.
     Hover for details.
+
+    ## Design 4: The Coffee-Yield Stacked Bar Chart
+
+    *How does the diversity of plant communities (across vertical strata) relate to the yield each site contributes to its group, and does this relationship shift across years?*
+
+    **Semantic Evolution:** We diverge from a standard side-by-side bar chart (where width is fixed and height encodes one quantity) to a **proportional-width stacked bar chart**. Width encodes yield share, height encodes total species richness split into three layers, so productivity and biodiversity are read on independent axes within the same mark.
+    - **Marks and Channels:**
+      - **Bars (Sites):** Each bar physically represents one coffee site within the selected group.
+      - **Width (Encoding):** Proportional to the site's share of the group's total yield for the chosen year. Three width-scaling options (linear, sqrt, log) let the reader navigate the four-orders-of-magnitude spread in yields.
+      - **Height + Stack (Encoding):** Total bar height = total plant species richness, partitioned into three vertically stacked layers — Woody (red, top) / Herbaceous (green, middle) / Bryophyte (blue, bottom). The stack mirrors the physical canopy structure of the agroforest.
+      - **Top Band (Encoding):** A thin horizontal strip above each bar encodes the year-over-year change in yield: green for an increase, red for a decrease, absent for the baseline year (2017).
+      - **Reference Line:** A dashed mean-richness line provides a quick visual benchmark for "above average" vs "below average" sites within the group.
+
+    *Theory Note:* By aligning width-as-yield horizontally and stacking-as-richness vertically, the two main axes of the question (productivity vs biodiversity) are encoded on orthogonal channels — letting the reader scan one without interference from the other. The proportional widths also exploit pre-attentive area perception: dominant sites are obvious without needing to read tick labels. Hover tooltips and a non-hovered dimming effect support drill-down without crowding the static view.
+
+    *(Note: Sites missing yield data for the selected year are listed below the chart rather than silently dropped, so the reader can audit the visible-vs-total counts.)*
     """)
     return
 
