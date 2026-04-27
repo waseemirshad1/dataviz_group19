@@ -10,10 +10,9 @@ def _():
     import pandas as pd
     import altair as alt
     import numpy as np
-    import matplotlib.pyplot as plt
-    from matplotlib.patches import RegularPolygon
-    import matplotlib.patches as mpatches
-    from matplotlib.lines import Line2D
+    import random
+    from bokeh.plotting import figure
+    from bokeh.models import ColumnDataSource, HoverTool
 
     # Load data
     base_path = "~/dataviz_group19/data/g0r72a_data_ines_2526-main/"
@@ -26,7 +25,7 @@ def _():
 
     # Derivations
     df['Yield Quantile'] = pd.qcut(df['Mean_CC_Yield'], 3, labels=['Low', 'Medium', 'High'])
-    return Line2D, RegularPolygon, alt, df, mo, mpatches, np, plt
+    return ColumnDataSource, HoverTool, alt, df, figure, mo, np
 
 
 @app.cell
@@ -64,7 +63,7 @@ def _(mo):
       - **Area/Size (Encoding):** The size of the hexagon is relative (scaled) to the actual 'Coffee density in 30x30m plot' within that site.
       - **Color Hue + Pattern (Encoding/Texture):** The color with diagonal stripes represents the 3-year trajectory:
         - Red with forward diagonal (`///`): **Declining trend towards endangerment**.
-        - Green with backward diagonal (`\\\\`): **Safe trajectory**.
+        - Green with backward diagonal (`\`): **Safe trajectory**.
 
     *Theory Note:* By utilizing size (area) to encode physical plot density and hatch patterns + complementary colors (Red/Green) to encode status, we tap into pre-attentive perception. Trajectories are immediately distinguished by texture, making the map highly accessible even for colorblind users, thus fulfilling the 'Good (+2)' criteria for annotations and rationale.
     *(Note: Trend is derived from the available 3-year longitudinal Yield dataset which serves as our proxy for multi-year species/site viability).*
@@ -73,11 +72,9 @@ def _(mo):
 
 
 @app.cell
-def _(Line2D, RegularPolygon, df, mpatches, np, plt):
-    # Hex Map Implementation
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.set_aspect('equal')
-
+def _(ColumnDataSource, HoverTool, df, figure, np):
+    # Hex Map Implementation using Bokeh (Contiguous Interactive Beehive)
+    # 1. Prepare data
     df_hex = df.copy()
 
     # Calculate Trend over the 3 years
@@ -88,43 +85,157 @@ def _(Line2D, RegularPolygon, df, mpatches, np, plt):
 
     df_hex['Trend'] = df_hex.apply(get_trend, axis=1)
 
+    # Sort df_hex naturally (alphanumerically) by Site ID before assigning spiral coordinates
+    import re
+    def natural_sort_key(s):
+        return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', str(s))]
+
+    df_hex['sort_key'] = df_hex['Site ID'].apply(natural_sort_key)
+    df_hex = df_hex.sort_values('sort_key').drop(columns=['sort_key']).reset_index(drop=True)
+
+
+    # 2. Compute contiguous placement via a Random Walk on Hex Lattice
+    directions = [(1,0), (1,-1), (0,-1), (-1,0), (-1,1), (0,1)]
+    coords = [(0,0)]
+    visited = set(coords)
+
+    min_dens = df_hex['Coffee density in 30 x 30m plot'].min()
     max_dens = df_hex['Coffee density in 30 x 30m plot'].max()
-    cols = 10
 
-    for i, row in df_hex.iterrows():
-        col = i % cols
-        r = i // cols
+    # 2. Scale Transformation (Min->0.4, Max->1.0 to ensure clearest relative comparisons)
+    df_hex['scale'] = 0.4 + 0.6 * ((df_hex['Coffee density in 30 x 30m plot'] - min_dens) / (max_dens - min_dens))
 
-        # Hex grid layout math
-        x = col * np.sqrt(3) + (np.sqrt(3)/2 if r % 2 == 1 else 0)
-        y = r * 1.5
+    # 3. Compute contiguous placement via a tight spiral on Hex Lattice
+    N = len(df_hex)
+    def hex_spiral(n):
+        coords = [(0,0)]
+        if n <= 1: return coords
+        directions = [(1,0), (0,1), (-1,1), (-1,0), (0,-1), (1,-1)]
+        q, r = 0, 0
+        radius = 1
+        while len(coords) < n:
+            q += directions[4][0]
+            r += directions[4][1]
+            for i in range(6):
+                for _ in range(radius):
+                    if len(coords) < n:
+                        coords.append((q, r))
+                    q += directions[i][0]
+                    r += directions[i][1]
+            radius += 1
+        return coords
+
+    coords = hex_spiral(N)
+
+    # 4. Strict Honeycomb Lattice (No Relaxation)
+    cx = np.array([np.sqrt(3) * (q + r/2) for q, r in coords])
+    cy = np.array([1.5 * r for q, r in coords])
+
+    df_hex['cx'] = cx
+    df_hex['cy'] = cy
+
+    # 5. Create polygon shapes and attributes
+    xs_list = []
+    ys_list = []
+    colors = []
+    hatches = []
+
+    # 3. Create polygon shapes for patches
+    xs_list = []
+    ys_list = []
+    colors = []
+    hatches = []
+
+    for idx, row in df_hex.iterrows():
+        center_x = row['cx']
+        center_y = row['cy']
+        rad = row['scale']
+
+        angles = [np.radians(60 * i + 30) for i in range(6)]
+        xs = [center_x + rad * np.cos(a) for a in angles]
+        ys = [center_y + rad * np.sin(a) for a in angles]
+
+        xs_list.append(xs)
+        ys_list.append(ys)
 
         trend = row['Trend']
-        color = '#ff6b6b' if trend == 'Declining' else '#51cf66'
-        hatch = '///' if trend == 'Declining' else '\\\\\\\\'
+        colors.append('#ff6b6b' if trend == 'Declining' else '#51cf66')
+        hatches.append('/' if trend == 'Declining' else '\\\\')
 
-        # Base scale + variable size based on Density relative to the rest
-        scale = 0.4 + (row['Coffee density in 30 x 30m plot'] / max_dens) * 0.45
+    df_hex['xs'] = xs_list
+    df_hex['ys'] = ys_list
+    df_hex['color'] = colors
+    df_hex['hatch'] = hatches
+    df_hex['alpha'] = 0.85  # Dynamic tracking for search highlighting
 
-        hex_patch = RegularPolygon((x, y), numVertices=6, radius=scale, 
-                                   orientation=np.radians(30),
-                                   facecolor=color, edgecolor='black', hatch=hatch, alpha=0.85)
-        ax.add_patch(hex_patch)
-        ax.text(x, y, row['Site ID'], ha='center', va='center', fontsize=7, weight='bold', color='whitesmoke')
+    source = ColumnDataSource(df_hex)
 
-    ax.autoscale_view()
-    plt.axis('off')
+    # 6. Generate Interactive Bokeh Figure
+    p = figure(
+        width=850, height=550,
+        title="Packed Hexagon Plot Map: Health Trajectory & Relative Density", 
+        tools="pan,wheel_zoom,reset,save", match_aspect=True,
+        toolbar_location="above"
+    )
 
-    # Legend
-    legend_elements = [
-        mpatches.Patch(facecolor='#ff6b6b', hatch='///', edgecolor='black', alpha=0.85, label='Declining Trend (Endangerment)'),
-        mpatches.Patch(facecolor='#51cf66', hatch='\\\\\\\\', edgecolor='black', alpha=0.85, label='Safe Trajectory'),
-        Line2D([0], [0], marker='h', color='w', label='Size: Relative Plot Size (Density)', markerfacecolor='gray', markersize=14)
-    ]
-    ax.legend(handles=legend_elements, loc='center left', bbox_to_anchor=(1.05, 0.5), frameon=False, fontsize=11)
-    fig.tight_layout()
+    # Patches allow plotting distinct polygons natively
+    renderers = p.patches(
+        'xs', 'ys', source=source,
+        fill_color='color', hatch_pattern='hatch', 
+        line_color="black", line_width=1.5, fill_alpha='alpha', line_alpha='alpha',
+        hover_fill_alpha=1.0, hover_line_color="white", hover_line_width=2.5
+    )
 
-    fig
+    # 7. Interactive Hover tool configuration
+    hover = HoverTool(tooltips=[
+        ("Site ID", "@{Site ID}"),
+        ("3-Year Trend", "@Trend"),
+        ("Yield (mean kg)", "@Mean_CC_Yield{0.0}"),
+        ("Coffee Density", "@{Coffee density in 30 x 30m plot}{0.0}"),
+        ("Species Richness (Total)", "@Total_Spps_richness"),
+        ("Structural Index", "@{Coffee structure index}{0.00}")
+    ])
+    p.add_tools(hover)
+
+    # Render overlaid plot name texts
+    p.text(
+        'cx', 'cy', text='Site ID', source=source,
+        text_align='center', text_baseline='middle', 
+        text_font_size='8pt', text_color='white', text_font_style='bold',
+        text_alpha='alpha'
+    )
+
+    p.axis.visible = False
+    p.grid.visible = False
+    p.outline_line_color = None
+
+    # 8. Setup Interactive Search Bar
+    from bokeh.models import TextInput, CustomJS
+    from bokeh.layouts import column
+
+    search_input = TextInput(value="", title="Search Site ID:")
+    search_input.js_on_change('value', CustomJS(args=dict(source=source), code="""
+        const data = source.data;
+        const search_val = cb_obj.value.trim().toLowerCase();
+
+        for (let i = 0; i < data['Site ID'].length; i++) {
+            if (!search_val) {
+                // Reset styling completely when search is empty
+                data['alpha'][i] = 0.85;
+            } else {
+                const current_id = String(data['Site ID'][i]).toLowerCase();
+                if (current_id.includes(search_val)) {
+                    data['alpha'][i] = 0.85;
+                } else {
+                    data['alpha'][i] = 0.1; // heavily dim out non-matching hexes
+                }
+            }
+        }
+        source.change.emit();
+    """))
+
+    layout = column(search_input, p)
+    layout
     return
 
 
@@ -154,12 +265,15 @@ def _(alt, df):
     df_comet['tail_x'] = df_comet['Total_Spps_richness'] - (struc_norm * x_range * 0.1 * density_norm)
     df_comet['tail_y'] = df_comet['Mean_CC_Yield'] - (density_norm * y_range * 0.1)
 
+    # Normalize dominance using percentiles (Ranking) instead of min-max to break the heavily skewed data cluster!
+    df_comet['Dominance Percentile'] = df_comet['Coffee dominance'].rank(pct=True)
+
     points = alt.Chart(df_comet).mark_circle(opacity=0.8, stroke='white', strokeWidth=1).encode(
         x=alt.X('Total_Spps_richness:Q', title='Total Species Richness (Biodiversity)'),
         y=alt.Y('Mean_CC_Yield:Q', title='Mean Clean Coffee Yield (kg)'),
         color=alt.Color('Yield Quantile:N', scale=alt.Scale(scheme='viridis')),
-        size=alt.Size('Coffee dominance:Q', scale=alt.Scale(range=[50, 500]), title='Coffee Dominance'),
-        tooltip=['Site ID', 'Mean_CC_Yield', 'Total_Spps_richness', 'Coffee structure index', 'Coffee density in 30 x 30m plot']
+        size=alt.Size('Dominance Percentile:Q', scale=alt.Scale(range=[20, 800]), title='Coffee Dominance (Percentile)'),
+        tooltip=['Site ID', 'Mean_CC_Yield', 'Total_Spps_richness', 'Coffee dominance', 'Coffee density in 30 x 30m plot']
     )
 
     tails = alt.Chart(df_comet).mark_rule(opacity=0.5).encode(
@@ -179,8 +293,8 @@ def _(alt, df):
 
 
 @app.cell
-def _(chart1, mo):
-    mo.ui.altair_chart(chart1)
+def _(chart1):
+    chart1
     return
 
 
