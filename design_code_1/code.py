@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.23.3"
+__generated_with = "0.21.1"
 app = marimo.App(width="medium")
 
 
@@ -15,6 +15,8 @@ def _():
     import matplotlib.patches as mpatches
     from matplotlib.lines import Line2D
     import plotly.graph_objects as go
+    from bokeh.models import ColumnDataSource, HoverTool
+    from bokeh.plotting import figure
     import os
     from pathlib import Path
 
@@ -41,15 +43,15 @@ def _():
     # Derivations
     df['Yield Quantile'] = pd.qcut(df['Mean_CC_Yield'], 3, labels=['Low', 'Medium', 'High'])
     return (
-        Line2D,
-        RegularPolygon,
+        ColumnDataSource,
+        HoverTool,
         alt,
         df,
         df_comp,
         df_spec,
+        figure,
         go,
         mo,
-        mpatches,
         np,
         pd,
         plt,
@@ -195,11 +197,7 @@ def _(ColumnDataSource, HoverTool, df, figure, np):
     df_hex['hatch'] = hatches
     df_hex['alpha'] = 0.85  # Dynamic tracking for search highlighting
 
-        hex_patch = RegularPolygon((x, y), numVertices=6, radius=scale, 
-                                orientation=np.radians(30),
-                                   facecolor=color, edgecolor='black', hatch=hatch, alpha=0.85)
-        ax.add_patch(hex_patch)
-        ax.text(x, y, row['Site ID'], ha='center', va='center', fontsize=7, weight='bold', color='whitesmoke')
+    source = ColumnDataSource(df_hex)
 
     # 6. Generate Interactive Bokeh Figure
     p = figure(
@@ -442,7 +440,7 @@ def _(df_tulip, mo):
     )
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     bio_range,
     df_tulip,
@@ -495,7 +493,7 @@ def _(
     return df_dotted, df_drawn
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     GROUP_COLORS,
     bio_range,
