@@ -700,40 +700,9 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
-    mo.md("""
-    ### Findings & Conclusion
-    By placing the **Hexagon Map** at the core:
-    1. We immediately identify spatial groupings of "Declining" vs "Safe" trajectories. The varying sizes of the hexagons visually highlight that smaller, sparser plots sometimes manage to maintain safer trajectories than hyper-dense plots.
-    2. The **Comet Chart** steps in to explain the *'Why'*—those declining large hexagons correspond to the vector tails that show extreme underlying management structures (high density/dominance pushing them out of the Pareto optimal zone).
-
-    **Tulip Field**
-    By profiling each species across yield tiers, the tulip shape goes beyond what a simple plot can reveal: a species' position shows its average associated yield and biodiversity, but its tier curve shows with which type of sites it's associated.
-    The general expectation is that high-biodiversity sites host species tied to low-yielding, low-management settings. Yet a species with medium average yield and medium average biodiversity for example can still have a tier profile that shows an association with higher yield sites.
-
-    **(Rubric Check: Good +2)**
-    - *Novel Space:* Utilizing a geographical hex-grid metaphor for non-spatial site plots, flower-glyph mark-as-metaphor at species unit (semantic uniqueness across two units of analysis)
-    - *Annotation/Theory:* Hatch strokes for colorblind safety on the hex map
-    - *Evolution:* Transitioning from abstract points -> vectors -> physical plot size metaphors.
-
-    **Stacked Bar Chart**
-    The stacked bar chart re-frames sites as competitors for yield share within their group. Toggling between Ge and Go reveals that the two groups are structurally different — Ge sites span a wider richness range (max 111 species vs Go's 86) while Go contains the higher-yield outliers. Toggling across years exposes the volatility of the system: 2017→2018 shows almost universal yield gains (most top bands green), while 2018→2019 shows the reverse — a visual signal that single-year snapshots can mislead. The stacked composition also surfaces a consistent ecological pattern: herbaceous species dominate richness at every site in both groups, with the woody and bryophyte layers contributing the differentiation between sites.
-    """)
-    return
-
-
-@app.cell
-def _():
-    import math
-    from svg import SVG, Rect, G, Line, Text, Title
-
-    return G, Line, Rect, SVG, Text, Title, math
-
-
-@app.cell
-def _(mo):
-    mo.md("""
+    mo.md(r"""
     ---
     # Coffee site biodiversity vs. yield
 
@@ -759,6 +728,14 @@ def _(mo):
     *(Note: Sites missing yield data for the selected year are listed below the chart rather than silently dropped, so the reader can audit the visible-vs-total counts.)*
     """)
     return
+
+
+@app.cell
+def _():
+    import math
+    from svg import SVG, Rect, G, Line, Text, Title
+
+    return G, Line, Rect, SVG, Text, Title, math
 
 
 @app.cell
@@ -1030,6 +1007,29 @@ def _(mo):
     scale_dd = mo.ui.dropdown(options=["sqrt", "linear", "log"], value="sqrt", label="Width scale")
     mo.hstack([year_dd, group_dd, scale_dd], justify="start", gap=2)
     return group_dd, scale_dd, year_dd
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ### Findings & Conclusion
+    By placing the **Hexagon Map** at the core:
+    1. We immediately identify spatial groupings of "Declining" vs "Safe" trajectories. The varying sizes of the hexagons visually highlight that smaller, sparser plots sometimes manage to maintain safer trajectories than hyper-dense plots.
+    2. The **Comet Chart** steps in to explain the *'Why'*—those declining large hexagons correspond to the vector tails that show extreme underlying management structures (high density/dominance pushing them out of the Pareto optimal zone).
+
+    **Tulip Field**
+    By profiling each species across yield tiers, the tulip shape goes beyond what a simple plot can reveal: a species' position shows its average associated yield and biodiversity, but its tier curve shows with which type of sites it's associated.
+    The general expectation is that high-biodiversity sites host species tied to low-yielding, low-management settings. Yet a species with medium average yield and medium average biodiversity for example can still have a tier profile that shows an association with higher yield sites.
+
+    **(Rubric Check: Good +2)**
+    - *Novel Space:* Utilizing a geographical hex-grid metaphor for non-spatial site plots, flower-glyph mark-as-metaphor at species unit (semantic uniqueness across two units of analysis)
+    - *Annotation/Theory:* Hatch strokes for colorblind safety on the hex map
+    - *Evolution:* Transitioning from abstract points -> vectors -> physical plot size metaphors.
+
+    **Stacked Bar Chart**
+    The stacked bar chart re-frames sites as competitors for yield share within their group. Toggling between Ge and Go reveals that the two groups are structurally different — Ge sites span a wider richness range (max 111 species vs Go's 86) while Go contains the higher-yield outliers. Toggling across years exposes the volatility of the system: 2017→2018 shows almost universal yield gains (most top bands green), while 2018→2019 shows the reverse — a visual signal that single-year snapshots can mislead. The stacked composition also surfaces a consistent ecological pattern: herbaceous species dominate richness at every site in both groups, with the woody and bryophyte layers contributing the differentiation between sites.
+    """)
+    return
 
 
 if __name__ == "__main__":
