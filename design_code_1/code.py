@@ -5,6 +5,17 @@ app = marimo.App(width="full")
 
 
 @app.cell
+async def _():
+    try:
+        import micropip
+        await micropip.install('svg-py')
+
+    except ImportError:
+        pass  # Handle the error or provide an alternative solution
+    return
+
+
+@app.cell
 def _():
     import marimo as mo
     import pandas as pd
