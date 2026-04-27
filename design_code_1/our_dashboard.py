@@ -8,6 +8,7 @@ app = marimo.App(width="full")
 async def _():
     try:
         import micropip
+        await micropip.install("plotly")
         await micropip.install('svg-py')
 
     except ImportError:
