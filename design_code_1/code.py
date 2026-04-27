@@ -443,12 +443,21 @@ def _(
 
         if show_all_dots.value and len(df_dotted):
             dot_colors = [GROUP_COLORS.get(g, '#888888') for g in df_dotted['group']]
+            dot_hover_texts = [
+                f"""<b>{r['species']}</b><br>
+    {r['group']}<br>
+    n_sites: {int(r['n_sites'])}<br>
+    yield: {r['yield_assoc']:.0f} kg/ha<br>
+    bio: {r['bio_assoc']:.1f}<br>
+    tiers (low->high): {[int(t) for t in r['tier_counts']]}"""
+                for _, r in df_dotted.iterrows()
+            ]
             fig.add_trace(go.Scatter(
                 x=df_dotted['bio_assoc'],
                 y=df_dotted['yield_assoc'],
                 mode='markers',
                 marker=dict(color=dot_colors, size=5, opacity=0.6, line=dict(color='#222', width=0.3)),
-                text=[f"{s} ({g})" for s, g in zip(df_dotted['species'], df_dotted['group'])],
+                text=dot_hover_texts,
                 hoverinfo='text',
                 showlegend=False,
             ))
