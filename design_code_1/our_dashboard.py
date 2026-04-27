@@ -8,8 +8,7 @@ app = marimo.App(width="full")
 async def _():
     try:
         import micropip
-        await micropip.install("plotly")
-        await micropip.install('svg-py')
+        await micropip.install(["pandas", "openpyxl", "plotly", "svg-py"])
 
     except ImportError:
         pass  # Handle the error or provide an alternative solution
@@ -41,6 +40,7 @@ def _():
     if not base_path.endswith(("/", "\\")):
         base_path += "/"
 
+    base_path = "https://raw.githubusercontent.com/waseemirshad1/dataviz_group19/main/data/"
     df_yield = pd.read_excel(base_path + "Coffee_yield.xlsx")
     df_rich = pd.read_excel(base_path + "Plant_species_richness.xlsx")
     df_env = pd.read_excel(base_path + "Environmental_and_management_variables.xlsx")
